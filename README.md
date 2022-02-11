@@ -4,7 +4,7 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 ## Integrantes
 
-* Daniel Jost
+* Daniel Jost Andrade
 * Frederico dos Santos Ferreira de Andrade
 * Igor De Oliveira Martins Dos Santos
 * Nikolas Augusto Vieira Louret

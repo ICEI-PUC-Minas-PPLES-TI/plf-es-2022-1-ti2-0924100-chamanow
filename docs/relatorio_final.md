@@ -1,18 +1,19 @@
-# TITULO DO PROJETO
+# ChamaNow
 
+**Daniel Jost Andrade, daniel.jost@sga.pucminas.br**
 
-**Nome completo do Aluno 1, email do aluno 1**
+**Frederico dos Santos Ferreira de Andrade, frederico.andrade.1318112@sga.pucminas.br**
 
-**Nome completo do Aluno 2, email do aluno 2**
+**Igor De Oliveira Martins Dos Santos, igor.santos.1362951@sga.pucminas.br**
 
-**Nome completo do Aluno 3, email do aluno 3**
+**Nikolas Augusto Vieira Louret, navlouret@sga.pucminas.br**
 
 ---
 
 Professores:
 
-** Prof. NOme do Prof 1 **
-** Prof. NOme do Prof 2 **
+* Prof. Hugo Bastos De Paula
+* Prof. Joyce Christina De Paiva Carvalho
 
 ---
 
@@ -22,44 +23,42 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Mi
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final, 
+_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final,
 mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
 ---
 
-
 ## 1. Introdução
 
-A introdução deve apresentar de dois ou quatro parágrafos de contextualização do trabalho. 
+A introdução deve apresentar de dois ou quatro parágrafos de contextualização do trabalho.
 
     1.1 Contextualização
 
-Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere. 
-A **contextualização** deve ser desenvolvida de algo mais genérico para algo mais específico. 
+Na **contextualização**, o aluno deve dizer do que se trata o trabalho, em que área ou contexto se insere.
+A **contextualização** deve ser desenvolvida de algo mais genérico para algo mais específico.
 A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas).
 
     1.2 Problema
 
-Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o artigo trata. 
-O **problema** pode ser algo vivido em uma empresa específica. Neste caso, o aluno deve rapidamente apresentar 
-o cenário de problema da empresa. A empresa só deve ser citada explicitamente se o aluno tiver autorização 
+Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o artigo trata.
+O **problema** pode ser algo vivido em uma empresa específica. Neste caso, o aluno deve rapidamente apresentar
+o cenário de problema da empresa. A empresa só deve ser citada explicitamente se o aluno tiver autorização
 para tal.
 
     1.3 Objetivo geral
 
-O aluno deve escrever um pequeno parágrafo ou frase com o **objetivo geral** do trabalho. 
+O aluno deve escrever um pequeno parágrafo ou frase com o **objetivo geral** do trabalho.
 O objetivo deve ser bem direto, específico e definido com verbos de ação (elaborar, propor, ava-liar, comparar etc.).
 
         1.3.1 Objetivos específicos
 
-Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de onde você vai querer 
+Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de onde você vai querer
 concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
 
     1.4 Justificativas
 
-Mostre também as **justificativas** para o 
+Mostre também as **justificativas** para o
 desenvolvimento do seu trabalho e, caso deseje, desta-que alguma contribuição do trabalho.
-
 
 ## 2. Participantes do processo
 
@@ -82,7 +81,6 @@ Apresente aqui uma descrição da sua proposta abordando seus limites e suas lig
 Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN.
 
 ![Exemplo de um Modelo BPMN do PROCESSO 1](imagens/process.png "Modelo BPMN do Processo 1.")
-
 
 ### 3.3.2 Processo 2 – NOME DO PROCESSO
 
@@ -136,7 +134,7 @@ Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou se
 
 ## 5. Modelo de dados
 
-Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Entidade-Relacionamento (DER) que contemple todos conceitos e atributos apresentados item anterior. 
+Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Entidade-Relacionamento (DER) que contemple todos conceitos e atributos apresentados item anterior.
 
 ![Diagrama de Entidade Relacionamento de Exemplo](imagens/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
 
@@ -170,7 +168,6 @@ Verifique no link abaixo como devem ser as referências no padrão ABNT:
 
 http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
 
-
 **[1.1]** - _ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019. E-book. ISBN 9788543025001._
 
 **[1.2]** - _COPPIN, Ben. **Inteligência artificial**. Rio de Janeiro, RJ: LTC, c2010. E-book. ISBN 978-85-216-2936-8._
@@ -180,8 +177,6 @@ http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
 **[1.4]** - _SUTHERLAND, Jeffrey Victor. **Scrum: a arte de fazer o dobro do trabalho na metade do tempo**. 2. ed. rev. São Paulo, SP: Leya, 2016. 236, [4] p. ISBN 9788544104514._
 
 **[1.5]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
-
-
 
 # APÊNDICES
 
@@ -194,7 +189,3 @@ Dos artefatos (armazenado do repositório);
 Da apresentação final (armazenado no repositório);
 
 Do vídeo de apresentação (armazenado no repositório).
-
-
-
-
