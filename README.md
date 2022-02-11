@@ -4,9 +4,9 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 ## Integrantes
 
-* Nome completo do aluno 1
+* Daniel Jost
 * Frederico dos Santos Ferreira de Andrade
-* Nome completo do aluno 3
+* Igor De Oliveira Martins Dos Santos
 * Nikolas Augusto Vieira Louret
 
 ## Professor
