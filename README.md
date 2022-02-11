@@ -11,7 +11,8 @@ Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
 
 ## Professor
 
-* Nome completo do professor
+* Hugo Bastos De Paula
+* Joyce Christina De Paiva Carvalho
 
 ## Instruções de utilização
 
