@@ -56,9 +56,7 @@ Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de
 concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
 
     1.4 Justificativas
-
-Mostre também as **justificativas** para o
-desenvolvimento do seu trabalho e, caso deseje, desta-que alguma contribuição do trabalho.
+Como supracitado anteriormente, a ideia originou-se a partir da dificuldade encontrada pelas pessoas de encontrar bons profissionais para serviços de reparo e reforma de suas respectivas residências. Por esse motivo e afim de solucionar esse problema, a ChamaNow foi criada para facilitar a constratação desses serviços, sejam eles profissionanis autônomos ou empresas especializadas em construção, marcenarias, vidraceiras, etc. Para facilitar a escolha do usuário/cliente, o cliente poderá visualizar a reputação dos serviços prestados poderá escolher a melhor opção.
 
 ## 2. Participantes do processo
 
