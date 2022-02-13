@@ -17,9 +17,9 @@ Professores:
 
 ---
 
-_Curso de Engenharia de Software, Unidade Praça da Liberdade_
+Curso de Engenharia de Software, Unidade Praça da Liberdade_
 
-_Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil_
+Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil_
 
 ---
 
@@ -44,6 +44,8 @@ Em seguida o aluno deve caminhar a contextualização para descrever o **problem
 O **problema** pode ser algo vivido em uma empresa específica. Neste caso, o aluno deve rapidamente apresentar
 o cenário de problema da empresa. A empresa só deve ser citada explicitamente se o aluno tiver autorização
 para tal.
+
+Um grande problema enfrentado por pessoas, principalmente as que tem pouco tempo disponível, é a procura de profissionais para reparos. Não é raro ter algum conhecido (ou até mesmo ter passado por essa situação) de não conseguir reparar algo. Algumas causas para a dificuldade de reparo vão desde a falta de tempo da pessoa, como falta de ferramentas e conhecimentos necessários para realização do conserto.
 
     1.3 Objetivo geral
 
