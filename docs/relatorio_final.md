@@ -58,11 +58,11 @@ Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de
 concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
 
     1.4 Justificativas
-Como supracitado anteriormente, a ideia originou-se a partir da dificuldade encontrada pelas pessoas de encontrar bons profissionais para serviços de reparo e reforma de suas respectivas residências. Por esse motivo e afim de solucionar esse problema, a ChamaNow foi criada para facilitar a constratação desses serviços, sejam eles profissionanis autônomos ou empresas especializadas em construção, marcenarias, vidraceiras, etc. Para facilitar a escolha do usuário/cliente, o cliente poderá visualizar a reputação dos serviços prestados poderá escolher a melhor opção.
+Como supracitado anteriormente, a ideia originou-se a partir da dificuldade das pessoas de encontrar bons profissionais e de confiança para serviços de reparo e reforma de suas respectivas residências ou estabelecimentos. Por esse motivo e afim de solucionar esse problema, a ChamaNow foi criada para facilitar a constratação desses serviços, sejam eles profissionanis autônomos ou empresas especializadas em construção, marcenarias, vidraceiras, etc. E para facilitar a escolha do usuário/cliente, será possível visualizar a reputação dos serviços prestados e dos profissionais/empresas a partir da avaliação de outros usuários, além de informações adicionais deles.
 
 ## 2. Participantes do processo
 
-Apresente aqui os diferentes perfis dos Stakeholders (participantes do processo) chave do sistema. Diversas são as informações que podem ser relevantes para a definição dos perfis dos usuários, tais como idade, gênero, aspectos culturais, nível de educação, entre outros. A pesquisa de mercado pode ser uma ferramenta poderosa para se identificar e caracterizar os perfis de usuários.
+As possíveis partes interessas pelo nosso projeto são profissionais autônomos e empresas especializadas em prestação de serviços de pequenos reparos e reformas. Outra parte interessada é o próprio usuário, que deseja reformar ou realizar um reparo de alguma item da sua casa. Dessa forma, entende-se que o público alvo do projeto são pessoas majoritariamente do sexo masculino, maiores de idade e com casa própria ou aluguel.
 
 ## 3. Modelagem do processo de negócio
 
