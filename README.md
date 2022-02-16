@@ -1,6 +1,8 @@
 # ChamaNow 🔥
 
-Por muitas vezes apessoa precisa de serviços de reparos em sua casa. Porém ela não tem tempo, conhecimento ou ferramentas adequadas para fazer o reparo, o que causa enromes transtornos até conseguir contratar uma empresa (que pode sair muito caro) ou conseguir a indicação de algum profissional (o que pode demorar). Por outro lados, profissionais que trabalham com esses reparos trabalham principalmente na base de indicações de serviços, que podem ter demanda irregular e acrescentar um nível de instabilidade financeira so profissional.
+Por muitas vezes precisamos de serviços de reparos em casa. Mas não temos tempo, conhecimento ou ferramentas adequadas para fazer o reparo, o que causa enormes transtornos até conseguir contratar uma empresa (que pode sair muito caro) ou conseguir a indicação de algum profissional (o que pode demorar). Por outro lado, profissionais que trabalham com esses reparos são encontrados principalmente na base de indicações de cliente, o famoso boca a boca, que podem gerar demanda irregular de serviços e acrescentar um nível de instabilidade financeira ao profissional.
+
+Nosso objetivo é criar um projeto para resolver esse problema, fazendo a ponte entre o cliente e o profissional. Prezamos por dar segurança ao cliente e criar um ambiente favorável e de fácil uso ao profissional.
 
 ## Integrantes
 
