@@ -11,7 +11,7 @@ Nosso objetivo é criar um projeto para resolver esse problema, fazendo a ponte 
 * Igor De Oliveira Martins Dos Santos
 * Nikolas Augusto Vieira Louret
 
-## Professor
+## Professores
 
 * Hugo Bastos De Paula
 * Joyce Christina De Paiva Carvalho
