@@ -1,6 +1,6 @@
 # ChamaNow 🔥
 
-Escreva um ou dois  parágrafo resumindo o objetivo do seu projeto.
+Por muitas vezes apessoa precisa de serviços de reparos em sua casa. Porém ela não tem tempo, conhecimento ou ferramentas adequadas para fazer o reparo, o que causa enromes transtornos até conseguir contratar uma empresa (que pode sair muito caro) ou conseguir a indicação de algum profissional (o que pode demorar). Por outro lados, profissionais que trabalham com esses reparos trabalham principalmente na base de indicações de serviços, que podem ter demanda irregular e acrescentar um nível de instabilidade financeira so profissional.
 
 ## Integrantes
 
