@@ -2,8 +2,6 @@
 
 **Daniel Jost Andrade, daniel.jost@sga.pucminas.br**
 
-**Douglas Viana Fernandes, douglas.fernandes.1267130@sga.pucminas.br**
-
 **Frederico dos Santos Ferreira de Andrade, frederico.andrade.1318112@sga.pucminas.br**
 
 **Igor De Oliveira Martins Dos Santos, igor.santos.1362951@sga.pucminas.br**
@@ -19,9 +17,9 @@ Professores:
 
 ---
 
-Curso de Engenharia de Software, Unidade Praça da Liberdade
+Curso de Engenharia de Software, Unidade Praça da Liberdade_
 
-Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil
+Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil_
 
 ---
 
@@ -55,8 +53,7 @@ O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize
 
         1.3.1 Objetivos específicos
 
-Apresente também alguns (pelo menos 2) **objetivos específicos** dependendo de onde você vai querer
-concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+O trabalho terá sua estrutura visual aplicada em web, paralelamente ao desenvolvimento da modelagem de processos de negócios, especificamente de pequenos reparos, com foco na interatividade entre os usuários, os trabalhadores e as empresas, sendo a plataforma uma atuante mediadora desses processos. 
 
     1.4 Justificativas
 Como supracitado anteriormente, a ideia originou-se a partir da dificuldade das pessoas de encontrar bons profissionais de confiança para serviços de reparo e reforma de suas respectivas residências ou estabelecimentos, por não terem ferramentas ou conhecimento necessários para realizar tal ação, além da escassez de tempo. Por esse motivo e afim de solucionar esse problema, a ChamaNow foi criada para facilitar e agilizar a constratação desses serviços, sejam eles profissionanis autônomos ou empresas especializadas em construção, marcenarias, vidraceiras, reformas, etc. E para facilitar a escolha do usuário/cliente, será possível visualizar a reputação dos serviços prestados e dos profissionais/empresas a partir da avaliação de outros usuários, além de informações adicionais deles.
