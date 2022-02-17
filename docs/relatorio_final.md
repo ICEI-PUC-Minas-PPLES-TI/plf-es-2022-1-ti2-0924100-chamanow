@@ -39,13 +39,9 @@ A **contextualização** deve ser desenvolvida de algo mais genérico para algo 
 A citação de pesquisas quantitativas é bem aceita aqui (corretamente referenciadas).
 
     1.2 Problema
-
-Em seguida o aluno deve caminhar a contextualização para descrever o **problema** que o artigo trata.
-O **problema** pode ser algo vivido em uma empresa específica. Neste caso, o aluno deve rapidamente apresentar
-o cenário de problema da empresa. A empresa só deve ser citada explicitamente se o aluno tiver autorização
-para tal.
-
-Um grande problema enfrentado por pessoas, principalmente as que tem pouco tempo disponível, é a procura de profissionais para reparos. Não é raro ter algum conhecido (ou até mesmo ter passado por essa situação) de não conseguir reparar algo. Algumas causas para a dificuldade de reparo vão desde a falta de tempo da pessoa, como falta de ferramentas e conhecimentos necessários para realização do conserto.
+    
+Um grande problema enfrentado por pessoas é a dificuldade de realizar reparos em casa. Não é raro ter algum conhecido (ou até mesmo ter passado por essa situação) de não conseguir reparar algo. Algumas causas para essa situação são falta de tempo, falta de ferramentas adequadas e conhecimentos necessários para realização do conserto.
+Em outra ponta, temos profissionais de reparos com dificuldade em prospectar clientes. Tais profissionais são encontrados pelo popular "boca a boca", ou seja, indicação de clientes para outros clientes. Porém tal forma de indicação pode não ser eficiente para manter a agenda do profissional em um nível satisfatório de ocupação.
 
     1.3 Objetivo geral
 
@@ -60,7 +56,7 @@ Como supracitado anteriormente, a ideia originou-se a partir da dificuldade das 
 
 ## 2. Participantes do processo
 
-As possíveis partes interessas pelo nosso projeto são profissionais autônomos e empresas especializadas em prestação de serviços de pequenos reparos e reformas. Outra parte interessada é o próprio usuário, que deseja reformar ou realizar um reparo de alguma item da sua casa. Dessa forma, entende-se que o público alvo do projeto são pessoas majoritariamente do sexo masculino, maiores de idade e com casa própria ou aluguel.
+As possíveis partes interessas pelo nosso projeto são profissionais autônomos e empresas especializadas em prestação de serviços de pequenos reparos e reformas. Outra parte interessada é o próprio usuário, que deseja reformar ou realizar um reparo de alguma item da sua casa. Dessa forma, entende-se que o público alvo do projeto são pessoas  de ambos os sexos, maiores de idade e com casa própria ou aluguel.
 
 ## 3. Modelagem do processo de negócio
 
