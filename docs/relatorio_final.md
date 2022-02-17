@@ -2,6 +2,8 @@
 
 **Daniel Jost Andrade, daniel.jost@sga.pucminas.br**
 
+**Douglas Viana Fernandes, douglas.fernandes.1267130@sga.pucminas.br**
+
 **Frederico dos Santos Ferreira de Andrade, frederico.andrade.1318112@sga.pucminas.br**
 
 **Igor De Oliveira Martins Dos Santos, igor.santos.1362951@sga.pucminas.br**
@@ -17,9 +19,9 @@ Professores:
 
 ---
 
-Curso de Engenharia de Software, Unidade Praça da Liberdade_
+Curso de Engenharia de Software, Unidade Praça da Liberdade
 
-Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil_
+Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Minas Gerais (PUC MINAS), Belo Horizonte – MG – Brasil
 
 ---
 
