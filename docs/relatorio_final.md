@@ -51,7 +51,7 @@ Um grande problema enfrentado por pessoas, principalmente as que tem pouco tempo
 
     1.3 Objetivo geral
 
-O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize processos de contratação direta (autônomos) e indireta (mediado por empresas) de trabalhadores para reparos em domicílios e demais estabelecimentos. 
+O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize processos de contratação direta (autônomos) e indireta (mediado por empresas) de trabalhadores para reparos em domicílios e demais estabelecimentos.
 
         1.3.1 Objetivos específicos
 
