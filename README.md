@@ -10,6 +10,7 @@ Nosso objetivo é criar um projeto para resolver esse problema, fazendo a ponte 
 * Frederico dos Santos Ferreira de Andrade
 * Igor De Oliveira Martins Dos Santos
 * Nikolas Augusto Vieira Louret
+* Douglas Viana Fernandes
 
 ## Professores
 
