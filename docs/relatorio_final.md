@@ -46,8 +46,9 @@ https://oglobo.globo.com/economia/imoveis/servicos-de-casa-ja-podem-ser-contrata
 Um grande problema enfrentado por pessoas é a dificuldade de realizar reparos em casa. Não é raro ter algum conhecido (ou até mesmo ter passado por essa situação) de não conseguir reparar algo. Algumas causas para essa situação são falta de tempo, falta de ferramentas adequadas e conhecimentos necessários para realização do conserto.
 Em outra ponta, temos profissionais de reparos com dificuldade em prospectar clientes. Tais profissionais são encontrados pelo popular "boca a boca", ou seja, indicação de clientes para outros clientes. Porém tal forma de indicação pode não ser eficiente para manter a agenda do profissional em um nível satisfatório de ocupação.
 
-    1.3 Objetivo geral
 
+    1.3 Objetivo geral
+    
 O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize processos de contratação direta (autônomos) e indireta (mediado por empresas) de trabalhadores para reparos em domicílios e demais estabelecimentos.
 
         1.3.1 Objetivos específicos
@@ -55,8 +56,10 @@ O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize
 Os objetivos específicos do trabalho consistem em:
 -  estrutura visual aplicada em web;
 -  desenvolvimento da modelagem de processos de negócios, especificamente de pequenos reparos, com foco na interatividade entre os usuários, os trabalhadores e as empresas, sendo a plataforma uma atuante mediadora desses processos. 
+-
 
     1.4 Justificativas
+
 Como supracitado anteriormente, a ideia originou-se a partir da dificuldade das pessoas de encontrar bons profissionais de confiança para serviços de reparo e reforma de suas respectivas residências ou estabelecimentos, por não terem ferramentas ou conhecimento necessários para realizar tal ação, além da escassez de tempo. Por esse motivo e afim de solucionar esse problema, a ChamaNow foi criada para facilitar e agilizar a constratação desses serviços, sejam eles profissionanis autônomos ou empresas especializadas em construção, marcenarias, vidraceiras, reformas, etc. E para facilitar a escolha do usuário/cliente, será possível visualizar a reputação dos serviços prestados e dos profissionais/empresas a partir da avaliação de outros usuários, além de informações adicionais deles.
 
 ## 2. Participantes do processo
