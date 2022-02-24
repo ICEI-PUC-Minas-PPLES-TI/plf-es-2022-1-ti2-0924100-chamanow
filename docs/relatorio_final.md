@@ -35,10 +35,7 @@ A introdução deve apresentar de dois ou quatro parágrafos de contextualizaç�
     1.1 Contextualização
 
 Atualmente, há um crescente número de aplicativos que auxiliam o encontro profissional/cliente, aplicativos de entregas, corridas de passageiros e compra e venda, por exemplo não param de surgir. Contudo, quando se tratam de aplicações para serviços domésticos, percebe-se pobreza de opções. Existe também a dificuldade de encontrar profissionais sérios com rapidez, normalmente isso tomaria muito tempo do cliente, além do trabalhador que precisa prestar seus serviços e não consegue ter uma plataforma para isso. 
-“Profissionais realmente bons e qualificados não são fáceis de encontrar”
-https://revistainterativa.org/2021/02/servicos-domesticos-uma-necessidade-de-profissionalizacao/
-“Cresce o numero de aplicações para prestações de serviço mas ainda há necessidade de mais opções e competição”
-https://oglobo.globo.com/economia/imoveis/servicos-de-casa-ja-podem-ser-contratados-via-apps-22060750
+
 
 
     1.2 Problema
