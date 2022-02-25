@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Logo ChamaNow" title="ChamaNow" src="./docs/imagens/logo.png"/>
+  <img alt="Logo ChamaNow" title="ChamaNow" src="./docs/imagens/logotipos/logo.png"/>
 </h1>
 
 <p align="center">Aplicação desenvolvida para a disciplina de <strong>"Trabalho Interdisciplinar: Aplicações Para Processos de Negócios"</strong>, com propósito de estudo.</p>
