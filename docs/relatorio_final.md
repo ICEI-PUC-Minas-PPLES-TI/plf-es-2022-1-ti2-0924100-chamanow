@@ -69,7 +69,9 @@ Apresente uma descrição textual de como os sistemas atuais resolvem o problema
 
 ## 3.2. Descrição Geral da proposta
 
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
+Segundo dados da revista "IstoÉ Dinheiro", produtos relacionados a pequenos reparos e manutenção residencial obtiveram um crescimento nas vendas de aproximadamente 600% em 2020. Comitantemente, o número de trabalhadores autônomos em 2021, de acordo com o IBGE (Instituto Brasileiro de Geografia e Estatística), chegou à cerda de 25,4 milhões de pessoas. Dessa forma, apresenta-se uma lacuna no mercado em que, juntando essas duas realidades, obtém-se uma oportunidade de negócio. 
+Nesse sentido, a proposta da equipe é construir uma plataforma que facilite as pessoas, que precisam de reparos em suas casas, de encontrarem diretamente trabalhadores disponíveis em sua região, sejam eles autônomos ou vinculados à alguma empresa, aproveitando-se da situação favorável desse mercado e contribuindo financeiramente na renda de uma parcela da poupulação.
+
 
 ## 3.3. Modelagem dos Processos
 
