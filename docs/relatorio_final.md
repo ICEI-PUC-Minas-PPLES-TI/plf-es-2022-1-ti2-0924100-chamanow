@@ -71,7 +71,7 @@ Apresente uma descrição textual de como os sistemas atuais resolvem o problema
 
 Segundo dados da revista "IstoÉ Dinheiro", produtos relacionados a pequenos reparos e manutenção residencial obtiveram um crescimento nas vendas de aproximadamente 600% em 2020. Comitantemente, o número de trabalhadores autônomos em 2021, de acordo com o IBGE (Instituto Brasileiro de Geografia e Estatística), chegou à cerda de 25,4 milhões de pessoas. Dessa forma, apresenta-se uma lacuna no mercado em que, juntando essas duas realidades, obtém-se uma oportunidade de negócio. 
 
-Nesse sentido, a proposta da equipe é construir uma plataforma que facilite as pessoas, que precisam de reparos em suas casas, de encontrarem diretamente trabalhadores disponíveis em sua região, sejam eles autônomos ou vinculados à alguma empresa, aproveitando-se da situação favorável desse mercado e contribuindo financeiramente na renda de uma parcela da população.
+Nesse sentido, a proposta da equipe é construir uma plataforma que facilite para as pessoas, que precisam de reparos em suas casas, encontrarem diretamente trabalhadores disponíveis em sua região, sejam eles autônomos ou vinculados à alguma empresa, aproveitando-se da situação favorável desse mercado e contribuindo financeiramente na renda de uma parcela da população. Sendo assim, a aplicação otimizaria o usual "boca a boca", transformando essa situação em um processo padrão e sistematizado de um negócio.
 
 
 ## 3.3. Modelagem dos Processos
