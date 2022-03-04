@@ -65,7 +65,7 @@ As possíveis partes interessas pelo nosso projeto são profissionais autônomos
 
 ## 3.1. Análise da situação atual
 
-Apresente uma descrição textual de como os sistemas atuais resolvem o problema que se propoe a resolver.  Caso sua proposta seja inovadora e não existam processos claramente definidos, **apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente**, mesmo que não se utilize tecnologia computacional.
+A forma como as pessoas realizam a contratação de serviços no ano de 2022 é por meio indicação de conhecidos que necessitaram de algum serviço anteriormente, algum familiar ou amigo que faz prestação de serviços ou pesquisa em redes sociais ou ferramentas de busca, o que pode consumir muito tempo do cliente.
 
 ## 3.2. Descrição Geral da proposta
 
