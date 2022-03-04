@@ -2,8 +2,7 @@
 
 Liste os artefatos produzidos, com suas localizaçãoes e descrição do conteúdo.
 
-
-* `/atas` - Pasta de Atas de reunião.
+* `/apresentacoes` - Pasta com todas as apresentações do projeto.
+* `/dados` - Pasta com os modelos de dados.
 * `/processos` - Pasta com os modelos de processo de negócio.
-* `/dados ` - Pasta com os modelos de dados.
-
+  
