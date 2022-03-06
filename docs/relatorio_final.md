@@ -65,7 +65,18 @@ As possíveis partes interessas pelo nosso projeto são profissionais autônomos
 
 ## 3.1. Análise da situação atual
 
-A forma como as pessoas realizam a contratação de serviços no ano de 2022 é por meio indicação de conhecidos que necessitaram de algum serviço anteriormente, algum familiar ou amigo que faz prestação de serviços ou pesquisa em redes sociais ou ferramentas de busca, o que pode consumir muito tempo do cliente.
+As formas encontradas de como as pessoas realizam a contratação de serviços no ano de 2022 é por meio de:
+-  **Indicação de conhecidos** que necessitaram de algum serviço anteriormente, em que o agendamento se dá por meio de mensagens de texto pelo WhatsApp ou outro aplicativo de mesma função, ligação por telefone ou até mesmo encontros pessoais. O mesmo acontece para cancelar o agendamento. Em relação à forma de pagamento, ela é feita por transferência bancária, PIX, ou dinheiro vivo; e as informações da conta bancária do profissional e a chave do PIX são compartilhadas junto com o agendamento;
+
+-   Quando o cliente é **familiar ou amigo do profissional**, dessa forma a comunicação é mais fácil e é semelhante à descrita anteriormente;
+
+-	**Pesquisa na internet**, e isso inclui redes sociais, como o Facebook, Instagram, YouTube, etc; e ferramentas de busca, como o próprio Google, para encontrar algum site, contato ou endereço que o profissional ou empresa possua para que o cliente possa entrar em contato ou ir até o local. O agendamento e o pagamento do serviço são realizados pela própria plataforma, no caso das redes sociais, com o compartilhamento das informações de ambas as partes. Entretanto, apesar da pesquisa na internet ser a forma mais utilizada, ela não é a mais interessante para as partes por ser mais difícil do profissional ou empresa ser encontrado, principalmente quando é uma empresa pequena e o profissional iniciante, e demandar mais tempo de pesquisa para o cliente;
+
+Em relação ao profissional ou empresa especializada em serviços domiciliares, as formas encontradas para que estes sejam encontrados e contratados são:
+-	Criação de perfis em redes sociais;
+-	Criação de site;
+-	Utilização de ferramentas na internet como Google Meu Negócio e semelhantes;
+-	Pagamento de publicidade;
 
 ## 3.2. Descrição Geral da proposta
 
