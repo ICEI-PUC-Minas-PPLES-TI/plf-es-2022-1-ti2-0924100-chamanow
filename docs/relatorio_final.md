@@ -65,7 +65,7 @@ As possíveis partes interessas pelo nosso projeto são profissionais autônomos
 
 ## 3. Modelagem do processo de negócio
 
-### Análise da situação atual
+### 3.1 Análise da situação atual
 
 As formas encontradas de como as pessoas realizam a contratação de serviços no ano de 2022 é por meio de:
 -  **Indicação de conhecidos** que necessitaram de algum serviço anteriormente, em que o agendamento se dá por meio de mensagens de texto pelo WhatsApp ou outro aplicativo de mesma função, ligação por telefone ou até mesmo encontros pessoais. O mesmo acontece para cancelar o agendamento. Em relação à forma de pagamento, ela é feita por transferência bancária, PIX, ou dinheiro vivo; e as informações da conta bancária do profissional e a chave do PIX são compartilhadas junto com o agendamento;
@@ -81,7 +81,7 @@ Em relação ao profissional ou empresa especializada em serviços domiciliares,
 
 ---
 
-### Descrição Geral da proposta
+### 3.2 Descrição Geral da proposta
 
 A proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de pequenos reparos em suas residências e trabalhadores disponíveis nessa mesma região, sejam eles autônomos ou vinculados à alguma empresa. 
 Nesse sentido, o fluxo da aplicação iniciará com o cadastramento do usuário, seja ele o cliente ou o trabalhador:
@@ -97,7 +97,7 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 ---
 
-### Modelagem dos Processos
+### 3.3 Modelagem dos Processos
 
 #### Processo 1 – NOME DO PROCESSO
 
