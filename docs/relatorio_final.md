@@ -2,7 +2,7 @@
 
 **Daniel Jost Andrade, daniel.jost@sga.pucminas.br**
 
-**Douglas Viana Fernandes, email@sga.pucminas.br**
+**Douglas Viana Fernandes, douglas.fernandes.1267130@sga.pucminas.br**
 
 **Frederico dos Santos Ferreira de Andrade, frederico.andrade.1318112@sga.pucminas.br**
 
