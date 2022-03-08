@@ -83,9 +83,13 @@ Em relação ao profissional ou empresa especializada em serviços domiciliares,
 
 ### Descrição Geral da proposta
 
-Segundo dados da revista "IstoÉ Dinheiro", produtos relacionados a pequenos reparos e manutenção residencial obtiveram um crescimento nas vendas de aproximadamente 600% em 2020. Comitantemente, o número de trabalhadores autônomos em 2021, de acordo com o IBGE (Instituto Brasileiro de Geografia e Estatística), chegou à cerca de 25,4 milhões de pessoas. Dessa forma, apresenta-se uma lacuna no mercado em que, juntando essas duas realidades, obtém-se uma oportunidade de negócio. 
-
-Nesse sentido, a proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de reparos em suas casas e trabalhadores disponíveis em sua região, sejam eles autônomos ou vinculados à alguma empresa. Com isso, aproveita-se da situação favorável desse mercado e contribuí-se financeiramente na renda de uma parcela da população. Sendo assim, a aplicação otimizará o usual "boca a boca", transformando essa situação em um processo padrão e sistematizado de negócio.
+A proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de pequenos reparos em suas residências e trabalhadores disponíveis nessa mesma região, sejam eles autônomos ou vinculados à alguma empresa. 
+Nesse sentido, o fluxo da aplicação iniciará com o cadastramento do usuário, seja ele o cliente ou o trabalhador:
+- Sendo trabalhadores, autônomos e/ou vinculados à alguma empresa, o cadastro no ChamaNow irá ocorrer registrando seus dados básicos de usuário, suas especialidades em serviços e em qual região atua, a fim de encontrar oportunidades de serviços.
+- Sendo clientes, irão se cadastrar no site com seus dados básicos, endereço e, posteriormente, buscar por um determinado serviço de reparo em domícilio, considerando as opções ofertadas em sua região.
+- Após a escolha do serviço, o cliente irá receber um formulário para ser preenchido e, sequencialmente, receber um orçamento junto aos dados básicos do trabalhador.
+- Após a aceitação da proposta, ambos os usuários receberão mensagens de confirmação com os dados primários, como nome, endereço, horário e o tipo de serviço.
+Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se financeiramente na renda de uma parcela da população. Sendo assim, a aplicação otimizará o usual "boca a boca", transformando essa situação em um processo padrão e sistematizado de negócio.
 
 ---
 
