@@ -89,6 +89,7 @@ Nesse sentido, o fluxo da aplicação iniciará com o cadastramento do usuário,
 - Sendo clientes, irão se cadastrar no site com seus dados básicos, endereço e, posteriormente, buscar por um determinado serviço de reparo em domícilio, considerando as opções ofertadas em sua região.
 - Após a escolha do serviço, o cliente irá receber um formulário para ser preenchido e, sequencialmente, receber um orçamento junto aos dados básicos do trabalhador.
 - Após a aceitação da proposta, ambos os usuários receberão mensagens de confirmação com os dados primários, como nome, endereço, horário e o tipo de serviço.
+
 Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se financeiramente na renda de uma parcela da população. Sendo assim, a aplicação otimizará o usual "boca a boca", transformando essa situação em um processo padrão e sistematizado de negócio.
 
 ---
