@@ -92,7 +92,7 @@ Nesse sentido, o fluxo da aplicação iniciará com o cadastramento do usuário,
 - O pagamento do serviço é combinado entre o cliente e o trabalhador, não sendo mediado pelo ChamaNow. 
 - Finalizado o serviço, ambas as partes precisam confirmar que o processo foi devidamente finalizado.  
 - O cliente recebe um formulário de avaliação do trabalhador, com intuito de contribuir para o estabelecimento de um processo mais seguro.
-- 
+
 Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se financeiramente na renda de uma parcela da população. Sendo assim, a aplicação otimizará o usual "boca a boca", transformando essa situação em um processo padrão e sistematizado de negócio.
 
 ---
