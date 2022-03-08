@@ -1,8 +1,8 @@
 # ChamaNow
 
-**Douglas Viana, email**
-
 **Daniel Jost Andrade, daniel.jost@sga.pucminas.br**
+
+**Douglas Viana Fernandes, email@sga.pucminas.br**
 
 **Frederico dos Santos Ferreira de Andrade, frederico.andrade.1318112@sga.pucminas.br**
 
@@ -10,9 +10,7 @@
 
 **Nikolas Augusto Vieira Louret, navlouret@sga.pucminas.br**
 
----
-
-Professores:
+## Professores:
 
 * Prof. Hugo Bastos De Paula
 * Prof. Joyce Christina De Paiva Carvalho
@@ -28,34 +26,36 @@ Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Min
 _**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final,
 mostrar algum resultado relevante do trabalho (até 10 linhas)._
 
----
-
 ## 1. Introdução
 
-    1.1 Contextualização
+### Contextualização
 
-Atualmente há um crescente número de aplicativos que auxiliam o encontro profissional/cliente, aplicativos de entregas, corridas de passageiros e compra e venda, por exemplo não param de surgir. Contudo, quando se tratam de aplicações para serviços domésticos, percebe-se pobreza de opções. Existe também a dificuldade de encontrar profissionais sérios com rapidez, normalmente isso tomaria muito tempo do cliente, além do trabalhador que precisa prestar seus serviços e não consegue ter uma plataforma para isso. 
+Atualmente há um crescente número de aplicativos que auxiliam o encontro profissional/cliente, aplicativos de entregas, corridas de passageiros e compra e venda, por exemplo não param de surgir. Contudo, quando se tratam de aplicações para serviços domésticos, percebe-se pobreza de opções. Existe também a dificuldade de encontrar profissionais sérios com rapidez, normalmente isso tomaria muito tempo do cliente, além do trabalhador que precisa prestar seus serviços e não consegue ter uma plataforma para isso.
 
+---
 
-
-    1.2 Problema
+### Problema
     
 Um grande problema enfrentado por pessoas é a dificuldade de realizar reparos em casa. Não é raro ter algum conhecido (ou até mesmo ter passado por essa situação) de não conseguir reparar algo. Algumas causas para essa situação são falta de tempo, falta de ferramentas adequadas e conhecimentos necessários para realização do conserto.
 Em outra ponta, temos profissionais de reparos com dificuldade em prospectar clientes. Tais profissionais são encontrados pelo popular "boca a boca", ou seja, indicação de clientes para outros clientes. Porém tal forma de indicação pode não ser eficiente para manter a agenda do profissional em um nível satisfatório de ocupação.
 
+---
 
-    1.3 Objetivo geral
+### Objetivo geral
     
 O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize processos de contratação direta (autônomos) e indireta (mediado por empresas) de trabalhadores para reparos em domicílios e demais estabelecimentos.
 
-        1.3.1 Objetivos específicos
+---
+
+### Objetivos específicos
 
 Os objetivos específicos do trabalho consistem em:
--  estrutura visual aplicada em web;
--  desenvolvimento da modelagem de processos de negócios, especificamente de pequenos reparos, com foco na interatividade entre os usuários, trabalhadores e empresas, sendo a plataforma uma atuante mediadora desses processos. 
--
+-  Estrutura visual aplicada em web;
+-  Desenvolvimento da modelagem de processos de negócios, especificamente de pequenos reparos, com foco na interatividade entre os usuários, trabalhadores e empresas, sendo a plataforma uma atuante mediadora desses processos.
 
-    1.4 Justificativas
+---
+
+### Justificativas
 
 Como supracitado anteriormente, a ideia originou-se a partir da dificuldade das pessoas de encontrar bons profissionais e de confiança para serviços de reparo e reforma de suas respectivas residências ou estabelecimentos, por não terem ferramentas ou conhecimento necessários para realizar tal ação, além da escassez de tempo. Por esse motivo e afim de solucionar esse problema, a ChamaNow foi criada para facilitar e agilizar a contratação desses serviços, sejam eles profissionais autônomos ou empresas especializadas em construção, marcenarias, vidraceiras, reformas, etc. E para facilitar a escolha do usuário/cliente, será possível visualizar a reputação dos serviços prestados e dos profissionais/empresas a partir da avaliação de outros usuários, além de informações adicionais deles.
 
@@ -65,7 +65,7 @@ As possíveis partes interessas pelo nosso projeto são profissionais autônomos
 
 ## 3. Modelagem do processo de negócio
 
-## 3.1. Análise da situação atual
+### Análise da situação atual
 
 As formas encontradas de como as pessoas realizam a contratação de serviços no ano de 2022 é por meio de:
 -  **Indicação de conhecidos** que necessitaram de algum serviço anteriormente, em que o agendamento se dá por meio de mensagens de texto pelo WhatsApp ou outro aplicativo de mesma função, ligação por telefone ou até mesmo encontros pessoais. O mesmo acontece para cancelar o agendamento. Em relação à forma de pagamento, ela é feita por transferência bancária, PIX, ou dinheiro vivo; e as informações da conta bancária do profissional e a chave do PIX são compartilhadas junto com o agendamento;
@@ -75,26 +75,29 @@ As formas encontradas de como as pessoas realizam a contratação de serviços n
 -	**Pesquisa na internet**, e isso inclui redes sociais, como o Facebook, Instagram, YouTube, etc; e ferramentas de busca, como o próprio Google, para encontrar algum site, contato ou endereço que o profissional ou empresa possua para que o cliente possa entrar em contato ou ir até o local. O agendamento e o pagamento do serviço são realizados pela própria plataforma, no caso das redes sociais, com o compartilhamento das informações de ambas as partes. Entretanto, apesar da pesquisa na internet ser a forma mais utilizada, ela não é a mais interessante para as partes por ser mais difícil do profissional ou empresa ser encontrado, principalmente quando é uma empresa pequena e o profissional iniciante, e demandar mais tempo de pesquisa para o cliente;
 
 Em relação ao profissional ou empresa especializada em serviços domiciliares, as formas encontradas para que estes sejam encontrados e contratados são:
--	Criação de perfis em redes sociais;
--	Criação de site;
--	Utilização de ferramentas na internet como Google Meu Negócio e semelhantes;
--	Pagamento de publicidade;
+-	**Criação de site e/ou perfis em redes sociais**, e no caso de empresas profissionais, utilização de publicidade paga para ter maior alcance de público alvo. Para ocorrer o agendamento e pagamento do serviço, é necessário o desenvolvimento dessas funcionalidades, no caso de um site. Entretanto, com a utilização das redes sociais, essas ações podem ocorrer na própria plataforma, em que ambas as partes combinam os detalhes. O mesmo vale para o cancelamento do agendamento e para possíveis alterações no contrato;
+-   **Utilização de ferramentas na internet como Google Meu Negócio e semelhantes** mais voltadas para empresas com estabelecimentos físicos. Após adicionado o perfil da empresa, ela aparecerá como resultado de buscas de potenciais clientes, sendo possível visualizar informações importantes da empresa, como o contato, site, endereço, avaliações, comentários, etc;
+-	**Utilização de _banners_ e placas** distribuídos nas ruas com informações de contato e qual tipo de serviço prestado. O agendamento, cancelamento e forma de pagamento são combinados normalmente por telefone ou pelo WhatsApp.
 
-## 3.2. Descrição Geral da proposta
+---
+
+### Descrição Geral da proposta
 
 Segundo dados da revista "IstoÉ Dinheiro", produtos relacionados a pequenos reparos e manutenção residencial obtiveram um crescimento nas vendas de aproximadamente 600% em 2020. Comitantemente, o número de trabalhadores autônomos em 2021, de acordo com o IBGE (Instituto Brasileiro de Geografia e Estatística), chegou à cerca de 25,4 milhões de pessoas. Dessa forma, apresenta-se uma lacuna no mercado em que, juntando essas duas realidades, obtém-se uma oportunidade de negócio. 
 
 Nesse sentido, a proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de reparos em suas casas e trabalhadores disponíveis em sua região, sejam eles autônomos ou vinculados à alguma empresa. Com isso, aproveita-se da situação favorável desse mercado e contribuí-se financeiramente na renda de uma parcela da população. Sendo assim, a aplicação otimizará o usual "boca a boca", transformando essa situação em um processo padrão e sistematizado de negócio.
 
-## 3.3. Modelagem dos Processos
+---
 
-### 3.3.1 Processo 1 – NOME DO PROCESSO
+### Modelagem dos Processos
+
+#### Processo 1 – NOME DO PROCESSO
 
 Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN.
 
 ![Exemplo de um Modelo BPMN do PROCESSO 1](imagens/process.png "Modelo BPMN do Processo 1.")
 
-### 3.3.2 Processo 2 – NOME DO PROCESSO
+#### Processo 2 – NOME DO PROCESSO
 
 Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
 
