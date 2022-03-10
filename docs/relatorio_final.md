@@ -10,7 +10,7 @@
 
 **Nikolas Augusto Vieira Louret, navlouret@sga.pucminas.br**
 
-## Professores:
+## Professores
 
 * Prof. Hugo Bastos De Paula
 * Prof. Joyce Christina De Paiva Carvalho
@@ -35,14 +35,14 @@ Atualmente há um crescente número de aplicativos que auxiliam o encontro profi
 ---
 
 ### Problema
-    
+
 Um grande problema enfrentado por pessoas é a dificuldade de realizar reparos em casa. Não é raro ter algum conhecido (ou até mesmo ter passado por essa situação) de não conseguir reparar algo. Algumas causas para essa situação são falta de tempo, falta de ferramentas adequadas e conhecimentos necessários para realização do conserto.
 Em outra ponta, temos profissionais de reparos com dificuldade em prospectar clientes. Tais profissionais são encontrados pelo popular "boca a boca", ou seja, indicação de clientes para outros clientes. Porém tal forma de indicação pode não ser eficiente para manter a agenda do profissional em um nível satisfatório de ocupação.
 
 ---
 
 ### Objetivo geral
-    
+
 O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize processos de contratação direta (autônomos) e indireta (mediado por empresas) de trabalhadores para reparos em domicílios e demais estabelecimentos.
 
 ---
@@ -50,8 +50,8 @@ O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize
 ### Objetivos específicos
 
 Os objetivos específicos do trabalho consistem em:
--  Estrutura visual aplicada em web;
--  Desenvolvimento da modelagem de processos de negócios, especificamente de pequenos reparos, com foco na interatividade entre os usuários, trabalhadores e empresas, sendo a plataforma uma atuante mediadora desses processos.
+* Estrutura visual aplicada em web;
+* Desenvolvimento da modelagem de processos de negócios, especificamente de pequenos reparos, com foco na interatividade entre os usuários, trabalhadores e empresas, sendo a plataforma uma atuante mediadora desses processos.
 
 ---
 
@@ -68,30 +68,30 @@ As possíveis partes interessas pelo nosso projeto são profissionais autônomos
 ### 3.1 Análise da situação atual
 
 As formas encontradas de como as pessoas realizam a contratação de serviços no ano de 2022 é por meio de:
--  **Indicação de conhecidos** que necessitaram de algum serviço anteriormente, em que o agendamento se dá por meio de mensagens de texto pelo WhatsApp ou outro aplicativo de mesma função, ligação por telefone ou até mesmo encontros pessoais. O mesmo acontece para cancelar o agendamento. Em relação à forma de pagamento, ela é feita por transferência bancária, PIX, ou dinheiro vivo; e as informações da conta bancária do profissional e a chave do PIX são compartilhadas junto com o agendamento;
+* **Indicação de conhecidos** que necessitaram de algum serviço anteriormente, em que o agendamento se dá por meio de mensagens de texto pelo WhatsApp ou outro aplicativo de mesma função, ligação por telefone ou até mesmo encontros pessoais. O mesmo acontece para cancelar o agendamento. Em relação à forma de pagamento, ela é feita por transferência bancária, PIX, ou dinheiro vivo; e as informações da conta bancária do profissional e a chave do PIX são compartilhadas junto com o agendamento;
 
--   Quando o cliente é **familiar ou amigo do profissional**, dessa forma a comunicação é mais fácil e é semelhante à descrita anteriormente;
+* Quando o cliente é **familiar ou amigo do profissional**, dessa forma a comunicação é mais fácil e é semelhante à descrita anteriormente;
 
--	**Pesquisa na internet**, e isso inclui redes sociais, como o Facebook, Instagram, YouTube, etc; e ferramentas de busca, como o próprio Google, para encontrar algum site, contato ou endereço que o profissional ou empresa possua para que o cliente possa entrar em contato ou ir até o local. O agendamento e o pagamento do serviço são realizados pela própria plataforma, no caso das redes sociais, com o compartilhamento das informações de ambas as partes. Entretanto, apesar da pesquisa na internet ser a forma mais utilizada, ela não é a mais interessante para as partes por ser mais difícil do profissional ou empresa ser encontrado, principalmente quando é uma empresa pequena e o profissional iniciante, e demandar mais tempo de pesquisa para o cliente;
+* **Pesquisa na internet**, e isso inclui redes sociais, como o Facebook, Instagram, YouTube, etc; e ferramentas de busca, como o próprio Google, para encontrar algum site, contato ou endereço que o profissional ou empresa possua para que o cliente possa entrar em contato ou ir até o local. O agendamento e o pagamento do serviço são realizados pela própria plataforma, no caso das redes sociais, com o compartilhamento das informações de ambas as partes. Entretanto, apesar da pesquisa na internet ser a forma mais utilizada, ela não é a mais interessante para as partes por ser mais difícil do profissional ou empresa ser encontrado, principalmente quando é uma empresa pequena e o profissional iniciante, e demandar mais tempo de pesquisa para o cliente;
 
 Em relação ao profissional ou empresa especializada em serviços domiciliares, as formas encontradas para que estes sejam encontrados e contratados são:
--	**Criação de site e/ou perfis em redes sociais**, e no caso de empresas profissionais, utilização de publicidade paga para ter maior alcance de público alvo. Para ocorrer o agendamento e pagamento do serviço, é necessário o desenvolvimento dessas funcionalidades, no caso de um site. Entretanto, com a utilização das redes sociais, essas ações podem ocorrer na própria plataforma, em que ambas as partes combinam os detalhes. O mesmo vale para o cancelamento do agendamento e para possíveis alterações no contrato;
--   **Utilização de ferramentas na internet como Google Meu Negócio e semelhantes** mais voltadas para empresas com estabelecimentos físicos. Após adicionado o perfil da empresa, ela aparecerá como resultado de buscas de potenciais clientes, sendo possível visualizar informações importantes da empresa, como o contato, site, endereço, avaliações, comentários, etc;
--	**Utilização de _banners_ e placas** distribuídos nas ruas com informações de contato e qual tipo de serviço prestado. O agendamento, cancelamento e forma de pagamento são combinados normalmente por telefone ou pelo WhatsApp.
+* **Criação de site e/ou perfis em redes sociais**, e no caso de empresas profissionais, utilização de publicidade paga para ter maior alcance de público alvo. Para ocorrer o agendamento e pagamento do serviço, é necessário o desenvolvimento dessas funcionalidades, no caso de um site. Entretanto, com a utilização das redes sociais, essas ações podem ocorrer na própria plataforma, em que ambas as partes combinam os detalhes. O mesmo vale para o cancelamento do agendamento e para possíveis alterações no contrato;
+* **Utilização de ferramentas na internet como Google Meu Negócio e semelhantes** mais voltadas para empresas com estabelecimentos físicos. Após adicionado o perfil da empresa, ela aparecerá como resultado de buscas de potenciais clientes, sendo possível visualizar informações importantes da empresa, como o contato, site, endereço, avaliações, comentários, etc;
+* **Utilização de _banners_ e placas** distribuídos nas ruas com informações de contato e qual tipo de serviço prestado. O agendamento, cancelamento e forma de pagamento são combinados normalmente por telefone ou pelo WhatsApp.
 
 ---
 
 ### 3.2 Descrição Geral da proposta
 
-A proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de pequenos reparos em suas residências e trabalhadores disponíveis nessa mesma região, sejam eles autônomos ou vinculados à alguma empresa. 
+A proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de pequenos reparos em suas residências e trabalhadores disponíveis nessa mesma região, sejam eles autônomos ou vinculados à alguma empresa.
 Nesse sentido, o fluxo da aplicação iniciará com o cadastramento do usuário, seja ele o cliente ou o trabalhador:
-- Sendo trabalhadores, autônomos e/ou vinculados à alguma empresa, o cadastro no ChamaNow irá ocorrer registrando seus dados básicos de usuário, suas especialidades em serviços e em qual região atua, a fim de encontrar oportunidades de serviços.
-- Sendo clientes, irão se cadastrar no site com seus dados básicos, endereço e, posteriormente, buscar por um determinado serviço de reparo em domícilio, considerando as opções ofertadas em sua região.
-- Após a escolha do serviço, o cliente irá receber um formulário para ser preenchido e, sequencialmente, receber um orçamento junto aos dados básicos do trabalhador.
-- Após a aceitação da proposta, ambos os usuários receberão mensagens de confirmação com os dados primários, como nome, endereço, horário e o tipo de serviço.
-- O pagamento do serviço é combinado entre o cliente e o trabalhador, não sendo mediado pelo ChamaNow. 
-- Finalizado o serviço, ambas as partes precisam confirmar que o processo foi devidamente finalizado.  
-- O cliente recebe um formulário de avaliação do trabalhador, com intuito de contribuir para o estabelecimento de um processo mais seguro.
+* Sendo trabalhadores, autônomos e/ou vinculados à alguma empresa, o cadastro no ChamaNow irá ocorrer registrando seus dados básicos de usuário, suas especialidades em serviços e em qual região atua, a fim de encontrar oportunidades de serviços.
+* Sendo clientes, irão se cadastrar no site com seus dados básicos, endereço e, posteriormente, buscar por um determinado serviço de reparo em domícilio, considerando as opções ofertadas em sua região.
+* Após a escolha do serviço, o cliente irá receber um formulário para ser preenchido e, sequencialmente, receber um orçamento junto aos dados básicos do trabalhador.
+* Após a aceitação da proposta, ambos os usuários receberão mensagens de confirmação com os dados primários, como nome, endereço, horário e o tipo de serviço.
+* O pagamento do serviço é combinado entre o cliente e o trabalhador, não sendo mediado pelo ChamaNow.
+* Finalizado o serviço, ambas as partes precisam confirmar que o processo foi devidamente finalizado.  
+* O cliente recebe um formulário de avaliação do trabalhador, com intuito de contribuir para o estabelecimento de um processo mais seguro.
 
 Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se financeiramente na renda de uma parcela da população. Sendo assim, a aplicação otimizará o usual "boca a boca", transformando essa situação em um processo padrão e sistematizado de negócio.
 
@@ -99,26 +99,29 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 ### 3.3 Modelagem dos Processos
 
-#### Processo 1 - Cadastro do Profissional 
+#### Processo 1 - Cadastro do Profissional
+
 Para o cadastro do profissional, o usuário precisará informar alguns dados como qual tipo de serviço será prestado, contato, localização, o raio de operação, etc. E para a empresa, além dos itens já citados, ela terá que informar o CNPJ e alvará. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
-#### Processo 2 - Cadastro do cliente 
+#### Processo 2 - Cadastro do cliente
+
 Para o cadastro do cliente, o usuário precisará informar alguns dados como contato, localização e nome. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
+#### Processo 3 - Login e Autenticação
 
-#### Processo 3 - Login e Autenticação 
-Para o login serão duas páginas, uma para o cliente e outra para a empresa/profissional, e nelas serão informados o e-mail e senha. Após isso, o sistema fará a verificação dos dados e aprovará ou não o login. 
+Para o login serão duas páginas, uma para o cliente e outra para a empresa/profissional, e nelas serão informados o e-mail e senha. Após isso, o sistema fará a verificação dos dados e aprovará ou não o login.
 
-#### Processo 4 - Escolhas do serviço 
+#### Processo 4 - Escolhas do serviço
+
 Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado.
 
-#### Processo 5 - Orçamento 
-Para criar o orçamento, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, mais a informação se o profissional cobra taxa de deslocamento ou outro tipo de cobrança. Também serão exibidas informações básicas (nome, foto de perfil, etc) do profissional, além de avaliações e localização do mesmo. 
+#### Processo 5 - Orçamento
 
+Para criar o orçamento, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, mais a informação se o profissional cobra taxa de deslocamento ou outro tipo de cobrança. Também serão exibidas informações básicas (nome, foto de perfil, etc) do profissional, além de avaliações e localização do mesmo.
 
-#### Processo 6 - Avaliação 
-Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado. Nessa avaliação o usuário escolhe de 1 à 5 estrelas, sendo: 1- Muito Ruim, 2- Ruim, 3- Mediano, pode melhorar, 4- Bom!, 5- Excelente. 
-    
+#### Processo 6 - Avaliação
+
+Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado. Nessa avaliação o usuário escolhe de 1 à 5 estrelas, sendo: 1- Muito Ruim, 2- Ruim, 3- Mediano, pode melhorar, 4- Bom!, 5- Excelente.
 
 ## 4. Projeto da Solução
 
@@ -200,9 +203,9 @@ Verifique no link abaixo como devem ser as referências no padrão ABNT:
 
 http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
 
-**[1.1]** - _STAGGEMEIER, Caroline; MARTINS, Alexandre. **SERVIÇOS DOMÉSTICOS: UMA NECESSIDADE DE PROFISSIONALIZAÇÃO**. Revista interativa, 2 fev. 2021. Disponível em: https://revistainterativa.org/2021/02/servicos-domesticos-uma-necessidade-de-profissionalizacao/. Acesso em: 16 fev. 2022_
+**[1.1]** - _STAGGEMEIER, Caroline; MARTINS, Alexandre. **SERVIÇOS DOMÉSTICOS: UMA NECESSIDADE DE PROFISSIONALIZAÇÃO**. Revista interativa, 2 fev. 2021. Disponível em: <https://revistainterativa.org/2021/02/servicos-domesticos-uma-necessidade-de-profissionalizacao/>. Acesso em: 16 fev. 2022_
 
-**[1.2]** - _RIBAS, Raphaela. Serviços de casa já podem ser contratados via apps. O Globo, 13 nov. 2017. Disponível em: https://oglobo.globo.com/economia/imoveis/servicos-de-casa-ja-podem-ser-contratados-via-apps-22060750. Acesso em: 16 fev. 2022._
+**[1.2]** - _RIBAS, Raphaela. Serviços de casa já podem ser contratados via apps. O Globo, 13 nov. 2017. Disponível em: <https://oglobo.globo.com/economia/imoveis/servicos-de-casa-ja-podem-ser-contratados-via-apps-22060750>. Acesso em: 16 fev. 2022._
 
 **[1.3]** - _ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019. E-book. ISBN 9788543025001._
 
