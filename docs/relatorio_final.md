@@ -111,7 +111,7 @@ Para o cadastro do profissional, o usuário precisará informar alguns dados com
 
 
 #### Processo 4 - Escolhas do serviço 
-
+Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado.
 
 #### Processo 5 - Orçamento 
 
