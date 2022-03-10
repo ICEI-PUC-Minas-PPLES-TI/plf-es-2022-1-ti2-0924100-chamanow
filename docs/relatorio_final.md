@@ -100,15 +100,14 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 ### 3.3 Modelagem dos Processos
 
 #### Processo 1 - Cadastro do Profissional 
-
-Para o cadastro do profissional, o usuário precisará informar alguns dados como qual tipo de serviço será prestado, contato, localização, o raio de operação, etc. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
+Para o cadastro do profissional, o usuário precisará informar alguns dados como qual tipo de serviço será prestado, contato, localização, o raio de operação, etc. E para a empresa, além dos itens já citados, ela terá que informar o CNPJ e alvará. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 #### Processo 2 - Cadastro do cliente 
-
+Para o cadastro do cliente, o usuário precisará informar alguns dados como contato, localização e nome. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 
 #### Processo 3 - Login e Autenticação 
-
+Para o login serão duas páginas, uma para o cliente e outra para a empresa/profissional, e nelas serão informados o e-mail e senha. Após isso, o sistema fará a verificação dos dados e aprovará ou não o login. 
 
 #### Processo 4 - Escolhas do serviço 
 Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado.
