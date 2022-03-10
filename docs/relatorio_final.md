@@ -103,7 +103,7 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 Para o cadastro do profissional, o usuário precisará informar alguns dados como qual tipo de serviço será prestado, contato, localização, o raio de operação, etc. E para a empresa, além dos itens já citados, ela terá que informar o CNPJ e alvará. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 #### Processo 2 - Cadastro do cliente 
-
+Para o cadastro do cliente, o usuário precisará informar alguns dados como contato, localização e nome. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 
 #### Processo 3 - Login e Autenticação 
