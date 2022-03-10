@@ -99,17 +99,27 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 ### 3.3 Modelagem dos Processos
 
-#### Processo 1 – NOME DO PROCESSO
+#### Processo 1 - Cadastro do Profissional 
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN.
 
-![Exemplo de um Modelo BPMN do PROCESSO 1](imagens/process.png "Modelo BPMN do Processo 1.")
 
-#### Processo 2 – NOME DO PROCESSO
+#### Processo 2 - Cadastro do cliente 
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
 
-![Exemplo de um Modelo BPMN do PROCESSO 2](imagens/call_process.png "Modelo BPMN do Processo 2.")
+
+#### Processo 3 - Login e Autenticação 
+
+
+#### Processo 4 - Escolhas do serviço 
+
+
+#### Processo 5 - Orçamento 
+
+
+
+#### Processo 6 - Avaliação 
+
+
 
 ## 4. Projeto da Solução
 
