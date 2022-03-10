@@ -101,7 +101,7 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 #### Processo 1 - Cadastro do Profissional 
 
-
+Para o cadastro do profissional, o usuário precisará informar alguns dados como qual tipo de serviço será prestado, contato, localização, o raio de operação, etc. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 #### Processo 2 - Cadastro do cliente 
 
@@ -118,7 +118,7 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 
 #### Processo 6 - Avaliação 
-    Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado. Nessa avaliação o usuário escolhe de 1 à 5 estrelas, sendo: 1- Muito Ruim, 2- Ruim, 3- Mediano, pode melhorar, 4- Bom!, 5- Excelente. 
+Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado. Nessa avaliação o usuário escolhe de 1 à 5 estrelas, sendo: 1- Muito Ruim, 2- Ruim, 3- Mediano, pode melhorar, 4- Bom!, 5- Excelente. 
     
 
 ## 4. Projeto da Solução
