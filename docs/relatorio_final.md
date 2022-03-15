@@ -130,6 +130,8 @@ Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, 
 
 Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado, e o profissional também avalia a recepção do usuário. Nessa avaliação o usuário e o profissional  escolhem de 1 à 5 estrelas, sendo: 1- Muito Ruim, 2- Ruim, 3- Mediano, pode melhorar, 4- Bom!, 5- Excelente.
 
+<img alt="Modelagem - Processo 6" title="Processo 6" src="/docs/imagens/diagram_avaliaçaochamanow.png"/>
+
 ---
 
 ## 4. Projeto da Solução
