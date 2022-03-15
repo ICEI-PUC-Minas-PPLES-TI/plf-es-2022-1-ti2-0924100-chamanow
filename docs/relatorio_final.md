@@ -117,15 +117,9 @@ Para o login serão duas páginas, uma para o cliente e outra para a empresa/pro
 
 ---
 
-#### Processo 4 - Escolhas do serviço
+#### Processo 4 - Escolhas do serviço e Orçamento
 
-Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado.
-
----
-
-#### Processo 5 - Orçamento
-
-Para criar o orçamento, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, mais a informação se o profissional cobra taxa de deslocamento ou outro tipo de cobrança. Também serão exibidas informações básicas (nome, foto de perfil, etc) do profissional, além de avaliações e localização do mesmo.
+Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo.
 
 ---
 
