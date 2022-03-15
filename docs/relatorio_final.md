@@ -133,8 +133,9 @@ Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, 
 
 #### Processo 5 - Agendamento e Pagamento do serviço
 
-Após escolher o profissional e o orçamento, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
+Com o profissional e o orçamento escolhidos, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
 Com o serviço feito e confirmado na plataforma, o cliente e profissional deverão confirmar que o pagamento foi feito e não há nenhuma pendência entre as partes.
+
 ---
 
 #### Processo 6 - Avaliação
