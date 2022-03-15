@@ -115,6 +115,8 @@ Para o cadastro do cliente, o usuário precisará informar alguns dados como con
 
 Para o login, o cliente e o profissional/empresa informarão o e-mail e senha. Após isso, o sistema fará a verificação dos dados e aprovará ou não o login. Caso o cliente ou empresa/profissional não estiverem cadastrados, eles farão o cadastramento.
 
+<img alt="Diagrama Processo 3" title="Processo 3" src="master/docs/imagens/diagrama%20%2317.png"/>
+
 ---
 
 #### Processo 4 - Escolhas do serviço e Orçamento
