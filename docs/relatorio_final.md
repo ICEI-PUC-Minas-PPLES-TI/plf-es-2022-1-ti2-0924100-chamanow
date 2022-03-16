@@ -131,7 +131,7 @@ Para o login, o cliente e o profissional/empresa informarão o e-mail e senha. A
 
 Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo.
 
-<img alt="Diagrama do Processo 4" title="Processo 4 - Escolha do Serviço e Orçamento" src="/docs/imagens/diagrama%20%2317.png"/>
+<img alt="Diagrama do Processo 4" title="Processo 4 - Escolha do Serviço e Orçamento" src="/docs/imagens/diagramaServiçosOrçamento.png"/>
 
 ---
 
