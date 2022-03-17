@@ -107,7 +107,8 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 Para o cadastro do profissional/empresa, o usuário precisará informar alguns dados como qual tipo de serviço será prestado, contato, localização, o raio de operação, etc. E para a empresa, além dos itens já citados, ela terá que informar o CNPJ e alvará. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
-<img alt="DIagrama do Processo 1" title="Processo 1 - Cadastro Profissional/Empresa" src="/docs/imagens/Processo1_Cadastro-de-Profissional-Empresa.png"/>
+<img alt="Diagrama do Processo 1" title="Processo 1 - Cadastro Profissional" src="/docs/imagens/Diagrama_Cadastro-Profissional.png"/>
+<img alt="Diagrama do Processo 1" title="Processo 1 - Cadastro Empresa" src="/docs/imagens/Diagrama_Cadastro-Profissional.png"/>
 
 ---
 
