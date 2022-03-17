@@ -107,7 +107,8 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 Para o cadastro do profissional/empresa, o usuário precisará informar alguns dados como qual tipo de serviço será prestado, contato, localização, o raio de operação, etc. E para a empresa, além dos itens já citados, ela terá que informar o CNPJ e alvará. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
-<img alt="Modelagem - Processo 1" title="Processo 1" src="/docs/imagens/Processo1_Cadastro-de-Profissional-Empresa.png"/>
+<img alt="Diagrama do Processo 1" title="Processo 1 - Cadastro Profissional" src="/docs/imagens/Diagrama_Cadastro-Profissional.png"/>
+<img alt="Diagrama do Processo 1" title="Processo 1 - Cadastro Empresa" src="/docs/imagens/Diagrama_Cadastro-Empresa.png"/>
 
 ---
 
@@ -115,7 +116,7 @@ Para o cadastro do profissional/empresa, o usuário precisará informar alguns d
 
 Para o cadastro do cliente, o usuário precisará informar alguns dados como contato, localização e nome. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
-<img alt="Processo 2" title="Processo 2" src="/docs/imagens/diagram_1.png"/>
+<img alt="Diagrama do Processo 2" title="Processo 2 - Cadastro Cliente" src="/docs/imagens/diagrama_1.png"/>
 
 ---
 
@@ -123,13 +124,15 @@ Para o cadastro do cliente, o usuário precisará informar alguns dados como con
 
 Para o login, o cliente e o profissional/empresa informarão o e-mail e senha. Após isso, o sistema fará a verificação dos dados e aprovará ou não o login. Caso o cliente ou empresa/profissional não estiverem cadastrados, eles farão o cadastramento.
 
+<img alt="Diagrama do Processo 3" title="Processo 3 - Login Usuário" src="/docs/imagens/Diagrama_Login-Usuario.png"/>
+
 ---
 
 #### Processo 4 - Escolhas do serviço e Orçamento
 
 Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo.
 
-<img alt="Diagrama Processo 3" title="Processo 3" src="/docs/imagens/diagrama%20%2317.png"/>
+<img alt="Diagrama do Processo 4" title="Processo 4 - Escolha do Serviço e Orçamento" src="/docs/imagens/diagramaServiçosOrçamento.png"/>
 
 ---
 
@@ -138,15 +141,15 @@ Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, 
 Com o profissional e orçamento escolhidos, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
 Com o serviço feito e confirmado na plataforma, cliente e profissional deverão combinar a forma de pagamento, confirmando também que o mesmo foi feito e que não há nenhuma pendência entre as partes.
 
-<img alt="Processo 5 - Agendamento e Pagamento do serviço" title="Processo 5" src="/docs/imagens/processo5.png"/>
+<img alt="Diagrama do Processo 5" title="Processo 5 - Agendamento e Pagamento do serviço" src="/docs/imagens/processo_5.png"/>
 
 ---
 
 #### Processo 6 - Avaliação
 
-Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado, e o profissional também avalia a recepção do usuário. Nessa avaliação o usuário e o profissional  escolhem de 1 à 5 estrelas, sendo: 1- Muito Ruim, 2- Ruim, 3- Mediano, pode melhorar, 4- Bom!, 5- Excelente.
+Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado, e o profissional também avalia a recepção do usuário. Nessa avaliação o usuário e o profissional  escolhem de 1 à 5 estrelas, sendo: 1 - Muito Ruim, 2- Ruim, 3 - Mediano, pode melhorar, 4 - Bom!, 5 - Excelente.
 
-<img alt="Modelagem - Processo 6" title="Processo 6" src="/docs/imagens/diagram_avaliaçaochamanow.png"/>
+<img alt="Diagrama do Processo 6" title="Processo 6 - Avaliação" src="/docs/imagens/diagram_avaliaçaochamanow.png"/>
 
 ---
 
