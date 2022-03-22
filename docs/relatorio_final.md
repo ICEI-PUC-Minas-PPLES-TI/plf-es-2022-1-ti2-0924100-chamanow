@@ -112,14 +112,6 @@ Para o cadastro do profissional/empresa, o usuário precisará informar alguns d
 
 ---
 
-#### Processo 2 - Cadastro do cliente
-
-Para o cadastro do cliente, o usuário precisará informar alguns dados como contato, localização e nome. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
-
-<img alt="Diagrama do Processo 2" title="Processo 2 - Cadastro Cliente" src="/docs/imagens/diagrama_1.png"/>
-
----
-
 #### Processo 3 - Login e Autenticação
 
 Para o login, o cliente e o profissional/empresa informarão o e-mail e senha. Após isso, o sistema fará a verificação dos dados e aprovará ou não o login. Caso o cliente ou empresa/profissional não estiverem cadastrados, eles farão o cadastramento.
