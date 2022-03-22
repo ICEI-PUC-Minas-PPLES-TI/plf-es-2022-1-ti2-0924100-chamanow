@@ -112,7 +112,7 @@ Para o cadastro do profissional/empresa, o usuário precisará informar alguns d
 
 ---
 
-#### Processo 3 - Login e Autenticação
+#### Processo 2 - Login e Autenticação
 
 Para o login, o cliente e o profissional/empresa informarão o e-mail e senha. Após isso, o sistema fará a verificação dos dados e aprovará ou não o login. Caso o cliente ou empresa/profissional não estiverem cadastrados, eles farão o cadastramento.
 
@@ -120,7 +120,7 @@ Para o login, o cliente e o profissional/empresa informarão o e-mail e senha. A
 
 ---
 
-#### Processo 4 - Escolhas do serviço e Orçamento
+#### Processo 3 - Escolhas do serviço e Orçamento
 
 Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo.
 
@@ -128,7 +128,7 @@ Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, 
 
 ---
 
-#### Processo 5 - Agendamento e Pagamento do serviço
+#### Processo 4 - Agendamento e Pagamento do serviço
 
 Com o profissional e orçamento escolhidos, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
 Com o serviço feito e confirmado na plataforma, cliente e profissional deverão combinar a forma de pagamento, confirmando também que o mesmo foi feito e que não há nenhuma pendência entre as partes.
@@ -137,7 +137,7 @@ Com o serviço feito e confirmado na plataforma, cliente e profissional deverão
 
 ---
 
-#### Processo 6 - Avaliação
+#### Processo 5 - Avaliação
 
 Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado, e o profissional também avalia a recepção do usuário. Nessa avaliação o usuário e o profissional  escolhem de 1 à 5 estrelas, sendo: 1 - Muito Ruim, 2- Ruim, 3 - Mediano, pode melhorar, 4 - Bom!, 5 - Excelente.
 
