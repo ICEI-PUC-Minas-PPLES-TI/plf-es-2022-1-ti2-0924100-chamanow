@@ -122,7 +122,7 @@ Para o login, o cliente e o profissional/empresa informarão o e-mail e senha. A
 
 #### Processo 3 - Escolhas do serviço, Orçamento e Agendamento
 
-Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo.
+Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo. Diante da escolha do profissional, o mesmo criará um orçamento que, após ser aceito pelo cliente, iniciará o agendamento, mediante a disponibilidade de ambas as partes.
 
 <img alt="Diagrama do Processo 3" title="Processo 3 - Escolha do Serviço, Orçamento e Agendamento" src="/assets/dados/diagramaServiçosOrçamentoAgendamento.png"/>
 
