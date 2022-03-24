@@ -66,7 +66,7 @@ As possíveis partes interessas pelo nosso projeto são profissionais autônomos
 
 ## 3. Modelagem do processo de negócio
 
-### 3.1 Análise da situação atual
+### Análise da situação atual
 
 As formas encontradas de como as pessoas realizam a contratação de serviços no ano de 2022 é por meio de:
 
@@ -84,7 +84,7 @@ Em relação ao profissional ou empresa especializada em serviços domiciliares,
 
 ---
 
-### 3.2 Descrição Geral da proposta
+### Descrição Geral da proposta
 
 A proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de pequenos reparos em suas residências e trabalhadores disponíveis nessa mesma região, sejam eles autônomos ou vinculados à alguma empresa.
 Nesse sentido, o fluxo da aplicação iniciará com o cadastramento do usuário, seja ele o cliente ou o trabalhador:
@@ -101,42 +101,29 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 ---
 
-### 3.3 Modelagem dos Processos
+### Modelagem dos Processos
 
-#### Processo 1 - Cadastro do Profissional/Empresa
+#### Processo 1 - Cadastro e Login do Usuário
 
-Para o cadastro do profissional/empresa, o usuário precisará informar alguns dados como qual tipo de serviço será prestado, contato, localização, o raio de operação, etc. E para a empresa, além dos itens já citados, ela terá que informar o CNPJ e alvará. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
+Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastro será realizado, para empresas, profissionais ou cliente. No caso do profisisonal, o usuário informará os dados pessoais além do tipo de serviço que será prestado, o contato, a localização, o raio de operação, etc. Para a empresa, além dos itens já citados, ela terá que informar os dados da empresa. E para o cliente, apenas os dados pessoais. Todos deverão inserir as informações de login como e-mail e senha. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
-<img alt="Diagrama do Processo 1" title="Processo 1 - Cadastro Profissional" src="/docs/imagens/Diagrama_Cadastro-Profissional.png"/>
-<img alt="Diagrama do Processo 1" title="Processo 1 - Cadastro Empresa" src="/docs/imagens/Diagrama_Cadastro-Empresa.png"/>
+#### Cadastro do Usuário
+<img alt="Diagrama do Processo 1 (Cadastro)" title="Processo 1 - Cadastro do Usuário" src="/assets/dados/Diagrama_Cadastro-Profissional-Empresa-Cliente.png"/>
 
----
-
-#### Processo 2 - Cadastro do cliente
-
-Para o cadastro do cliente, o usuário precisará informar alguns dados como contato, localização e nome. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
-
-<img alt="Diagrama do Processo 2" title="Processo 2 - Cadastro Cliente" src="/docs/imagens/diagrama_1.png"/>
+#### Login do Usuário
+<img alt="Diagrama do Processo 1 (Login)" title="Processo 1 - Login" src="/assets/dados/Diagrama_Login-Usuario.png"/>
 
 ---
 
-#### Processo 3 - Login e Autenticação
+#### Processo 2 - Escolhas do serviço, Orçamento e Agendamento
 
-Para o login, o cliente e o profissional/empresa informarão o e-mail e senha. Após isso, o sistema fará a verificação dos dados e aprovará ou não o login. Caso o cliente ou empresa/profissional não estiverem cadastrados, eles farão o cadastramento.
+Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo. Diante da escolha do profissional, o mesmo criará um orçamento que, após ser aceito pelo cliente, iniciará o agendamento, mediante a disponibilidade de ambas as partes.
 
-<img alt="Diagrama do Processo 3" title="Processo 3 - Login Usuário" src="/docs/imagens/Diagrama_Login-Usuario.png"/>
-
----
-
-#### Processo 4 - Escolhas do serviço e Orçamento
-
-Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço e o preço que eles cobram, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo.
-
-<img alt="Diagrama do Processo 4" title="Processo 4 - Escolha do Serviço e Orçamento" src="/docs/imagens/diagramaServiçosOrçamento.png"/>
+<img alt="Diagrama do Processo 3" title="Processo 3 - Escolha do Serviço, Orçamento e Agendamento" src="/assets/dados/diagramaServiçosOrçamentoAgendamento.png"/>
 
 ---
 
-#### Processo 5 - Agendamento e Pagamento do serviço
+#### Processo 3 - Realização do processo
 
 Com o profissional e orçamento escolhidos, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
 Com o serviço feito e confirmado na plataforma, cliente e profissional deverão combinar a forma de pagamento, confirmando também que o mesmo foi feito e que não há nenhuma pendência entre as partes.
@@ -145,11 +132,11 @@ Com o serviço feito e confirmado na plataforma, cliente e profissional deverão
 
 ---
 
-#### Processo 6 - Avaliação
+#### Processo 4 - Avaliação
 
 Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado, e o profissional também avalia a recepção do usuário. Nessa avaliação o usuário e o profissional  escolhem de 1 à 5 estrelas, sendo: 1 - Muito Ruim, 2- Ruim, 3 - Mediano, pode melhorar, 4 - Bom!, 5 - Excelente.
 
-<img alt="Diagrama do Processo 6" title="Processo 6 - Avaliação" src="/docs/imagens/diagram_avaliaçaochamanow.png"/>
+<img alt="Diagrama do Processo 4" title="Processo 6 - Avaliação" src="/docs/imagens/modelagemavaliacao.png"/>
 
 ---
 
