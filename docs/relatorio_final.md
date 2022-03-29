@@ -162,16 +162,79 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | [Nome do campo] | [Área de texto, Caixa de texto, Número, Data, Imagem, Seleção única, Múltipla escolha, Arquivo, Link, Tabela] |  |  |
 |    |    |     |
 
-#### Processo 2 – NOME DO PROCESSO
+#### Processo 2 – Contratação de Serviço
 
-**Nome da atividade 1**
+**Escolher serviço**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Nome do campo] | [Área de texto, Caixa de texto, Número, Data, Imagem, Seleção única, Múltipla escolha, Arquivo, Link, Tabela] |  |  |
+| [Pesquisar serviço] | [Caixa de texto] |  |  |
+| [Escolher serviço] | [Seleção única] |  |  |
 |    |    |     |
 
-**Nome da atividade 2**
+**Detalhar problema enfrentado**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| [Detalhar problema] | [Área de texto] | [Máximo 500 caracteres] |  |
+|    |    |     |
+
+**Escolher profissional**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| [Escolher profissional] | [Seleção única] |  |  |
+|    |    |     |
+
+**Receber informações do usuário e o problema**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| [Aceitar serviço?] | [Link] | [SIM/NÃO] |  |
+|    |    |     |
+
+**Receber mensagem de cancelamento**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| [Refazer escolha?] | [Link] | [SIM/NÃO] |  |
+|    |    |     |
+
+**Enviar orçamento**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| [Preço] | [Número] |  | 00,00 |
+| [Detalhar orçamento] | [Área de texto] | [Máximo 500 caracteres] |  |
+| [Enviar arquivo] | [Arquivo] | [PDF,PNG,JPEG - até 10mb]  |  |
+|    |    |     |
+
+**Receber orcamento do profissional**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| [Aceitar orçamento?] | [Link] | [SIM/NÃO/BUSCAR OUTROS PROFISSIONAIS] |  |
+|    |    |     |
+
+**Selecionar datas disponíveis**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| [Data]  | [Múltipla escolha] | [DD/MM/AA] |  |
+| [Horário] | [Número] | [00:00]  |  |
+|    |    |     |
+
+**Escolher data**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| [Data] | [Seleção única] | [DD/MM/AA] |  |
+| [Horário] | [Seleção única] | [00:00]  |  |
+|    |    |     |
+
+#### NOME PROCESSO 3
+
+**Nome da atividade 1**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
