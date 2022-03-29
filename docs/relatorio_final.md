@@ -168,68 +168,68 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Pesquisar serviço] | [Caixa de texto] |  |  |
-| [Escolher serviço] | [Seleção única] |  |  |
+| Pesquisar serviço | Caixa de texto |  |  |
+| Escolher serviço | Seleção única |  |  |
 
 
 **Detalhar problema enfrentado**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Detalhar problema] | [Área de texto] | [Máximo 500 caracteres] |  |
+| Detalhar problema | Área de texto | Máximo 500 caracteres |  |
 
 
 **Escolher profissional**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Escolher profissional] | [Seleção única] |  |  |
+| Escolher profissional | Seleção única |  |  |
 
 
 **Receber informações do usuário e o problema**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Aceitar serviço?] | [Link] | [SIM/NÃO] |  |
+| Aceitar serviço? | Link |  |  |
 
 
 **Receber mensagem de cancelamento**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Refazer escolha?] | [Link] | [SIM/NÃO] |  |
+| Refazer escolha? | Link |  |  |
 
 
 **Enviar orçamento**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Preço] | [Número] |  | 00,00 |
-| [Detalhar orçamento] | [Área de texto] | [Máximo 500 caracteres] |  |
-| [Enviar arquivo] | [Arquivo] | [PDF,PNG,JPEG - até 10mb]  |  |
+| Preço | Número |  | 00,00 |
+| Detalhar orçamento | Área de texto | Máximo 500 caracteres |  |
+| Enviar arquivo | Arquivo | PDF,PNG,JPEG - até 10mb  |  |
 
 
 **Receber orcamento do profissional**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Aceitar orçamento?] | [Link] | [SIM/NÃO/BUSCAR OUTROS PROFISSIONAIS] |  |
+| Aceitar orçamento? | Link |  |  |
 
 
 **Selecionar datas disponíveis**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Data]  | [Múltipla escolha] | [DD/MM/AA] |  |
-| [Horário] | [Número] | [00:00]  |  |
+| Data | Múltipla escolha | DD/MM/AA |  |
+| Horário | Número | 00:00 |  |
 
 
 **Escolher data**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Data] | [Seleção única] | [DD/MM/AA] |  |
-| [Horário] | [Seleção única] | [00:00]  |  |
+| Data | Seleção única | DD/MM/AA |  |
+| Horário | Seleção única | 00:00  |  |
 
 
 #### NOME PROCESSO 3
