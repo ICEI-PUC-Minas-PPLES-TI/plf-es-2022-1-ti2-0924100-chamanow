@@ -148,12 +148,10 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 #### Processo 1 – NOME DO PROCESSO
 
-**Nome da atividade 1**
+**Login**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Nome do campo] | [Área de texto, Caixa de texto, Número, Data, Imagem, Seleção única, Múltipla escolha, Arquivo, Link, Tabela] |  |  |
-| ***Exemplo:***  |    |     |
 | login | Caixa de Texto | formato de e-mail |  |
 | senha | Caixa de Texto | mínimo de 8 caracteres |   |
 
