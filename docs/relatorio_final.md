@@ -111,7 +111,7 @@ Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastr
 <img alt="Diagrama do Processo 1 (Cadastro)" title="Processo 1 - Cadastro do Usuário" src="/assets/dados/Diagrama_Cadastro-Profissional-Empresa-Cliente.png"/>
 
 #### Login do Usuário
-<img alt="Diagrama do Processo 1 (Login)" title="Processo 1 - Login" src="/assets/dados/loginbpmn.png"/>
+<img alt="Diagrama do Processo 1 (Login)" title="Processo 1 - Login" src="/assets/processos/loginbpmn.png"/>
 
 ---
 
