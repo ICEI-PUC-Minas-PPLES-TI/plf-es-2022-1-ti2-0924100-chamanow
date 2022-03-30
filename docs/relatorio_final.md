@@ -146,7 +146,46 @@ Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua sat
 
 Descrever aqui cada uma das propriedades das atividades de cada um dos processos. Devem estar relacionadas com o modelo de processo apresentado anteriormente.
 
-#### Processo 1 – Login e cadastramento de usuario
+### Processo 1 – Cadastramento e Login de usuario
+
+**Inserir dados pessoais**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Nome completo | Caixa de Texto | Pelo menos dois nomes |  |
+|  Data de Nascimento  |  Data  | Mínimo 18 anos |  |
+|  CEP  |  Número  | Formato de CEP |  |
+|  CPF  |  Número  | Formato de CPF |  |
+|  Telefone  |  Número  | Formato de celular |  |
+
+**Informações de Login**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Email | Caixa de Texto | Pelo menos dois nomes |  |
+|  Senha  |  Caixa de Texto  | Mínimo 8 caracteres |  |
+|  Confirmar Senha  |  Caixa de Texto  | Valor igual ao da senha |  |
+
+**Escolher tipo de usuário**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Tipo de Usuário | Seleção única |  |  |
+
+**Inserir dados da Empresa**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Nome da Empresa | Caixa de Texto | Máximo 100 caracteres |  |
+|  CNPJ  |  Número  | Formato CNPJ |  |
+|  Natureza Jurídica  |  Seleção única  |  |  |
+
+**Selecionar serviços e área de atuação**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Selecionar serviços | Multipla escolha | Selecionar pelo menos uma opção |  |
+|  Área de atuação |  Seleção única  |  |  |
 
 **Login**
 
@@ -155,14 +194,9 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | login | Caixa de Texto | formato de e-mail |  |
 | senha | Caixa de Texto | mínimo de 8 caracteres |   |
 
-**Nome da atividade 2**
+---
 
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| [Nome do campo] | [Área de texto, Caixa de texto, Número, Data, Imagem, Seleção única, Múltipla escolha, Arquivo, Link, Tabela] |  |  |
-|    |    |     |
-
-#### Processo 2 – Contratação de Serviço
+### Processo 2 – Contratação de Serviço
 
 **Escolher serviço**
 
@@ -231,8 +265,9 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Data | Seleção única | DD/MM/AA |  |
 | Horário | Seleção única | 00:00  |  |
 
-
-#### NOME PROCESSO 3
+ ---
+ 
+### NOME PROCESSO 3
 
 **Nome da atividade 1**
 
