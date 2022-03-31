@@ -293,7 +293,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Avaliar Usuário | Seleção única (1 à 5) |  |  |
+| Avaliar Usuário | Seleção única |  |  |
 
 **Enviar comentário**
 
