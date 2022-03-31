@@ -267,14 +267,26 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
  ---
  
-### NOME PROCESSO 3
+### Processo 3 - Realização do Serviço
 
-**Nome da atividade 1**
+**Receber lembrete de serviço agendado**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| [Nome do campo] | [Área de texto, Caixa de texto, Número, Data, Imagem, Seleção única, Múltipla escolha, Arquivo, Link, Tabela] |  |  |
-|    |    |     |
+| Serviço agendado. Cancelar? | Link |  |  |
+
+**Realizar pagamento e enviar o comprovante**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Fazer upload do comprovante | Arquivo | Arquivo de até 10MB |  |
+
+**Confirmar que não há pendências**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Existe alguma pendência? | Seleção única |  |  |
+
 
 ### 4.2. Tecnologias
 
