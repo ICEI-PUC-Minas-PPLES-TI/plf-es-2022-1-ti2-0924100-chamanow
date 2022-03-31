@@ -123,7 +123,7 @@ Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, 
 
 ---
 
-#### Processo 3 - Realização do processo
+#### Processo 3 - Realização do Serviço
 
 Com o profissional e orçamento escolhidos, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
 Com o serviço feito e confirmado na plataforma, cliente e profissional deverão combinar a forma de pagamento, confirmando também que o mesmo foi feito e que não há nenhuma pendência entre as partes.
