@@ -287,6 +287,20 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Existe alguma pendência? | Seleção única |  |  |
 
+### Processo 4 - Avaliação do usuário
+
+**Avaliar o usuário**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Avaliar Usuário | Seleção única (1 à 5) |  |  |
+
+**Enviar comentário**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Escrever comentário | Área de texto |  |  |
+
 
 ### 4.2. Tecnologias
 
