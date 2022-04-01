@@ -148,16 +148,6 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 ### Processo 1 – Cadastramento e Login de usuario
 
-**Inserir dados pessoais**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Nome completo | Caixa de Texto | Pelo menos dois nomes |  |
-|  Data de Nascimento  |  Data  | Mínimo 18 anos |  |
-|  CEP  |  Número  | Formato de CEP |  |
-|  CPF  |  Número  | Formato de CPF |  |
-|  Telefone  |  Número  | Formato de celular |  |
-
 **Informações de Login**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
@@ -166,33 +156,52 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 |  Senha  |  Caixa de Texto  | Mínimo 8 caracteres |  |
 |  Confirmar Senha  |  Caixa de Texto  | Valor igual ao da senha |  |
 
+**Endereço e contato**
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+|  Telefone  |  Número  | Formato de celular |  |
+| CEP | Número | Formato CEP |  |
+| Rua | Caixa de Texto |  |  |
+| Número | Número |  |  |
+| Bairro | Caixa de Texto |  |  |
+| Cidade | Caixa de Texto |  |  |
+| Estado | Seleção única |  |  |
+
 **Escolher tipo de usuário**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Tipo de Usuário | Seleção única |  |  |
 
+**Inserir dados pessoais**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Nome completo | Caixa de Texto | Pelo menos dois nomes |  |
+| Data de Nascimento | Data | Mínimo 18 anos |  |
+| CPF | Número | Formato de CPF |  |
+
 **Inserir dados da Empresa**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Nome da Empresa | Caixa de Texto | Máximo 100 caracteres |  |
-|  CNPJ  |  Número  | Formato CNPJ |  |
-|  Natureza Jurídica  |  Seleção única  |  |  |
+| CNPJ |  Número  | Formato CNPJ |  |
+| Natureza Jurídica | Seleção única |  |  |
 
 **Selecionar serviços e área de atuação**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Selecionar serviços | Multipla escolha | Selecionar pelo menos uma opção |  |
-|  Área de atuação |  Seleção única  |  |  |
+| Área de atuação | Seleção única |  |  |
 
 **Login**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| login | Caixa de Texto | formato de e-mail |  |
-| senha | Caixa de Texto | mínimo de 8 caracteres |   |
+| Login | Caixa de Texto | Formato de e-mail |  |
+| Senha | Caixa de Texto | Mínimo de 8 caracteres |   |
 
 ---
 
