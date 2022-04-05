@@ -103,15 +103,12 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 ### Modelagem dos Processos
 
-#### Processo 1 - Cadastro e Login do Usuário
+#### Processo 1 - Cadastro do Usuário
 
 Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastro será realizado, para empresas, profissionais ou cliente. No caso do profisisonal, o usuário informará os dados pessoais além do tipo de serviço que será prestado, o contato, a localização, o raio de operação, etc. Para a empresa, além dos itens já citados, ela terá que informar os dados da empresa. E para o cliente, apenas os dados pessoais. Todos deverão inserir as informações de login como e-mail e senha. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 #### Cadastro do Usuário
 <img alt="Diagrama do Processo 1 (Cadastro)" title="Processo 1 - Cadastro do Usuário" src="/assets/processos/Diagrama_Cadastro-Usuario.png"/>
-
-#### Login do Usuário
-<img alt="Diagrama do Processo 1 (Login)" title="Processo 1 - Login" src="/assets/processos/loginbpmn.png"/>
 
 ---
 
@@ -146,9 +143,9 @@ Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua sat
 
 Descrever aqui cada uma das propriedades das atividades de cada um dos processos. Devem estar relacionadas com o modelo de processo apresentado anteriormente.
 
-### Processo 1 – Cadastramento e Login de usuario
+### Processo 1 – Cadastro do Usuário
 
-**Informações de Login**
+**Inserir informações de login**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
@@ -156,7 +153,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 |  Senha  |  Caixa de Texto  | Mínimo 8 caracteres |  |
 |  Confirmar Senha  |  Caixa de Texto  | Valor igual ao da senha |  |
 
-**Endereço e contato**
+**Inserir endereço e contato**
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 |  Telefone  |  Número  | Formato de celular |  |
@@ -166,11 +163,6 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Bairro | Caixa de Texto |  |  |
 | Cidade | Caixa de Texto |  |  |
 | Estado | Seleção única |  |  |
-
-**Escolher tipo de usuário**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
 | Tipo de Usuário | Seleção única |  |  |
 
 **Inserir dados pessoais**
@@ -195,13 +187,6 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Selecionar serviços | Multipla escolha | Selecionar pelo menos uma opção |  |
 | Área de atuação | Seleção única |  |  |
-
-**Login**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Login | Caixa de Texto | Formato de e-mail |  |
-| Senha | Caixa de Texto | Mínimo de 8 caracteres |   |
 
 ---
 
