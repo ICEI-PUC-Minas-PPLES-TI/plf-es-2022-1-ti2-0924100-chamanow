@@ -200,32 +200,26 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Escolher serviço | Seleção única |  |  |
 
 
-**Detalhar problema enfrentado**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Detalhar problema | Área de texto | Máximo 500 caracteres |  |
-
-
 **Escolher profissional**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Escolher profissional | Seleção única |  |  |
+| Detalhar problema | Área de texto | Máximo 500 caracteres |  |
 
 
 **Receber informações do usuário e o problema**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Aceitar serviço? | Link |  |  |
+| Aceitar serviço? | Link | SIM/NÃO |  |
 
 
 **Receber mensagem de cancelamento**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Refazer escolha? | Link |  |  |
+| Refazer escolha? | Link | SIM/NÃO |  |
 
 
 **Enviar orçamento**
@@ -241,7 +235,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Aceitar orçamento? | Link |  |  |
+| Aceitar orçamento? | Link | SIM/NÃO |  |
 
 
 **Selecionar datas disponíveis**
