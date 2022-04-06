@@ -263,7 +263,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Serviço agendado. Cancelar? | Link |  |  |
 
-**Realizar pagamento e enviar o comprovante**
+**Enviar o comprovante**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
