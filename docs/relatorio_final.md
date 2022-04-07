@@ -296,9 +296,7 @@ As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferrament
 
 ## 5. Modelo de dados
 
-Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Entidade-Relacionamento (DER) que contemple todos conceitos e atributos apresentados item anterior.
-
-![Diagrama de Entidade Relacionamento de Exemplo](imagens/er_diagram.png "Diagrama de Entidade Relacionamento de Exemplo")
+<img alt="Modelo de Dados" title="MER - ChamaNow" src="/assets/dados/merchamanow.drawio.png"/>
 
 ## 6. Indicadores de desempenho
 
