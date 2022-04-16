@@ -290,13 +290,19 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Escrever comentário | Área de texto |  |  |
 
 
-### 4.2. Tecnologias
+### Tecnologias
 
 As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferramentas de modelagem como o Camunda Modeler e o Draw.io, as linguagens voltadas à criação de páginas web como HTML5, CSS3 e o JavaScript, além do Bootstrap como framework auxiliar. A IDE que utilizaremos para o desenvolvimento será o Visual Studio Code. O SGBD escolhido foi o Microsoft SQL Server, sendo utilizada a linguagem SQL. As informações e o código serão documentados pelo GitHub.
 
 ## 5. Modelo de dados
 
-<img alt="Modelo de Dados" title="MER - ChamaNow" src="/assets/dados/merchamanow.drawio.png"/>
+#### DER ChamaNow
+
+<img alt="Diagrama de Entidade Relacionamento ChamaNow" title="DER - ChamaNow" src="/assets/dados/DER-ChamaNow.png"/>
+
+#### Modelo Relacional ChamaNow
+
+<img alt="Modelo Relacional ChamaNow" title="Modelo Relacional - ChamaNow" src="/assets/dados/Modelo-Relacional-ChamaNow.png"/>
 
 ## 6. Indicadores de desempenho
 
