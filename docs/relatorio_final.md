@@ -296,10 +296,6 @@ As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferrament
 
 ## 5. Modelo de dados
 
-#### DER ChamaNow
-
-<img alt="Diagrama de Entidade Relacionamento ChamaNow" title="DER - ChamaNow" src="/assets/dados/DER-ChamaNow.png"/>
-
 #### Modelo Relacional ChamaNow
 
 <img alt="Modelo Relacional ChamaNow" title="Modelo Relacional - ChamaNow" src="/assets/dados/Modelo-Relacional-ChamaNow.png"/>
