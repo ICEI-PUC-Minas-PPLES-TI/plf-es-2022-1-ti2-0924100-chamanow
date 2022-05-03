@@ -298,7 +298,7 @@ As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferrament
 
 #### Modelo Relacional ChamaNow
 
-<img alt="Modelo Relacional ChamaNow" title="Modelo Relacional - ChamaNow" src="/assets/dados/Modelo-Relacional-ChamaNow.png"/>
+<img alt="Modelo Relacional ChamaNow" title="Modelo Relacional - ChamaNow" src="/assets/dados/ModeloRelacional-ChamaNow.png"/>
 
 ## 6. Indicadores de desempenho
 
