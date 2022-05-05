@@ -179,7 +179,6 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Nome da Empresa | Caixa de Texto | Máximo 100 caracteres |  |
 | CNPJ |  Número  | Formato CNPJ |  |
-| Natureza Jurídica | Seleção única |  |  |
 
 **Selecionar serviços e área de atuação**
 
