@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+        content="ChamaNow, seu serviço de reparos">
+    <link rel="icon" href="imgs//favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Tela Inicial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="menu">
+            <a href="#perfil">perfil</a>
+            <a href="#repositorios"> • repositórios github</a>
+            <a href="#usuarios"> • busca de usuários</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <section id="perfil" class="card container-perfil"></section>
+        </div>
+        <section id="repositorios">
+            <div class="container-repo">
+                <h1>Repositórios Github</h1>
+                <p>Clique na pasta ou no nome para abrir o repositório desejado.</p>
+                <main id="repositorios-github"></main>
+                <footer>
+                    <button id="carregar-repos"><span id="mais">+</span><span>Carregar mais Repositórios</button>
+                </footer>
+            </div>
+        </section>
+        <div id="usuarios" class="container">
+            <section class="card">
+                <h1>Busca de Usuários do GitHub</h1>
+                <div id="pesquisar">
+                    <input type="text" placeholder="Pesquisar Usuários do GitHub" id="pesquisa-user" />
+                    <button id="pesquisa-button">Pesquisar</button>
+                </div>
+                <main id="container-usuarios"></main>
+                <!-- <footer>
+                    <button id="carregar-usuarios"><span id="mais">+</span><span>Carregar mais Usuários</button>
+                </footer> -->
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>
+                Copyright © 2021 - Disciplina de Desenvolvimento de Interfaces Web -
+                <strong>ICEI PUC Minas</strong>
+            </p>
+            <p><strong>Blog Astronáutico 2</strong></p>
+            </p>
+        </div>
+    </footer>
+
+    <script src="scripts.js" type="module"></script>
+</body>
+
+</html>
