@@ -1,0 +1,137 @@
+body{
+    font-family: Arial,sans-serif;
+    overflow-x: hidden;
+    background-image: url("/image/neymarPele.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-position-y: 50px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100vh;
+}
+header{
+    width: auto;
+    height: 70px;
+    margin: -10px;
+}
+#cabecalho{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #10059F;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+}
+#iconeChamaNow{
+    width: 70px;
+    height: 70px;
+    padding-bottom: 5px; 
+    padding-left: 40px;
+}
+#textoCabecalho{
+    overflow: hidden;
+    list-style-type: none;
+    display:flex;
+    margin-left: auto;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+#textoCabecalho li{
+    padding-left: 20px;
+    padding-right: 30px;
+}
+form{
+    display:block;
+}
+#quadro{
+    background-color: whitesmoke;
+    width: 500px;
+    height: auto;    
+    margin: 200px auto;
+    position: relative; 
+    padding: 2px 0 10px 0;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    border-radius: 5px;
+}
+#quadro label{
+    color: #FF6B00;
+    position: relative;
+}
+#quadro input{
+    width: 95%;
+    margin-top: 4px;
+    padding: 10px;    
+    border: 1px solid #b2b2b2; 
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+#botaoLogin{
+    width: 100% !important;
+    cursor: pointer;  
+    padding: 10px;
+    color: black;
+    background-color:#fbae8b;
+    font-size: 20px;  
+    margin-bottom: 10px;  
+    text-shadow: 0 1px 1px #333;
+    border-radius: 5px;
+}
+#botaoLogin:hover{
+    background: #ff6a00;
+}
+
+::-webkit-input-placeholder  {
+    color: #fbae8b; 
+    font-style: italic;
+    font-size: 20px;
+}
+#semConta{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    height: 100%;
+    width: 100%;
+    padding:0 0 0 30px;
+    font-size: 16px;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 20px;
+}
+#semConta a{
+  background: #fbae8b;
+  height: 15px;
+  padding: 5px;
+  color: white;
+  margin: auto;
+  border: 1px solid #ff6a00;
+  text-decoration: none;
+  align-items: center;
+}
+#semConta a:hover {
+    background: #FF6B00;
+    border: 1px solid #FF6B00;
+}
+#semConta p{
+    color: #ff6a00;
+}
+#iconeLogin{
+    width: 70px;
+    height: 70px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 510px) { 
+    #textoCabecalho{
+        font-size: 15px;
+    }
+ }
