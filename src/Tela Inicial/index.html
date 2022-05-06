@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description"
-        content="ChamaNow, seu serviço de reparos">
+    <meta name="description" content="ChamaNow, seu serviço de reparos">
     <link rel="icon" href="imgs//favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
@@ -18,51 +17,75 @@
 
 <body>
     <header class="site-header">
+        <img src="./imgs/logo.png" alt="Logo ChamaNow">
         <nav class="menu">
-            <a href="#perfil">perfil</a>
-            <a href="#repositorios"> • repositórios github</a>
-            <a href="#usuarios"> • busca de usuários</a>
+            <a href="#sou-um-profissa">Sou um Profissa</a>
+            <a href="#sign-up">Sign Up</a>
+            <a href="#login">Login</a>
         </nav>
     </header>
+
     <main>
         <div class="container">
-            <section id="perfil" class="card container-perfil"></section>
-        </div>
-        <section id="repositorios">
-            <div class="container-repo">
-                <h1>Repositórios Github</h1>
-                <p>Clique na pasta ou no nome para abrir o repositório desejado.</p>
-                <main id="repositorios-github"></main>
-                <footer>
-                    <button id="carregar-repos"><span id="mais">+</span><span>Carregar mais Repositórios</button>
-                </footer>
-            </div>
-        </section>
-        <div id="usuarios" class="container">
-            <section class="card">
-                <h1>Busca de Usuários do GitHub</h1>
-                <div id="pesquisar">
-                    <input type="text" placeholder="Pesquisar Usuários do GitHub" id="pesquisa-user" />
-                    <button id="pesquisa-button">Pesquisar</button>
+            <section id="banner">
+                <div id="texto-banner">
+                    <h1>Procure o Melhor serviço pelo melhor preço</h1>
+                    <p>Pesquise um serviço</p>
                 </div>
-                <main id="container-usuarios"></main>
-                <!-- <footer>
-                    <button id="carregar-usuarios"><span id="mais">+</span><span>Carregar mais Usuários</button>
-                </footer> -->
+                <div id="imagem-banner">
+                    <img src="./imgs/gustavo.png" alt="Foto do Embaixador">
+                </div>
+            </section>
+            <section id="servicos">
+                <div id="catalogo">
+                    <h3>Catálogo</h3>
+                    <select id="projetos" name="select" placeholder="Serviços">
+                        <option disabled selected>Selecione um serviço</option>
+                        <option>Pintura</option>
+                        <option>Reparos Hidraúlicos (Bombeiro)</option>
+                        <option>Carpintaria</option>
+                        <option>Alvenaria</option>
+                    </select>
+                </div>
+                <div id="principais-servicos">
+                    <h3>Principais Serviços</h3>
+                    <div class="quadrado-wireframe"></div>
+                    <div class="quadrado-wireframe"></div>
+                    <div class="quadrado-wireframe"></div>
+                </div>
+                <div id="bem-avaliados">
+                    <h3>Profissionais mais bem avaliados</h3>
+                    <div class="quadrado-wireframe"></div>
+                    <div class="quadrado-wireframe"></div>
+                    <div class="quadrado-wireframe"></div>
+                </div>
+                <div id="quem-somos">
+                    <h3>Quem Somos?</h3>
+                    <div class="quadrado-wireframe"></div>
+                </div>
+                <div id="container-trabalhamos">
+                    <div id="como-trabalhamos">
+                        <h3>Como Trabalhamos</h3>
+                        <div class="quadrado-wireframe"></div>
+                    </div>
+                    <div id="container-neymar">
+                        <img src="./imgs/menino-ney.png" alt="Foto Neymar">
+                    </div>
+                    <div class="quadrado-wireframe"></div>
+                </div>
             </section>
         </div>
     </main>
     <footer>
         <div class="footer-container">
             <p>
-                Copyright © 2021 - Disciplina de Desenvolvimento de Interfaces Web -
+                Copyright © 2022 - Disciplina de Trabalho Interdisciplinar: Aplicações Para Processos de Negócios -
                 <strong>ICEI PUC Minas</strong>
             </p>
-            <p><strong>Blog Astronáutico 2</strong></p>
+            <p><strong>ChamaNow, chama lá no Chama 🔥</strong></p>
             </p>
         </div>
     </footer>
-
     <script src="scripts.js" type="module"></script>
 </body>
 
