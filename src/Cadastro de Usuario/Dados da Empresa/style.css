@@ -26,6 +26,10 @@ body {
     width: 100px;
 }
 
+#logoMobile {
+    display: none;
+}
+
 .textoLogin {
     margin-top: 30px;
     display: flex;
@@ -144,4 +148,47 @@ body {
 #proximo:hover {
     background-color: #FFF;
     color: #FF7033;
+}
+
+.loginMobile {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .backgroundMobile {
+        background-color: #4939FF;
+        color: #FFF;
+    }
+    .login {
+        display: none;
+    }
+    .dadosContent {
+        margin-top: 20px;
+        width: 80%;
+    }
+    .dadosPessoais {
+        width: 100%;
+    }
+    #logoMobile {
+        display: block;
+        width: 80px;
+    }
+    .tituloDados {
+        margin-top: 30px;
+        color: #FFF;
+    }
+    .subtituloDados {
+        color: #FFF;
+    }
+    #formDados {
+        width: 100%;
+    }
+    .loginMobile {
+        display: block;
+        margin-top: 30px;
+    }
+    #linkLoginMobile {
+        text-decoration: none;
+        color: #FF7033;
+    }
 }
