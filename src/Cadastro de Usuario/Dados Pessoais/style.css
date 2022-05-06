@@ -22,7 +22,12 @@ body {
     padding: 0 5%;
 }
 
+#logo {
+    width: 100px;
+}
+
 .textoLogin {
+    margin-top: 30px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
