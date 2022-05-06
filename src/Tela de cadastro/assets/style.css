@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+/*.container{
+    background-color: #FFF;
+    border-radius: 3px;
+    display: flex;
+    margin: 0 auto;
+}*/
+
+body{
+    background-color: #FFF;
+    border-radius: 3px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.col_1{
+    background-color: #4939FF;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+img{
+    width: 30%;
+    border-radius: 10px;
+    padding-bottom: 80px;
+}
+
+.col1_itens{
+    margin-top: 180px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.paragrafo{
+    margin-top: 30px;
+    display: flex;
+    padding-left: 25%;
+    color: #FFF;
+}
+
+.titulo{
+    font-size: xx-large;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: #FFF;
+}
+.entrar{
+    margin-top: 30px;
+    padding: 5px 15px 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 40px;
+    font-size: larger;
+    border: 2px solid #FFF;
+    border-radius: 50px;
+    color: white;
+    background: none;
+}
+
+.entrar:hover{
+    border:none;
+    background-color: #FFF;
+    color: #4939FF;
+}
+
+/*-------------------------------------------------------------------------*/
+
+.col_2{
+    background-color: #4939FF;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(250, 250, 250);
+    width: 70%;
+}
+
+
+
+.tituloCad{
+    font-size: xx-large;
+    color: #4939FF;
+    margin-top: 0px;
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+.subtitCad{
+    text-align: center;
+    padding: 20px;
+}
+
+.formCad{
+    margin-top: 100px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 100vh;
+    width: 100%;
+    color: #black;
+    text-align: center;
+}
+
+.col_2 ul{
+    padding: 20px;
+    list-style: none;
+}
+
+#email{
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    background-color: #EDEDED;
+    margin: 10px;
+    letter-spacing: 1.2px;
+    text-align: center;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+
+::placeholder{
+    text-align: center
+}
+
+
+.formCad input:focus{
+    border: none;
+}
+
+#senha{
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    background-color: #EDEDED;
+    margin: 10px;
+    letter-spacing: 1.2px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.btns_ul{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+}   
+
+#voltar{
+    border: none;
+    border-radius: 30px;
+    padding: 5px 15px;
+    background-color: #2B2B2B;
+    color: #FFF;
+    letter-spacing: 1.2px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+}
+
+#voltar:hover {
+    background-color: #FFF;
+    color: #2B2B2B;
+}
+
+#proximo {
+    border: none;
+    border-radius: 30px;
+    padding: 5px 15px;
+    background-color: #FF7033;
+    color: #FFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+}
+
+#proximo:hover {
+    background-color: #FFF;
+    color: #FF7033;
+}
+
+
+
+
+
+
