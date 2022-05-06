@@ -5,9 +5,9 @@
   --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
   --color-text: #b5b5b5;
   --color-text-secondary: #333333;
-  
-  --primary-color: #10059F;
-  --secondary-color: #FF6B00;
+
+  --primary-color: #10059f;
+  --secondary-color: #ff6b00;
 
   transition: all 0.3s linear;
 }
@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background: rgb(240, 240, 240);
   font-family: "Poppins", sans-serif;
 }
 
@@ -58,7 +58,7 @@ body .site-header {
 }
 
 body header img {
-  max-width: 12rem;
+  max-width: 15rem;
 }
 
 body header .menu {
@@ -105,8 +105,6 @@ section#banner #texto-banner h1 > strong {
 main section#banner img {
   max-width: 25rem;
 }
-
-
 
 /* Segunda Seção - Catálogo =================================================*/
 main section #lista-servicos {
@@ -179,18 +177,67 @@ section #quem-somos .quadrado-wireframe {
   border-radius: 1rem;
 }
 
+/* Sexta Seção - Como Trabalhamos ===========================================*/
+
+main section #container-trabalhamos {
+  padding: 1rem 0;
+}
+section #container-trabalhamos .quadrado-wireframe {
+  background-color: var(--color-text);
+  width: 100%;
+  height: 5rem;
+
+  border-radius: 1rem;
+}
+
+body main #container-trabalhamos {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  /* background-color: rgb(236, 236, 236);
+  border-radius: 1rem; */
+
+  padding: 1rem;
+}
+
+main section #container-neymar > img {
+  max-width: 30rem;
+}
+
+
+section#servicos #espaco-branco {
+  background-color: var(--color-text);
+  width: 100%;
+  height: 10rem;
+
+  border-radius: 1rem;
+}
+
+
 /* Footer ===================================================================*/
+
+footer .footer-container > img {
+  max-width: 5rem;
+  align-self: center;
+}
+
 footer .footer-container {
-  background: none;
+  background-color: var(--primary-color);
   color: var(--color-text);
   border-radius: 0.8rem 0.8rem 0 0;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   padding: 1rem;
+
+  height: 10rem;
 }
 
 footer .footer-container p {
   text-align: center;
 }
+
+
