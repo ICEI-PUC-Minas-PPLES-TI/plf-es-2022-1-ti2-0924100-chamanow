@@ -5,6 +5,9 @@
   --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
   --color-text: #b5b5b5;
   --color-text-secondary: #333333;
+  
+  --primary-color: #10059F;
+  --secondary-color: #FF6B00;
 
   transition: all 0.3s linear;
 }
@@ -23,7 +26,7 @@ html {
 }
 
 body {
-  /* background: linear-gradient(to right, #f01428 0%, #c9284d 100%); */
+  background: #fff;
   font-family: "Poppins", sans-serif;
 }
 
@@ -46,11 +49,16 @@ body .site-header {
   margin-bottom: 1rem;
   text-align: center;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: normal;
+
+  background-color: var(--primary-color);
+}
+
+body header img {
+  max-width: 12rem;
 }
 
 body header .menu {
@@ -61,74 +69,47 @@ body header .menu {
 body header .menu a {
   text-decoration: none;
   color: var(--color-text);
+  padding: 0.5rem;
 }
 body header .menu a:hover {
   text-decoration: none;
   color: rgb(122, 121, 121);
 }
 
-/* Primeira Seção - Descrição ================================================*/
-.img-descricao {
-  width: 100%;
-}
-
-.img-descricao img {
-  border-radius: 0.8rem;
-
-  width: 100%;
-  border-radius: 0.8rem;
-}
+/* Primeira Seção - Banner ================================================*/
 
 main section {
-  color: var(--color-text);
+  color: var(--primary-color);
   padding: 1rem;
 }
 
-main section h2 {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-
-  word-wrap: break-word;
-}
-
-main section p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-
-  margin-top: 0.5rem;
-  padding: 0.1rem;
-
-  word-wrap: break-word;
-}
-
-main section .redes-sociais {
-  margin-top: 1rem;
-
-  text-align: center;
+body main section#banner {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: center;
-  gap: 2rem;
+  align-items: center;
+
+  /* background-color: rgb(236, 236, 236);
+  border-radius: 1rem; */
+
+  padding: 1rem;
 }
 
-main section .redes-sociais img {
-  width: min(10rem, 40px);
-  background-color: #b5b5b5;
-  padding: 0.5rem;
-  border-radius: 1rem;
+main section#banner #texto-banner {
+  color: var(--primary-color);
 }
 
-/* Segunda Seção - Projetos ===================================================================*/
-main section h1 {
-  font-size: 2rem;
-  margin: 0.5rem;
-
-  word-wrap: break-word;
+section#banner #texto-banner h1 > strong {
+  color: var(--secondary-color);
 }
 
-main section #projetos {
+main section#banner img {
+  max-width: 25rem;
+}
+
+
+
+/* Segunda Seção - Catálogo =================================================*/
+main section #lista-servicos {
   width: min(100%, 800px);
 }
 main section select {
@@ -144,155 +125,58 @@ main section select {
   cursor: pointer;
 }
 
-main section h3 {
-  font-size: 1.25rem;
-  margin: 0.5rem 0 1rem 0.5rem;
-
-  word-wrap: break-word;
+main section #catalogo {
+  padding: 1rem 0;
 }
 
-main .container .img-section {
-  width: 100%;
+/* Terceira Seção - Principais Serviços =====================================*/
+main section #servicos {
+  padding: 1rem 0;
+}
+section #principais-servicos .quadrado-wireframe {
+  background-color: var(--color-text);
+  width: 10rem;
+  height: 10rem;
+
+  border-radius: 1rem;
 }
 
-.img-section img {
-  border-radius: 0.8rem;
-  width: 100%;
-}
-
-main button {
-  border: 1px solid var(--bg-panel);
-  border-radius: 0.4rem;
-  color: var(--color-text);
-  font-weight: bold;
-  background: var(--bg-panel);
-  width: 100%;
-
-  margin: 0.5rem 0 0.1rem;
-
+section #principais-servicos .container-servicos {
   display: flex;
-  justify-content: center;
-
-  cursor: pointer;
-}
-
-button span {
-  line-height: 1rem;
-  word-wrap: break-word;
-}
-
-button span#mais {
-  font-size: 2rem;
-
-  padding: 0 1rem;
-}
-
-/* Terceira Seção - Experiência ===================================================================*/
-
-section .article-exp {
-  background: var(--bg-panel);
-  border-radius: 0.8rem;
-
-  margin: 2rem 0;
-  padding: 1rem;
-}
-
-section .article-exp img {
-  border-radius: 0.8rem;
-  width: 100%;
-
-  margin-top: 0.5rem;
-}
-
-span {
-  display: block;
-  margin: 1rem 0;
-
-  font-weight: bold;
-}
-
-/* Quarta Seção - Repositórios Github ===================================================================*/
-#repositorios {
-  background-color: var(--bg);
-  padding: 1rem;
-}
-
-main#repositorios-github {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-#repositorios article {
-  text-align: center;
-
-  padding: 1rem;
-  width: 20rem;
-
-  background-color: var(--bg-panel);
-  border-radius: 0.8rem;
-  margin: 1rem 0;
-}
-
-#repositorios article img {
-  width: 5rem;
-  background: var(--color-text);
-  padding: 1rem;
-  border-radius: 0.8rem;
-}
-
-
-main section a {
-  text-decoration: none;
-  color: var(--color-text);
-}
-
-.card-repos-none {
-  display: none;
-}
-
-/* Sexta Seção - Recomendação de Conteúdo ==============================================================*/
-#container-usuarios article {
-  padding: 1rem;
-  background-color: var(--bg-panel);
-  border-radius: 0.8rem;
-  margin: 1rem 0;
-}
-
-#usuarios section #pesquisar {
-  width: min(100%, 800px);
-  margin-top: 1.5rem;
-
-  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  align-content: center;
+}
+
+/* Quarta Seção - Profissionais Bem Avaliados ===============================*/
+main section #bem-avaliados {
+  padding: 1rem 0;
+}
+section #bem-avaliados .quadrado-wireframe {
+  background-color: var(--color-text);
+  width: 100%;
+  height: 10rem;
+
+  border-radius: 1rem;
+}
+
+section #bem-avaliados .container-bem-avaliados {
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
-#usuarios section #pesquisar input {
-  border: 1px solid var(--bg-panel);
-  border-radius: 0.4rem;
-  color: var(--color-text);
-  font-weight: bold;
-  background: var(--bg-panel);
-  padding: 1rem;
+
+/* Quinta Seção - Quem Somos ================================================*/
+main section #quem-somos {
+  padding: 1rem 0;
+}
+section #quem-somos .quadrado-wireframe {
+  background-color: var(--color-text);
   width: 100%;
-}
+  height: 10rem;
 
-section #pesquisar button {
-  border: 1px solid var(--bg-panel);
-  border-radius: 0.4rem;
-  color: var(--bg-panel);
-  font-weight: bold;
-  background: var(--color-text);
-  padding: 1rem;
-  width: 100%;
-
-  margin: 0.5rem 0;
-}
-
-.card-user-none {
-  display: none;
+  border-radius: 1rem;
 }
 
 /* Footer ===================================================================*/
