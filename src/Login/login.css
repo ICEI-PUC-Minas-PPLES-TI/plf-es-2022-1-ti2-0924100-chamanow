@@ -1,137 +1,182 @@
-body{
-    font-family: Arial,sans-serif;
-    overflow-x: hidden;
-    background-image: url("./image/neymarPele.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-position-y: 50px;
-    margin: 0;
-    padding: 0;
-    border: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap%27');
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+
+/* Cadastro do Usuário */
+
+.cadastro {
+    background-color: #4939FF;
+    max-width: 25%;
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: 0 5%;
+}
+
+#logo {
+    width: 100px;
+}
+
+#logoMobile {
+    display: none;
+}
+
+.textoCadastro {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.tituloCadastro {
+    margin-top: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.subtitulo {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+}
+
+#cadastrar {
+    margin-top: 30px;
+    background: none;
+    padding: 5px 15px;
+    width: 120px;
+    border: 2px solid #FFF;
+    border-radius: 50px;
+    color: white;
+    transition: all 0.2s;
+}
+
+#cadastrar:hover {
+    background: #FFF;
+    color: #4939FF;
+    font-weight: 500;
+}
+
+
+/* Formulário */
+
+.dadosPessoais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 75%;
     height: 100vh;
 }
-header{
-    width: auto;
-    height: 70px;
-    margin: -10px;
-}
-#cabecalho{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #10059F;
-    padding: 10px;
-    height: 100%;
-    width: 100%;
-}
-#iconeChamaNow{
-    width: 70px;
-    height: 70px;
-    padding-bottom: 5px; 
-    padding-left: 40px;
-}
-#textoCabecalho{
-    overflow: hidden;
-    list-style-type: none;
-    display:flex;
-    margin-left: auto;
-    align-items: center;
-    padding: 10px;
-    color: white;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-#textoCabecalho li{
-    padding-left: 20px;
-    padding-right: 30px;
-}
-form{
-    display:block;
-}
-#quadro{
-    background-color: whitesmoke;
-    width: 500px;
-    height: auto;    
-    margin: 200px auto;
-    position: relative; 
-    padding: 2px 0 10px 0;
-    font-weight: bold;
-    text-align: center;
-    align-items: center;
-    border-radius: 5px;
-}
-#quadro label{
-    color: #FF6B00;
-    position: relative;
-}
-#quadro input{
-    width: 95%;
-    margin-top: 4px;
-    padding: 10px;    
-    border: 1px solid #b2b2b2; 
-    border-radius: 3px;
-    margin-bottom: 20px;
-}
-#botaoLogin{
-    width: 100% !important;
-    cursor: pointer;  
-    padding: 10px;
-    color: black;
-    background-color:#fbae8b;
-    font-size: 20px;  
-    margin-bottom: 10px;  
-    text-shadow: 0 1px 1px #333;
-    border-radius: 5px;
-}
-#botaoLogin:hover{
-    background: #ff6a00;
+
+.tituloDados {
+    font-weight: 700;
+    font-size: 25px;
+    color: #4939FF;
 }
 
-::-webkit-input-placeholder  {
-    color: #fbae8b; 
-    font-style: italic;
-    font-size: 20px;
-}
-#semConta{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    color: white;
-    height: 100%;
-    width: 100%;
-    padding:0 0 0 30px;
+.subtituloDados {
+    font-weight: 300;
     font-size: 16px;
-    text-align: right;
-    font-weight: bold;
+    color: rgb(160, 160, 160);
     margin-top: 20px;
 }
-#semConta a{
-  background: #fbae8b;
-  height: 15px;
-  padding: 5px;
-  color: white;
-  margin: auto;
-  border: 1px solid #ff6a00;
-  text-decoration: none;
-  align-items: center;
-}
-#semConta a:hover {
-    background: #FF6B00;
-    border: 1px solid #FF6B00;
-}
-#semConta p{
-    color: #ff6a00;
-}
-#iconeLogin{
-    width: 70px;
-    height: 70px;
-    margin-bottom: 50px;
+
+.dadosContent {
+    margin-top: 40px;
 }
 
-@media (max-width: 510px) { 
-    #textoCabecalho{
-        font-size: 15px;
+#formDados {
+    width: 500px;
+    margin: 50px auto 0;
+    color: #fff;
+}
+
+#formDados input {
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    background-color: #EDEDED;
+}
+
+#formDados input:focus {
+    border: none;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 65%;
+}
+
+
+#entrar {
+    border: none;
+    border-radius: 30px;
+    padding: 5px 25px;
+    background-color: #FF7033;
+    color: #FFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+}
+
+#entrar:hover {
+    background-color: #FFF;
+    color: #FF7033;
+}
+
+.cadastrarMobile {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .backgroundMobile {
+        background-color: #4939FF;
+        color: #FFF;
     }
- }
+    .cadastro {
+        display: none;
+    }
+    .dadosContent {
+        margin-top: 20px;
+        width: 80%;
+    }
+    .dadosPessoais {
+        width: 100%;
+    }
+    #logoMobile {
+        display: block;
+        width: 80px;
+    }
+    .tituloDados {
+        margin-top: 30px;
+        color: #FFF;
+    }
+    .subtituloDados {
+        color: #FFF;
+    }
+    #formDados {
+        width: 100%;
+    }
+    .cadastroMobile {
+        display: block;
+        margin-top: 30px;
+    }
+    #linkcadastroMobile {
+        text-decoration: none;
+        color: #FF7033;
+    }
+}
