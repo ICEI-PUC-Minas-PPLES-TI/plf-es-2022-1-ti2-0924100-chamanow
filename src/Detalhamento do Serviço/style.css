@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background-color: #4939FF;
+}
+
+#logo-header {
+    width: 50px;
+}
