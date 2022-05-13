@@ -125,6 +125,18 @@ body {
   background-color: #ededed;
 }
 
+#lista-servicos{
+  margin-top: 25px;
+  border: none;
+  background-color: #ededed;
+
+  border-radius: 30px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+
+  cursor: pointer;
+}
+
 #formDados input:focus {
   border: none;
 }
