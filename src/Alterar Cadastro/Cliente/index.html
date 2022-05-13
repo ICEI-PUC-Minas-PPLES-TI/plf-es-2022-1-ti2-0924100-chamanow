@@ -30,12 +30,18 @@
 
 <body class="backgroundMobile">
     <div class="login">
-        <img src="./img/Logo.svg" alt="Logo ChamaNow" id="logo">
         <div class="textoLogin">
-            <h3 class="tituloLogin">Já possui uma conta?</h3>
-            <h5 class="subtitulo">Acesse sua conta agora mesmo</h5>
+            <img src="./img/foto.jpg" alt="Foto de Perfil" id="logo">
+            <h3 class="tituloLogin">Nome de Usuário</h3>
+            <img src="./img/avaliacao.png" alt="Avaliação">
+            <ul>
+                <li>Serviços</li>
+                <li>Alterar Cadastro</li>
+                <li>Avaliações</li>
+                <li>Sair</li>
+            </ul>
         </div>
-        <button id="entrarLogin">Entrar</button>
+        <button id="proximo">Sou um Profissa<button>
     </div>
 
     <div class="dadosPessoais">
@@ -44,7 +50,7 @@
 
         <div class="info-login">
             <div class="dadosContent">
-                <h5>Informações de Login</h5>
+                <h5 class="subtitulo">Informações de Login</h5>
                 <form id="formDados" class="form">
                     <input type="text" name="email" id="email" class="form-control" placeholder="Email" minlength="8"
                         maxlength="50" required>
@@ -56,20 +62,35 @@
             </div>
         </div>
 
-        <div class="endereco-telefone">
-            <div class="dadosContent">
-                <h5>Endereço e Telefone</h5>
-                <form id="formDados" class="form">
-                    <input type="number" name="telefone" id="telefone" class="form-control" placeholder="Telefone" minlength="8"
-                        maxlength="50" required>
-
-                    <input type="number" name="telefone" id="telefone" class="form-control" placeholder="Telefone" minlength="8"
-                        maxlength="50" required>
-                    
-                </form>
+        <h5 class="subtitulo">Endereço e Telefone</h5>
+        <form id="formDados" class="form">
+            <input type="number" name="telefone" id="telefone" class="form-control" placeholder="Telefone" minlength="8"
+                maxlength="50" required>
+            <input type="adress" name="rua" id="rua" class="form-control" placeholder="Rua" minlength="8" maxlength="50"
+                required>
+            <input type="adress" name="bairro" id="bairro" class="form-control" placeholder="Bairro" minlength="8"
+                maxlength="50" required>
+            <input type="adress" name="cidade" id="cidade" class="form-control" placeholder="Cidade" minlength="8"
+                maxlength="50" required>
+            <div class="endereco-container">
+                <input type="number" name="cep" id="cep" class="form-control" placeholder="CEP" minlength="8"
+                    maxlength="50" required>
+                <input type="number" name="numero" id="numero" class="form-control" placeholder="Número" minlength="8"
+                    maxlength="50" required>
+                <input type="adress" name="estado" id="estado" class="form-control" placeholder="Estado" minlength="8"
+                    maxlength="50" required>
             </div>
-        </div>
+        </form>
 
+        <h5 class="subtitulo">Dados Pessoais</h5>
+        <form id="formDados" class="form">
+            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome Completo" minlength="8"
+                maxlength="50" required>
+            <input type="date" name="dataNascimento" id="dataNascimento" class="form-control"
+                placeholder="Data de Nascimento" minlength="8" maxlength="50" required>
+            <input type="number" name="cpf" id="cpf" class="form-control" placeholder="CPF" minlength="8" maxlength="50"
+                required>
+        </form>
 
         <div class="btns">
             <button id="proximo">Confirmar<i class="fa-solid fa-chevron-right"></i></button>
