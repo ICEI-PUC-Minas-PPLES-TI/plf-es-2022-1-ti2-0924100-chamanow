@@ -128,29 +128,29 @@ body {
 }
 
 .cancelado{
-    border: 2px solid #FF4F4F;
-    padding: 2px;
+    padding: 5px 10px;
+    border-radius: 5px;
     border-radius: 10%;
     color: #FF4F4F;
     background-color: #ffd4d4;
 }
 .naoPago{
-    border: 2px solid #FF007F;
-    padding: 2px;
+    padding: 5px 10px;
+    border-radius: 5px;
     border-radius: 10%;
     color: #FF007F;
     background-color: #ffc6e3;
 }
 .concluido{
-    border: 2px solid #00E45B;
-    padding: 2px;
+    padding: 5px 10px;
+    border-radius: 5px;
     border-radius: 10%;
     color: #00E45B;
     background-color: #bbfdd5;
 }
 .pendente{
-    border: 2px solid #F4CD00;
-    padding: 2px;
+    padding: 5px 10px;
+    border-radius: 5px;
     border-radius: 10%;
     color: #F4CD00;
     background-color: #fff3b9;
