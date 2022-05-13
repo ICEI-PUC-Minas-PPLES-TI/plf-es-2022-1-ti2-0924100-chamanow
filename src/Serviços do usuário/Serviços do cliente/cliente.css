@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap%27');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+
+/* Perfil */
+
+.cadastro {
+    background-color: #4939FF;
+    max-width: 25%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: 0 5%;
+}
+
+.fotoUser {
+    width: 164px;
+    border-radius: 50%;
+}
+
+#fotoMobile {
+    display: none;
+}
+
+.avaliacao {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.textoCadastro {
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.nomeUser {
+    color: #FF7500;
+    margin-top: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.subtitulo {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.opcoes {
+    padding-top: 50px;
+    align-items: right;
+    text-align: right;
+    list-style-type: none;
+}
+
+.opcoes li a {
+    font-weight: 500;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+
+#profissa {
+    margin-top: 50px;
+    background: none;
+    padding: 5px 15px;
+    width: 200px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background-color: #FF7500;
+    transition: all 0.2s;
+}
+
+#profissa:hover {
+    background: #FFF;
+    color: #4939FF;
+    font-weight: 500;
+}
+
+.dadosPessoais {
+    padding-top: 150px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloDados {
+    font-weight: 700;
+    font-size: 30px;
+    color: #FF7500;
+}
+.dadosPessoais p{
+    font-size: 18px;
+}
+
+
+#tabelaServicos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+#tabelaServicos td{
+    padding: 10px 50px 10px 50px;
+}
+#tabelaServicos tr{
+    border-bottom: 2px solid whitesmoke;
+}
+
+.cabecalho{
+    background-color:whitesmoke ;
+    color:#FF7500;
+
+}
+
+.cancelado{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-radius: 10%;
+    color: #FF4F4F;
+    background-color: #ffd4d4;
+}
+.naoPago{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-radius: 10%;
+    color: #FF007F;
+    background-color: #ffc6e3;
+}
+.concluido{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-radius: 10%;
+    color: #00E45B;
+    background-color: #bbfdd5;
+}
+.pendente{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-radius: 10%;
+    color: #F4CD00;
+    background-color: #fff3b9;
+}

@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap%27 ');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', italic;
+}
+
+body{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+/*-----------Menu-----------*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #4939FF;
+    box-shadow: 0px 2px 20px #4939FF;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.logo img{
+    width: 300px;
+}
+
+.logo{
+    padding-left: 40px;
+    max-width: 70%;
+    margin:auto;
+}
+
+
+.menu{
+    display: flex;
+    padding-right: 100px;
+    margin: auto;
+}
+
+.menu li a{
+    text-decoration: none;
+    display: block;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.menu li a:hover{
+    text-decoration: none;
+    display: block;
+    background-color: #ff9940;
+}
+
+
+.menu li{
+    list-style: none;
+    padding: 10px;
+}
+
+.menu a{
+    color: aliceblue;
+}
+
+/*--------Body---------*/
+
+.div_titulo{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.nome_servico h1{
+    color: #FF7500;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.nome_servico p{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 30px;
+}
+
+.star-icon::before{
+    content: "\2605";
+    color: #FFD600;
+}
+
+.avaliacao{
+    display: flex;
+    padding-bottom: 10px;
+    margin-top: 50px;
+}
+
+.avaliacao li{
+    padding-left: 10px;
+    list-style: none;
+}
+
+/*--------Cards-------*/
+
+.profissionais{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.card{
+    border-radius: 10px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    transition: all 0.3s ease-out;
+    flex: 1 1 300px;
+    margin: 10px;
+}
+
+.card img{
+    width: 100%;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+}
+
+.card_text{
+    padding: 10px;
+    background-color: #EEEEEE;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.card_text h4{
+    color: #4939FF;
+}
+
+.card p{
+    font-size: 10px;
+    margin-top: 10px;
+    color: black;
+}
+
+.avaliacao_card{
+    display: flex;
+}
+
+.avaliacao_card li{
+    list-style: none;
+    padding-right: 5px;
+}
+
+button{
+    background-color: #EEEEEE;
+    border-width: 1px;
+    border-color: #FF7500;
+    color: #FF7500;
+    padding: 0px 5px;
+    border-radius: 30px;
+    margin-top: 10px;
+    margin-left: 120px;
+}
+
+footer{
+    height: 200px;
+    background-color: #C4C4C4;
+}

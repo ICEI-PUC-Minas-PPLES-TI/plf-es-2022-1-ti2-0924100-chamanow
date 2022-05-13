@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap%27 ');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', italic;
+}
+
+body{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+/*-----------Menu-----------*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #4939FF;
+    box-shadow: 0px 5px 20px #4939FF;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.logo img{
+    width: 300px;
+}
+
+.logo{
+    padding-left: 40px;
+    max-width: 70%;
+    margin:auto;
+}
+
+
+.menu{
+    display: flex;
+    padding-right: 100px;
+    margin: auto;
+}
+
+.menu li a{
+    text-decoration: none;
+    display: block;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.menu li a:hover{
+    text-decoration: none;
+    display: block;
+    background-color: #ff9940;
+}
+
+
+.menu li{
+    list-style: none;
+    padding: 10px;
+}
+
+.menu a{
+    color: aliceblue;
+}
+
+/*--------Body--------*/
+
+.banner{
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.banner img{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.titulo{
+    text-align: left;
+}
+
+.pesquisar{
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    background-color: #EDEDED;
+    margin-left: 400px;
+    padding-right: 400px;
+}
+
+.servicos{
+    padding: 30px;
+}
+
+.servico{
+    padding: 20px;
+    background-color: #EEEEEE;
+    margin: 40px;
+    border-radius: 20px;
+}
+
+.servico h1{
+    color: #4939FF;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/*--------Footer-------*/
+
+footer{
+    height: 200px;
+    background-color: #C4C4C4;
+}

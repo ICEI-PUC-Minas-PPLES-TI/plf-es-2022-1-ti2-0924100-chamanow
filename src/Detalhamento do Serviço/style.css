@@ -1,16 +1,281 @@
+:root {
+    --bg: #333333;
+    --bg-rating: #fafafa;
+    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+    --color-text: #fff;
+    --color-text-secondary: #333333;
+    --primary-color: #4939FF;
+    --secondary-color: #ff6b00;
+    transition: all 0.3s linear;
+}
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+h2[class^="titulo"] {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 50px 0 20px;
+}
+
+body>div {
+    max-width: 60%;
+    margin: 70px auto 0;
+}
+
+
+/* ========== Cabeçalho ========== */
 
 .site-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: var(--primary-color);
+    padding: 7px 100px;
+    border-radius: 0 0 12px 12px;
     height: 60px;
-    background-color: #4939FF;
+}
+
+.site-header a {
+    text-decoration: none;
+    color: var(--color-text);
+    margin-left: 30px;
+}
+
+.site-header a:hover {
+    color: var(--secondary-color);
 }
 
 #logo-header {
-    width: 50px;
+    cursor: pointer;
+    width: 150px;
+}
+
+
+/* ========== Perfil do Usuario ========== */
+
+#info-prestador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.nome-usuario {
+    margin-bottom: 0;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.nome-avaliacao {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+
+/* Foto de Perfil */
+
+#foto-perfil {
+    width: 300px;
+    border-radius: 100%;
+    margin-right: 50px;
+}
+
+
+/* Avaliação */
+
+.avaliacao-usuario,
+.avaliacao {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 0;
+    padding: 0;
+    height: 30px;
+}
+
+#nota {
+    padding-right: 5px;
+}
+
+.ponto {
+    font-size: 40px;
+}
+
+.ponto::before {
+    content: "\2027";
+}
+
+.star-icon {
+    list-style-type: none;
+    cursor: pointer;
+    color: #ffe500;
+    font-size: 30px;
+    /* alterar o tamanho das estrelas */
+}
+
+.star-icon::before {
+    content: "\2605";
+}
+
+.star-icon.ativo~.star-icon::before {
+    content: "\2606";
+}
+
+.avaliacao:hover .star-icon::before {
+    content: "\2605";
+}
+
+.star-icon:hover~.star-icon::before {
+    content: "\2606";
+}
+
+
+/* Descrição */
+
+#descricao {
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+.titulo-regiao-atuacao {
+    font-size: 15px;
+}
+
+
+/* ========== Avaliações ========== */
+
+
+/* Blocos */
+
+#content-avaliacoes {
+    background: var(--bg-rating);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    padding: 20px 30px;
+    border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+    transition: all .2s;
+}
+
+#content-avaliacoes:hover {
+    border-bottom: 2px solid var(--secondary-color);
+    transform: translateY(-7px);
+}
+
+#content-avaliacoes:hover #nome-avaliador {
+    color: var(--secondary-color);
+}
+
+.nome-data {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+}
+
+#nome-avaliador {
+    margin: 0;
+    font-weight: 600;
+}
+
+.hifen {
+    padding: 0 10px;
+}
+
+#data-publicacao {
+    font-style: italic;
+}
+
+#content-avaliacoes #nota {
+    font-size: 13px;
+}
+
+#content-avaliacoes .star-icon {
+    font-size: 20px;
+}
+
+#comentario {
+    font-style: italic;
+    margin: 15px 0 0;
+}
+
+
+/* ========== Detalhar Problema ========== */
+
+#inputProblema {
+    font-size: 14px;
+    border: #F4F2F2;
+    background-color: #F4F2F2;
+    padding: 7px 15px;
+    border-radius: 10px 10px;
+    margin: 30px 0 0;
+}
+
+#inputProblema::placeholder {
+    padding: 20px 30px;
+    font-size: 15px;
+}
+
+#inputProblema:focus {
+    box-shadow: none;
+}
+
+
+/* ========== Btn Contratar ========== */
+
+.btn-contratar {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 80%;
+    margin: 50px auto;
+}
+
+#contratar-servico {
+    border: none;
+    border-radius: 30px;
+    padding: 5px 15px;
+    background-color: var(--secondary-color);
+    color: #FFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+}
+
+#contratar-servico:hover {
+    background-color: #FFF;
+    color: var(--secondary-color);
+}
+
+
+/* ========== Footer ==========*/
+
+footer .footer-container>img {
+    align-self: center;
+    width: 200px;
+}
+
+footer .footer-container {
+    background-color: var(--primary-color);
+    color: var(--color-text);
+    border-radius: 0.8rem 0.8rem 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.footer-container p {
+    text-align: center;
+    padding: 15px 0 0;
+    margin: 0;
 }
