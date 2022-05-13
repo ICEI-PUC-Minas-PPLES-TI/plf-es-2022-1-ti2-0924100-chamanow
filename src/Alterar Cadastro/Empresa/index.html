@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/Logo.svg">
+    <title>Dados da Empresa</title>
+
+    <!-- Aquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/c89ded80b6.js" crossorigin="anonymous"></script>
+
+    <!-- Boxicons -->
+    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+</head>
+
+<body class="backgroundMobile">
+    <div class="login">
+        <div class="textoLogin">
+            <img src="./img/foto.jpg" alt="Foto de Perfil" id="logo">
+            <h3 class="tituloLogin">Nome de Usuário</h3>
+            <img src="./img/avaliacao.png" alt="Avaliação">
+            <ul>
+                <li>Serviços</li>
+                <li>Alterar Cadastro</li>
+                <li>Avaliações</li>
+                <li>Sair</li>
+            </ul>
+        </div>
+        <button id="proximo">Sou um Profissa<button>
+    </div>
+
+    <div class="dadosPessoais">
+        <img src="./img/Logo.svg" alt="Logo ChamaNow" id="logoMobile">
+        <h2 class="tituloDados">Alterar Cadastro</h2>
+
+        <div class="info-login">
+            <div class="dadosContent">
+                <h5 class="subtitulo">Informações de Login</h5>
+                <form id="formDados" class="form">
+                    <input type="text" name="email" id="email" class="form-control" placeholder="Email" minlength="8"
+                        maxlength="50" required>
+                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha"
+                        minlength="18" maxlength="18" required>
+                    <input type="password" name="confimarSenha" id="senha" class="form-control"
+                        placeholder="Confirmar Senha" minlength="18" maxlength="18" required>
+                </form>
+            </div>
+        </div>
+
+        <h5 class="subtitulo">Endereço e Telefone</h5>
+        <form id="formDados" class="form">
+            <input type="number" name="telefone" id="telefone" class="form-control" placeholder="Telefone" minlength="8"
+                maxlength="50" required>
+            <input type="adress" name="rua" id="rua" class="form-control" placeholder="Rua" minlength="8" maxlength="50"
+                required>
+            <input type="adress" name="bairro" id="bairro" class="form-control" placeholder="Bairro" minlength="8"
+                maxlength="50" required>
+            <input type="adress" name="cidade" id="cidade" class="form-control" placeholder="Cidade" minlength="8"
+                maxlength="50" required>
+            <div class="endereco-container">
+                <input type="number" name="cep" id="cep" class="form-control" placeholder="CEP" minlength="8"
+                    maxlength="50" required>
+                <input type="number" name="numero" id="numero" class="form-control" placeholder="Número" minlength="8"
+                    maxlength="50" required>
+                <input type="adress" name="estado" id="estado" class="form-control" placeholder="Estado" minlength="8"
+                    maxlength="50" required>
+            </div>
+        </form>
+
+        <h5 class="subtitulo">Dados da Empresa</h5>
+        <form id="formDados" class="form">
+            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome da Empresa" minlength="8"
+                maxlength="50" required>
+            <input type="number" name="cnpj" id="cnpj" class="form-control" placeholder="CNPJ" minlength="8" maxlength="50"
+                required>
+        </form>
+
+        <h5 class="subtitulo">Área de Atuação</h5>
+        <form id="formDados" class="form">
+            <select id="lista-servicos" name="select" placeholder="Serviços">
+                <option disabled selected>Selecione um serviço</option>
+                <option>Pintura</option>
+                <option>Reparos Hidraúlicos (Bombeiro)</option>
+                <option>Carpintaria</option>
+                <option>Alvenaria</option>
+            </select>
+        </form>
+
+        <div class="btns">
+            <button id="proximo">Confirmar<i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <div class="loginMobile">
+            Já possui uma conta? <a href="" id="linkLoginMobile">Entrar</a>
+        </div>
+    </div>
+</body>
+
+</html>
