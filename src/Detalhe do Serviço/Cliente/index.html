@@ -25,6 +25,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+    <!-- Arquivos JS -->
+    <script src="./js/script.js"></script>
 </head>
 
 <body>
@@ -79,7 +82,7 @@
             <img src="./img/perfil-sem-foto.png" alt="Perfil sem foto" id="foto-perfil">
             <div class="descricao-perfil">
                 <div class="nome-avaliacao">
-                    <h2 class="nome-usuario">Nome do Prestador</h2>
+                    <h2 id="nome-usuario"></h2>
                     <div class="avaliacao-usuario">
                         <span id="nota">4,5</span>
                         <span class="ponto"></span>
@@ -91,7 +94,7 @@
                             <li class="star-icon" data-avaliacao="5"></li>
                         </ul>
                     </div>
-                    <p id="descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p id="descricao"></p>
                     <div id="regiao-atuacao">
                         <h5 class="titulo-regiao-atuacao">Região de Atuação:</h5>
                         <p id="location"></p>
@@ -102,52 +105,11 @@
 
         <div id="avaliacoes">
             <h2 class="titulo-avaliacoes">Avaliações</h2>
-            <div id="content-avaliacoes">
-                <div class="nome-data">
-                    <h5 id="nome-avaliador">Nome do Avaliador</h5>
-                    <span class="hifen">-</span>
-                    <span id="data-publicacao">Data da publicacao</span>
-                </div>
-
-                <div class="avaliacao-usuario">
-                    <span id="nota">4,5</span>
-                    <span class="ponto"></span>
-                    <ul class="avaliacao">
-                        <li class="star-icon" data-avaliacao="1"></li>
-                        <li class="star-icon" data-avaliacao="2"></li>
-                        <li class="star-icon" data-avaliacao="3"></li>
-                        <li class="star-icon" data-avaliacao="4"></li>
-                        <li class="star-icon" data-avaliacao="5"></li>
-                    </ul>
-                </div>
-                <p id="comentario">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div id="content-avaliacoes">
-                <div class="nome-data">
-                    <h5 id="nome-avaliador">Nome do Avaliador</h5>
-                    <span class="hifen">-</span>
-                    <span id="data-publicacao">Data da publicacao</span>
-                </div>
-
-                <div class="avaliacao-usuario">
-                    <span id="nota">4,5</span>
-                    <span class="ponto"></span>
-                    <ul class="avaliacao">
-                        <li class="star-icon" data-avaliacao="1"></li>
-                        <li class="star-icon" data-avaliacao="2"></li>
-                        <li class="star-icon" data-avaliacao="3"></li>
-                        <li class="star-icon" data-avaliacao="4"></li>
-                        <li class="star-icon" data-avaliacao="5"></li>
-                    </ul>
-                </div>
-                <p id="comentario">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
         </div>
 
         <div class="detalhar-problema">
             <h2 class="titulo-detalhar-problema">Detalhar o Problema</h2>
-            <p class="detalhe-problema-cliente">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Eleifend donec pretium vulputate sapien nec
-                sagittis. Cras adipiscing enim eu turpis egestas pretium aenean. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet.</p>
+            <p id="detalhe-problema-cliente"></p>
         </div>
 
         <div class="escolher-data-orcamento">
@@ -201,6 +163,9 @@
             </p>
         </div>
     </footer>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
