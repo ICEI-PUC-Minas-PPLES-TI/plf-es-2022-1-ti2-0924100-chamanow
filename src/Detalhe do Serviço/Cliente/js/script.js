@@ -113,10 +113,33 @@ function avaliacoesUsuario(quantAvaliacoes) {
     }
 }
 
-function detalharProblema(cor_usuario) {
+function detalharProblema(cod_usuario) {
     // Descrição do problema
     const descricaoProblema = document.querySelector("#detalhe-problema-cliente");
     descricaoProblema.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Eleifend donec pretium vulputate sapien nec sagittis.Cras adipiscing enim eu turpis egestas pretium aenean.Consequat interdum varius sit amet mattis vulputate enim nulla aliquet.";
+}
+
+function escolherData(cod_servico, opicoes) {
+    // Criando uma referência para o datalist das datas disponíveis
+    const datasDisponiveis = document.querySelector("#data-disponivel");
+
+    for (var i = 0; i < opicoes; i++) {
+        // Criação dos elementos para as datas disponíveis
+        const opicoesDatasDisponiveis = document.createElement('option');
+        opicoesDatasDisponiveis.id = `opicao-${i}`;
+        opicoesDatasDisponiveis.value = `Item ${i + 1}`;
+
+        // Colocando as opições dentro do datalist
+        datasDisponiveis.appendChild(opicoesDatasDisponiveis);
+    }
+}
+
+function baixarOrcamento(cod_servico) {
+    // Criando uma referência para o btn de baixar orçamento
+    const btnOrcamento = document.querySelector("#btn-orcamento");
+
+    // Alterando a referência do arquivo para download do orçamento
+    btnOrcamento.href = "";
 }
 
 $(document).ready(function() {
@@ -128,4 +151,10 @@ $(document).ready(function() {
 
     // Gerar o detalhamento do problema
     detalharProblema();
+
+    // Gerar as datas disponíveis para a marcação do serviço
+    escolherData(0, 6);
+
+    // Alterar a referência do arquivo para download do orçamento
+    baixarOrcamento();
 })
