@@ -67,7 +67,7 @@ body>div {
     margin-top: 50px;
 }
 
-.nome-usuario {
+#nome-usuario {
     margin-bottom: 0;
     color: var(--secondary-color);
     font-weight: 700;
@@ -157,7 +157,7 @@ body>div {
 
 /* Blocos */
 
-#content-avaliacoes {
+.content-avaliacoes {
     background: var(--bg-rating);
     border-radius: 15px;
     margin-bottom: 30px;
@@ -167,12 +167,12 @@ body>div {
     transition: all .2s;
 }
 
-#content-avaliacoes:hover {
+.content-avaliacoes:hover {
     border-bottom: 2px solid var(--secondary-color);
     transform: translateY(-7px);
 }
 
-#content-avaliacoes:hover #nome-avaliador {
+.content-avaliacoes:hover #nome-avaliador {
     color: var(--secondary-color);
 }
 
@@ -222,7 +222,6 @@ body>div {
 }
 
 #inputProblema::placeholder {
-    padding: 20px 30px;
     font-size: 15px;
 }
 
