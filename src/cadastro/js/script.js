@@ -138,9 +138,13 @@ function login(tipoUsuario) {
 
 
 function enderecoTelefone(tipoUsuario) {
-    // Alterar o overflow do body
+    // Alterar o overflow do body no mobile
     const body = document.querySelector(".backgroundMobile");
-    body.style = "overflow-y: auto; padding: 50px 0";
+
+    if (window.screen.width < 900)
+        body.style = "overflow-y: auto; padding: 50px 0";
+    else
+        body.style = "overflow: hidden; padding: 0";
 
     // Referenciar o form do enderecoTelefone
     const formLogin = document.querySelector("#formDados");
@@ -497,7 +501,7 @@ function regiaoAtuacao(tipoUsuario) {
     const btnVoltar = document.querySelector("#voltar");
     btnVoltar.innerHTML = `<i class="fa-solid fa-chevron-left"></i> 4/4`;
 
-    btnVoltar.onclic = function() {
+    btnVoltar.onclick = function() {
         if (tipoUsuario == "profissional") {
             setTimeout(() => formLogin.style = "animation: desaparecer .3s ease-in", 5);
             setTimeout(() => dadosPessoais(tipoUsuario), 300);

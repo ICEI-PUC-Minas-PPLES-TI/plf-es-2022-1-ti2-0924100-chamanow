@@ -19,6 +19,7 @@
 body {
     display: flex;
     overflow: none;
+    padding: 0;
 }
 
 .hidden {
@@ -32,11 +33,10 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 80%;
 }
 
 .escolherUsuario button {
-    margin-top: 100px;
+    margin: 100px 25px 0;
     padding: 20px 30px;
     border-color: var(--bg);
     border-radius: 5px;
@@ -52,9 +52,8 @@ body {
 /* Login do Usuário */
 
 .login {
-    background-color: #4939FF;
+    background-color: var(--primary-color);
     max-width: 25%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
