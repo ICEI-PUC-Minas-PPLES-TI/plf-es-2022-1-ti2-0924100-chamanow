@@ -315,6 +315,9 @@ Usar o seguinte modelo:
 | --- | --- | --- | --- | --- | --- |
 | Nota de Avaliação | Indentificar a avaliação individual de cada usuário | Nota de avaliação ao final de cada serviço (Profissional e Cliente) | Média de todas as avaliações de cada usuário  | Avaliações de cada usuário | Cliente/Profissional |
 | Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços | Tempo corrido desde o início do serviço até o fim do serviço |  (Somatório(DataConclusao - DataContratação ))/ServiçosConcluidosrealizados  | Tempo de cada serviço | Cliente |
+| Serviços agendados |  Avaliar o crescimento da plataforma | Total de serviços agendados mês à mês |  Somátorio(ServiçosAgendados)  | Tabela agendamento | Processos internos |
+| Cancelamento |  Identificar processos pássiveis de melhorias | Percentual de processos cancelados em relação ao total de serviços executados |  (Somátorio(Status(Concluído) / Somátorio(Status(Cancelado)) *100  | Tabela agendamento | Otimização de processos |
+
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
 
