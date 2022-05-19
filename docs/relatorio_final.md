@@ -314,6 +314,7 @@ Usar o seguinte modelo:
 | **Indicador** | **Objetivos** | **Descrição** | **Cálculo** | **Fonte dados** | **Perspectiva** |
 | --- | --- | --- | --- | --- | --- |
 | Nota de Avaliação | Indentificar a avaliação individual de cada usuário | Nota de avaliação ao final de cada serviço (Profissional e Cliente) | Média de todas as avaliações de cada usuário  | Avaliações de cada usuário | Cliente/Profissional |
+| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços | Tempo corrido desde o início do serviço até o fim do serviço |  (Somatório(DataConclusao - DataContratação ))/ServiçosConcluidosrealizados  | Tempo de cada serviço | Cliente |
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
 
