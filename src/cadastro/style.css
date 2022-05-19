@@ -18,6 +18,7 @@
 
 body {
     display: flex;
+    overflow: none;
 }
 
 .hidden {
@@ -123,6 +124,7 @@ body {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    margin-top: -5px;
 }
 
 .labelSelecaoEstado {
@@ -168,6 +170,31 @@ input[type=number] {
     color: #fff;
 }
 
+
+/* Animações do form */
+
+@keyframes surgir {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes desaparecer {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
+
 #formDados input {
     margin-top: 25px;
     border: none;
@@ -181,6 +208,11 @@ input[type=number] {
     box-shadow: none;
 }
 
+#formDados label {
+    margin: 0 0 5px;
+    color: var(--color-text-secondary);
+}
+
 #formDados select {
     appearance: none;
     -webkit-appearance: none;
@@ -189,6 +221,10 @@ input[type=number] {
     border-radius: 30px;
     padding: 7px 30px;
     background-color: #EDEDED;
+}
+
+#selectServico {
+    margin-bottom: 25px;
 }
 
 #formDados select:hover {
@@ -244,6 +280,16 @@ input[type=number] {
 }
 
 @media screen and (max-width: 900px) {
+    input[type=number] {
+        max-width: 60%;
+    }
+    .escolherUsuario {
+        flex-direction: column;
+    }
+    .escolherUsuario button {
+        width: 200px;
+        margin-top: 30px;
+    }
     .backgroundMobile {
         background-color: #4939FF;
         color: #FFF;
@@ -271,6 +317,20 @@ input[type=number] {
     }
     #formDados {
         width: 100%;
+    }
+    .divCEP {
+        flex-direction: column;
+        margin-top: 0;
+        align-items: flex-start;
+    }
+    .divEstado {
+        margin-top: 15px;
+    }
+    #formDados label {
+        color: var(--color-text);
+    }
+    .labelSelecaoEstado {
+        margin-left: 15px !important;
     }
     .loginMobile {
         display: block;

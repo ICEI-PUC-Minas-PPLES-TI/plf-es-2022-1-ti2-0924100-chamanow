@@ -2,6 +2,12 @@ function escolherUsuario() {
     // Limpa o conteúdo do form
     $("#formDados").html("");
 
+    // Referenciar o form do login
+    const dadosContent = document.querySelector(".dadosContent");
+
+    // Cancelar a animação do form
+    dadosContent.style = "display: none";
+
     // Limpa os btns de escolha do tipo de usuario
     $(".escolherUsuario").html("");
 
@@ -45,6 +51,12 @@ function escolherUsuario() {
 }
 
 function login(tipoUsuario) {
+    // Referenciar a div do form
+    const dadosContent = document.querySelector(".dadosContent");
+
+    // Mostrar a div do form
+    dadosContent.style = "display: block";
+
     // Atualização do subtitulo
     const subtitulo = document.querySelector(".subtituloDados");
     subtitulo.innerText = "Preencha os campos corretamente";
@@ -63,6 +75,10 @@ function login(tipoUsuario) {
 
     // Limpa o conteúdo do form
     $("#formDados").html("");
+
+    // Disparar animação para o form aparecer
+    formLogin.style = "opacity: 0";
+    setTimeout(() => formLogin.style = "animation: surgir .3s ease-out", 5);
 
     // Criação do input do email
     const inputEmail = document.createElement('input');
@@ -107,23 +123,34 @@ function login(tipoUsuario) {
         btnVoltar.innerHTML = `<i class="fa-solid fa-chevron-left"></i> 1/4`;
 
     btnVoltar.onclick = function() {
-        escolherUsuario();
+        setTimeout(() => formLogin.style = "animation: desaparecer .3s ease-in", 5);
+        formLogin.style = "";
+        formLogin.style = "opacity: 0";
+        setTimeout(() => escolherUsuario(), 310);
     };
 
     // Verifica quando o btn próximo for clicado
     btnProximo.innerHTML = `Próximo <i class="fa-solid fa-chevron-right"></i>`;
     btnProximo.onclick = function() {
-        enderecoTelefone(tipoUsuario);
+        setTimeout(() => enderecoTelefone(tipoUsuario), 5);
     };
 }
 
 
 function enderecoTelefone(tipoUsuario) {
+    // Alterar o overflow do body
+    const body = document.querySelector(".backgroundMobile");
+    body.style = "overflow-y: auto; padding: 50px 0";
+
     // Referenciar o form do enderecoTelefone
     const formLogin = document.querySelector("#formDados");
 
     // Limpa a conteúdo do form
     $("#formDados").html("");
+
+    // Disparar animação para o form aparecer
+    formLogin.style = "opacity: 0";
+    setTimeout(() => formLogin.style = "animation: surgir .3s ease-out", 5);
 
     // Div Telefone ============================================
 
@@ -266,7 +293,9 @@ function enderecoTelefone(tipoUsuario) {
         btnVoltar.innerHTML = `<i class="fa-solid fa-chevron-left"></i> 2/4`;
 
     btnVoltar.onclick = function() {
-        login(tipoUsuario);
+        setTimeout(() => body.style = "overflow: hidden; padding: 0", 5);
+        setTimeout(() => formLogin.style = "animation: desaparecer .3s ease-in", 50);
+        setTimeout(() => login(tipoUsuario), 300);
     };
 
 
@@ -274,10 +303,12 @@ function enderecoTelefone(tipoUsuario) {
     const btnProximo = document.querySelector("#proximo");
     btnProximo.innerHTML = `Próximo <i class="fa-solid fa-chevron-right"></i>`;
     btnProximo.onclick = function() {
+        body.style = "overflow: hidden";
+
         if (tipoUsuario == "cliente" || tipoUsuario == "profissional")
-            dadosPessoais(tipoUsuario);
+            setTimeout(() => dadosPessoais(tipoUsuario), 5);
         else
-            dadosEmpresa(tipoUsuario);
+            setTimeout(() => dadosEmpresa(tipoUsuario), 5);
     };
 }
 
@@ -287,6 +318,10 @@ function dadosPessoais(tipoUsuario) {
 
     // Limpa a conteúdo do form
     $("#formDados").html("");
+
+    // Disparar animação para o form aparecer
+    formLogin.style = "opacity: 0";
+    setTimeout(() => formLogin.style = "animation: surgir .3s ease-out", 5);
 
     // Criação do input do Nome
     const inputNome = document.createElement('input');
@@ -334,9 +369,9 @@ function dadosPessoais(tipoUsuario) {
         btnVoltar.innerHTML = `<i class="fa-solid fa-chevron-left"></i> 3/4`;
 
     btnVoltar.onclick = function() {
-        enderecoTelefone(tipoUsuario);
+        setTimeout(() => formLogin.style = "animation: desaparecer .3s ease-in", 5);
+        setTimeout(() => enderecoTelefone(tipoUsuario), 300);
     };
-
 
     // Verifica quando o btn próximo for clicado
     const btnProximo = document.querySelector("#proximo");
@@ -349,7 +384,7 @@ function dadosPessoais(tipoUsuario) {
         if (tipoUsuario == "cliente")
             console.log("Fim - Cliente");
         else
-            regiaoAtuacao(tipoUsuario);
+            setTimeout(() => regiaoAtuacao(tipoUsuario), 5);
     };
 }
 
@@ -359,6 +394,10 @@ function dadosEmpresa(tipoUsuario) {
 
     // Limpa a conteúdo do form
     $("#formDados").html("");
+
+    // Disparar animação para o form aparecer
+    formLogin.style = "opacity: 0";
+    setTimeout(() => formLogin.style = "animation: surgir .3s ease-out", 5);
 
     // Criação do input do Nome da Empresa
     const inputNomeEmpresa = document.createElement('input');
@@ -391,14 +430,15 @@ function dadosEmpresa(tipoUsuario) {
     btnVoltar.innerHTML = `<i class="fa-solid fa-chevron-left"></i> 3/4`;
 
     btnVoltar.onclick = function() {
-        enderecoTelefone(tipoUsuario);
+        setTimeout(() => formLogin.style = "animation: desaparecer .3s ease-in", 5);
+        setTimeout(() => enderecoTelefone(tipoUsuario), 300);
     };
 
     // Verifica quando o btn próximo for clicado
     const btnProximo = document.querySelector("#proximo");
     btnProximo.innerHTML = `Próximo <i class="fa-solid fa-chevron-right"></i>`;
     btnProximo.onclick = function() {
-        regiaoAtuacao(tipoUsuario);
+        setTimeout(() => regiaoAtuacao(tipoUsuario), 5);
     };
 }
 
@@ -408,6 +448,10 @@ function regiaoAtuacao(tipoUsuario) {
 
     // Limpa a conteúdo do form
     $("#formDados").html("");
+
+    // Disparar animação para o form aparecer
+    formLogin.style = "opacity: 0";
+    setTimeout(() => formLogin.style = "animation: surgir .3s ease-out", 5);
 
     // Criação do input do Selecionar Serviços
     const selectServico = document.createElement('select');
@@ -454,10 +498,13 @@ function regiaoAtuacao(tipoUsuario) {
     btnVoltar.innerHTML = `<i class="fa-solid fa-chevron-left"></i> 4/4`;
 
     btnVoltar.onclic = function() {
-        if (tipoUsuario == "profissional")
-            dadosPessoais(tipoUsuario);
-        else
-            dadosEmpresa(tipoUsuario);
+        if (tipoUsuario == "profissional") {
+            setTimeout(() => formLogin.style = "animation: desaparecer .3s ease-in", 5);
+            setTimeout(() => dadosPessoais(tipoUsuario), 300);
+        } else {
+            setTimeout(() => formLogin.style = "animation: desaparecer .3s ease-in", 5);
+            setTimeout(() => dadosEmpresa(tipoUsuario), 300);
+        }
     };
 
     // Verifica quando o btn próximo for clicado
