@@ -108,6 +108,7 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastro será realizado, para empresas, profissionais ou cliente. No caso do profisisonal, o usuário informará os dados pessoais além do tipo de serviço que será prestado, o contato, a localização, o raio de operação, etc. Para a empresa, além dos itens já citados, ela terá que informar os dados da empresa. E para o cliente, apenas os dados pessoais. Todos deverão inserir as informações de login como e-mail e senha. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 #### Cadastro do Usuário
+
 <img alt="Diagrama do Processo 1 (Cadastro)" title="Processo 1 - Cadastro do Usuário" src="/assets/processos/Diagrama_Cadastro-Usuario.png"/>
 
 ---
@@ -198,7 +199,6 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Pesquisar serviço | Caixa de texto |  |  |
 | Escolher serviço | Seleção única |  |  |
 
-
 **Escolher profissional**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
@@ -206,20 +206,17 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Escolher profissional | Seleção única |  |  |
 | Detalhar problema | Área de texto | Máximo 500 caracteres |  |
 
-
 **Receber informações do usuário e o problema**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Aceitar serviço? | Link | SIM/NÃO |  |
 
-
 **Receber mensagem de cancelamento**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Refazer escolha? | Link | SIM/NÃO |  |
-
 
 **Enviar orçamento**
 
@@ -229,13 +226,11 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Detalhar orçamento | Área de texto | Máximo 500 caracteres |  |
 | Enviar arquivo | Arquivo | PDF,PNG,JPEG - até 10mb  |  |
 
-
 **Receber orcamento do profissional**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Aceitar orçamento? | Link | SIM/NÃO |  |
-
 
 **Selecionar datas disponíveis**
 
@@ -243,7 +238,6 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Data | Múltipla escolha | DD/MM/AA |  |
 | Horário | Número | 00:00 |  |
-
 
 **Escolher data**
 
@@ -253,7 +247,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Horário | Seleção única | 00:00  |  |
 
  ---
- 
+
 ### Processo 3 - Realização do Serviço
 
 **Receber lembrete de serviço agendado**
@@ -288,7 +282,6 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Escrever comentário | Área de texto |  |  |
 
-
 ### Tecnologias
 
 As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferramentas de modelagem como o Camunda Modeler e o Draw.io, as linguagens voltadas à criação de páginas web como HTML5, CSS3 e o JavaScript, além do Bootstrap como framework auxiliar. A IDE que utilizaremos para o desenvolvimento será o Visual Studio Code. O SGBD escolhido foi o Microsoft SQL Server, sendo utilizada a linguagem SQL. As informações e o código serão documentados pelo GitHub.
@@ -307,9 +300,16 @@ Usar o seguinte modelo:
 
 | **Indicador** | **Objetivos** | **Descrição** | **Cálculo** | **Fonte dados** | **Perspectiva** |
 | --- | --- | --- | --- | --- | --- |
-| Percentual reclamações | Avaliar quantitativamente as reclamações | Percentual de reclamações em relação ao total atendimento |   | Tabela reclamações | Aprendizado e Crescimento |
-| Taxa de Requisições abertas | Melhorar a prestação de serviços medindo a porcentagem de requisições | Mede % de requisições atendidas na semana | ![\frac{\sum{atendidas}}{\sum{requisicoes}}100](https://latex.codecogs.com/svg.latex?\frac{\sum{atendidas}}{\sum{requisicoes}}100) | Tabela solicitações | Processos internos |
-| Taxa de entrega de material | Manter controle sobre os materiais que estão sendo entregues | Mede % de material entregue dentro do mês |   | Tabela Pedidos | Clientes |
+| Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | ∑(avaliacao_usuario(nota)/Count(avalicao_usuario(nota))  | avaliacao_usuario | Cliente |
+| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento))-(agendamento(data_servico)))/Count(agendamento(data_servico))  | agendamento | Cliente |
+| Serviços agendados |  Avaliar o crescimento da plataforma | Total de serviços agendados mês à mês |  ∑(agendamento(status=agendado)  | agendamento | Processos internos |
+| Cancelamento |  Identificar processos pássiveis de melhorias | Percentual de processos cancelados em relação ao total de serviços executados |  (∑(agendamento(status=Concluido)) / ∑(agendamento(status=Cancelado)) * 100  | agendamento | Otimização de processos |
+| Novos usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | ∑(usuario(data_criacao)) | usuario | Departamento de Marketing
+| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Departamento de Marketing |
+| Serviços mais contratados  |  Analisar quais são os serviços mais contratados  | Conta a quantidade de serviços contratados de cada tipo pelos usuários e armazena esses dados |  ∑(agendamento(cod_tipo) ≠ nulo | usuario | Cliente |
+| Preço médio dos serviços  |  Analisar o preço médio dos serviços contratados na plataforma  |Faz uma média somando o preço de todos os serviços contratados e divide pela quantidade de serviços prestados |   (∑(agendamento(valor_orcamento) ≠ nulo)) /  (∑(agendamento(cod_tipo) ≠ nulo)) | agendamento | Processos internos |
+| Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Calcula a porcentagem de serviços pendentes | ((∑(agendamento(status) = pendente) / (∑(agendamento(cod_tipo) ≠ nulo)) * 100 | agendamento | Processos internos |
+| Quantidade de serviços não pagos | Analisar se existem muitos serviços a serem pagos | Calcula a porcentagem de serviços não pagos | ((∑(agendamento(status) = não pago) / (∑(agendamento(cod_tipo) ≠ nulo)) * 100 | agendamento | Processos internos |
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
 
