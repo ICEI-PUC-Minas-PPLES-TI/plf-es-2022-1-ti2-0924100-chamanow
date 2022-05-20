@@ -317,8 +317,11 @@ Usar o seguinte modelo:
 | Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços | Tempo corrido desde o início do serviço até o fim do serviço |  (Somatório(DataConclusao - DataContratação ))/ServiçosConcluidosrealizados  | Tempo de cada serviço | Cliente |
 | Serviços agendados |  Avaliar o crescimento da plataforma | Total de serviços agendados mês à mês |  ∑(Agendamento(Status=Agendado)  | Agendamento | Processos internos |
 | Cancelamento |  Identificar processos pássiveis de melhorias | Percentual de processos cancelados em relação ao total de serviços executados |  (∑(Agendamento(Status=Concluido)) / ∑(Agendamento(Status=Cancelado)) * 100  | Agendamento | Otimização de processos |
-| Novos usuarios | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | ∑(usuario(data_criacao)) | usuario | Departamento de Marketing 
+| Novos usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | ∑(usuario(data_criacao)) | usuario | Departamento de Marketing 
 | Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Mede a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Departamento de Marketing |
+| Serviços mais contratados  |  Analisar quais são os serviços mais contratados  | Conta a quantidade de serviços contratados de cada tipo pelos usuários e armazena esses dados |  ∑(agendamento(cod_tipo) ≠ nulo | usuario | Cliente |
+| Preço médio dos serviços  |  Analisar o preço médio dos serviços contratados na plataforma  |Faz uma média somando o preço de todos os serviços contratados e divide pela quantidade de serviços prestados |   (∑(agendamento(valor_orcamento) ≠ nulo)) /  (∑(agendamento(cod_tipo) ≠ nulo)) | agendamento | Processos internos |
+
 
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
