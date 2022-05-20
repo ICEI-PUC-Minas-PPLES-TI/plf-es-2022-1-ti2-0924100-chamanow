@@ -300,18 +300,12 @@ Usar o seguinte modelo:
 
 | **Indicador** | **Objetivos** | **Descrição** | **Cálculo** | **Fonte dados** | **Perspectiva** |
 | --- | --- | --- | --- | --- | --- |
-| Nota de Avaliação | Indentificar a avaliação individual de cada usuário | Nota de avaliação ao final de cada serviço (Profissional e Cliente) | Média de todas as avaliações de cada usuário  | Avaliações de cada usuário | Cliente/Profissional |
-| Taxa de Requisições abertas | Melhorar a prestação de serviços medindo a porcentagem de requisições | Mede % de requisições atendidas na semana | ![\frac{\sum{atendidas}}{\sum{requisicoes}}100](https://latex.codecogs.com/svg.latex?\frac{\sum{atendidas}}{\sum{requisicoes}}100) | Tabela solicitações | Processos internos |
-| Taxa de entrega de material | Manter controle sobre os materiais que estão sendo entregues | Mede % de material entregue dentro do mês |   | Tabela Pedidos | Clientes |
-
-| **Indicador** | **Objetivos** | **Descrição** | **Cálculo** | **Fonte dados** | **Perspectiva** |
-| --- | --- | --- | --- | --- | --- |
-| Nota de Avaliação | Indentificar a avaliação individual de cada usuário | Nota de avaliação ao final de cada serviço (Profissional e Cliente) | Média de todas as avaliações de cada usuário  | Avaliações de cada usuário | Cliente/Profissional |
-| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços | Tempo corrido desde o início do serviço até o fim do serviço |  (Somatório(DataConclusao - DataContratação ))/ServiçosConcluidosrealizados  | Tempo de cada serviço | Cliente |
-| Serviços agendados |  Avaliar o crescimento da plataforma | Total de serviços agendados mês à mês |  ∑(Agendamento(Status=Agendado)  | Agendamento | Processos internos |
-| Cancelamento |  Identificar processos pássiveis de melhorias | Percentual de processos cancelados em relação ao total de serviços executados |  (∑(Agendamento(Status=Concluido)) / ∑(Agendamento(Status=Cancelado)) * 100  | Agendamento | Otimização de processos |
+| Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | ∑(avaliacao_usuario(nota)/Count(avalicao_usuario(nota))  | avaliacao_usuario | Cliente |
+| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento))-(agendamento(data_servico)))/Count(agendamento(data_servico))  | agendamento | Cliente |
+| Serviços agendados |  Avaliar o crescimento da plataforma | Total de serviços agendados mês à mês |  ∑(agendamento(status=agendado)  | agendamento | Processos internos |
+| Cancelamento |  Identificar processos pássiveis de melhorias | Percentual de processos cancelados em relação ao total de serviços executados |  (∑(agendamento(status=Concluido)) / ∑(agendamento(status=Cancelado)) * 100  | agendamento | Otimização de processos |
 | Novos usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | ∑(usuario(data_criacao)) | usuario | Departamento de Marketing
-| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Mede a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Departamento de Marketing |
+| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Departamento de Marketing |
 | Serviços mais contratados  |  Analisar quais são os serviços mais contratados  | Conta a quantidade de serviços contratados de cada tipo pelos usuários e armazena esses dados |  ∑(agendamento(cod_tipo) ≠ nulo | usuario | Cliente |
 | Preço médio dos serviços  |  Analisar o preço médio dos serviços contratados na plataforma  |Faz uma média somando o preço de todos os serviços contratados e divide pela quantidade de serviços prestados |   (∑(agendamento(valor_orcamento) ≠ nulo)) /  (∑(agendamento(cod_tipo) ≠ nulo)) | agendamento | Processos internos |
 | Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Calcula a porcentagem de serviços pendentes | ((∑(agendamento(status) = pendente) / (∑(agendamento(cod_tipo) ≠ nulo)) * 100 | agendamento | Processos internos |
