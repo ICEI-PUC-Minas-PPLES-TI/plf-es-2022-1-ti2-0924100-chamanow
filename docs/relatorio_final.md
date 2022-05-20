@@ -314,6 +314,8 @@ Usar o seguinte modelo:
 | Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Mede a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Departamento de Marketing |
 | Serviços mais contratados  |  Analisar quais são os serviços mais contratados  | Conta a quantidade de serviços contratados de cada tipo pelos usuários e armazena esses dados |  ∑(agendamento(cod_tipo) ≠ nulo | usuario | Cliente |
 | Preço médio dos serviços  |  Analisar o preço médio dos serviços contratados na plataforma  |Faz uma média somando o preço de todos os serviços contratados e divide pela quantidade de serviços prestados |   (∑(agendamento(valor_orcamento) ≠ nulo)) /  (∑(agendamento(cod_tipo) ≠ nulo)) | agendamento | Processos internos |
+| Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Calcula a porcentagem de serviços pendentes | ((∑(agendamento(status) = pendente) / (∑(agendamento(cod_tipo) ≠ nulo)) * 100 | agendamento | Processos internos |
+| Quantidade de serviços não pagos | Analisar se existem muitos serviços a serem pagos | Calcula a porcentagem de serviços não pagos | ((∑(agendamento(status) = não pago) / (∑(agendamento(cod_tipo) ≠ nulo)) * 100 | agendamento | Processos internos |
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
 
