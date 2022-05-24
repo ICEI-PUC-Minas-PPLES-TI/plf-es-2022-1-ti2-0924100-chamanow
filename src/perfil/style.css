@@ -1,0 +1,176 @@
+/* ========== Formatações Gerais ==========*/
+
+:root {
+    --bg: #999999;
+    --bg-rating: #fafafa;
+    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+    --color-text: #fff;
+    --color-text-secondary: #333333;
+    --primary-color: #4939FF;
+    --secondary-color: #ff6b00;
+    --star-color: #ffe500;
+    transition: all 0.3s linear;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    overflow: none;
+    padding: 0;
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Menu Lateral */
+
+.menuLateral {
+    background-color: var(--primary-color);
+    max-width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-text);
+    padding: 0 5%;
+}
+
+#ftUser {
+    width: 120px;
+    border-radius: 100%;
+}
+
+#logoMobile {
+    display: none;
+}
+
+.userInfos {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#nomeUser {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 25px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+
+/* Avaliação */
+
+.avaliacao-usuario,
+.avaliacao {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 0;
+    height: 25px;
+}
+
+#nota {
+    font-size: 12px;
+    text-align: center;
+}
+
+.ponto {
+    font-size: 30px;
+    padding: 0 3px;
+}
+
+.ponto::before {
+    content: "\2027";
+}
+
+.star-icon {
+    list-style-type: none;
+    cursor: pointer;
+    color: var(--star-color);
+    font-size: 20px;
+    /* alterar o tamanho das estrelas */
+}
+
+.star-icon::before {
+    content: "\2605";
+}
+
+.star-icon.ativo~.star-icon::before {
+    content: "\2606";
+}
+
+.avaliacao:hover .star-icon::before {
+    content: "\2605";
+}
+
+.star-icon:hover~.star-icon::before {
+    content: "\2606";
+}
+
+#cadastroPrestador {
+    margin-top: 30px;
+    background: var(--secondary-color);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    color: var(--color-text);
+    transition: all 0.2s;
+}
+
+#cadastroPrestador:hover {
+    background: var(--color-text);
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 30px 0 0;
+    margin: 0 0 0 auto;
+}
+
+.menu button {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 15px;
+    padding: 5px 0;
+    transition: all .1s ease-in-out;
+}
+
+.menu button:hover {
+    color: var(--secondary-color);
+}
+
+.servicoNotify {
+    display: block;
+    position: relative;
+}
+
+#notification {
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 60px;
+    line-height: 16px;
+    height: 16px;
+    padding: 0 5px;
+    color: var(--color-text);
+    font-size: 13px;
+    border: none;
+    border-radius: 10px;
+    background: var(--secondary-color);
+}
