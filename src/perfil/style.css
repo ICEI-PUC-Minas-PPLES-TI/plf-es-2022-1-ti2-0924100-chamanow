@@ -19,6 +19,7 @@
 
 body {
     display: flex;
+    align-items: center;
     overflow: none;
     padding: 0;
     height: 100vh;
@@ -33,13 +34,15 @@ body {
 
 .menuLateral {
     background-color: var(--primary-color);
-    max-width: 30%;
+    width: 25%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     color: var(--color-text);
-    padding: 0 5%;
+    padding: 0 50px;
+    position: fixed;
 }
 
 #ftUser {
@@ -138,8 +141,8 @@ body {
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
-    padding: 30px 0 0;
-    margin: 0 0 0 auto;
+    padding: 0;
+    margin: 40px 0 30px auto;
 }
 
 .menu button {
@@ -147,8 +150,9 @@ body {
     border: none;
     color: var(--color-text);
     font-size: 15px;
-    padding: 5px 0;
+    padding: 7px 0;
     transition: all .1s ease-in-out;
+    text-align: end;
 }
 
 .menu button:hover {
@@ -173,4 +177,83 @@ body {
     border: none;
     border-radius: 10px;
     background: var(--secondary-color);
+}
+
+
+/* Conteúdo do menu */
+
+.content {
+    width: 75%;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+}
+
+.tituloContent {
+    margin-bottom: 30px;
+}
+
+.tituloSecao {
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--secondary-color);
+}
+
+.descricaoSecao {
+    font-size: 18px;
+}
+
+#tabelaServico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#tabelaServico td {
+    width: 320px;
+    padding: 15px 20px;
+    font-size: 14px;
+}
+
+#tabelaServico tr:not(:first-child) {
+    border-bottom: 1px solid #E8E8E8;
+    cursor: pointer;
+}
+
+.cabecalho {
+    background-color: #FCFBFB;
+    color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+td span {
+    padding: 5px 10px;
+    border-radius: 7px;
+}
+
+#tabelaServico tr:nth-child(4n + 1) td:last-child span,
+#cancelado {
+    color: #FF4F4F;
+    background-color: #ffd4d4;
+}
+
+#tabelaServico tr:nth-child(4n + 2) td:last-child span,
+#naoPago {
+    color: #FF007F;
+    background-color: #ffc6e3;
+}
+
+#tabelaServico tr:nth-child(4n + 3) td:last-child span,
+#concluido {
+    color: #00E45B;
+    background-color: #bbfdd5;
+}
+
+#tabelaServico tr:nth-child(4n + 4) td:last-child span,
+#pendente {
+    color: #F4CD00;
+    background-color: #fff3b9;
 }
