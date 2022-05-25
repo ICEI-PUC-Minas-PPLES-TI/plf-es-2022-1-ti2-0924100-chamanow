@@ -9,6 +9,7 @@
     --primary-color: #4939FF;
     --secondary-color: #ff6b00;
     --star-color: #ffe500;
+    --color-input: #ededed;
     transition: all 0.3s linear;
 }
 
@@ -180,7 +181,7 @@ body {
 }
 
 
-/* Conteúdo do menu */
+/* Conteúdo da seção */
 
 .content {
     width: 75%;
@@ -188,17 +189,18 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
+    top: 0;
     right: 0;
 }
 
-.tituloContent {
-    margin-bottom: 30px;
+.dadosMenu {
+    margin-top: 25px;
 }
 
 .tituloSecao {
     font-weight: 700;
     font-size: 30px;
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .descricaoSecao {
@@ -256,4 +258,86 @@ td span {
 #pendente {
     color: #F4CD00;
     background-color: #fff3b9;
+}
+
+
+/* Formulário */
+
+.dadosMenu>div:not(:first-child) {
+    margin-top: 70px;
+}
+
+.subtitulo {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ff7033;
+}
+
+input[type=number] {
+    max-width: 40%;
+}
+
+.dadosMenu form {
+    width: 85%;
+    margin-top: 20px;
+    margin-left: 25px;
+    color: var(--color-text);
+}
+
+.dadosMenu input {
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    padding: 7px 30px;
+    background-color: var(--color-input);
+}
+
+.dadosMenu input:focus {
+    border: none;
+    box-shadow: none;
+    background-color: var(--color-input);
+}
+
+.divCEP {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.divCEP input {
+    margin-right: 15px;
+}
+
+.divEstado {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: -5px;
+}
+
+.dadosMenu label {
+    margin: 0 0 5px;
+    color: var(--color-text-secondary);
+}
+
+.dadosMenu select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    border-radius: 30px;
+    padding: 7px 30px;
+    background-color: var(--color-input);
+}
+
+.dadosMenu select:hover {
+    border: none;
+    border-style: none;
+}
+
+.dadosMenu select:focus {
+    border: none;
+    box-shadow: none;
 }
