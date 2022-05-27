@@ -109,14 +109,8 @@ function tabelaServicos(cod_user) {
     // Adicionar a tabela na divTabela
     divTabelaServico.appendChild(tabelaServico);
 
-    // Adicionar divTabelaServico na divDadosMenu
-    const divDadosMenu = document.querySelector(".dadosMenu");
-    divDadosMenu.appendChild(divTabelaServico);
-
-    // Identifica se o btn alterar cadastro foi clicado
-    $('#alterarCadastro').click(function(e) {
-        alterarCadastro(cod_user);
-    });
+    // Retornar a tabela
+    return divTabelaServico;
 }
 
 function alterarCadastro(cod_user) {
@@ -131,28 +125,38 @@ function alterarCadastro(cod_user) {
     const descricaoSecao = document.querySelector(".descricaoSecao");
     descricaoSecao.innerText = "";
 
+    // Adicionar divFormLogin na divAlterarCadastro
+    const divAlterarCadastro = document.createElement("div");
+    divAlterarCadastro.className = "";
+
     // Form Login =====================================================
-    formLogin(cod_user);
+    const divFormLogin = formLogin(cod_user);
+    divAlterarCadastro.appendChild(divFormLogin);
 
     // Form Endereço ==================================================
-    formEnderecoTel(cod_user);
+    const divFormTelCadastro = formEnderecoTel(cod_user);
+    divAlterarCadastro.appendChild(divFormTelCadastro);
 
     // Form Dados Pessoais ============================================
-    if (cod_user == "p" || cod_user == "c")
-        formDadosPessoais(cod_user);
+    if (cod_user == "p" || cod_user == "c") {
+        const divFormDadosPessoaisCadastro = formDadosPessoais(cod_user);
+        divAlterarCadastro.appendChild(divFormDadosPessoaisCadastro);
+    }
 
     // Form Dados da Empresa ==========================================
-    if (cod_user == "e")
-        formDadosEmpresa(cod_user);
+    if (cod_user == "e") {
+        const divFormDadosEmpresa = formDadosEmpresa(cod_user);
+        divAlterarCadastro.appendChild(divFormDadosEmpresa);
+    }
 
     // Form Area de Atuação ===========================================
-    if (cod_user == "p" || cod_user == "e")
-        formAreaAtuacao(cod_user);
+    if (cod_user == "p" || cod_user == "e") {
+        const divFormAreaAtuacao = formAreaAtuacao(cod_user);
+        divAlterarCadastro.appendChild(divFormAreaAtuacao);
+    }
 
-    // Identifica se o btn serviços foi clicado
-    $('#servicos').click(function() {
-        tabelaServicos(cod_user);
-    });
+    // Retornar divAlterarCadastro
+    return divAlterarCadastro;
 }
 
 function formLogin(cod_user) {
@@ -210,9 +214,8 @@ function formLogin(cod_user) {
     divFormLogin.appendChild(tituloFormLogin);
     divFormLogin.appendChild(formLogin);
 
-    // Adicionar divFormLogin na divDadosMenu
-    const divDadosMenu = document.querySelector(".dadosMenu");
-    divDadosMenu.appendChild(divFormLogin);
+    // Retornar divFormLogin
+    return divFormLogin;
 }
 
 function formEnderecoTel(cod_user) {
@@ -367,9 +370,8 @@ function formEnderecoTel(cod_user) {
     divFormTel.appendChild(tituloFormTel);
     divFormTel.appendChild(formTel);
 
-    // Adicionar divFormTel na divDadosMenu
-    const divDadosMenu = document.querySelector(".dadosMenu");
-    divDadosMenu.appendChild(divFormTel);
+    // Retornar divFormTel
+    return divFormTel;
 }
 
 function formDadosPessoais(cod_user) {
@@ -429,9 +431,8 @@ function formDadosPessoais(cod_user) {
     divFormDadosPessoais.appendChild(tituloFormDadosPessoais);
     divFormDadosPessoais.appendChild(formDadosPessoais);
 
-    // Adicionar divFormDadosPessoais na divDadosMenu
-    const divDadosMenu = document.querySelector(".dadosMenu");
-    divDadosMenu.appendChild(divFormDadosPessoais);
+    // Retornar divFormDadosPessoais
+    return divFormDadosPessoais;
 }
 
 function formDadosEmpresa(cod_user) {
@@ -479,9 +480,8 @@ function formDadosEmpresa(cod_user) {
     divFormDadosEmpresa.appendChild(tituloFormDadosEmpresa);
     divFormDadosEmpresa.appendChild(formDadosEmpresa);
 
-    // Adicionar divFormDadosEmpresa na divDadosMenu
-    const divDadosMenu = document.querySelector(".dadosMenu");
-    divDadosMenu.appendChild(divFormDadosEmpresa);
+    // Retornar divFormDadosEmpresa
+    return divFormDadosEmpresa;
 }
 
 function formAreaAtuacao(cod_user) {
@@ -521,12 +521,133 @@ function formAreaAtuacao(cod_user) {
     divFormAreaAtuacao.appendChild(tituloFormAreaAtuacao);
     divFormAreaAtuacao.appendChild(formAreaAtuacao);
 
-    // Adicionar divFormAreaAtuacao na divDadosMenu
-    const divDadosMenu = document.querySelector(".dadosMenu");
-    divDadosMenu.appendChild(divFormAreaAtuacao);
+    // Retornar divFormAreaAtuacao
+    return divFormAreaAtuacao;
+}
+
+function criarListaAvaliacoes(cod_user) {
+
+    // Referenciar div dadosMenu
+    const divAvaliacoes = document.createElement("div");
+    divAvaliacoes.className = "divAvaliacoes";
+
+    // Div Nome e Data ====================================
+
+    // Criação da div com o nome e data
+    const divNomeData = document.createElement('div');
+    divNomeData.className = "nome-data";
+
+    // Criação do elemento para o nome do avaliador
+    const nomeAvaliador = document.createElement('h5');
+    nomeAvaliador.id = "nome-avaliador";
+    nomeAvaliador.innerText = "Nome do Avaliador";
+
+    // Criação do elemento para o hifen
+    const hifen = document.createElement('span');
+    hifen.className = "hifen";
+    hifen.innerText = "-";
+
+    // Criação do elemento para a data da publicação da avaliação
+    const dataPublicacao = document.createElement('span');
+    dataPublicacao.id = "data-publicacao";
+    dataPublicacao.innerText = "Data da publicacao";
+
+    // Colocando os elementos criados dentro de div nomeData
+    divNomeData.appendChild(nomeAvaliador);
+    divNomeData.appendChild(hifen);
+    divNomeData.appendChild(dataPublicacao);
+
+    // Div Avaliação ========================================
+
+    // Criação da div com a nota da avaliação
+    const divAvaliacao = document.createElement('div');
+    divAvaliacao.className = "avaliacao-usuario";
+
+    // Criação do elemento para a nota
+    const notaAvaliacao = document.createElement('span');
+    notaAvaliacao.id = "nota";
+    notaAvaliacao.innerText = "4,5";
+
+    // Criação do elemento para o ponto de separação
+    const ponto = document.createElement('span');
+    ponto.className = "ponto";
+
+    // Criação do elemento que conterá as estrelas
+    const listEstrelas = document.createElement('ul');
+    listEstrelas.className = "avaliacao";
+
+    // Criando e colocando os elementos estrela dentro da lista
+    for (var i = 0; i < 5; i++) {
+        // Criação do elemento para as estrelas
+        const estrelas = document.createElement('li');
+        estrelas.className = "star-icon";
+
+        // Colocando os elementos estrela dentro da lista
+        listEstrelas.appendChild(estrelas);
+    }
+
+    // Colocando os elementos criados dentro da divAvaliacao
+    divAvaliacao.appendChild(notaAvaliacao);
+    divAvaliacao.appendChild(ponto);
+    divAvaliacao.appendChild(listEstrelas);
+
+    // Comentario ============================================
+
+    // Criação do elemento para o comentario da avaliação
+    const comentarioAvaliacao = document.createElement('p');
+    comentarioAvaliacao.id = "comentario";
+    comentarioAvaliacao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+    // Div Geral =============================================
+
+    // Colocando todos as divs criadas dentro da divAvaliacoes
+    divAvaliacoes.appendChild(divNomeData);
+    divAvaliacoes.appendChild(divAvaliacao);
+    divAvaliacoes.appendChild(comentarioAvaliacao);
+
+    // Retornar divAvaliacoes
+    return divAvaliacoes;
 }
 
 $(document).ready(function() {
-    // Carregar os btns de esolher o usuario
-    tabelaServicos("p");
+    const cod_user = "p";
+
+    // Referenciar a div com a tabela
+    const divTabelaServico = tabelaServicos(cod_user);
+
+    // Adicionar divTabelaServico na divDadosMenu
+    const divDadosMenu = document.querySelector(".dadosMenu");
+    divDadosMenu.appendChild(divTabelaServico);
+
+    // Identifica se o btn alterar cadastro foi clicado
+    $("#servicos").click(function() {
+        // Referenciar a div com a tabela
+        const divTabelaServico = tabelaServicos(cod_user);
+
+        // Adicionar divTabelaServico na divDadosMenu
+        divDadosMenu.appendChild(divTabelaServico);
+    })
+
+    // Identifica se o btn alterar cadastro foi clicado
+    $("#alterarCadastro").click(function() {
+        // Referenciar a div com a tabela
+        const divAlterarCadastro = alterarCadastro(cod_user);
+
+        // Adicionar divAlterarCadastro na divDadosMenu
+        divDadosMenu.appendChild(divAlterarCadastro);
+    })
+
+    // Identifica se o btn alterar cadastro foi clicado
+    $("#avaliacoes").click(function() {
+        // Apagar todos os elementos da seção
+        $(".dadosMenu").html("");
+
+        for (var i = 0; i < 6; i++) {
+            // Referenciar a div com a tabela
+            const divAvaliacoes = criarListaAvaliacoes(cod_user);
+
+            // Adicionar divAvaliacoeso na divDadosMenu
+            divDadosMenu.appendChild(divAvaliacoes);
+        }
+    })
 })
