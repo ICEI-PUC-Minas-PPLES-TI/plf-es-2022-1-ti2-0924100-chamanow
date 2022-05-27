@@ -26,7 +26,7 @@ function tabelaServicos(cod_user) {
 
     // Criação da coluna do nome do cabeçalho
     const colunaNome = document.createElement("td");
-    if (cod_user == "c")
+    if (cod_user == "cliente")
         colunaNome.innerText = "Prestador";
     else
         colunaNome.innerText = "Cliente";
@@ -138,22 +138,28 @@ function alterarCadastro(cod_user) {
     divAlterarCadastro.appendChild(divFormTelCadastro);
 
     // Form Dados Pessoais ============================================
-    if (cod_user == "p" || cod_user == "c") {
+    if (cod_user == "profissional" || cod_user == "cliente") {
         const divFormDadosPessoaisCadastro = formDadosPessoais(cod_user);
         divAlterarCadastro.appendChild(divFormDadosPessoaisCadastro);
     }
 
     // Form Dados da Empresa ==========================================
-    if (cod_user == "e") {
+    if (cod_user == "empresa") {
         const divFormDadosEmpresa = formDadosEmpresa(cod_user);
         divAlterarCadastro.appendChild(divFormDadosEmpresa);
     }
 
     // Form Area de Atuação ===========================================
-    if (cod_user == "p" || cod_user == "e") {
+    if (cod_user == "profissional" || cod_user == "empresa") {
         const divFormAreaAtuacao = formAreaAtuacao(cod_user);
         divAlterarCadastro.appendChild(divFormAreaAtuacao);
     }
+
+    // Criação do btn submmit
+    const btnSubmmit = document.createElement('button');
+    btnSubmmit.id = "btnSubmmit";
+    btnSubmmit.innerHTML = `Alterar <i class="fa-solid fa-check"></i>`;
+    divAlterarCadastro.appendChild(btnSubmmit);
 
     // Retornar divAlterarCadastro
     return divAlterarCadastro;
@@ -610,7 +616,7 @@ function criarListaAvaliacoes(cod_user) {
 }
 
 $(document).ready(function() {
-    const cod_user = "p";
+    const cod_user = "profissional";
 
     // Referenciar a div com a tabela
     const divTabelaServico = tabelaServicos(cod_user);
@@ -650,4 +656,12 @@ $(document).ready(function() {
             divDadosMenu.appendChild(divAvaliacoes);
         }
     })
+
+    // Identificar qual serviço da tabela foi clicado
+    $('#tabelaServico tr').click(function() {
+        var target = this.closest('[id]');
+        setTimeout(function() {
+            window.location.href = `../detalhe-servico/index.html?cod-servico=${String(target.id)}`;
+        }, 50);
+    });
 })

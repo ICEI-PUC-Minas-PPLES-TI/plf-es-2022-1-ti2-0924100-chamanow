@@ -136,7 +136,6 @@ function login(tipoUsuario) {
     };
 }
 
-
 function enderecoTelefone(tipoUsuario) {
     // Alterar o overflow do body no mobile
     const body = document.querySelector(".backgroundMobile");
@@ -520,6 +519,12 @@ function regiaoAtuacao(tipoUsuario) {
 }
 
 $(document).ready(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('user');
+
     // Carregar os btns de esolher o usuario
-    escolherUsuario();
+    if (!searchParam)
+        escolherUsuario();
+    else
+        login(searchParam);
 })

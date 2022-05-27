@@ -215,8 +215,11 @@ td span {
     margin-top: 70px;
 }
 
+.dadosMenu form {
+    margin-bottom: 70px;
+}
+
 .subtitulo {
-    margin-top: 20px;
     font-size: 1rem;
     font-weight: 700;
     color: #ff7033;
@@ -288,6 +291,27 @@ input[type=number] {
 .dadosMenu select:focus {
     border: none;
     box-shadow: none;
+}
+
+#btnSubmmit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    width: 110px;
+    background: var(--primary-color);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    color: var(--color-text);
+    transition: all 0.2s;
+}
+
+#btnSubmmit:hover {
+    background: var(--color-text);
+    color: var(--primary-color);
+    font-weight: 500;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
 }
 
 
