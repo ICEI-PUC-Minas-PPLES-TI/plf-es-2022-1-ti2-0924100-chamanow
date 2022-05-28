@@ -119,4 +119,16 @@ $(document).ready(function() {
 
     // Gera as avaliações
     avaliacoesUsuario(2);
+
+    // Verifica se há detalhamento do problema salvo no localStorage
+    var detalhamento = localStorage.getItem("detalhamento");
+    if (detalhamento) {
+        $("#inputProblema").val(detalhamento);
+        localStorage.removeItem("detalhamento");
+    }
+
+    const btnOrcamento = document.querySelector("#contratar-servico");
+    btnOrcamento.onclick = () => {
+        detalheProblemaBD();
+    }
 })
