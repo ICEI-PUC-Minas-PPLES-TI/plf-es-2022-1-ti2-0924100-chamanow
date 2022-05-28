@@ -1,4 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap%27');
+/* ========== Formatações Gerais ==========*/
+
+:root {
+    --bg: #999999;
+    --bg-rating: #fafafa;
+    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+    --color-text: #fff;
+    --color-text-secondary: #333333;
+    --primary-color: #4939FF;
+    --secondary-color: #ff6b00;
+    --star-color: #ffe500;
+    --color-input: #ededed;
+    --invalid-input: #fa2929;
+    transition: all 0.3s linear;
+}
+
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -6,6 +21,14 @@
 
 body {
     display: flex;
+    align-items: center;
+    overflow: none;
+    padding: 0;
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
 }
 
 
@@ -16,7 +39,7 @@ body {
     max-width: 25%;
     height: 100vh;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     color: white;
@@ -41,14 +64,12 @@ body {
 .tituloCadastro {
     margin-top: 30px;
     font-weight: 700;
-    text-align: center;
 }
 
 .subtitulo {
     margin-top: 20px;
     font-size: 15px;
     font-weight: 300;
-    text-align: center;
 }
 
 #cadastrar {
@@ -113,6 +134,8 @@ body {
 
 #formDados input:focus {
     border: none;
+    box-shadow: none;
+    background-color: #EDEDED;
 }
 
 .btns {
@@ -121,7 +144,6 @@ body {
     margin-top: 50px;
     width: 65%;
 }
-
 
 #entrar {
     border: none;
