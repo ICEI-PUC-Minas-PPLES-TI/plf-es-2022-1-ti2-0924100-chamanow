@@ -8,6 +8,9 @@
     --color-text-secondary: #333333;
     --primary-color: #4939FF;
     --secondary-color: #ff6b00;
+    --right-color: #20E300;
+    --wrong-color: #FF3737;
+    --yellow-color: #FFD600;
     transition: all 0.3s linear;
 }
 
@@ -35,7 +38,7 @@ button[id^="btn-"] {
     border-radius: 30px;
     padding: 5px 15px;
     background-color: var(--secondary-color);
-    color: #FFF;
+    color: var(--color-text);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     transition: all 0.2s;
     text-decoration: none;
@@ -73,7 +76,7 @@ button[id^="btn-"] {
 .modal-body #comentario-avaliacao {
     font-size: 14px;
     border: none;
-    background-color: #F4F2F2;
+    background-color: var(--bg-rating);
     padding: 7px 15px;
     border-radius: 10px 10px;
     margin: 30px 0 0;
@@ -136,12 +139,12 @@ button[id^="btn-"] {
 }
 
 #btn-enviar-avaliacao:hover {
-    background-color: #FFF;
+    background-color: var(--color-text);
     color: var(--secondary-color);
 }
 
 #btn-sair-avaliacao:hover {
-    background-color: #FFF;
+    background-color: var(--color-text);
     color: var(--primary-color);
 }
 
@@ -355,61 +358,67 @@ button[id^="btn-"] {
 }
 
 
-/* ========== Orçamento ========== */
-
-.btn-baixar-orcamento {
-    margin-top: 46px;
-}
-
-#btn-orcamento {
-    border: none;
-    border-radius: 30px;
-    padding: 5px 15px;
-    background-color: var(--secondary-color);
-    color: #FFF;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s;
-    text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 210px;
-}
-
-#btn-orcamento i {
-    margin-left: 10px;
-}
-
-#btn-orcamento:hover {
-    background-color: #FFF;
-    color: var(--secondary-color);
-}
-
-
-/* ========== Comprovante de Pagamento ========== */
+/* ========== Config geral de Orçamento e Comprovante de Pagamento ========== */
 
 input[type="file"] {
     display: none;
 }
 
-.btn-upload-comprovante label {
+a[id^="btn-"] {
     border: none;
     border-radius: 30px;
     padding: 5px 15px;
     background-color: var(--secondary-color);
-    color: #FFF;
+    color: var(--color-text);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     transition: all 0.2s;
     text-decoration: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 230px;
+    max-width: 230px;
 }
 
-.btn-upload-comprovante label:hover {
-    background-color: #FFF;
+a[id^="btn-"] i {
+    margin-left: 10px;
+}
+
+a[id^="btn-"]:hover {
+    background-color: var(--color-text);
     color: var(--secondary-color);
+}
+
+label[for^="btn-"] {
+    border: none;
+    border-radius: 30px;
+    padding: 5px 15px;
+    background-color: var(--secondary-color);
+    color: var(--color-text);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label[for^="btn-"]:hover {
+    background-color: var(--color-text);
+    color: var(--secondary-color);
+}
+
+
+/* ========== Orçamento ========== */
+
+.divOrcamento {
+    margin-top: 46px;
+}
+
+
+/* ========== Comprovante de Pagamento ========== */
+
+.divComprovante {
+    max-width: 230px;
 }
 
 
@@ -422,6 +431,10 @@ input[type="file"] {
     margin: 100px auto 50px !important;
 }
 
+.btn-hud a {
+    text-decoration: none;
+}
+
 .btn-aceitar-recusar {
     display: flex;
     justify-content: space-between;
@@ -430,33 +443,33 @@ input[type="file"] {
 }
 
 #btn-avaliar-prestador {
-    background-color: #FFD600;
+    background-color: var(--yellow-color);
     width: 210px;
 }
 
 #btn-recusar-servico {
-    background-color: #FF3737;
+    background-color: var(--wrong-color);
     width: 180px;
 }
 
 #btn-aceitar-servico {
-    background-color: #20E300;
+    background-color: var(--right-color);
     width: 180px;
 }
 
 #btn-avaliar-prestador:hover {
-    background-color: #FFF;
-    color: #FFD600;
+    background-color: var(--color-text);
+    color: var(--yellow-color);
 }
 
 #btn-recusar-servico:hover {
-    background-color: #FFF;
-    color: #FF3737;
+    background-color: var(--color-text);
+    color: var(--wrong-color);
 }
 
 #btn-aceitar-servico:hover {
-    background-color: #FFF;
-    color: #20E300;
+    background-color: var(--color-text);
+    color: var(--right-color);
 }
 
 

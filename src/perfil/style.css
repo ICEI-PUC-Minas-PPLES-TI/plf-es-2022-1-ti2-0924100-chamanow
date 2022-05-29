@@ -222,7 +222,7 @@ td span {
 .subtitulo {
     font-size: 1rem;
     font-weight: 700;
-    color: #ff7033;
+    color: var(--secondary-color);
 }
 
 input[type=number] {

@@ -1,3 +1,5 @@
+const PERFIL_URL = "../perfil/index.html";
+
 function infoPerfil() {
     // Nome de usuario
     const nomeUsuario = document.querySelector("#nome-usuario");
@@ -119,30 +121,259 @@ function detalharProblema(cod_usuario) {
     descricaoProblema.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Eleifend donec pretium vulputate sapien nec sagittis.Cras adipiscing enim eu turpis egestas pretium aenean.Consequat interdum varius sit amet mattis vulputate enim nulla aliquet.";
 }
 
-function escolherData(cod_servico, opicoes) {
-    // Criando uma referência para o datalist das datas disponíveis
-    const datasDisponiveis = document.querySelector("#data-disponivel");
+function orcamento(cod_servico, tipoUser, codStatus) {
+    // Criação do título da seção
+    const titulo = document.createElement("h2");
+    titulo.className = "titulo-orcamento";
+    titulo.innerText = "Orçamento";
 
-    for (var i = 0; i < opicoes; i++) {
-        // Criação dos elementos para as datas disponíveis
-        const opicoesDatasDisponiveis = document.createElement('option');
-        opicoesDatasDisponiveis.id = `opicao-${i}`;
-        opicoesDatasDisponiveis.value = `Item ${i + 1}`;
+    // Criação da descrição da seção
+    const descricao = document.createElement("p");
+    descricao.id = "descricao-orcamento";
+    descricao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-        // Colocando as opições dentro do datalist
-        datasDisponiveis.appendChild(opicoesDatasDisponiveis);
+    // Criação da div para armazenar a label e o input
+    const divOrcamento = document.createElement("div");
+    divOrcamento.className = "divOrcamento";
+
+    if (tipoUser == "cliente" || codStatus > 1) {
+        // Adicionando o btn criado na página
+        divOrcamento.appendChild(orcamentoCliente());
+    } else {
+        // Criação do btn para download do orçamento
+        const btnOrcamento = document.createElement("input");
+
+        // Adicionando o tipo do input para file
+        btnOrcamento.setAttribute("type", "file");
+
+        // Adicionando um id para o btn
+        btnOrcamento.id = "btn-orcamento";
+
+        // Adicionando um name para o btn
+        btnOrcamento.setAttribute("name", "btn-orcamento");
+
+        // Adicionando o local onde será armazenado o arquivo no banco de dados
+        btnOrcamento.setAttribute("accept", "");
+
+        // Criação da label para o btn
+        const label = document.createElement("label");
+        label.setAttribute("for", "btn-orcamento");
+
+        // Adicionando o conteúdo do btn
+        label.innerHTML = `Upload Orçamento <i class="fa-solid fa-upload"></i>`;
+
+        // Adicionando o btn criado na página
+        divOrcamento.appendChild(label);
+        divOrcamento.appendChild(btnOrcamento);
+
+        // Alterar nome do btn para enviar orçamento
+        const btnEnviarOrcamento = document.querySelector("#btn-aceitar-servico");
+        btnEnviarOrcamento.innerHTML = `Enviar Orçamento <i class="fa-solid fa-check"></i>`;
+    }
+
+    // Adição dos elementos criados na div 
+    const divPrincipalOrcamento = document.querySelector(".orcamento");
+    divPrincipalOrcamento.appendChild(titulo);
+    divPrincipalOrcamento.appendChild(descricao);
+    divPrincipalOrcamento.appendChild(divOrcamento);
+}
+
+function orcamentoCliente() {
+    // Criação do btn para download do orçamento
+    const btnOrcamento = document.createElement("a");
+
+    // Adicionando um id para o btn
+    btnOrcamento.id = "btn-orcamento";
+
+    // Adicionando um name para o btn
+    btnOrcamento.setAttribute("name", "btn-orcamento");
+
+    // Adicionando a href de download do arquivo
+    btnOrcamento.setAttribute("href", "");
+
+    // Adicionando o nome do arquivo de download
+    btnOrcamento.setAttribute("download", "Orçamento.pdf");
+
+    // Adicionando o conteúdo do btn
+    btnOrcamento.innerHTML = `Baixar Orçamento <i class="fa-solid fa-download"></i>`;
+
+    return btnOrcamento;
+}
+
+function escolherData(cod_servico, tipoUser, codStatus, opicoes) {
+    // Criação do título da seção
+    const titulo = document.createElement("h2");
+    titulo.className = "titulo-escolher-data";
+    titulo.innerText = "Escolher Datas";
+
+    // Criação da descrição da seção
+    const descricao = document.createElement("p");
+    descricao.id = "descricao-escolher-data";
+    descricao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+    // Criação do input
+    const inputEscolherDatas = document.createElement("input");
+    inputEscolherDatas.id = "inputDataDisponivel";
+    inputEscolherDatas.placeholder = "Datas Disponíveis";
+
+    // Criação do datalist
+    const datalistEscolherDatas = document.createElement("datalist");
+    datalistEscolherDatas.id = "data-disponivel";
+
+    // Adição dos elementos criados na div 
+    const divEscolherData = document.querySelector(".escolher-data");
+    divEscolherData.appendChild(titulo);
+    divEscolherData.appendChild(descricao);
+
+    var data = localStorage.getItem('data');
+    if (codStatus == 2) {
+        if (tipoUser == "cliente") {
+
+            // Criando uma referência para o input e adicionar o atributo list
+            inputEscolherDatas.setAttribute("list", "data-disponivel");
+
+            for (var i = 0; i < opicoes; i++) {
+                // Criação dos elementos para as datas disponíveis
+                const opicoesDatasDisponiveis = document.createElement('option');
+                opicoesDatasDisponiveis.id = `opicao-${i}`;
+                opicoesDatasDisponiveis.value = `Item ${i + 1}`;
+
+                // Colocando as opições dentro do datalist
+                datalistEscolherDatas.appendChild(opicoesDatasDisponiveis);
+            }
+        } else {
+            const today = new Date();
+            // Criando uma referência para o input e adicionar o atributo type
+            inputEscolherDatas.setAttribute("type", "text");
+            inputEscolherDatas.setAttribute("min", today.toISOString().split('T')[0]);
+            inputEscolherDatas.setAttribute("datepicker", "");
+            inputEscolherDatas.setAttribute("data-range", "true");
+        }
+
+        // Adicionar o input e o datalist na divEscolherData
+        divEscolherData.appendChild(inputEscolherDatas);
+        divEscolherData.appendChild(datalistEscolherDatas);
+    } else {
+        // Criação do btn para download do comprovante de pagamento
+        const dataMarcada = document.createElement("p");
+
+        // Adicionando um id para o btn
+        dataMarcada.id = "btn-comprovante";
+
+        // Adicionando o conteúdo do btn
+        dataMarcada.innerText = `${data}`;
+
+        // Adicionar a data marcada na divEscolherData
+        divEscolherData.appendChild(dataMarcada);
     }
 }
 
-function baixarOrcamento(cod_servico) {
-    // Criando uma referência para o btn de baixar orçamento
-    const btnOrcamento = document.querySelector("#btn-orcamento");
+function comprovantePagamento(cod_servico, tipoUser, codStatus) {
+    // Criação do título da seção
+    const titulo = document.createElement("h2");
+    titulo.className = "titulo-comprovante-pagamento";
+    titulo.innerText = "Comprovante de Pagamento";
 
-    // Alterando a referência do arquivo para download do orçamento
-    btnOrcamento.href = "";
+    // Criação da descrição da seção
+    const descricao = document.createElement("p");
+    descricao.id = "descricao-comprovante";
+    descricao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+    // Criação da div para armazenar a label e o input
+    const divComprovante = document.createElement("div");
+    divComprovante.className = "divComprovante";
+
+    if (tipoUser == "cliente") {
+        // Criação do btn para download do comprovante de pagamento
+        const btnComprovante = document.createElement("input");
+
+        // Adicionando o tipo do input para file
+        btnComprovante.setAttribute("type", "file");
+
+        // Adicionando a exenção dos arquivos aceitos
+        btnComprovante.setAttribute("accept", ".pdf, .png, .jpg, .jpeg");
+
+        // Adicionando um id para o btn
+        btnComprovante.id = "btn-comprovante";
+
+        // Adicionando um name para o btn
+        btnComprovante.setAttribute("name", "btn-comprovante");
+
+        // Criação da label para o btn
+        const label = document.createElement("label");
+        label.setAttribute("for", "btn-comprovante");
+
+        // Adicionando o conteúdo do btn
+        label.innerHTML = `Upload Comprovante <i class="fa-solid fa-upload"></i>`;
+
+        // Adicionando o btn criado na página
+        divComprovante.appendChild(label);
+        divComprovante.appendChild(btnComprovante);
+    } else {
+        // Criação do btn para download do comprovante de pagamento
+        const btnComprovante = document.createElement("a");
+
+        // Adicionando um id para o btn
+        btnComprovante.id = "btn-comprovante";
+
+        // Adicionando um name para o btn
+        btnComprovante.setAttribute("name", "btn-comprovante");
+
+        // Adicionando a href de download do arquivo
+        btnComprovante.setAttribute("href", "");
+
+        // Adicionando o nome do arquivo de download
+        btnComprovante.setAttribute("download", "Comprovante de Pagamento.pdf");
+
+        // Adicionando o conteúdo do btn
+        btnComprovante.innerHTML = `Baixar Comprovante <i class="fa-solid fa-download"></i>`;
+
+        // Adicionando o btn criado na página
+        divComprovante.appendChild(btnComprovante);
+    }
+
+    // Adição dos elementos criados na div 
+    const divPrincipalComprovante = document.querySelector(".comprovante");
+    divPrincipalComprovante.appendChild(titulo);
+    divPrincipalComprovante.appendChild(descricao);
+    divPrincipalComprovante.appendChild(divComprovante);
+}
+
+function data_Orcamento(tipoUser) {
+    $("#btn-aceitar-servico").click(function() {
+        orcamento(0, tipoUser);
+
+        this.parentNode.removeChild(this);
+
+        // Criar o btn para enviar orçamento
+        const btnEnviarOrcamento = criarBtnEnviarOrcamento();
+
+        // Adicionar o btn criado na divBtnHud
+        const divBtnHub = document.querySelector(".btn-hud");
+        divBtnHub.appendChild(btnEnviarOrcamento);
+
+        $("#btn-enviar-orcamento").click(function() {
+            window.location.assign(PERFIL_URL);
+        })
+    })
+}
+
+function criarBtnEnviarOrcamento() {
+    // Criar o btn para enviar orçamento
+    const btnEnviarOrcamento = document.createElement("button");
+    btnEnviarOrcamento.id = "btn-enviar-orcamento";
+    btnEnviarOrcamento.innerHTML = `Enviar Orçamento <i class="fa-solid fa-check"></i>`;
+
+    // Retornar o btn criado
+    return btnEnviarOrcamento;
 }
 
 $(document).ready(function() {
+    const tipoUser = "profissional";
+    var codStatusServico = 2;
+    const arquivoOrcamento = "null";
+    const escolherDataHora = null;
+
     // Gera os dados do perfil
     infoPerfil();
 
@@ -152,9 +383,60 @@ $(document).ready(function() {
     // Gerar o detalhamento do problema
     detalharProblema();
 
-    // Gerar as datas disponíveis para a marcação do serviço
-    escolherData(0, 6);
+    const hudBtn = document.querySelector(".btn-hud");
+    const linkRecusarServico = document.querySelector("#recusarServico");
+    const btnRecusarServico = document.querySelector("#btn-recusar-servico");
+    const btnAceitarServico = document.querySelector("#btn-aceitar-servico");
 
-    // Alterar a referência do arquivo para download do orçamento
-    baixarOrcamento();
+    switch (codStatusServico) {
+        case 3:
+            comprovantePagamento(0, tipoUser);
+
+        case 2:
+            escolherData(0, tipoUser, codStatusServico, 6);
+            $("#inputDataDisponivel").blur(function() {
+                localStorage.setItem("data", $("#inputDataDisponivel").val());
+            })
+
+        case 1:
+            orcamento(0, tipoUser, codStatusServico);
+            break;
+
+        case 0:
+            if (tipoUser == "cliente")
+                hudBtn.style = "display: none";
+            else
+                data_Orcamento(tipoUser);
+
+            break;
+
+        case -3:
+            comprovantePagamento(0, tipoUser);
+
+        case -2:
+            escolherData(0, tipoUser, 6);
+
+        case -1:
+            orcamento(0, tipoUser);
+            hudBtn.style = "display: none;";
+            break;
+
+        case -5:
+            if ((tipoUser == "cliente")) {
+                linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
+                btnRecusarServico.style = "width: 105%";
+                btnRecusarServico.innerHTML = `Escolher outro prestador <i class="fa-solid fa-chevron-left"></i>`;
+            }
+
+            btnAceitarServico.style = "display: none";
+            break;
+    }
+
+    if ((tipoUser == "cliente")) {
+        linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
+        $("#btn-aceitar-servico").click(function() {
+            window.location.assign(PERFIL_URL);
+        })
+    } else if (arquivoOrcamento != null && escolherDataHora != null)
+        hudBtn.style = "display: none";
 })
