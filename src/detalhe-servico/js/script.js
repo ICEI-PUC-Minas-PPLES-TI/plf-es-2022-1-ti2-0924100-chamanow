@@ -180,10 +180,7 @@ function orcamento(cod_servico, tipoUser, codStatus) {
 
 function orcamentoCliente() {
     // Criação do btn para download do orçamento
-    const btnOrcamento = document.createElement("a");
-
-    // Adicionando um id para o btn
-    btnOrcamento.id = "btn-orcamento";
+    const btnOrcamento = criarElementos("a", "btn-orcamento", "titulo-escolher-data", `Baixar Orçamento <i class="fa-solid fa-download"></i>`);;
 
     // Adicionando um name para o btn
     btnOrcamento.setAttribute("name", "btn-orcamento");
@@ -194,127 +191,225 @@ function orcamentoCliente() {
     // Adicionando o nome do arquivo de download
     btnOrcamento.setAttribute("download", "Orçamento.pdf");
 
-    // Adicionando o conteúdo do btn
-    btnOrcamento.innerHTML = `Baixar Orçamento <i class="fa-solid fa-download"></i>`;
-
     return btnOrcamento;
 }
 
 function escolherData(cod_servico, tipoUser, codStatus, opicoes) {
     // Criação do título da seção
-    const titulo = document.createElement("h2");
-    titulo.className = "titulo-escolher-data";
-    titulo.innerText = "Escolher Datas";
+    const titulo = criarElementos("h2", null, "titulo-escolher-data", "Escolher Datas");
 
     // Criação da descrição da seção
-    const descricao = document.createElement("p");
-    descricao.id = "descricao-escolher-data";
-    descricao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-    // Criação do input
-    const inputEscolherDatas = document.createElement("input");
-    inputEscolherDatas.id = "inputDataDisponivel";
-    inputEscolherDatas.placeholder = "Datas Disponíveis";
-
-    // Criação do datalist
-    const datalistEscolherDatas = document.createElement("datalist");
-    datalistEscolherDatas.id = "data-disponivel";
+    const pText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    const descricao = criarElementos("p", "descricao-escolher-data", null, pText);
 
     // Adição dos elementos criados na div 
     const divEscolherData = document.querySelector(".escolher-data");
     divEscolherData.appendChild(titulo);
     divEscolherData.appendChild(descricao);
 
-    var data = localStorage.getItem('data');
+    // Criação dos inputs e labels =================================================
+
+    // Criação da label para o input de data
+    const labelData = criarLabels("labelData", "inputDataDisponivel", "Datas Disponíveis");
+
+    // Criação do input para escolher a data
+    const inputEscolherDatas = criarInputs("inputDataDisponivel", "date", null);
+
+    // Criação da div para conter os inputs e labels da data
+    const divInputDate = criarElementos("div", null, "divInputDate");
+
+    // Adicionar os inputs e as labels para escolher a data na divInputDate
+    divInputDate.appendChild(labelData);
+    divInputDate.appendChild(inputEscolherDatas);
+
+    // Criação da label para o input de horário
+    const labelHorario = criarLabels("labelHorario", "inputHorarioDisponivel", "Horários Disponíveis");
+
+    // Criação do input escolher horário
+    const inputEscolherHorario = criarInputs("inputHorarioDisponivel", "time", null);
+
+    // Criação da div para conter os inputs e labels da data
+    const divInputHour = criarElementos("div", null, "divInputDate");
+
+    // Adicionar os inputs e as labels para escolher a data na divInputHour
+    divInputHour.appendChild(labelHorario);
+    divInputHour.appendChild(inputEscolherHorario);
+
+    // Variáveis de controle
+    const dataInicio = localStorage.getItem('dataInicio');
+    const dataFim = localStorage.getItem('dataFim');
+    const dataEscolhida = localStorage.getItem('dataEscolhida');
+
     if (codStatus == 2) {
         if (tipoUser == "cliente") {
+            // Alterando o tipo de input
+            inputEscolherDatas.setAttribute("type", "datetime-local");
 
-            // Criando uma referência para o input e adicionar o atributo list
-            inputEscolherDatas.setAttribute("list", "data-disponivel");
+            // Alterando o limite mín e max do input
+            inputEscolherDatas.setAttribute("min", dataInicio);
+            inputEscolherDatas.setAttribute("max", dataFim);
 
-            for (var i = 0; i < opicoes; i++) {
-                // Criação dos elementos para as datas disponíveis
-                const opicoesDatasDisponiveis = document.createElement('option');
-                opicoesDatasDisponiveis.id = `opicao-${i}`;
-                opicoesDatasDisponiveis.value = `Item ${i + 1}`;
-
-                // Colocando as opições dentro do datalist
-                datalistEscolherDatas.appendChild(opicoesDatasDisponiveis);
-            }
+            // Ocultando a divInputHour
+            divInputHour.style = "display: none";
         } else {
-            const today = new Date();
-            // Criando uma referência para o input e adicionar o atributo type
-            inputEscolherDatas.setAttribute("type", "text");
-            inputEscolherDatas.setAttribute("min", today.toISOString().split('T')[0]);
-            inputEscolherDatas.setAttribute("datepicker", "");
-            inputEscolherDatas.setAttribute("data-range", "true");
+            // Salvar a data atual
+            const today = new Date().toISOString();
+
+            // Input Date ====================================================
+
+            // Alterar conteúdo de labelData
+            labelData.innerText = "Escolha o intervalo de datas:";
+
+            // Alterando o limite min do inputEscolherDatas para a data atual
+            inputEscolherDatas.setAttribute("min", today.split('T')[0]);
+
+            // Input Hour ====================================================
+
+            // Alterar conteúdo de labelHorario
+            labelHorario.innerText = "Informe o horário disponível:";
+
+            // Criando um input para escolher intervalo de datas
+            const inputEscolherDataFim = criarInputs("inputDataFim", "date", null);
+
+            // Alterando o limite min do inputEscolherDataFim para a data atual
+            inputEscolherDataFim.setAttribute("min", today.split('T')[0]);
+
+            // Adicionar os inputs e as labels na divEscolherData
+            divInputDate.appendChild(inputEscolherDataFim);
+
+            // Alterar conteúdo de labelData
+            labelData.innerText = "Escolha o intervalo de datas:";
+
+            // Criando um input para escolher intervalo de horários
+            const inputEscolherHorarioFim = criarInputs("inputHorarioFim", "time", null);
+
+            // AppendChild ===================================================
+
+            // Adicionar os inputs e as labels na divEscolherData
+            divInputDate.appendChild(inputEscolherDataFim);
+            divInputHour.appendChild(inputEscolherHorarioFim)
         }
 
-        // Adicionar o input e o datalist na divEscolherData
-        divEscolherData.appendChild(inputEscolherDatas);
-        divEscolherData.appendChild(datalistEscolherDatas);
+        // Adicionar os inputs e as labels para escolher o horário na divEscolherData
+        divEscolherData.appendChild(divInputDate);
+        divEscolherData.appendChild(divInputHour);
     } else {
         // Criação do btn para download do comprovante de pagamento
-        const dataMarcada = document.createElement("p");
-
-        // Adicionando um id para o btn
-        dataMarcada.id = "btn-comprovante";
-
-        // Adicionando o conteúdo do btn
-        dataMarcada.innerText = `${data}`;
+        const txtDataEscolhida = `${formatarData(dataEscolhida, "dd/mm/aaaa")} às ${formatarHorario(dataEscolhida, "hh:mm")}`
+        const dataMarcada = criarElementos("p", "btn-comprovante", null, txtDataEscolhida);
 
         // Adicionar a data marcada na divEscolherData
         divEscolherData.appendChild(dataMarcada);
     }
 }
 
+function formatarData(data, format) {
+    const map = {
+        dd: data.substring(8, 10),
+        mm: data.substring(5, 7),
+        aaaa: data.substring(0, 4)
+    }
+
+    return format.replace(/dd|mm|aaaa/gi, matched => map[matched])
+}
+
+function formatarHorario(data, format) {
+    const map = {
+        hh: data.substring(11, 13),
+        mm: data.substring(14, 16)
+    }
+
+    return format.replace(/hh|mm/gi, matched => map[matched])
+}
+
+function criarInputs(id, type, placeholder) {
+    // Criar o elemento
+    const input = document.createElement("input");
+
+    // Atribuir um id para ele
+    input.id = id;
+
+    // Atribuir um tipo para ele
+    if (type)
+        input.setAttribute("type", type);
+
+    // Atribuir um placeholder para ele
+    if (placeholder)
+        input.placeholder = placeholder;
+
+    // Retornar o input criado
+    return input;
+}
+
+function criarLabels(id, para, content) {
+    // Criar o elemento
+    const label = document.createElement("label");
+
+    // Atribuir um id para ele
+    label.id = id;
+
+    // Atribuir um tipo para ele
+    if (para)
+        label.setAttribute("for", para);
+
+    // Atribuir um placeholder para ele
+    if (content)
+        label.innerHTML = content;
+
+    // Retornar o input criado
+    return label;
+}
+
+function criarElementos(element, id, classe, content) {
+    // Criar o elemento
+    const elemento = document.createElement(element);
+
+    // Atribuir um id para ele
+    if (id)
+        elemento.id = id;
+
+    // Atribuir um tipo para ele
+    if (classe)
+        elemento.className = classe;
+
+    // Atribuir um placeholder para ele
+    if (content)
+        elemento.innerHTML = content;
+
+    // Retornar o input criado
+    return elemento;
+}
+
 function comprovantePagamento(cod_servico, tipoUser, codStatus) {
     // Criação do título da seção
-    const titulo = document.createElement("h2");
-    titulo.className = "titulo-comprovante-pagamento";
-    titulo.innerText = "Comprovante de Pagamento";
+    const titulo = criarElementos("h2", null, "titulo-comprovante-pagamento", "Comprovante de Pagamento");
 
     // Criação da descrição da seção
-    const descricao = document.createElement("p");
-    descricao.id = "descricao-comprovante";
-    descricao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    const pText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    const descricao = criarElementos("p", "descricao-comprovante", null, pText);
 
     // Criação da div para armazenar a label e o input
-    const divComprovante = document.createElement("div");
-    divComprovante.className = "divComprovante";
+    const divComprovante = criarElementos("div", null, "divComprovante", null);
 
     if (tipoUser == "cliente") {
         // Criação do btn para download do comprovante de pagamento
-        const btnComprovante = document.createElement("input");
-
-        // Adicionando o tipo do input para file
-        btnComprovante.setAttribute("type", "file");
+        const btnComprovante = criarInputs("btn-comprovante", "file", null);
 
         // Adicionando a exenção dos arquivos aceitos
         btnComprovante.setAttribute("accept", ".pdf, .png, .jpg, .jpeg");
-
-        // Adicionando um id para o btn
-        btnComprovante.id = "btn-comprovante";
 
         // Adicionando um name para o btn
         btnComprovante.setAttribute("name", "btn-comprovante");
 
         // Criação da label para o btn
-        const label = document.createElement("label");
-        label.setAttribute("for", "btn-comprovante");
-
-        // Adicionando o conteúdo do btn
-        label.innerHTML = `Upload Comprovante <i class="fa-solid fa-upload"></i>`;
+        const label = criarLabels("labelComprovante", "btn-comprovante", `Upload Comprovante <i class="fa-solid fa-upload"></i>`);
 
         // Adicionando o btn criado na página
         divComprovante.appendChild(label);
         divComprovante.appendChild(btnComprovante);
     } else {
         // Criação do btn para download do comprovante de pagamento
-        const btnComprovante = document.createElement("a");
-
-        // Adicionando um id para o btn
-        btnComprovante.id = "btn-comprovante";
+        const btnComprovante = criarElementos("a", "btn-comprovante", null, `Baixar Comprovante <i class="fa-solid fa-download"></i>`);
 
         // Adicionando um name para o btn
         btnComprovante.setAttribute("name", "btn-comprovante");
@@ -324,9 +419,6 @@ function comprovantePagamento(cod_servico, tipoUser, codStatus) {
 
         // Adicionando o nome do arquivo de download
         btnComprovante.setAttribute("download", "Comprovante de Pagamento.pdf");
-
-        // Adicionando o conteúdo do btn
-        btnComprovante.innerHTML = `Baixar Comprovante <i class="fa-solid fa-download"></i>`;
 
         // Adicionando o btn criado na página
         divComprovante.appendChild(btnComprovante);
@@ -368,11 +460,43 @@ function criarBtnEnviarOrcamento() {
     return btnEnviarOrcamento;
 }
 
+function btnCancelarServico() {
+    // Ocultar btn aceitar cervico
+    const btnAceitarServico = document.querySelector("#btn-aceitar-servico");
+    btnAceitarServico.style = "display: none";
+
+    // Referenciar o btn reusar servico
+    const btnCancelarServico = document.querySelector("#btn-recusar-servico");
+    btnCancelarServico.innerHTML = `Cancelar Serviço <i class="fa-solid fa-xmark"></i>`;
+}
+
+function btnEnviarComprovante() {
+    // Ocultar btn recusar cervico
+    const btnRecusarServico = document.querySelector("#btn-recusar-servico");
+    btnRecusarServico.style = "display: none";
+
+    // Referenciar o btn reusar servico
+    const btnEnviarComprovante = document.querySelector("#btn-aceitar-servico");
+    btnEnviarComprovante.innerHTML = `Enviar Comprovante <i class="fa-solid fa-check"></i>`;
+}
+
+function btnAceitarComprovante() {
+    // Ocultar btn recusar cervico
+    const btnRecusarServico = document.querySelector("#btn-recusar-servico");
+    btnRecusarServico.innerHTML = `Recusar Pagamento <i class="fa-solid fa-xmark"></i>`;
+
+    // Referenciar o btn reusar servico
+    const btnEnviarComprovante = document.querySelector("#btn-aceitar-servico");
+    btnEnviarComprovante.innerHTML = `Aceitar Pagamento <i class="fa-solid fa-check"></i>`;
+}
+
 $(document).ready(function() {
-    const tipoUser = "profissional";
-    var codStatusServico = 2;
+    const tipoUser = "cliente";
+    //const tipoUser = "profissional";
+    var codStatusServico = 4;
     const arquivoOrcamento = "null";
-    const escolherDataHora = null;
+    const dataEscolhida = localStorage.getItem('dataEscolhida');
+    const arquivoComprovante = null;
 
     // Gera os dados do perfil
     infoPerfil();
@@ -383,60 +507,181 @@ $(document).ready(function() {
     // Gerar o detalhamento do problema
     detalharProblema();
 
+    // Refenciar alguns elementos
     const hudBtn = document.querySelector(".btn-hud");
     const linkRecusarServico = document.querySelector("#recusarServico");
     const btnRecusarServico = document.querySelector("#btn-recusar-servico");
     const btnAceitarServico = document.querySelector("#btn-aceitar-servico");
 
-    switch (codStatusServico) {
-        case 3:
-            comprovantePagamento(0, tipoUser);
+    // Salvar a data atual
+    const today = new Date().toISOString().split('T')[0];
 
-        case 2:
-            escolherData(0, tipoUser, codStatusServico, 6);
-            $("#inputDataDisponivel").blur(function() {
-                localStorage.setItem("data", $("#inputDataDisponivel").val());
-            })
+    // Variáveis de controle
+    const dataInicio = localStorage.getItem('dataInicio');
+    const dataFim = localStorage.getItem('dataFim');
 
-        case 1:
-            orcamento(0, tipoUser, codStatusServico);
-            break;
+    switch (tipoUser) {
+        case "cliente":
+            switch (codStatusServico) {
+                case 4:
+                    hudBtn.style = "display: none";
 
-        case 0:
-            if (tipoUser == "cliente")
-                hudBtn.style = "display: none";
-            else
-                data_Orcamento(tipoUser);
+                case 3:
+                    if (today != dataEscolhida.split('T')[0]) {
+                        if (arquivoComprovante == null) {
+                            comprovantePagamento(0, tipoUser);
+                            btnEnviarComprovante();
+                        } else {
+                            comprovantePagamento(0, "profissional");
+                            hudBtn.style = "display: none";
+                        }
+                    } else
+                        btnCancelarServico();
+                case 2:
+                    if (dataInicio) {
+                        escolherData(0, tipoUser, codStatusServico, 6);
 
-            break;
+                        $("#btn-aceitar-servico").click(function() {
+                            localStorage.setItem("dataEscolhida", `${$("#inputDataDisponivel").val()}`);
+                        })
+                    } else
+                        hudBtn.style = "display: none";
 
-        case -3:
-            comprovantePagamento(0, tipoUser);
+                    if (dataEscolhida) {
+                        if (codStatusServico == 2) {
+                            const inputDataDisponivel = document.querySelector("#inputDataDisponivel");
+                            inputDataDisponivel.value = dataEscolhida;
+                            inputDataDisponivel.disabled = true;
+                        }
 
-        case -2:
-            escolherData(0, tipoUser, 6);
+                        hudBtn.style = "display: none";
+                    }
 
-        case -1:
-            orcamento(0, tipoUser);
-            hudBtn.style = "display: none;";
-            break;
+                case 1:
+                    if (arquivoOrcamento == null)
+                        hudBtn.style = "display: none";
+                    else
+                        orcamento(0, tipoUser, codStatusServico);
 
-        case -5:
-            if ((tipoUser == "cliente")) {
-                linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
-                btnRecusarServico.style = "width: 105%";
-                btnRecusarServico.innerHTML = `Escolher outro prestador <i class="fa-solid fa-chevron-left"></i>`;
+                    break;
+
+                case 0:
+                    hudBtn.style = "display: none";
+
+                    break;
+
+                case -3:
+                    comprovantePagamento(0, tipoUser);
+
+                case -2:
+                    escolherData(0, tipoUser, 6);
+
+                case -1:
+                    orcamento(0, tipoUser);
+                    hudBtn.style = "display: none;";
+                    break;
+
+                case -5:
+                    if ((tipoUser == "cliente")) {
+                        linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
+                        btnRecusarServico.style = "width: 105%";
+                        btnRecusarServico.innerHTML = `Escolher outro prestador <i class="fa-solid fa-chevron-left"></i>`;
+                    }
+
+                    btnAceitarServico.style = "display: none";
+                    break;
             }
 
-            btnAceitarServico.style = "display: none";
+            break;
+
+        default:
+            switch (codStatusServico) {
+                case 4:
+                    hudBtn.style = "display: none";
+
+                case 3:
+                    if (today != dataEscolhida.split('T')[0]) {
+                        if (arquivoComprovante != null) {
+                            comprovantePagamento(0, tipoUser);
+                            btnAceitarComprovante();
+                        }
+                    } else
+                        hudBtn.style = "display: none";
+
+                case 2:
+                    escolherData(0, tipoUser, codStatusServico, 6);
+                    $("#btn-aceitar-servico").click(function() {
+                        localStorage.setItem("dataInicio", `${$("#inputDataDisponivel").val()}T${$("#inputHorarioDisponivel").val()}`);
+                        localStorage.setItem("dataFim", `${$("#inputDataFim").val()}T${$("#inputHorarioFim").val()}`);
+                    })
+
+                    if (dataInicio != null) {
+                        $("#inputDataDisponivel").val(dataInicio.substring(0, 10));
+                        $("#inputDataFim").val(dataFim.substring(0, 10));
+                        $("#inputHorarioDisponivel").val(dataInicio.substring(11));
+                        $("#inputHorarioFim").val(dataFim.substring(11));
+
+                        const allInputs = document.querySelectorAll("input");
+                        allInputs.forEach(input => {
+                            input.disabled = true;
+                        })
+
+                        if (codStatusServico == 2)
+                            hudBtn.style = "display: none";
+                    }
+
+                    $("#btn-aceitar-servico").click(function() {
+                        window.location.assign(PERFIL_URL);
+                    })
+
+                case 1:
+                    if (arquivoOrcamento == null)
+                        orcamento(0, tipoUser, codStatusServico);
+                    else
+                        orcamentoCliente();
+
+                    break;
+
+                case 0:
+                    data_Orcamento(tipoUser);
+
+                    break;
+
+                case -3:
+                    comprovantePagamento(0, tipoUser);
+
+                case -2:
+                    escolherData(0, tipoUser, 6);
+
+                case -1:
+                    orcamento(0, tipoUser);
+                    hudBtn.style = "display: none;";
+
+                    break;
+
+                case -5:
+                    if ((tipoUser == "cliente")) {
+                        linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
+                        btnRecusarServico.style = "width: 105%";
+                        btnRecusarServico.innerHTML = `Escolher outro prestador <i class="fa-solid fa-chevron-left"></i>`;
+                    }
+
+                    btnAceitarServico.style = "display: none";
+                    break;
+            }
+
             break;
     }
+    // Adiciona o atributo required para todos os inputs da página
+    const allInputs = document.querySelectorAll("input");
+    allInputs.forEach(input => {
+        input.setAttribute("required", "");
+    })
 
     if ((tipoUser == "cliente")) {
         linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
         $("#btn-aceitar-servico").click(function() {
             window.location.assign(PERFIL_URL);
         })
-    } else if (arquivoOrcamento != null && escolherDataHora != null)
-        hudBtn.style = "display: none";
+    }
 })
