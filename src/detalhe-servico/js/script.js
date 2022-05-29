@@ -491,6 +491,9 @@ function btnAceitarComprovante() {
 }
 
 $(document).ready(function() {
+    //Calcula o ano
+    document.querySelector('#ano').innerHTML = new Date().getFullYear();
+
     const tipoUser = "cliente";
     //const tipoUser = "profissional";
     var codStatusServico = 4;
