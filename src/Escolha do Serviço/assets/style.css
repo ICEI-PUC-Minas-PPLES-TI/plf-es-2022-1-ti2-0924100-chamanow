@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap%27 ');
-
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', italic;
 }
 
-body{
+body {
     width: 1200px;
     margin: 0 auto;
 }
@@ -15,7 +14,7 @@ body{
 
 /*-----------Menu-----------*/
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -25,64 +24,63 @@ header{
     border-bottom-right-radius: 20px;
 }
 
-.logo img{
+.logo img {
     width: 300px;
 }
 
-.logo{
+.logo {
     padding-left: 40px;
     max-width: 70%;
-    margin:auto;
+    margin: auto;
 }
 
-
-.menu{
+.menu {
     display: flex;
     padding-right: 100px;
     margin: auto;
 }
 
-.menu li a{
+.menu li a {
     text-decoration: none;
     display: block;
     border-radius: 10px;
     padding: 10px;
 }
 
-.menu li a:hover{
+.menu li a:hover {
     text-decoration: none;
     display: block;
     background-color: #ff9940;
 }
 
-
-.menu li{
+.menu li {
     list-style: none;
     padding: 10px;
 }
 
-.menu a{
+.menu a {
     color: aliceblue;
 }
 
+
 /*--------Body--------*/
 
-.banner{
+.banner {
     display: flex;
     align-items: center;
     padding-left: 80px;
 }
 
-.banner img{
+.banner img {
     width: 400px;
     margin: 0 auto;
 }
 
-.titulo{
+.titulo {
     text-align: left;
 }
 
-.pesquisar{
+.pesquisar {
     margin-top: 25px;
     border: none;
     border-radius: 30px;
@@ -92,26 +90,107 @@ header{
     padding-right: 400px;
 }
 
-.servicos{
+.servicos {
     padding: 30px;
 }
 
-.servico{
+.servico {
     padding: 20px;
     background-color: #EEEEEE;
     margin: 40px;
     border-radius: 20px;
 }
 
-.servico h1{
+.servico h1 {
     color: #4939FF;
     text-align: left;
     margin-bottom: 10px;
 }
 
+
 /*--------Footer-------*/
 
-footer{
-    height: 200px;
-    background-color: #C4C4C4;
+.footer {
+    background-color: var(--primary-color);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: 100px;
+}
+
+.beforeLine {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 10% 40px;
+}
+
+.logoSlogan {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoSlogan>img {
+    width: 50px;
+}
+
+.logoSlogan>span {
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.contentFooter {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.contentFooter li {
+    list-style: none;
+    font-size: 15px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.line {
+    width: 80%;
+    border-bottom: 1px var(--bg-rating) solid;
+    margin: 0 auto;
+}
+
+.afterLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px 0;
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+}
+
+.socialMedia a {
+    font-size: 16px;
+    color: var(--color-text);
+    border: .8px var(--color-text) solid;
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socialMedia a:hover {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.copyright {
+    margin-top: 15px;
+    font-size: 12px;
 }
