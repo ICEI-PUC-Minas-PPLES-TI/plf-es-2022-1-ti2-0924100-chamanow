@@ -329,7 +329,7 @@ function dadosPessoais(tipoUsuario) {
     // Criação do input do Nome
     const inputNome = document.createElement('input');
     inputNome.type = "text";
-    inputNome.name = "nome-usuario";
+    inputNome.name = "nome";
     inputNome.id = "nomeUsuario";
     inputNome.className = "form-control";
     inputNome.placeholder = "Nome Completo";
@@ -405,7 +405,7 @@ function dadosEmpresa(tipoUsuario) {
     // Criação do input do Nome da Empresa
     const inputNomeEmpresa = document.createElement('input');
     inputNomeEmpresa.type = "text";
-    inputNomeEmpresa.name = "nome-empresa";
+    inputNomeEmpresa.name = "nome";
     inputNomeEmpresa.id = "nomeEmpresa";
     inputNomeEmpresa.className = "form-control";
     inputNomeEmpresa.placeholder = "Nome da Empresa";
