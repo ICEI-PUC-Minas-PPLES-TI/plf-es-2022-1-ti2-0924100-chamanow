@@ -1,6 +1,20 @@
+// Instalação do EXPRESS
 const express = require("express");
 const app = express();
 const port = 8786;
+
+// Instalação do SEQUELIZE
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('dbchamanow', 'root', '_F0tgj3ng3r0v3rg4ng)', {
+    host: "localhost",
+    dialect: "mysql"
+})
+
+sequelize.authenticate().then(function() {
+    console.log("Conectado com sucesso!");
+}).catch(function(error) {
+    console.log("Erro ao se conectar: " + error);
+});
 
 const urlTelaInicial = "Tela Inicial/index.html";
 const urlPerfil = "perfil/index.html";
