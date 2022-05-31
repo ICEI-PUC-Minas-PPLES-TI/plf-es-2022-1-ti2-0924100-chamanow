@@ -7,11 +7,13 @@
     --color-text: #fff;
     --color-text-secondary: #333333;
     --primary-color: #4939FF;
+    --primary-color-bright: #778ffc;
     --secondary-color: #ff6b00;
     --right-color: #20E300;
     --wrong-color: #FF3737;
     --yellow-color: #FFD600;
-    transition: all 0.3s linear;
+    --transition: all 0.1s linear;
+    --box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
 }
 
 * {
@@ -40,7 +42,7 @@ button[id^="btn-"] {
     background-color: var(--secondary-color);
     color: var(--color-text);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s;
+    transition: var(--transition);
     text-decoration: none;
     display: flex;
     justify-content: space-between;
@@ -155,20 +157,44 @@ button[id^="btn-"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--primary-color);
-    padding: 7px 100px;
+    padding: 7px 15%;
     border-radius: 0 0 12px 12px;
     height: 60px;
 }
 
-.site-header a {
+.menu a {
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--primary-color);
     margin-left: 30px;
+    transition: var(--transition);
 }
 
-.site-header a:hover {
+.menu a:hover {
     color: var(--secondary-color);
+}
+
+.menu a:nth-child(2) {
+    padding: 5px 20px;
+    border-radius: 7px;
+    border: 1.2px var(--primary-color-bright) solid;
+    transition: var(--transition);
+}
+
+.menu a:nth-child(2):hover {
+    border: 1.2px var(--secondary-color) solid;
+}
+
+.menu a:last-child {
+    background-color: var(--secondary-color);
+    color: var(--color-text);
+    padding: 5px 20px;
+    border-radius: 7px;
+}
+
+.menu a:last-child:hover {
+    background-color: var(--color-text);
+    color: var(--secondary-color);
+    box-shadow: var(--box-shadow);
 }
 
 #logo-header {
