@@ -5,17 +5,21 @@ const port = 8786;
 
 // Instalação do SEQUELIZE
 const Sequelize = require('sequelize');
+
+// Instalação do HANDLEBARS
+const handlebars = require('express-handlebars');
+// Config
+// Template Engine
+app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
+// Conexão com o Banco de Dados
 const sequelize = new Sequelize('dbchamanow', 'root', 'ChamanowBD()', {
     host: "localhost",
     dialect: "mysql"
 })
 
-sequelize.authenticate().then(function() {
-    console.log("Conectado com sucesso!");
-}).catch(function(error) {
-    console.log("Erro ao se conectar: " + error);
-});
-
+// Rotas
 const urlTelaInicial = "Tela Inicial/index.html";
 const urlPerfil = "perfil/index.html";
 
@@ -24,6 +28,12 @@ app.get("/", function(req, res) {
 });
 app.get("/perfil/:cod_user", function(req, res) {
     res.sendFile(__dirname.replace("backend", urlPerfil));
+});
+
+sequelize.authenticate().then(function() {
+    console.log("Conectado com sucesso!");
+}).catch(function(error) {
+    console.log("Erro ao se conectar: " + error);
 });
 
 app.listen(port, function() {
