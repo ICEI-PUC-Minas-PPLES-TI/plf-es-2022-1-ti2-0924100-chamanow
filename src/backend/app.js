@@ -1,19 +1,20 @@
-// Instalação do EXPRESS
+// Importar do EXPRESS
 const express = require("express");
-const app = express();
-const port = 8786;
 
-// Instalação do SEQUELIZE
-const Sequelize = require('sequelize');
-
-// Instalação do HANDLEBARS
+// Importar o HANDLEBARS
 const handlebars = require('express-handlebars');
 
-// Instalação do BODY-PARSE
+// Importar o BODY-PARSE
 const bodyParser = require('body-parser');
 
+// Importar o Método POST
+const Post = require('./models/Post');
+
 // Config
-// Template Engine
+const app = express();
+const admin = require("./routes/admin");
+
+// Handlebars
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
@@ -21,29 +22,35 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// Conexão com o Banco de Dados
-const sequelize = new Sequelize('dbchamanow', 'root', 'ChamanowBD()', {
-    host: "localhost",
-    dialect: "mysql"
-})
-
 // Rotas
-const urlTelaInicial = "Tela Inicial/index.html";
-const urlPerfil = "perfil/index.html";
+app.use('/admin', admin);
 
-app.get("/", function(req, res) {
-    res.sendFile(__dirname.replace("backend", urlTelaInicial));
-});
-app.get("/perfil/:cod_user", function(req, res) {
-    res.sendFile(__dirname.replace("backend", urlPerfil));
-});
 
-sequelize.authenticate().then(function() {
-    console.log("Conectado com sucesso!");
-}).catch(function(error) {
-    console.log("Erro ao se conectar: " + error);
-});
 
-app.listen(port, function() {
-    console.log(`Servidor Rodando na url http://localhost:${port}`);
+// Rotas POST
+/*app.post('/add', function(req, res) {
+    Post.create({
+        //COD_USUARIO: ,
+        //REGIAO_ATUACAO: req.body.,
+        EMAIL: req.body.email,
+        SENHA: req.body.senha,
+        NOME: req.body.nome,
+        CPF: req.body.cpf,
+        CNPJ: req.body.cnpj,
+        DATA_NASC: req.body.dataNascimento,
+        FOTO_PERFIL: req.body.regiaoAtuacao,
+        //DATA_CRIACAO: ,
+        //COD_ENDERECO: ,
+        //COD_TIPO:
+    }).then(() => {
+        res.redirect('/');
+    }).cacth((error) => {
+        res.send("Houve um erro: " + error);
+    })
+})*/
+
+// Outros
+const PORT = 8786;
+app.listen(PORT, () => {
+    console.log(`Servidor Rodando na url http://localhost:${PORT}`);
 });
