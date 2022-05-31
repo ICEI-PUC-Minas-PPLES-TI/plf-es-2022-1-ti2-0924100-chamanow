@@ -1,0 +1,504 @@
+/* Global ====================================================================*/
+
+:root {
+    --bg: #999999;
+    --bg-rating: #fafafa;
+    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+    --color-text: #fff;
+    --color-text-secondary: #333333;
+    --primary-color: #4939FF;
+    --secondary-color: #ff6b00;
+    --star-color: #ffe500;
+    --color-input: #ededed;
+    --invalid-input: #fa2929;
+    --transition: all 0.3s linear;
+}
+
+
+/* Elementos =================================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 93.75w;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: rgb(240, 240, 240);
+    font-family: "Poppins", sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* --------------- Tela Incial --------------- */
+
+
+/* Container =================================================================*/
+
+.container {
+    width: min(100vw, 800px);
+    margin: auto;
+}
+
+.card {
+    background-color: var(--bg);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.8rem;
+}
+
+
+/* Cabeçalho =================================================================*/
+
+body .site-header {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: normal;
+    background-color: var(--primary-color);
+}
+
+body header img {
+    max-width: 15rem;
+}
+
+body header .menu {
+    margin: 0.1rem;
+    font-weight: bold;
+}
+
+body header .menu a {
+    text-decoration: none;
+    color: var(--color-text);
+    padding: 0.5rem;
+}
+
+body header .menu a:hover {
+    text-decoration: none;
+    color: rgb(122, 121, 121);
+}
+
+
+/* Primeira Seção - Banner ================================================*/
+
+main section {
+    color: var(--primary-color);
+    padding: 1rem;
+}
+
+body main section#banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: rgb(236, 236, 236);
+  border-radius: 1rem; */
+    padding: 1rem;
+}
+
+main section#banner #texto-banner {
+    color: var(--primary-color);
+}
+
+section#banner #texto-banner h1>strong {
+    color: var(--secondary-color);
+}
+
+main section#banner img {
+    max-width: 25rem;
+}
+
+
+/* Segunda Seção - Catálogo =================================================*/
+
+main section #lista-servicos {
+    width: min(100%, 800px);
+}
+
+main section select {
+    border: 1px solid var(--bg-panel);
+    border-radius: 0.4rem;
+    color: var(--color-text);
+    font-weight: bold;
+    background: var(--bg-panel);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+main section #catalogo {
+    padding: 1rem 0;
+}
+
+
+/* Terceira Seção - Principais Serviços =====================================*/
+
+main section #servicos {
+    padding: 1rem 0;
+}
+
+section #principais-servicos .quadrado-wireframe {
+    background-color: var(--bg-color);
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1rem;
+}
+
+section #principais-servicos .container-servicos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Quarta Seção - Profissionais Bem Avaliados ===============================*/
+
+main section #bem-avaliados {
+    padding: 1rem 0;
+}
+
+section #bem-avaliados .quadrado-wireframe {
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 10rem;
+    border-radius: 1rem;
+}
+
+section #bem-avaliados .container-bem-avaliados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+/* Quinta Seção - Quem Somos ================================================*/
+
+main section #quem-somos {
+    padding: 1rem 0;
+}
+
+section #quem-somos .quadrado-wireframe {
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 10rem;
+    border-radius: 1rem;
+}
+
+
+/* Sexta Seção - Como Trabalhamos ===========================================*/
+
+main section #container-trabalhamos {
+    padding: 1rem 0;
+}
+
+section #container-trabalhamos .quadrado-wireframe {
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 5rem;
+    border-radius: 1rem;
+}
+
+body main #container-trabalhamos {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: rgb(236, 236, 236);
+  border-radius: 1rem; */
+    padding: 1rem;
+}
+
+main section #container-neymar>img {
+    max-width: 30rem;
+}
+
+section#servicos #espaco-branco {
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 10rem;
+    border-radius: 1rem;
+}
+
+
+/* --------------- Login --------------- */
+
+
+/* Cadastro do Usuário */
+
+.cadastro {
+    background-color: #4939FF;
+    max-width: 25%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: 0 5%;
+}
+
+#logo {
+    width: 100px;
+}
+
+#logoMobile {
+    display: none;
+}
+
+.textoCadastro {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.tituloCadastro {
+    margin-top: 30px;
+    font-weight: 700;
+}
+
+.subtitulo {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#cadastrar {
+    margin-top: 30px;
+    background: none;
+    padding: 5px 15px;
+    width: 120px;
+    border: 2px solid #FFF;
+    border-radius: 50px;
+    color: white;
+    transition: all 0.2s;
+}
+
+#cadastrar:hover {
+    background: #FFF;
+    color: #4939FF;
+    font-weight: 500;
+}
+
+
+/* Formulário */
+
+.dadosPessoais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 75%;
+    height: 100vh;
+}
+
+.tituloDados {
+    font-weight: 700;
+    font-size: 25px;
+    color: #4939FF;
+}
+
+.subtituloDados {
+    font-weight: 300;
+    font-size: 16px;
+    color: rgb(160, 160, 160);
+    margin-top: 20px;
+}
+
+.dadosContent {
+    margin-top: 40px;
+}
+
+#formDados {
+    width: 500px;
+    margin: 50px auto 0;
+    color: #fff;
+}
+
+#formDados input {
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 30px;
+    background-color: #EDEDED;
+}
+
+#formDados input:focus {
+    border: none;
+    box-shadow: none;
+    background-color: #EDEDED;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 65%;
+}
+
+#entrar {
+    border: none;
+    border-radius: 30px;
+    padding: 5px 25px;
+    background-color: #FF7033;
+    color: #FFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s;
+}
+
+#entrar:hover {
+    background-color: #FFF;
+    color: #FF7033;
+}
+
+.cadastrarMobile {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .backgroundMobile {
+        background-color: #4939FF;
+        color: #FFF;
+    }
+    .cadastro {
+        display: none;
+    }
+    .dadosContent {
+        margin-top: 20px;
+        width: 80%;
+    }
+    .dadosPessoais {
+        width: 100%;
+    }
+    #logoMobile {
+        display: block;
+        width: 80px;
+    }
+    .tituloDados {
+        margin-top: 30px;
+        color: #FFF;
+    }
+    .subtituloDados {
+        color: #FFF;
+    }
+    #formDados {
+        width: 100%;
+    }
+    .cadastroMobile {
+        display: block;
+        margin-top: 30px;
+    }
+    #linkcadastroMobile {
+        text-decoration: none;
+        color: #FF7033;
+    }
+}
+
+
+/* --------------- Tela Incial --------------- */
+
+
+/* Footer ===================================================================*/
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: 100px;
+}
+
+.beforeLine {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 10% 40px;
+}
+
+.logoSlogan {
+    display: flex;
+    flex-direction: column;
+}
+
+.logoSlogan>img {
+    width: 50px;
+}
+
+.logoSlogan>span {
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.contentFooter {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.contentFooter li {
+    list-style: none;
+    font-size: 15px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.line {
+    width: 80%;
+    border-bottom: 1px var(--bg-rating) solid;
+    margin: 0 auto;
+}
+
+.afterLine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px 0;
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+}
+
+.socialMedia a {
+    font-size: 16px;
+    color: var(--color-text);
+    border: .8px var(--color-text) solid;
+    border-radius: 100%;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socialMedia a:hover {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.copyright {
+    margin-top: 15px;
+    font-size: 12px;
+}

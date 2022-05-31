@@ -6,48 +6,43 @@ const handlebars = require('express-handlebars');
 
 // Importar o BODY-PARSE
 const bodyParser = require('body-parser');
-
-// Importar o Método POST
-const Post = require('./models/Post');
+const session = require("express-session");
+const flash = require("connect-flash");
 
 // Config
 const app = express();
 const admin = require("./routes/admin");
+const path = require("path");
 
 // Handlebars
-app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
+app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Body Parser
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Public
+app.use(express.static(path.join(__dirname, "public")));
 
 // Rotas
 app.use('/admin', admin);
 
+// Session
+app.use(session({
+    secret: "chamanowApplication",
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(flash());
 
-
-// Rotas POST
-/*app.post('/add', function(req, res) {
-    Post.create({
-        //COD_USUARIO: ,
-        //REGIAO_ATUACAO: req.body.,
-        EMAIL: req.body.email,
-        SENHA: req.body.senha,
-        NOME: req.body.nome,
-        CPF: req.body.cpf,
-        CNPJ: req.body.cnpj,
-        DATA_NASC: req.body.dataNascimento,
-        FOTO_PERFIL: req.body.regiaoAtuacao,
-        //DATA_CRIACAO: ,
-        //COD_ENDERECO: ,
-        //COD_TIPO:
-    }).then(() => {
-        res.redirect('/');
-    }).cacth((error) => {
-        res.send("Houve um erro: " + error);
-    })
-})*/
+//Middleware
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash("sucess_msg");
+    res.locals.error_msg = req.flash("error_msg");
+    req.locals.pagina = req.flash("pag");
+    next();
+})
 
 // Outros
 const PORT = 8786;

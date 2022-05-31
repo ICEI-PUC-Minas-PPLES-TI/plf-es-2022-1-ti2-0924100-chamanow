@@ -8,13 +8,10 @@ const sequelize = new Sequelize('dbchamanow', 'root', 'ChamanowBD()', {
 })
 
 sequelize.authenticate().then(() => {
-    console.log("Conectado com sucesso!");
+    console.log("Conexão com o banco de dados realizada com sucesso!");
 }).catch((error) => {
-    console.log("Erro ao se conectar: " + error);
+    console.log("Conexão com o banco de dados não realizada com sucesso! Erro: " + error);
 });
 
 // Exportar as funções
-module.exports = {
-    Sequelize: Sequelize,
-    sequelize: sequelize
-}
+module.exports = sequelize;
