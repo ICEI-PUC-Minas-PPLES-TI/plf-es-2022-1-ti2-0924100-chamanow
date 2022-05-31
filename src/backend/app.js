@@ -8,10 +8,18 @@ const Sequelize = require('sequelize');
 
 // Instalação do HANDLEBARS
 const handlebars = require('express-handlebars');
+
+// Instalação do BODY-PARSE
+const bodyParser = require('body-parser');
+
 // Config
 // Template Engine
 app.engine('handlebars', handlebars({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
+// Body Parser
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 // Conexão com o Banco de Dados
 const sequelize = new Sequelize('dbchamanow', 'root', 'ChamanowBD()', {
