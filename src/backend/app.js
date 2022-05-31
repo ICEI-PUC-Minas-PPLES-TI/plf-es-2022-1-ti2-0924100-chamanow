@@ -5,7 +5,7 @@ const port = 8786;
 
 // Instalação do SEQUELIZE
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('dbchamanow', 'root', '_F0tgj3ng3r0v3rg4ng)', {
+const sequelize = new Sequelize('dbchamanow', 'root', 'ChamanowBD()', {
     host: "localhost",
     dialect: "mysql"
 })
