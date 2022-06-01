@@ -22,7 +22,7 @@ router.get('/cadastro', async(req, res) => {
 })
 
 router.get('/perfil', async(req, res) => {
-    const avaliacoes = await Avaliacao.findAll({
+    /*const avaliacoes = await Avaliacao.findAll({
         raw: true,
         attributes: Usuario.all,
         include: {
@@ -30,11 +30,11 @@ router.get('/perfil', async(req, res) => {
             required: true
         }
     }).then(() => {
-        avaliacoes => console.table(avaliacoes);
-        res.render("admin/perfil", { pag: "true", avaliacoes });
-    }).catch((error) => {
+        avaliacoes => console.table(avaliacoes);*/
+    res.render("admin/perfil", { pag: "true" /*, avaliacoes*/ });
+    /*}).catch((error) => {
         console.log("Error: " + error)
-    })
+    })*/
 })
 
 // Rotas POST

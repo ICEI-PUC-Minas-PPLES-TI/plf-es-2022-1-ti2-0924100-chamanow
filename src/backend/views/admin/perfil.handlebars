@@ -38,11 +38,12 @@
         <h2 class="tituloSecao"></h2>
         <p class="descricaoSecao"></p>
     </div>
-    <div class="dadosMenu"></div>
+    <div class="dadosAvaliacao">
+        {{#each avaliacoes}}
+            {{>_avaliacoes}}
+        {{/each}}
+    </div>
 </div>
 
 <!--Arquivo JS-->
 <script src="/js/perfil.js"></script>
-{{#each avaliacoes}}
-    {{>_avaliacoes nome: Usuario.NOME nota: NOTA data-publicacao: DATA_AVALIACAO comentario: COMENTARIO }}
-{{/each}}
