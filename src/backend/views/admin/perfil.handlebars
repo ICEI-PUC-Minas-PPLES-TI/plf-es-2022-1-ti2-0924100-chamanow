@@ -1,7 +1,14 @@
+<head>
+    <title>Perfil</title>
+
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="/css/perfil.css">
+</head>
+
 <div class="menuLateral">
-    <img src={{ft_perfil}} alt="Foto de Perfil" id="ftUser">
+    <img src="/img/perfil-sem-foto.png" alt="Foto de Perfil" id="ftUser">
     <div class="userInfos">
-        <h3 id="nomeUser">{{nome}}</h3>
+        <h3 id="nomeUser">Nicolau Augostinho</h3>
         <div class="avaliacao-usuario">
             <span id="nota">4,5</span>
             <span class="ponto"></span>
@@ -33,3 +40,9 @@
     </div>
     <div class="dadosMenu"></div>
 </div>
+
+<!--Arquivo JS-->
+<script src="/js/perfil.js"></script>
+{{#each avaliacoes}}
+    {{>_avaliacoes nome: Usuario.NOME nota: NOTA data-publicacao: DATA_AVALIACAO comentario: COMENTARIO }}
+{{/each}}

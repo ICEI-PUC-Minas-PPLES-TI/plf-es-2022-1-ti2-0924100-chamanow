@@ -1,0 +1,423 @@
+/* ========== Formatações Gerais ==========*/
+
+:root {
+    --bg: #999999;
+    --bg-rating: #fafafa;
+    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+    --color-text: #fff;
+    --color-text-secondary: #333333;
+    --primary-color: #4939FF;
+    --secondary-color: #ff6b00;
+    --star-color: #ffe500;
+    --color-input: #ededed;
+    --transition: all 0.3s linear;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 0;
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Menu Lateral */
+
+.menuLateral {
+    background-color: var(--primary-color);
+    width: 25%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-text);
+    padding: 0 50px;
+    position: fixed;
+}
+
+#ftUser {
+    width: 120px;
+    border-radius: 100%;
+}
+
+#logoMobile {
+    display: none;
+}
+
+.userInfos {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#nomeUser {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 25px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+#cadastroPrestador {
+    margin-top: 30px;
+    background: var(--secondary-color);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    color: var(--color-text);
+    transition: all 0.2s;
+}
+
+#cadastroPrestador:hover {
+    background: var(--color-text);
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 0;
+    margin: 40px 0 30px auto;
+}
+
+.menu button {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 15px;
+    padding: 7px 0;
+    transition: all .1s ease-in-out;
+    text-align: end;
+}
+
+.menu button:hover {
+    color: var(--secondary-color);
+}
+
+.servicoNotify {
+    display: block;
+    position: relative;
+}
+
+#notification {
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 60px;
+    line-height: 16px;
+    height: 16px;
+    padding: 0 5px;
+    color: var(--color-text);
+    font-size: 13px;
+    border: none;
+    border-radius: 10px;
+    background: var(--secondary-color);
+}
+
+
+/* Conteúdo da seção */
+
+.content {
+    width: 75%;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.dadosMenu {
+    margin-top: 25px;
+}
+
+.tituloSecao {
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+.descricaoSecao {
+    font-size: 18px;
+}
+
+#tabelaServico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#tabelaServico td {
+    width: 320px;
+    padding: 15px 20px;
+    font-size: 14px;
+}
+
+#tabelaServico tr:not(:first-child) {
+    border-bottom: 1px solid #E8E8E8;
+    cursor: pointer;
+}
+
+.cabecalho {
+    background-color: #FCFBFB;
+    color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+td span {
+    padding: 5px 10px;
+    border-radius: 7px;
+}
+
+#tabelaServico tr:nth-child(4n + 1) td:last-child span,
+#cancelado {
+    color: #FF4F4F;
+    background-color: #ffd4d4;
+}
+
+#tabelaServico tr:nth-child(4n + 2) td:last-child span,
+#naoPago {
+    color: #FF007F;
+    background-color: #ffc6e3;
+}
+
+#tabelaServico tr:nth-child(4n + 3) td:last-child span,
+#concluido {
+    color: #00E45B;
+    background-color: #bbfdd5;
+}
+
+#tabelaServico tr:nth-child(4n + 4) td:last-child span,
+#pendente {
+    color: #F4CD00;
+    background-color: #fff3b9;
+}
+
+
+/* Formulário */
+
+.dadosMenu>div:not(:first-child) {
+    margin-top: 70px;
+}
+
+.dadosMenu form {
+    margin-bottom: 70px;
+}
+
+.subtitulo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+input[type=number] {
+    max-width: 40%;
+}
+
+.dadosMenu form {
+    width: 85%;
+    margin-top: 20px;
+    margin-left: 25px;
+    color: var(--color-text);
+}
+
+.dadosMenu input {
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    padding: 7px 30px;
+    background-color: var(--color-input);
+}
+
+.dadosMenu input:focus {
+    border: none;
+    box-shadow: none;
+    background-color: var(--color-input);
+}
+
+.divCEP {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.divCEP input {
+    margin-right: 15px;
+}
+
+.divEstado {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: -5px;
+}
+
+.dadosMenu label {
+    margin: 0 0 5px;
+    color: var(--color-text-secondary);
+}
+
+.dadosMenu select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    border-radius: 30px;
+    padding: 7px 30px;
+    background-color: var(--color-input);
+}
+
+.dadosMenu select:hover {
+    border: none;
+    border-style: none;
+}
+
+.dadosMenu select:focus {
+    border: none;
+    box-shadow: none;
+}
+
+#btnSubmmit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    width: 110px;
+    background: var(--primary-color);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 50px;
+    color: var(--color-text);
+    transition: all 0.2s;
+}
+
+#btnSubmmit:hover {
+    background: var(--color-text);
+    color: var(--primary-color);
+    font-weight: 500;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+}
+
+
+/* Avaliações */
+
+.divAvaliacoes {
+    background: var(--bg-rating);
+    border-radius: 15px;
+    padding: 20px 30px;
+    margin: 0 0 30px !important;
+    border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+    transition: all .2s;
+}
+
+.divAvaliacoes:hover {
+    border-bottom: 2px solid var(--secondary-color);
+    transform: translateY(-7px);
+}
+
+.divAvaliacoes:hover #nome-avaliador {
+    color: var(--secondary-color);
+}
+
+.nome-data {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+}
+
+#nome-avaliador {
+    margin: 0;
+    font-weight: 600;
+}
+
+.hifen {
+    padding: 0 10px;
+}
+
+#data-publicacao {
+    font-style: italic;
+}
+
+#content-avaliacoes #nota {
+    font-size: 13px;
+}
+
+#content-avaliacoes .star-icon {
+    font-size: 20px;
+}
+
+#comentario {
+    font-style: italic;
+    margin: 15px 0 0;
+}
+
+
+/* ========== Avaliações ========== */
+
+
+/* Blocos */
+
+.avaliacao-usuario,
+.avaliacao {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 0;
+    padding: 0;
+    height: 30px;
+}
+
+#nota {
+    padding-right: 5px;
+}
+
+.ponto {
+    font-size: 40px;
+}
+
+.ponto::before {
+    content: "\2027";
+}
+
+.star-icon {
+    list-style-type: none;
+    cursor: pointer;
+    color: #ffe500;
+    font-size: 30px;
+    /* alterar o tamanho das estrelas */
+}
+
+.star-icon::before {
+    content: "\2605";
+}
+
+.star-icon.ativo~.star-icon::before {
+    content: "\2606";
+}
+
+.avaliacao:hover .star-icon::before {
+    content: "\2605";
+}
+
+.star-icon:hover~.star-icon::before {
+    content: "\2606";
+}

@@ -4,7 +4,8 @@ const router = express.Router();
 router.use(express.json());
 
 // Importar o Método POST
-const Cadastro = require('../models/Cadastro');
+const Usuario = require("../models/Usuario");
+const Avaliacao = require("../models/Avaliacao");
 
 // Rotas GET
 
@@ -13,26 +14,32 @@ router.get('/', async(req, res) => {
 })
 
 router.get('/login', async(req, res) => {
-    res.render("admin/login");
+    res.render("admin/login", { pag: "true" });
 })
 
 router.get('/cadastro', async(req, res) => {
-    res.render("admin/cadastro");
+    res.render("admin/cadastro", { pag: "true" });
 })
 
 router.get('/perfil', async(req, res) => {
-    await Cadastro.findAll().then((usuarios) => {
-        req.flash("pag", "perfil");
-        res.render("admin/perfil", { usuarios: usuarios });
-    }).catch(() => {
-        req.flash("error_msg", "Não foi possível acessar o perfil");
-        res.redirect("/admin");
+    const avaliacoes = await Avaliacao.findAll({
+        raw: true,
+        attributes: Usuario.all,
+        include: {
+            model: Usuario,
+            required: true
+        }
+    }).then(() => {
+        avaliacoes => console.table(avaliacoes);
+        res.render("admin/perfil", { pag: "true", avaliacoes });
+    }).catch((error) => {
+        console.log("Error: " + error)
     })
 })
 
 // Rotas POST
 router.post('/cadastro/novo-usuario', async(req, res) => {
-    await Cadastro.create(req.body)
+    await Usuario.create(req.body)
         .then(() => {
             req.flash("success_msg", "Usuario cadastrado com sucesso!");
             res.redirect('/');
