@@ -5,15 +5,12 @@ const Avaliacao = db.define('avaliacao', {
     COD_AVALIADOR: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true,
-        primaryKey: true
+        unique: true
     },
     COD_AVALIADO: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
         allowNull: false,
-        unique: true,
-        primaryKey: true
+        unique: true
     },
     NOTA: Sequelize.FLOAT,
     COMENTARIO: Sequelize.STRING,

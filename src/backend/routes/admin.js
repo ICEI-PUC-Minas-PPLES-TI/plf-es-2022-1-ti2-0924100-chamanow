@@ -3,42 +3,27 @@ const express = require("express");
 const router = express.Router();
 router.use(express.json());
 
-// Importar o Método POST
-const Usuario = require("../models/Usuario");
-const Avaliacao = require("../models/Avaliacao");
-
 // Rotas GET
 
-router.get('/', async(req, res) => {
-    res.render('home');
+router.get('/', (req, res) => {
+    return res.json([{ message: "ola" }]);
 })
 
-router.get('/login', async(req, res) => {
+router.get('/login', (req, res) => {
     res.render("admin/login", { pag: "true" });
 })
 
-router.get('/cadastro', async(req, res) => {
-    res.render("admin/cadastro", { pag: "true" });
+router.get('/cadastro', (req, res) => {
+    res.render("", { pag: "true" });
 })
 
+// Rota para acessar o perfil
 router.get('/perfil', async(req, res) => {
-    /*const avaliacoes = await Avaliacao.findAll({
-        raw: true,
-        attributes: Usuario.all,
-        include: {
-            model: Usuario,
-            required: true
-        }
-    }).then(() => {
-        avaliacoes => console.table(avaliacoes);*/
-    res.render("admin/perfil", { pag: "true" /*, avaliacoes*/ });
-    /*}).catch((error) => {
-        console.log("Error: " + error)
-    })*/
+    res.sendFile(__dirname.replace("routes", "html/perfil.html"))
 })
 
 // Rotas POST
-router.post('/cadastro/novo-usuario', async(req, res) => {
+/*router.post('/cadastro/novo-usuario', (req, res) => {
     await Usuario.create(req.body)
         .then(() => {
             req.flash("success_msg", "Usuario cadastrado com sucesso!");
@@ -47,7 +32,7 @@ router.post('/cadastro/novo-usuario', async(req, res) => {
             req.flash("error_msg", "Erro: Usuario não cadastrado com sucesso!");
             res.redirect('/admin/cadastro');
         })
-})
+})*/
 
 // Exportar rotas
 module.exports = router;

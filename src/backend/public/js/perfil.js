@@ -1,3 +1,33 @@
+async function getUserData() {
+    try {
+        const response = await fetch('http://localhost:8786/api/user-datas/datas')
+        const data = Promise.resolve(response.json());
+        data.then((v) => {
+            console.log(v);
+        })
+
+        //init();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getUserRating() {
+    try {
+        const response = await fetch('http://localhost:8786/api/user-datas/rating')
+        const data = Promise.resolve(response.json());
+        data.then((v) => {
+            console.log(v);
+        })
+
+        //init();
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getUserData();
+
 function tabelaServicos(cod_user) {
     // Apagar todos os elementos da seção
     $(".dadosMenu").html("");
@@ -615,7 +645,7 @@ function criarListaAvaliacoes(cod_user) {
     return divAvaliacoes;
 }
 
-$(document).ready(function() {
+function init() {
     const cod_user = "profissional";
 
     // Referenciar a div com a tabela
@@ -664,4 +694,4 @@ $(document).ready(function() {
             window.location.href = `../detalhe-servico/index.html?cod-servico=${String(target.id)}`;
         }, 50);
     });
-})
+}

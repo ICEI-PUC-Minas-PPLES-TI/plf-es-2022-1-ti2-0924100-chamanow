@@ -1,50 +1,29 @@
-// Importar do EXPRESS
+// Importar modulos
 const express = require("express");
-
-// Importar o HANDLEBARS
-const handlebars = require('express-handlebars');
-
-// Importar o BODY-PARSE
-const bodyParser = require('body-parser');
 const session = require("express-session");
 const flash = require("connect-flash");
+const cors = require("cors");
 
 // Config
 const app = express();
 const admin = require("./routes/admin");
+const apiRoutes = require("./routes/jsonRoutes");
 const path = require("path");
 
-// Handlebars
-app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
-
-// Body Parser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(cors());
 
 // Public
 app.use(express.static(path.join(__dirname, "public")));
 
 // Rotas
 app.use('/admin', admin);
-
-// Session
-app.use(session({
-    secret: "chamanowApplication",
-    resave: true,
-    saveUninitialized: true
-}));
-app.use(flash());
+app.use('/api', apiRoutes);
 
 //Middleware
 app.use((req, res, next) => {
-    res.locals.success_msg = req.flash("sucess_msg");
-    res.locals.error_msg = req.flash("error_msg");
     next();
 })
 
 // Outros
 const PORT = 8786;
-app.listen(PORT, () => {
-    console.log(`Servidor Rodando na url http://localhost:${PORT}`);
-});
+app.listen(PORT);
