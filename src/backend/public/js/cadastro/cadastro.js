@@ -39,6 +39,10 @@ function escolherUsuario() {
 }
 
 function formGeral(tipoUsuario) {
+    // Gerar ids aleatórios
+    const idUser = Math.floor(Date.now() * Math.random()).toString(36);
+    const idEndereco = Math.floor(Date.now() * Math.random()).toString(36);
+
     // Referenciar a div do form
     const dadosContent = document.querySelector(".dadosContent");
 
@@ -61,6 +65,27 @@ function formGeral(tipoUsuario) {
     // Disparar animação para o form aparecer
     formDados.style = "opacity: 0";
     setTimeout(() => formDados.style = "animation: surgir .3s ease-out", 5);
+
+    // Criação do input do id
+    const inputId = document.createElement('input');
+    inputId.type = "text";
+    inputId.name = "id";
+    inputId.id = "idUser";
+    inputId.className = "form-control";
+    switch (tipoUsuario) {
+        case "cliente":
+            inputId.value = `1-${idUser}`;
+            break;
+
+        case "profissional":
+            inputId.value = `2-${idUser}`;
+            break;
+
+        case "empresa":
+            inputId.value = `3-${idUser}`;
+            break;
+    }
+    //inputId.style = "display: none";
 
     // Criação do input do email
     const inputEmail = document.createElement('input');
@@ -94,9 +119,163 @@ function formGeral(tipoUsuario) {
     inputConfirmarSenha.setAttribute("required", "");
 
     // Adicionar os inputs dentro do form
+    formDados.appendChild(inputId);
     formDados.appendChild(inputEmail);
     formDados.appendChild(inputSenha);
     formDados.appendChild(inputConfirmarSenha);
+
+    // Criar a div para os inputs telefone, rua, bairro e cidade
+    const divTel = document.createElement('div');
+    divTel.className = "divTel";
+
+    // Criação do input do telefone
+    const inputTel = document.createElement('input');
+    inputTel.type = "number";
+    inputTel.name = "telefone";
+    inputTel.id = "telCadastro";
+    inputTel.className = "form-control";
+    inputTel.placeholder = "Telefone";
+    inputTel.setAttribute("required", "");
+
+    // Criação do input do id endereco
+    const inputIdEndereco = document.createElement('input');
+    inputIdEndereco.type = "text";
+    inputIdEndereco.name = "idEndereco";
+    inputIdEndereco.id = "idAdressUser";
+    inputIdEndereco.className = "form-control";
+    switch (tipoUsuario) {
+        case "cliente":
+            inputIdEndereco.value = `1-${idEndereco}`;
+            break;
+
+        case "profissional":
+            inputIdEndereco.value = `2-${idEndereco}`;
+            break;
+
+        case "empresa":
+            inputIdEndereco.value = `3-${idEndereco}`;
+            break;
+    }
+    //inputIdEndereco.style = "display: none";
+
+    // Criação do input do rua
+    const inputRua = document.createElement('input');
+    inputRua.type = "text";
+    inputRua.name = "rua";
+    inputRua.id = "ruaCadastro";
+    inputRua.className = "form-control";
+    inputRua.placeholder = "Rua";
+    inputRua.setAttribute("required", "");
+
+    // Criação do input do bairro
+    const inputBairro = document.createElement('input');
+    inputBairro.type = "text";
+    inputBairro.name = "bairro";
+    inputBairro.id = "bairroCadastro";
+    inputBairro.className = "form-control";
+    inputBairro.placeholder = "Bairro";
+    inputBairro.maxlength = "30";
+    inputBairro.setAttribute("required", "");
+
+    // Criação do input do cidade
+    const inputCidade = document.createElement('input');
+    inputCidade.type = "text";
+    inputCidade.name = "cidade";
+    inputCidade.id = "cidadeCadatro";
+    inputCidade.className = "form-control";
+    inputCidade.placeholder = "Cidade";
+    inputCidade.maxlength = "30";
+    inputCidade.setAttribute("required", "");
+
+    // Adicionar os inputs dentro do form
+    divTel.appendChild(inputTel);
+    divTel.appendChild(inputIdEndereco);
+    divTel.appendChild(inputRua);
+    divTel.appendChild(inputBairro);
+    divTel.appendChild(inputCidade);
+    formDados.appendChild(divTel);
+
+    // Div CEP =================================================
+
+    // Criar a div para os inputs CEP, Número e Estado
+    const divCEP = document.createElement('div');
+    divCEP.className = "divCEP";
+
+    // Criação do input do CEP
+    const inputCEP = document.createElement('input');
+    inputCEP.type = "number";
+    inputCEP.name = "cep";
+    inputCEP.id = "cepCadastro";
+    inputCEP.className = "form-control";
+    inputCEP.placeholder = "CEP";
+    inputCEP.mnilength = "8";
+    inputCEP.maxlength = "8";
+    inputCEP.setAttribute("required", "");
+
+    // Criação do input do número
+    const inputNumero = document.createElement('input');
+    inputNumero.type = "number";
+    inputNumero.name = "numero";
+    inputNumero.id = "numeroCadastro";
+    inputNumero.className = "form-control";
+    inputNumero.placeholder = "Numero";
+    inputNumero.maxlength = "5";
+
+    // Criação da div para o select Estado
+    const divEstado = document.createElement('div');
+    divEstado.className = "divEstado";
+
+    // Criação do select do Estado
+    const inputEstado = document.createElement('select');
+    inputEstado.type = "text";
+    inputEstado.name = "estado";
+    inputEstado.id = "estadoCadastro";
+    inputEstado.form = "formDados";
+    inputEstado.setAttribute("required", "");
+    inputEstado.innerHTML = `<option value="" selected>Selecionar Estado</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>`;
+
+    // Criação da label para a Seleção do estado
+    const labelSelecaoEstado = document.createElement('label');
+    labelSelecaoEstado.className = "labelSelecaoEstado";
+    labelSelecaoEstado.setAttribute("for", inputEstado.id);
+    labelSelecaoEstado.innerText = "Estado";
+
+    // Adicionar o select e a label dentro da div divEstado
+    divEstado.appendChild(labelSelecaoEstado);
+    divEstado.appendChild(inputEstado);
+
+    // Adicionar os inputs dentro do form
+    divCEP.appendChild(inputCEP);
+    divCEP.appendChild(inputNumero);
+    divCEP.appendChild(divEstado);
+    formDados.appendChild(divCEP);
 
     if (tipoUsuario != "empresa")
         dadosPessoais(tipoUsuario);
@@ -122,7 +301,7 @@ function dadosPessoais(tipoUsuario) {
     // Criação do input do Data de Nascimento
     const inputDataNasc = document.createElement('input');
     inputDataNasc.type = "date";
-    inputDataNasc.name = "data-nascimento";
+    inputDataNasc.name = "data_nascimento";
     inputDataNasc.id = "dataNasc";
     inputDataNasc.className = "form-control";
     inputDataNasc.placeholder = "Data de Nascimento";
@@ -193,7 +372,7 @@ function regiaoAtuacao() {
 
     // Criação do input do Selecionar Serviços
     const selectServico = document.createElement('select');
-    selectServico.name = "select-servicos";
+    selectServico.name = "select_servicos";
     selectServico.id = "selectServico";
     selectServico.className = "form-control";
     selectServico.innerHTML = `<option value="" selected>Selecionar Servico(s)</option>`;
@@ -213,7 +392,7 @@ function regiaoAtuacao() {
 
     // Criação do input do Região de Atuação
     const selectRegiaoAtuacao = document.createElement('select');
-    selectRegiaoAtuacao.name = "regiao-atuacao";
+    selectRegiaoAtuacao.name = "regiao_atuacao";
     selectRegiaoAtuacao.id = "regiaoAtuacao";
     selectRegiaoAtuacao.className = "form-control";
     selectRegiaoAtuacao.innerHTML = `<option value="" selected>Selecionar Raio de Atuação</option>`;

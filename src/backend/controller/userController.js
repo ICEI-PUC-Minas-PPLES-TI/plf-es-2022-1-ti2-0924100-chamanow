@@ -1,37 +1,64 @@
 const Usuario = require("../models/Usuario");
-const Telefone = require("../models/Usuario");
+const Telefone = require("../models/Telefone");
+const Endereco = require("../models/Endereco.js");
 const bcrypt = require("bcryptjs");
 
 module.exports = {
-    async createUser(req, res) {
+    async cadastroUser(req, res) {
         try {
-            const { cod_user, regiao_atuacao, email, senha, nome, cpf, cnpj, data_nasc, foto_perfil, cod_endereco, cod_tipo } = req.body
+            const novoUser = {
+                cod_user: req.body.id,
+                email: req.body.email,
+                senha: req.body.senha,
+                nome: req.body.nome,
+                data_nasc: req.body.data_nascimento,
+                cpf: req.body.cpf,
+                cnpj: req.body.cnpj,
+                regiao_atuacao: req.body.regiao_atuacao,
+                foto_perfil: null,
+                cod_endereco: req.body.idEndereco,
+                numero: req.body.telefone,
+                cod_tipo: req.body.select_servicos
+            }
 
-            const user = await Usuario.findOne({ where: { email } });
+            for (let atributo in novoUser) {
+                if (novoUser[atributo] == undefined)
+                    novoUser[atributo] = null;
+            }
+
+            const novoTel = {
+                numero: req.body.telefone,
+                cod_user: req.body.id
+            }
+
+            const novoEndereco = {
+
+                cod_endereco: req.body.idEndereco,
+                cep: req.body.cep,
+                numero: req.body.numero,
+                rua: req.body.rua,
+                bairro: req.body.bairro,
+                cidade: req.body.cidade,
+                estado: req.body.estado
+            }
+
+            const user = await Usuario.findOne({ where: { email: req.body.email } });
 
             if (user)
                 res.status(200).json({ message: "Email já cadastrado" })
             else {
+                await Usuario.create(novoUser).then(async() => {
+                    await Telefone.create(novoTel).then(async() => {
+                        await Endereco.create(novoEndereco).then(() => {
+                            res.redirect('/');
+                        })
+                    });
+                });
 
-                Usuario.create({ cod_user, regiao_atuacao, email, senha, nome, cpf, cnpj, data_nasc, foto_perfil, cod_endereco, cod_tipo })
-                    .then(() => {
-                        res.sendFile(__dirname.replace("routes", "html/cadastroTel.html"));
-                    })
             }
         } catch (error) {
-            res.status(400);
-        }
-    },
-    async telUser(req, res) {
-        try {
-            const {} = req.body
-
-            Telefone.create({})
-                .then(() => {
-                    res.redirect('/');
-                })
-        } catch (error) {
-            res.status(400);
+            console.log(error)
+            res.status(400).error;
         }
     }
 }

@@ -1,7 +1,15 @@
 // Importar do EXPRESS
 const express = require("express");
+const app = express();
 const router = express.Router();
 router.use(express.json());
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+
+const userController = require("../controller/userController");
+const Usuario = require("../models/Usuario");
 
 // Rotas GET
 
@@ -14,13 +22,16 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/cadastro', (req, res) => {
-    res.sendFile(__dirname.replace("routes", "html/cadastroUser.html"));
+    res.sendFile(__dirname.replace("routes", "html/cadastro.html"));
 })
 
 // Rota para acessar o perfil
-router.get('/perfil', async(req, res) => {
+router.get('/perfil', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/perfil.html"))
 })
+
+// Rotas POST
+router.post('/cadastro/user-data', userController.cadastroUser)
 
 // Exportar rotas
 module.exports = router;
