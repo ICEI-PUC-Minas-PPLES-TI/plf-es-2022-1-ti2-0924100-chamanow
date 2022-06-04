@@ -1,65 +1,51 @@
-const db = require('./db');
+const db = require('../database');
 const Sequelize = require('sequelize');
 
 const Usuario = db.define('usuario', {
-    COD_USUARIO: {
-        type: Sequelize.INTEGER,
+    cod_user: {
+        type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
         primaryKey: true
     },
-    REGIAO_ATUACAO: {
+    regiao_atuacao: {
         type: Sequelize.STRING,
         default: null
     },
-    EMAIL: {
+    email: {
         type: Sequelize.STRING,
         allowNull: false,
         require: true
     },
-    SENHA: {
+    senha: {
         type: Sequelize.STRING,
         allowNull: false,
         require: true
     },
-    NOME: {
+    nome: {
         type: Sequelize.STRING,
         allowNull: false,
         require: true
     },
-    CPF: {
+    cpf: {
         type: Sequelize.STRING,
         default: null
     },
-    CNPJ: {
+    cnpj: {
         type: Sequelize.STRING,
         default: null
     },
-    DATA_NASC: {
+    data_nasc: {
         type: Sequelize.DATE,
         default: null
     },
-    FOTO_PERFIL: {
+    foto_perfil: {
         type: Sequelize.BLOB,
         default: null
     },
-    DATA_CRIACAO: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        default: Date.now()
-    },
-    COD_ENDERECO: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        unique: true
-    },
-    COD_TIPO: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        unique: true
-    }
+    cod_endereco: Sequelize.STRING,
+    cod_tipo: Sequelize.STRING
 });
 
-//Cadastro.sync({ alter: true });
+//Usuario.sync({ alter: true });
 
 module.exports = Usuario;

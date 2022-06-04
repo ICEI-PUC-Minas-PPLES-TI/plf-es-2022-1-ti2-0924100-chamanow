@@ -9,14 +9,16 @@ const app = express();
 const admin = require("./routes/admin");
 const apiRoutes = require("./routes/jsonRoutes");
 const path = require("path");
+require('./database');
 
 app.use(cors());
+app.use(express.json());
 
 // Public
 app.use(express.static(path.join(__dirname, "public")));
 
 // Rotas
-app.use('/admin', admin);
+app.use(admin);
 app.use('/api', apiRoutes);
 
 //Middleware

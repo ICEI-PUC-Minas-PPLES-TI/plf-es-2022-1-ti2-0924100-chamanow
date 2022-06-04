@@ -6,33 +6,21 @@ router.use(express.json());
 // Rotas GET
 
 router.get('/', (req, res) => {
-    return res.json([{ message: "ola" }]);
+    res.sendFile(__dirname.replace("routes", "html/home.html"));
 })
 
 router.get('/login', (req, res) => {
-    res.render("admin/login", { pag: "true" });
+    res.sendFile(__dirname.replace("routes", "html/login.html"));
 })
 
 router.get('/cadastro', (req, res) => {
-    res.render("", { pag: "true" });
+    res.sendFile(__dirname.replace("routes", "html/cadastroUser.html"));
 })
 
 // Rota para acessar o perfil
 router.get('/perfil', async(req, res) => {
     res.sendFile(__dirname.replace("routes", "html/perfil.html"))
 })
-
-// Rotas POST
-/*router.post('/cadastro/novo-usuario', (req, res) => {
-    await Usuario.create(req.body)
-        .then(() => {
-            req.flash("success_msg", "Usuario cadastrado com sucesso!");
-            res.redirect('/');
-        }).catch(() => {
-            req.flash("error_msg", "Erro: Usuario não cadastrado com sucesso!");
-            res.redirect('/admin/cadastro');
-        })
-})*/
 
 // Exportar rotas
 module.exports = router;

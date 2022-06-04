@@ -1,22 +1,23 @@
-const db = require('./db');
+const db = require('../database');
 const Sequelize = require('sequelize');
 
 const Avaliacao = db.define('avaliacao', {
-    COD_AVALIADOR: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        unique: true
+    cod_avaliacao: {
+        type: Sequelize.STRING,
+        allowNull: false
     },
-    COD_AVALIADO: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        unique: true
+    cod_avaliado: {
+        type: Sequelize.STRING,
+        allowNull: false
     },
-    NOTA: Sequelize.FLOAT,
-    COMENTARIO: Sequelize.STRING,
-    DATA_AVALIACAO: Sequelize.DATE
+    cod_avaliado: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    nota: Sequelize.FLOAT,
+    comentario: Sequelize.TEXT,
 });
 
-//Cadastro.sync({ alter: true });
+//Avaliacao.sync({ alter: true });
 
 module.exports = Avaliacao;

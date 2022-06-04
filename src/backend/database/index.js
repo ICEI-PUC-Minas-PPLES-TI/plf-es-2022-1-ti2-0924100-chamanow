@@ -1,17 +1,14 @@
 // Instalação do SEQUELIZE
 const Sequelize = require('sequelize');
+const configDB = require('../config/database');
 
-// Conexão com o Banco de Dados
-const sequelize = new Sequelize('dbchamanow', 'root', 'ChamanowBD()', {
-    host: "localhost",
-    dialect: "mysql"
-})
+const connetion = new Sequelize(configDB);
 
-sequelize.authenticate().then(() => {
+connetion.authenticate().then(() => {
     console.log("Conexão com o banco de dados realizada com sucesso!");
 }).catch((error) => {
     console.log("Conexão com o banco de dados não realizada com sucesso! Erro: " + error);
 });
 
 // Exportar as funções
-module.exports = sequelize;
+module.exports = connetion;

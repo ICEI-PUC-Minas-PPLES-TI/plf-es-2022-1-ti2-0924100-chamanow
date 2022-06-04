@@ -1,12 +1,9 @@
-async function getUserData() {
+function getUserData() {
     try {
-        const response = await fetch('http://localhost:8786/api/user-datas/datas')
-        const data = Promise.resolve(response.json());
-        data.then((v) => {
-            console.log(v);
-        })
+        const response = fetch('http://localhost:8786/api/user-datas/datas')
+        const data = response.then(resp => resp.json())
+        return data
 
-        //init();
     } catch (error) {
         console.error(error);
     }
@@ -26,7 +23,19 @@ async function getUserRating() {
     }
 }
 
-getUserData();
+async function getUserScheduling() {
+    try {
+        const response = await fetch('http://localhost:8786/api/user-datas/scheduling')
+        const data = Promise.resolve(response.json());
+        data.then((v) => {
+            console.log(v);
+        })
+
+        //init();
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 function tabelaServicos(cod_user) {
     // Apagar todos os elementos da seção
@@ -646,6 +655,7 @@ function criarListaAvaliacoes(cod_user) {
 }
 
 function init() {
+    console.log()
     const cod_user = "profissional";
 
     // Referenciar a div com a tabela
@@ -695,3 +705,11 @@ function init() {
         }, 50);
     });
 }
+
+$(document).ready(() => {
+    const response = getUserData();
+    response.then(result => {
+        //console.log(result)
+        init(result);
+    })
+})
