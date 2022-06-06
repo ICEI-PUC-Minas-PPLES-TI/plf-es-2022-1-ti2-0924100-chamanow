@@ -32,7 +32,6 @@ module.exports = {
             }
 
             const novoEndereco = {
-
                 cod_endereco: req.body.idEndereco,
                 cep: req.body.cep,
                 numero: req.body.numero,
@@ -54,11 +53,63 @@ module.exports = {
                         })
                     });
                 });
-
             }
         } catch (error) {
             console.log(error)
             res.status(400).error;
         }
-    }
+    },
+    async updateUserData(req, res) {
+        try {
+            // Atualização dos dados do user
+            const user = await Usuario.findOne({ where: { cod_user: req.body.id } });
+
+            user.cod_user = req.body.id;
+            user.email = req.body.email;
+            user.senha = req.body.senha;
+            user.nome = req.body.nome;
+            user.data_nasc = req.body.data_nascimento;
+            user.cpf = req.body.cpf;
+            user.cnpj = req.body.cnpj;
+            user.regiao_atuacao = req.body.regiao_atuacao;
+            user.foto_perfil = null;
+            user.cod_endereco = req.body.idEndereco;
+            user.numero = req.body.telefone;
+            user.cod_tipo = req.body.select_servicos
+
+            // Se houver algum valor undefined, ele será null
+            for (let atributo in user) {
+                if (user[atributo] == undefined)
+                    user[atributo] = null;
+            }
+
+            await user.save();
+
+            // Atualização dos dados do telefone do user
+            const userTel = await Telefone.findOne({ where: { cod_user: req.body.id } });
+
+            userTel.numero = req.body.telefone;
+            userTel.cod_user = req.body.id;
+
+            await userTel.save();
+
+            // Atualização dos dados do endereco do user
+            const userAdress = await Endereco.findOne({ where: { cod_endereco: req.body.idEndereco } })
+
+            userAdress.cod_user = req.body.id;
+            userAdress.cep = req.body.cep;
+            userAdress.numero = req.body.numero;
+            userAdress.rua = req.body.rua;
+            userAdress.bairro = req.body.bairro;
+            userAdress.cidade = req.body.cidade;
+            userAdress.estado = req.body.estado;
+
+            userAdress.save().then(() => {
+                res.redirect('/perfil');
+            });
+        } catch (error) {
+            console.log(error)
+            res.status(400).error;
+        }
+    },
 }

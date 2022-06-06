@@ -7,6 +7,10 @@ const Endereco = db.define('endereco', {
         allowNull: false,
         primaryKey: true
     },
+    cod_user: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     cep: {
         type: Sequelize.STRING,
         default: null
@@ -16,6 +20,11 @@ const Endereco = db.define('endereco', {
         default: null
     },
     rua: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        require: true
+    },
+    bairro: {
         type: Sequelize.STRING,
         allowNull: false,
         require: true

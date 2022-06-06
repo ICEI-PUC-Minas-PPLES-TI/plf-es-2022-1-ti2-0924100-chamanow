@@ -68,7 +68,7 @@ function formGeral(tipoUsuario) {
 
     // Criação do input do id
     const inputId = document.createElement('input');
-    inputId.type = "text";
+    inputId.type = "hidden";
     inputId.name = "id";
     inputId.id = "idUser";
     inputId.className = "form-control";
@@ -85,7 +85,6 @@ function formGeral(tipoUsuario) {
             inputId.value = `3-${idUser}`;
             break;
     }
-    //inputId.style = "display: none";
 
     // Criação do input do email
     const inputEmail = document.createElement('input');
@@ -139,7 +138,7 @@ function formGeral(tipoUsuario) {
 
     // Criação do input do id endereco
     const inputIdEndereco = document.createElement('input');
-    inputIdEndereco.type = "text";
+    inputIdEndereco.type = "hidden";
     inputIdEndereco.name = "idEndereco";
     inputIdEndereco.id = "idAdressUser";
     inputIdEndereco.className = "form-control";
@@ -156,7 +155,6 @@ function formGeral(tipoUsuario) {
             inputIdEndereco.value = `3-${idEndereco}`;
             break;
     }
-    //inputIdEndereco.style = "display: none";
 
     // Criação do input do rua
     const inputRua = document.createElement('input');

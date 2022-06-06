@@ -1,9 +1,32 @@
-function getUserData() {
-    try {
-        const response = fetch('http://localhost:8786/api/user-datas/datas')
-        const data = response.then(resp => resp.json())
-        return data
+const idUser = "2-jhalsqo4";
 
+async function getUserData() {
+    try {
+        const response = await fetch(`http://localhost:8786/api/user-datas/user-infos/${idUser}`);
+        const data = await response.json();
+
+        init(data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getUserTel(idUser) {
+    try {
+        const response = await fetch(`http://localhost:8786/api/user-datas/user-tel/${idUser}`);
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getUserAdress(idUser) {
+    try {
+        const response = await fetch(`http://localhost:8786/api/user-datas/user-adress/${idUser}`)
+        const data = await response.json();
+        return data;
     } catch (error) {
         console.error(error);
     }
@@ -152,7 +175,10 @@ function tabelaServicos(cod_user) {
     return divTabelaServico;
 }
 
-function alterarCadastro(cod_user) {
+function alterarCadastro(data, dataTel, dataEndereco) {
+    // Armazenar o id do user
+    const idUser = data.cod_user;
+
     // Apagar todos os elementos da seção
     $(".dadosMenu").html("");
 
@@ -165,59 +191,65 @@ function alterarCadastro(cod_user) {
     descricaoSecao.innerText = "";
 
     // Adicionar divFormLogin na divAlterarCadastro
-    const divAlterarCadastro = document.createElement("div");
-    divAlterarCadastro.className = "";
+    const formAlterarCadastro = document.createElement("form");
+    formAlterarCadastro.className = "form";
+    formAlterarCadastro.setAttribute("action", "/perfil/update-user");
+    formAlterarCadastro.setAttribute("method", "post")
 
     // Form Login =====================================================
-    const divFormLogin = formLogin(cod_user);
-    divAlterarCadastro.appendChild(divFormLogin);
+    const divFormLogin = formLogin(data);
+    formAlterarCadastro.appendChild(divFormLogin);
 
     // Form Endereço ==================================================
-    const divFormTelCadastro = formEnderecoTel(cod_user);
-    divAlterarCadastro.appendChild(divFormTelCadastro);
+    const divFormTelCadastro = formEnderecoTel(dataTel, dataEndereco);
+    formAlterarCadastro.appendChild(divFormTelCadastro);
 
     // Form Dados Pessoais ============================================
-    if (cod_user == "profissional" || cod_user == "cliente") {
-        const divFormDadosPessoaisCadastro = formDadosPessoais(cod_user);
-        divAlterarCadastro.appendChild(divFormDadosPessoaisCadastro);
+    if (idUser.startsWith("1") || idUser.startsWith("2")) {
+        const divFormDadosPessoaisCadastro = formDadosPessoais(data);
+        formAlterarCadastro.appendChild(divFormDadosPessoaisCadastro);
     }
 
     // Form Dados da Empresa ==========================================
-    if (cod_user == "empresa") {
-        const divFormDadosEmpresa = formDadosEmpresa(cod_user);
-        divAlterarCadastro.appendChild(divFormDadosEmpresa);
+    if (idUser.startsWith("3")) {
+        const divFormDadosEmpresa = formDadosEmpresa(data);
+        formAlterarCadastro.appendChild(divFormDadosEmpresa);
     }
 
     // Form Area de Atuação ===========================================
-    if (cod_user == "profissional" || cod_user == "empresa") {
-        const divFormAreaAtuacao = formAreaAtuacao(cod_user);
-        divAlterarCadastro.appendChild(divFormAreaAtuacao);
+    if (idUser.startsWith("2") || idUser.startsWith("3")) {
+        const divFormAreaAtuacao = formAreaAtuacao(data);
+        formAlterarCadastro.appendChild(divFormAreaAtuacao);
     }
 
     // Criação do btn submmit
     const btnSubmmit = document.createElement('button');
     btnSubmmit.id = "btnSubmmit";
     btnSubmmit.innerHTML = `Alterar <i class="fa-solid fa-check"></i>`;
-    divAlterarCadastro.appendChild(btnSubmmit);
+    formAlterarCadastro.appendChild(btnSubmmit);
 
     // Retornar divAlterarCadastro
-    return divAlterarCadastro;
+    return formAlterarCadastro;
 }
 
-function formLogin(cod_user) {
-    // Criação da div com o form de login
+function formLogin(data) {
+    console.log(data)
+        // Criação da div com o form de login
     const divFormLogin = document.createElement("div");
     divFormLogin.className = "info-login";
+
+    // Criação do input do id
+    const inputId = document.createElement('input');
+    inputId.type = "hidden";
+    inputId.name = "id";
+    inputId.id = "idUser";
+    inputId.className = "form-control";
+    inputId.value = data.cod_user;
 
     // Criação do título do form
     const tituloFormLogin = document.createElement("h5");
     tituloFormLogin.className = "subtitulo";
     tituloFormLogin.innerText = "Informações de Login";
-
-    // Criação do form de login
-    const formLogin = document.createElement("form");
-    formLogin.id = "formLogin";
-    formLogin.className = "form";
 
     // Criação do input do email
     const inputEmail = document.createElement('input');
@@ -227,6 +259,7 @@ function formLogin(cod_user) {
     inputEmail.className = "form-control";
     inputEmail.placeholder = "E-mail";
     inputEmail.setAttribute("required", "");
+    inputEmail.value = data.email;
 
     // Criação do input do senha
     const inputSenha = document.createElement('input');
@@ -242,7 +275,7 @@ function formLogin(cod_user) {
     // Criação do input do confirmar senha
     const inputConfirmarSenha = document.createElement('input');
     inputConfirmarSenha.type = "password";
-    inputConfirmarSenha.name = "confirmar-senha";
+    inputConfirmarSenha.name = "confirmar_senha";
     inputConfirmarSenha.id = "confirmar-senhaCadastro";
     inputConfirmarSenha.className = "form-control";
     inputConfirmarSenha.placeholder = "Confirmar Senha";
@@ -250,20 +283,20 @@ function formLogin(cod_user) {
     inputConfirmarSenha.maxlength = "50";
     inputConfirmarSenha.setAttribute("required", "");
 
-    // Adicionar os inputs dentro do form
-    formLogin.appendChild(inputEmail);
-    formLogin.appendChild(inputSenha);
-    formLogin.appendChild(inputConfirmarSenha);
-
     // Adicionar o formLogin dentro da divFormLogin
     divFormLogin.appendChild(tituloFormLogin);
-    divFormLogin.appendChild(formLogin);
+
+    // Adicionar os inputs dentro do form
+    divFormLogin.appendChild(inputId);
+    divFormLogin.appendChild(inputEmail);
+    divFormLogin.appendChild(inputSenha);
+    divFormLogin.appendChild(inputConfirmarSenha);
 
     // Retornar divFormLogin
     return divFormLogin;
 }
 
-function formEnderecoTel(cod_user) {
+function formEnderecoTel(dataTel, dataAdress) {
     // Criação da div com o form de Endereço e Telefone
     const divFormTel = document.createElement("div");
     divFormTel.className = "endereco-tel";
@@ -272,11 +305,6 @@ function formEnderecoTel(cod_user) {
     const tituloFormTel = document.createElement("h5");
     tituloFormTel.className = "subtitulo";
     tituloFormTel.innerText = "Endereço e Telefone";
-
-    // Criação do form de Endereço e Telefone
-    const formTel = document.createElement("form");
-    formTel.id = "formTel";
-    formTel.className = "form";
 
     // Div Telefone ============================================
 
@@ -292,6 +320,18 @@ function formEnderecoTel(cod_user) {
     inputTel.className = "form-control";
     inputTel.placeholder = "Telefone";
     inputTel.setAttribute("required", "");
+    dataTel.then((data) => {
+        console.log(data)
+        inputTel.value = data.numero;
+    })
+
+    // Criação do input do id endereco
+    const inputIdEndereco = document.createElement('input');
+    inputIdEndereco.type = "hidden";
+    inputIdEndereco.name = "idEndereco";
+    inputIdEndereco.id = "idAdressUser";
+    inputIdEndereco.className = "form-control";
+
 
     // Criação do input do rua
     const inputRua = document.createElement('input');
@@ -324,10 +364,10 @@ function formEnderecoTel(cod_user) {
 
     // Adicionar os inputs dentro do form
     divTel.appendChild(inputTel);
+    divTel.appendChild(inputIdEndereco);
     divTel.appendChild(inputRua);
     divTel.appendChild(inputBairro);
     divTel.appendChild(inputCidade);
-    formTel.appendChild(divTel);
 
     // Div CEP =================================================
 
@@ -401,6 +441,17 @@ function formEnderecoTel(cod_user) {
     labelSelecaoEstado.setAttribute("for", inputEstado.id);
     labelSelecaoEstado.innerText = "Estado";
 
+    dataAdress.then((dataAdress) => {
+        console.log(dataAdress);
+        inputIdEndereco.value = dataAdress.cod_endereco;
+        inputRua.value = dataAdress.rua;
+        inputBairro.value = dataAdress.bairro;
+        inputCidade.value = dataAdress.cidade;
+        inputCEP.value = dataAdress.cep;
+        inputNumero.value = dataAdress.numero;
+        inputEstado.value = dataAdress.estado;
+    })
+
     // Adicionar o select e a label dentro da div divEstado
     divEstado.appendChild(labelSelecaoEstado);
     divEstado.appendChild(inputEstado);
@@ -409,17 +460,17 @@ function formEnderecoTel(cod_user) {
     divCEP.appendChild(inputCEP);
     divCEP.appendChild(inputNumero);
     divCEP.appendChild(divEstado);
-    formTel.appendChild(divCEP);
 
     // Adicionar o formTel dentro da divFormTel
     divFormTel.appendChild(tituloFormTel);
-    divFormTel.appendChild(formTel);
+    divFormTel.appendChild(divTel);
+    divFormTel.appendChild(divCEP);
 
     // Retornar divFormTel
     return divFormTel;
 }
 
-function formDadosPessoais(cod_user) {
+function formDadosPessoais(data) {
     // Criação da div com o form de Dados Pessoais
     const divFormDadosPessoais = document.createElement("div");
     divFormDadosPessoais.className = "dados-pessoais";
@@ -429,32 +480,29 @@ function formDadosPessoais(cod_user) {
     tituloFormDadosPessoais.className = "subtitulo";
     tituloFormDadosPessoais.innerText = "Dados Pessoais";
 
-    // Criação do form de Dados Pessoais
-    const formDadosPessoais = document.createElement("form");
-    formDadosPessoais.id = "formDadosPessoais";
-    formDadosPessoais.className = "form";
-
     // Criação do input do Nome
     const inputNome = document.createElement('input');
     inputNome.type = "text";
-    inputNome.name = "nome-usuario";
+    inputNome.name = "nome";
     inputNome.id = "nomeUsuario";
     inputNome.className = "form-control";
     inputNome.placeholder = "Nome Completo";
     inputNome.minlength = "10";
     inputNome.maxlength = "50";
     inputNome.setAttribute("required", "");
+    inputNome.value = data.nome;
 
     // Criação do input do Data de Nascimento
     const inputDataNasc = document.createElement('input');
     inputDataNasc.type = "date";
-    inputDataNasc.name = "data-nascimento";
+    inputDataNasc.name = "data_nascimento";
     inputDataNasc.id = "dataNasc";
     inputDataNasc.className = "form-control";
     inputDataNasc.placeholder = "Data de Nascimento";
-    inputDataNasc.min = "2004-12-31";
-    inputDataNasc.max = "1950-01-01";
+    inputDataNasc.min = "1950-01-01";
+    inputDataNasc.max = "2004-12-31";
     inputDataNasc.setAttribute("required", "");
+    inputDataNasc.value = data.data_nasc.split("T")[0];
 
     // Criação do input do CPF
     const inputCPF = document.createElement('input');
@@ -466,21 +514,21 @@ function formDadosPessoais(cod_user) {
     inputCPF.minlength = "11";
     inputCPF.maxlength = "11";
     inputCPF.setAttribute("required", "");
-
-    // Adicionar os inputs dentro do form
-    formDadosPessoais.appendChild(inputNome);
-    formDadosPessoais.appendChild(inputDataNasc);
-    formDadosPessoais.appendChild(inputCPF);
+    inputCPF.value = data.cpf;
 
     // Adicionar o formDadosPessoais dentro da divFormDadosPessoais
     divFormDadosPessoais.appendChild(tituloFormDadosPessoais);
-    divFormDadosPessoais.appendChild(formDadosPessoais);
+
+    // Adicionar os inputs dentro do form
+    divFormDadosPessoais.appendChild(inputNome);
+    divFormDadosPessoais.appendChild(inputDataNasc);
+    divFormDadosPessoais.appendChild(inputCPF);
 
     // Retornar divFormDadosPessoais
     return divFormDadosPessoais;
 }
 
-function formDadosEmpresa(cod_user) {
+function formDadosEmpresa(data) {
     // Criação da div com o form de Dados da Empresa
     const divFormDadosEmpresa = document.createElement("div");
     divFormDadosEmpresa.className = "dados-empresa";
@@ -490,21 +538,17 @@ function formDadosEmpresa(cod_user) {
     tituloFormDadosEmpresa.className = "subtitulo";
     tituloFormDadosEmpresa.innerText = "Dados da Empresa";
 
-    // Criação do form de Dados da Empresa
-    const formDadosEmpresa = document.createElement("form");
-    formDadosEmpresa.id = "formDadosEmpresa";
-    formDadosEmpresa.className = "form";
-
     // Criação do input do Nome da Empresa
     const inputNomeEmpresa = document.createElement('input');
     inputNomeEmpresa.type = "text";
-    inputNomeEmpresa.name = "nome-empresa";
+    inputNomeEmpresa.name = "nome";
     inputNomeEmpresa.id = "nomeEmpresa";
     inputNomeEmpresa.className = "form-control";
     inputNomeEmpresa.placeholder = "Nome da Empresa";
     inputNomeEmpresa.minlength = "10";
     inputNomeEmpresa.maxlength = "50";
     inputNomeEmpresa.setAttribute("required", "");
+    inputNomeEmpresa.value = data.nome;
 
     // Criação do input do CNPJ
     const inputCNPJ = document.createElement('input');
@@ -516,20 +560,20 @@ function formDadosEmpresa(cod_user) {
     inputCNPJ.minlength = "18";
     inputCNPJ.maxlength = "18";
     inputCNPJ.setAttribute("required", "");
-
-    // Adicionar os inputs dentro do form
-    formDadosEmpresa.appendChild(inputNomeEmpresa);
-    formDadosEmpresa.appendChild(inputCNPJ);
+    inputCNPJ.value = data.cnpj;
 
     // Adicionar o formDadosEmpresa dentro da divFformDadosEmpresa
     divFormDadosEmpresa.appendChild(tituloFormDadosEmpresa);
-    divFormDadosEmpresa.appendChild(formDadosEmpresa);
+
+    // Adicionar os inputs dentro do form
+    divFormDadosEmpresa.appendChild(inputNomeEmpresa);
+    divFormDadosEmpresa.appendChild(inputCNPJ);
 
     // Retornar divFormDadosEmpresa
     return divFormDadosEmpresa;
 }
 
-function formAreaAtuacao(cod_user) {
+function formAreaAtuacao(data) {
     // Criação da div com o form de Área de Atuação
     const divFormAreaAtuacao = document.createElement("div");
     divFormAreaAtuacao.className = "area-atuacao";
@@ -539,14 +583,9 @@ function formAreaAtuacao(cod_user) {
     tituloFormAreaAtuacao.className = "subtitulo";
     tituloFormAreaAtuacao.innerText = "Área de Atuação";
 
-    // Criação do form de Área de Atuação
-    const formAreaAtuacao = document.createElement("form");
-    formAreaAtuacao.id = "formAreaAtuacao";
-    formAreaAtuacao.className = "form";
-
     // Criação do input do Região de Atuação
     const selectRegiaoAtuacao = document.createElement('select');
-    selectRegiaoAtuacao.name = "regiao-atuacao";
+    selectRegiaoAtuacao.name = "regiao_atuacao";
     selectRegiaoAtuacao.id = "regiaoAtuacao";
     selectRegiaoAtuacao.className = "form-control";
     selectRegiaoAtuacao.innerHTML = `<option value="" selected>Selecionar Raio de Atuação</option>`;
@@ -558,13 +597,13 @@ function formAreaAtuacao(cod_user) {
         selectRegiaoAtuacao.appendChild(option);
     }
     selectRegiaoAtuacao.setAttribute("required", "");
-
-    // Adicionar o input dentro do form
-    formAreaAtuacao.appendChild(selectRegiaoAtuacao);
+    selectRegiaoAtuacao.value = data.regiao_atuacao;
 
     // Adicionar o formAreaAtuacao dentro da divFormAreaAtuacao
     divFormAreaAtuacao.appendChild(tituloFormAreaAtuacao);
-    divFormAreaAtuacao.appendChild(formAreaAtuacao);
+
+    // Adicionar o input dentro do form
+    divFormAreaAtuacao.appendChild(selectRegiaoAtuacao);
 
     // Retornar divFormAreaAtuacao
     return divFormAreaAtuacao;
@@ -654,9 +693,20 @@ function criarListaAvaliacoes(cod_user) {
     return divAvaliacoes;
 }
 
-function init() {
-    console.log()
-    const cod_user = "profissional";
+function init(data) {
+    const cod_user = data.cod_user;
+
+    const dataTel = getUserTel(cod_user);
+    const dataAdress = getUserAdress(cod_user);
+
+    // Alterar o nome do usuário no perfil
+    const nomeUser = document.querySelector("#nomeUser");
+    nomeUser.innerText = data.nome;
+
+    // Alterar a foto de perfil do user, se houver
+    // const ft_perfil = document.querySelector("#ftUser");
+    // if(data.foto_perfil)
+    //     ft_perfil.setAttribute("src")
 
     // Referenciar a div com a tabela
     const divTabelaServico = tabelaServicos(cod_user);
@@ -677,7 +727,7 @@ function init() {
     // Identifica se o btn alterar cadastro foi clicado
     $("#alterarCadastro").click(function() {
         // Referenciar a div com a tabela
-        const divAlterarCadastro = alterarCadastro(cod_user);
+        const divAlterarCadastro = alterarCadastro(data, dataTel, dataAdress);
 
         // Adicionar divAlterarCadastro na divDadosMenu
         divDadosMenu.appendChild(divAlterarCadastro);
@@ -707,9 +757,5 @@ function init() {
 }
 
 $(document).ready(() => {
-    const response = getUserData();
-    response.then(result => {
-        //console.log(result)
-        init(result);
-    })
+    getUserData();
 })

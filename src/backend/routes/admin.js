@@ -31,7 +31,10 @@ router.get('/perfil', (req, res) => {
 })
 
 // Rotas POST
-router.post('/cadastro/user-data', userController.cadastroUser)
+router.post('/cadastro/user-data', userController.cadastroUser);
+
+// Rotas POST
+router.post('/perfil/update-user', userController.updateUserData);
 
 // Exportar rotas
 module.exports = router;

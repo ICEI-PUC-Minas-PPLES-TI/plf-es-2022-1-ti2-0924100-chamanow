@@ -9,7 +9,11 @@ const app = express();
 const admin = require("./routes/admin");
 const apiRoutes = require("./routes/jsonRoutes");
 const path = require("path");
-require('./database');
+
+(async() => {
+    const db = require('./database');
+    await db.sync();
+})();
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
