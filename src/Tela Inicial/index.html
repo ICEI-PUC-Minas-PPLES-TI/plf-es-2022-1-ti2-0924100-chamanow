@@ -42,8 +42,10 @@
             <section id="banner">
                 <div id="texto-banner">
                     <h1>Procure o melhor <strong>serviço</strong> pelo o melhor <strong>preço</strong></h1>
-                    <p>Pesquise um serviço</p>
-                    <input type="Pesquise um serviço">
+                    <div id="pesquisar">
+                        <input type="text" placeholder="Pesquise um serviço" id="pesquisa-servicos" />
+                        <button id="pesquisa-button">Pesquisar</button>
+                    </div>
                 </div>
                 <div id="imagem-banner">
                     <img src="./imgs/gustavo.png" alt="Foto do Embaixador">
@@ -51,38 +53,78 @@
             </section>
             <section id="servicos">
                 <div id="catalogo">
-                    <h3>Catálogo</h3>
-                    <select id="lista-servicos" name="select" placeholder="Serviços">
-                        <option disabled selected>Selecione um serviço</option>
-                        <option>Pintura</option>
-                        <option>Reparos Hidraúlicos (Bombeiro)</option>
-                        <option>Carpintaria</option>
-                        <option>Alvenaria</option>
-                    </select>
+                    <h2>Catálogo</h2>
+
+                    <div class="container-servicos">
+
+                        <div class="servico-catalogo">
+                            <div class="container-img">
+                                <img src="./imgs/worker.png" alt="Icone trabalho">
+                            </div>
+                            <h4>Pintura</h4>
+                        </div>
+
+                        <div class="servico-catalogo">
+                            <div class="container-img">
+                                <img src="./imgs/worker.png" alt="Icone trabalho">
+                            </div>
+                            <h4>Reparos Hidraúlicos (Bombeiro)</h4>
+                        </div>
+
+                        <div class="servico-catalogo">
+                            <div class="container-img">
+                                <img src="./imgs/worker.png" alt="Icone trabalho">
+                            </div>
+                            <h4>Carpintaria</h4>
+                        </div>
+
+                        <div class="servico-catalogo">
+                            <div class="container-img">
+                                <img src="./imgs/worker.png" alt="Icone trabalho">
+                            </div>
+                            <h4>Alvenaria</h4>
+                        </div>
+
+                        <div class="servico-catalogo">
+                            <div class="container-img">
+                                <img src="./imgs/worker.png" alt="Icone trabalho">
+                            </div>
+                            <h4>Elétrica</h4>
+                        </div>
+
+                        <div class="servico-catalogo">
+                            <div class="container-img">
+                                <img src="./imgs/worker.png" alt="Icone trabalho">
+                            </div>
+                            <h4>Martelinho de Ouro</h4>
+                        </div>
+                    </div>
                 </div>
                 <div id="principais-servicos">
-                    <h3>Principais Serviços</h3>
+                    <h2>Principais Serviços</h2>
                     <div class="container-servicos">
-                        <div class="quadrado-wireframe"></div>
                         <div class="quadrado-wireframe"></div>
                         <div class="quadrado-wireframe"></div>
                         <div class="quadrado-wireframe"></div>
                     </div>
                 </div>
                 <div id="bem-avaliados">
-                    <h3>Profissionais mais bem avaliados</h3>
+                    <h2>Profissionais mais bem avaliados</h2>
                     <div class="container-bem-avaliados">
                         <div>
+                            <div class="quadrado-wireframe"></div>
                             <h3>Lorem ipsum</h3>
                             <h4>Lorem ipsum</h4>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                         <div>
+                            <div class="quadrado-wireframe"></div>
                             <h3>Lorem ipsum</h3>
                             <h4>Lorem ipsum</h4>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                         </div>
                         <div>
+                            <div class="quadrado-wireframe"></div>
                             <h3>Lorem ipsum</h3>
                             <h4>Lorem ipsum</h4>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
