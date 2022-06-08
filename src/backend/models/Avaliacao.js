@@ -10,10 +10,6 @@ const Avaliacao = db.define('avaliacao', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    cod_avaliado: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     nota: Sequelize.FLOAT,
     comentario: Sequelize.TEXT,
 });

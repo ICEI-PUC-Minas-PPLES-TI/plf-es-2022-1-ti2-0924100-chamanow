@@ -1,7 +1,7 @@
 const db = require('../database');
 const Sequelize = require('sequelize');
 
-const Servico = db.define('telefone', {
+const Servico = db.define('servico', {
     cod_tipo: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -17,6 +17,6 @@ const Servico = db.define('telefone', {
     }
 });
 
-Servico.sync({ alter: true });
+//Servico.sync({ alter: true });
 
 module.exports = Servico;

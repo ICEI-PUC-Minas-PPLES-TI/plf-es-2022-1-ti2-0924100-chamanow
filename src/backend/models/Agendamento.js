@@ -15,8 +15,8 @@ const Agendamento = db.define('agendamento', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    cod_endereco: {
-        type: Sequelize.STRING,
+    endereco: {
+        type: Sequelize.TEXT,
         allowNull: false
     },
     cod_tipo: {

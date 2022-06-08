@@ -46,6 +46,6 @@ const Usuario = db.define('usuario', {
     cod_tipo: Sequelize.STRING
 });
 
-//Usuario.sync({ alter: true });
+Usuario.sync({ alter: true });
 
 module.exports = Usuario;

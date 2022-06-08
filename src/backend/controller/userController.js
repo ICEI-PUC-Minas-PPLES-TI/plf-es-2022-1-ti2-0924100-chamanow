@@ -38,7 +38,8 @@ module.exports = {
                 rua: req.body.rua,
                 bairro: req.body.bairro,
                 cidade: req.body.cidade,
-                estado: req.body.estado
+                estado: req.body.estado,
+                cod_user: req.body.id
             }
 
             const user = await Usuario.findOne({ where: { email: req.body.email } });

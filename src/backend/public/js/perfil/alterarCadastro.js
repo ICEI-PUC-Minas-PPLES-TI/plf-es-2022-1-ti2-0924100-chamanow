@@ -1,240 +1,5 @@
-const idUser = "2-jhalsqo4";
-
-async function getUserData() {
-    try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/user-infos/${idUser}`);
-        const data = await response.json();
-
-        init(data);
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-async function getUserTel(idUser) {
-    try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/user-tel/${idUser}`);
-        const data = await response.json();
-
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-async function getUserAdress(idUser) {
-    try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/user-adress/${idUser}`)
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-async function getUserRating() {
-    try {
-        const response = await fetch('http://localhost:8786/api/user-datas/rating')
-        const data = Promise.resolve(response.json());
-        data.then((v) => {
-            console.log(v);
-        })
-
-        //init();
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-async function getUserScheduling() {
-    try {
-        const response = await fetch('http://localhost:8786/api/user-datas/scheduling')
-        const data = Promise.resolve(response.json());
-        data.then((v) => {
-            console.log(v);
-        })
-
-        //init();
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-function tabelaServicos(cod_user) {
-    // Apagar todos os elementos da seção
-    $(".dadosMenu").html("");
-
-    // Alterar o título da seção
-    const tituloSecao = document.querySelector("h2.tituloSecao");
-    tituloSecao.innerText = "Serviços";
-
-    // Alterar a descrição da seção
-    const descricaoSecao = document.querySelector(".descricaoSecao");
-    descricaoSecao.innerText = "Veja na tabela a seguir todos os seus serviços:";
-
-    // Criação da div da tabela dos serviços
-    const divTabelaServico = document.createElement('div');
-    divTabelaServico.className = "divTebelaServico";
-
-    // Criação da tabela dos serviços
-    const tabelaServico = document.createElement("table");
-    tabelaServico.id = "tabelaServico";
-
-    // Criação do cabeçalho da tabela
-    const cabecalhoTabela = document.createElement("tr");
-    cabecalhoTabela.className = "cabecalho";
-
-    // Criação das colunas do cabeçalho =======================
-
-    // Criação da coluna do nome do cabeçalho
-    const colunaNome = document.createElement("td");
-    if (cod_user == "cliente")
-        colunaNome.innerText = "Prestador";
-    else
-        colunaNome.innerText = "Cliente";
-
-
-    // Criação da coluna do serviço do cabeçalho
-    const colunaServico = document.createElement("td");
-    colunaServico.innerText = "Serviço";
-
-    // Criação da coluna do endereço do cabeçalho
-    const colunaEndereco = document.createElement("td");
-    colunaEndereco.innerText = "Endereço";
-
-    // Criação da coluna da data do cabeçalho
-    const colunaData = document.createElement("td");
-    colunaData.innerText = "Data";
-
-    // Criação da coluna do status do cabeçalho
-    const colunaStatus = document.createElement("td");
-    colunaStatus.innerText = "Status";
-
-    // Adicionar as colunas dentro do cabeçalho
-    cabecalhoTabela.appendChild(colunaNome);
-    cabecalhoTabela.appendChild(colunaServico);
-    cabecalhoTabela.appendChild(colunaEndereco);
-    cabecalhoTabela.appendChild(colunaData);
-    cabecalhoTabela.appendChild(colunaStatus);
-
-    // Adicionar a cabeçalho na tabela
-    tabelaServico.appendChild(cabecalhoTabela);
-
-    //Criação das tuplas da tabela
-    for (var i = 1; i <= 8; i++) {
-        // Criação da linha
-        const tupla = document.createElement("tr");
-        tupla.id = `${i}`;
-
-        // Criação das colunas da tupla =======================
-
-        // Criação da coluna do nome do cabeçalho
-        const colunaNomeTupla = document.createElement("td");
-        colunaNomeTupla.id = `prestador-${i}`;
-        colunaNomeTupla.innerText = `Nome prestador ${i}`;
-
-        // Criação da coluna do serviço do cabeçalho
-        const colunaServicoTupla = document.createElement("td");
-        colunaServicoTupla.id = `serviço-${i}`;
-        colunaServicoTupla.innerText = `Serviço ${i}`;
-
-        // Criação da coluna do endereço do cabeçalho
-        const colunaEnderecoTupla = document.createElement("td");
-        colunaEnderecoTupla.id = `endereço-${i}`;
-        colunaEnderecoTupla.innerText = `Endereço ${i}`;
-
-        // Criação da coluna da data do cabeçalho
-        const colunaDataTupla = document.createElement("td");
-        colunaDataTupla.id = `data-${i}`;
-        colunaDataTupla.innerText = `Data ${i}`;
-
-        // Criação da coluna do status do cabeçalho
-        const colunaStatusTupla = document.createElement("td");
-        const spanStatus = document.createElement("span");
-        spanStatus.id = `status-${i}`;
-        spanStatus.innerText = `Status ${i}`;
-
-        // Adicionar o spanStatus dentro da coluna status
-        colunaStatusTupla.appendChild(spanStatus);
-
-        // Adicionar as colunas dentro do cabeçalho
-        tupla.appendChild(colunaNomeTupla);
-        tupla.appendChild(colunaServicoTupla);
-        tupla.appendChild(colunaEnderecoTupla);
-        tupla.appendChild(colunaDataTupla);
-        tupla.appendChild(colunaStatusTupla);
-
-        // Adicionar a tupla na tabela
-        tabelaServico.appendChild(tupla);
-    }
-
-    // Adicionar a tabela na divTabela
-    divTabelaServico.appendChild(tabelaServico);
-
-    // Retornar a tabela
-    return divTabelaServico;
-}
-
-function alterarCadastro(data, dataTel, dataEndereco) {
-    // Armazenar o id do user
-    const idUser = data.cod_user;
-
-    // Apagar todos os elementos da seção
-    $(".dadosMenu").html("");
-
-    // Alterar o título da seção
-    const tituloSecao = document.querySelector("h2.tituloSecao");
-    tituloSecao.innerText = "Alterar Cadastro";
-
-    // Alterar a descrição da seção
-    const descricaoSecao = document.querySelector(".descricaoSecao");
-    descricaoSecao.innerText = "";
-
-    // Adicionar divFormLogin na divAlterarCadastro
-    const formAlterarCadastro = document.createElement("form");
-    formAlterarCadastro.className = "form";
-    formAlterarCadastro.setAttribute("action", "/perfil/update-user");
-    formAlterarCadastro.setAttribute("method", "post")
-
-    // Form Login =====================================================
-    const divFormLogin = formLogin(data);
-    formAlterarCadastro.appendChild(divFormLogin);
-
-    // Form Endereço ==================================================
-    const divFormTelCadastro = formEnderecoTel(dataTel, dataEndereco);
-    formAlterarCadastro.appendChild(divFormTelCadastro);
-
-    // Form Dados Pessoais ============================================
-    if (idUser.startsWith("1") || idUser.startsWith("2")) {
-        const divFormDadosPessoaisCadastro = formDadosPessoais(data);
-        formAlterarCadastro.appendChild(divFormDadosPessoaisCadastro);
-    }
-
-    // Form Dados da Empresa ==========================================
-    if (idUser.startsWith("3")) {
-        const divFormDadosEmpresa = formDadosEmpresa(data);
-        formAlterarCadastro.appendChild(divFormDadosEmpresa);
-    }
-
-    // Form Area de Atuação ===========================================
-    if (idUser.startsWith("2") || idUser.startsWith("3")) {
-        const divFormAreaAtuacao = formAreaAtuacao(data);
-        formAlterarCadastro.appendChild(divFormAreaAtuacao);
-    }
-
-    // Criação do btn submmit
-    const btnSubmmit = document.createElement('button');
-    btnSubmmit.id = "btnSubmmit";
-    btnSubmmit.innerHTML = `Alterar <i class="fa-solid fa-check"></i>`;
-    formAlterarCadastro.appendChild(btnSubmmit);
-
-    // Retornar divAlterarCadastro
-    return formAlterarCadastro;
-}
-
 function formLogin(data) {
-    console.log(data)
-        // Criação da div com o form de login
+    // Criação da div com o form de login
     const divFormLogin = document.createElement("div");
     divFormLogin.className = "info-login";
 
@@ -321,7 +86,6 @@ function formEnderecoTel(dataTel, dataAdress) {
     inputTel.placeholder = "Telefone";
     inputTel.setAttribute("required", "");
     dataTel.then((data) => {
-        console.log(data)
         inputTel.value = data.numero;
     })
 
@@ -442,7 +206,6 @@ function formEnderecoTel(dataTel, dataAdress) {
     labelSelecaoEstado.innerText = "Estado";
 
     dataAdress.then((dataAdress) => {
-        console.log(dataAdress);
         inputIdEndereco.value = dataAdress.cod_endereco;
         inputRua.value = dataAdress.rua;
         inputBairro.value = dataAdress.bairro;
@@ -609,153 +372,62 @@ function formAreaAtuacao(data) {
     return divFormAreaAtuacao;
 }
 
-function criarListaAvaliacoes(cod_user) {
+function alterarCadastro(data, cod_user) {
+    const dataTel = getUserTel(cod_user);
+    const dataEndereco = getUserAdress(cod_user);
 
-    // Referenciar div dadosMenu
-    const divAvaliacoes = document.createElement("div");
-    divAvaliacoes.className = "divAvaliacoes";
+    // Armazenar o id do user
+    const idUser = data.cod_user;
 
-    // Div Nome e Data ====================================
+    // Apagar todos os elementos da seção
+    $(".dadosMenu").html("");
 
-    // Criação da div com o nome e data
-    const divNomeData = document.createElement('div');
-    divNomeData.className = "nome-data";
+    // Alterar o título da seção
+    const tituloSecao = document.querySelector("h2.tituloSecao");
+    tituloSecao.innerText = "Alterar Cadastro";
 
-    // Criação do elemento para o nome do avaliador
-    const nomeAvaliador = document.createElement('h5');
-    nomeAvaliador.id = "nome-avaliador";
-    nomeAvaliador.innerText = "Nome do Avaliador";
+    // Alterar a descrição da seção
+    const descricaoSecao = document.querySelector(".descricaoSecao");
+    descricaoSecao.innerText = "";
 
-    // Criação do elemento para o hifen
-    const hifen = document.createElement('span');
-    hifen.className = "hifen";
-    hifen.innerText = "-";
+    // Adicionar divFormLogin na divAlterarCadastro
+    const formAlterarCadastro = document.createElement("form");
+    formAlterarCadastro.className = "form";
+    formAlterarCadastro.setAttribute("action", "/perfil/update-user");
+    formAlterarCadastro.setAttribute("method", "post")
 
-    // Criação do elemento para a data da publicação da avaliação
-    const dataPublicacao = document.createElement('span');
-    dataPublicacao.id = "data-publicacao";
-    dataPublicacao.innerText = "Data da publicacao";
+    // Form Login =====================================================
+    const divFormLogin = formLogin(data);
+    formAlterarCadastro.appendChild(divFormLogin);
 
-    // Colocando os elementos criados dentro de div nomeData
-    divNomeData.appendChild(nomeAvaliador);
-    divNomeData.appendChild(hifen);
-    divNomeData.appendChild(dataPublicacao);
+    // Form Endereço ==================================================
+    const divFormTelCadastro = formEnderecoTel(dataTel, dataEndereco);
+    formAlterarCadastro.appendChild(divFormTelCadastro);
 
-    // Div Avaliação ========================================
-
-    // Criação da div com a nota da avaliação
-    const divAvaliacao = document.createElement('div');
-    divAvaliacao.className = "avaliacao-usuario";
-
-    // Criação do elemento para a nota
-    const notaAvaliacao = document.createElement('span');
-    notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = "4,5";
-
-    // Criação do elemento para o ponto de separação
-    const ponto = document.createElement('span');
-    ponto.className = "ponto";
-
-    // Criação do elemento que conterá as estrelas
-    const listEstrelas = document.createElement('ul');
-    listEstrelas.className = "avaliacao";
-
-    // Criando e colocando os elementos estrela dentro da lista
-    for (var i = 0; i < 5; i++) {
-        // Criação do elemento para as estrelas
-        const estrelas = document.createElement('li');
-        estrelas.className = "star-icon";
-
-        // Colocando os elementos estrela dentro da lista
-        listEstrelas.appendChild(estrelas);
+    // Form Dados Pessoais ============================================
+    if (idUser.startsWith("1") || idUser.startsWith("2")) {
+        const divFormDadosPessoaisCadastro = formDadosPessoais(data);
+        formAlterarCadastro.appendChild(divFormDadosPessoaisCadastro);
     }
 
-    // Colocando os elementos criados dentro da divAvaliacao
-    divAvaliacao.appendChild(notaAvaliacao);
-    divAvaliacao.appendChild(ponto);
-    divAvaliacao.appendChild(listEstrelas);
+    // Form Dados da Empresa ==========================================
+    if (idUser.startsWith("3")) {
+        const divFormDadosEmpresa = formDadosEmpresa(data);
+        formAlterarCadastro.appendChild(divFormDadosEmpresa);
+    }
 
-    // Comentario ============================================
+    // Form Area de Atuação ===========================================
+    if (idUser.startsWith("2") || idUser.startsWith("3")) {
+        const divFormAreaAtuacao = formAreaAtuacao(data);
+        formAlterarCadastro.appendChild(divFormAreaAtuacao);
+    }
 
-    // Criação do elemento para o comentario da avaliação
-    const comentarioAvaliacao = document.createElement('p');
-    comentarioAvaliacao.id = "comentario";
-    comentarioAvaliacao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    // Criação do btn submmit
+    const btnSubmmit = document.createElement('button');
+    btnSubmmit.id = "btnSubmmit";
+    btnSubmmit.innerHTML = `Alterar <i class="fa-solid fa-check"></i>`;
+    formAlterarCadastro.appendChild(btnSubmmit);
 
-    // Div Geral =============================================
-
-    // Colocando todos as divs criadas dentro da divAvaliacoes
-    divAvaliacoes.appendChild(divNomeData);
-    divAvaliacoes.appendChild(divAvaliacao);
-    divAvaliacoes.appendChild(comentarioAvaliacao);
-
-    // Retornar divAvaliacoes
-    return divAvaliacoes;
+    // Retornar divAlterarCadastro
+    return formAlterarCadastro;
 }
-
-function init(data) {
-    const cod_user = data.cod_user;
-
-    const dataTel = getUserTel(cod_user);
-    const dataAdress = getUserAdress(cod_user);
-
-    // Alterar o nome do usuário no perfil
-    const nomeUser = document.querySelector("#nomeUser");
-    nomeUser.innerText = data.nome;
-
-    // Alterar a foto de perfil do user, se houver
-    // const ft_perfil = document.querySelector("#ftUser");
-    // if(data.foto_perfil)
-    //     ft_perfil.setAttribute("src")
-
-    // Referenciar a div com a tabela
-    const divTabelaServico = tabelaServicos(cod_user);
-
-    // Adicionar divTabelaServico na divDadosMenu
-    const divDadosMenu = document.querySelector(".dadosMenu");
-    divDadosMenu.appendChild(divTabelaServico);
-
-    // Identifica se o btn alterar cadastro foi clicado
-    $("#servicos").click(function() {
-        // Referenciar a div com a tabela
-        const divTabelaServico = tabelaServicos(cod_user);
-
-        // Adicionar divTabelaServico na divDadosMenu
-        divDadosMenu.appendChild(divTabelaServico);
-    })
-
-    // Identifica se o btn alterar cadastro foi clicado
-    $("#alterarCadastro").click(function() {
-        // Referenciar a div com a tabela
-        const divAlterarCadastro = alterarCadastro(data, dataTel, dataAdress);
-
-        // Adicionar divAlterarCadastro na divDadosMenu
-        divDadosMenu.appendChild(divAlterarCadastro);
-    })
-
-    // Identifica se o btn alterar cadastro foi clicado
-    $("#avaliacoes").click(function() {
-        // Apagar todos os elementos da seção
-        $(".dadosMenu").html("");
-
-        for (var i = 0; i < 6; i++) {
-            // Referenciar a div com a tabela
-            const divAvaliacoes = criarListaAvaliacoes(cod_user);
-
-            // Adicionar divAvaliacoeso na divDadosMenu
-            divDadosMenu.appendChild(divAvaliacoes);
-        }
-    })
-
-    // Identificar qual serviço da tabela foi clicado
-    $('#tabelaServico tr').click(function() {
-        var target = this.closest('[id]');
-        setTimeout(function() {
-            window.location.href = `../detalhe-servico/index.html?cod-servico=${String(target.id)}`;
-        }, 50);
-    });
-}
-
-$(document).ready(() => {
-    getUserData();
-})

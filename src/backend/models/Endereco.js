@@ -12,11 +12,11 @@ const Endereco = db.define('endereco', {
         allowNull: false
     },
     cep: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         default: null
     },
     numero: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         default: null
     },
     rua: {
