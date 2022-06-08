@@ -2,30 +2,31 @@ cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: 
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Andrade
+    given-names: Daniel Jost
+  - family-names: Fernandes
+    given-names: Douglas Viana
+  - family-names: Dos Santos Ferreira de Andrade
+    given-names: Frederico
+  - family-names: De Oliveira Martins Dos Santos
+    given-names: Igor
+  - family-names: Vieira Louret
+    given-names: Nikolas Augusto
+ 
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: De Paula
+    given-names: Hugo Bastos De Paula
   - name-suffix: Professor
     affiliation: PUC Minas
-    family-names: 
-    given-names: 
+    family-names: De Paiva Carvalho
+    given-names: Joyce Christina
 keywords:
-  - 
-  - 
-repository-code: 
+  - Contratação de Serviços
+  - Reparos
+  - Consertos
+  - Reformas
+repository-code: https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2022-1-ti2-0924100-chamanow
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
+date-released: 2022-06-17
