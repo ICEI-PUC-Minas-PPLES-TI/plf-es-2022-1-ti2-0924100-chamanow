@@ -308,19 +308,14 @@ body main #container-trabalhamos {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  /* background-color: rgb(236, 236, 236);
-  border-radius: 1rem; */
-  padding: 1rem;
 }
 
 main section #container-neymar > img {
   max-width: 30rem;
 }
 
-section#servicos #espaco-branco {
-  background-color: var(--bg-color);
+section#servicos #imagem-banner img {
   width: 100%;
-  height: 10rem;
   border-radius: 1rem;
 }
 
