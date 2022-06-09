@@ -170,7 +170,7 @@ main section #catalogo {
 }
 
 #catalogo .container-img {
-  background-color: var(--bg-color);
+  background-color: var(--secondary-color);
   border-radius: 50%;
   padding: 1rem;
   margin: 0.5rem;
@@ -245,8 +245,37 @@ section #bem-avaliados .quadrado-wireframe {
 section #bem-avaliados .container-bem-avaliados {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
+}
+
+#bem-avaliados .container-bem-avaliados .bem-avaliados-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  margin: 1rem 0;
+}
+
+#bem-avaliados .container-bem-avaliados .quadrado-wireframe {
+  width: 20rem;
+}
+
+#bem-avaliados div.container-texto {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  margin-left: 2rem;
+}
+
+.bem-avaliados-item div.container-img > img {
+  height: 10rem;
+
+  background-color: var(--bg-color);
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 /* Quinta Seção - Quem Somos ================================================*/
