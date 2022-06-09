@@ -88,21 +88,21 @@ body header .menu a:hover {
   flex-direction: column;
 }
 #pesquisa-servicos {
-  border: 1px solid var(--bg-panel);
+  border: 1px solid var(--bg-color);
   border-radius: 0.4rem;
-  color: var(--color-text);
+  color: var(--primary-color);
   font-weight: bold;
-  background: var(--bg-panel);
+  background: var(--color-text);
   padding: 1rem;
   width: 100%;
 }
 
 #pesquisar button {
-  border: 1px solid var(--bg-panel);
+  border: 1px solid var(--color-text);
   border-radius: 0.4rem;
-  color: var(--bg-panel);
+  color: var(--color-text);
   font-weight: bold;
-  background: var(--color-text);
+  background: var(--primary-color);
   padding: 1rem;
   width: 100%;
 
