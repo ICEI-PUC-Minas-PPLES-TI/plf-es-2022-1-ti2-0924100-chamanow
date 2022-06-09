@@ -4,6 +4,7 @@ const configDB = require('../config/database');
 
 const connetion = new Sequelize(configDB);
 
+
 connetion.authenticate().then(() => {
     console.log("Conexão com o banco de dados realizada com sucesso!");
 }).catch((error) => {
