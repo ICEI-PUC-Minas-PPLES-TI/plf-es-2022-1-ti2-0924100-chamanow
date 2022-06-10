@@ -177,16 +177,19 @@ main section #catalogo {
 }
 
 #catalogo img {
-  height: 4rem;
+  height: 3.5rem;
+  margin: 0.4rem;
 }
 
-#catalogo .container-servicos {
+#catalogo #container-servicos {
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: stretch;
   flex-wrap: wrap;
+  column-gap: 3rem;
+  row-gap: 1rem;
 }
 
 #catalogo .servico-catalogo {
@@ -195,29 +198,38 @@ main section #catalogo {
   align-items: stretch;
   justify-content: center;
   text-align: center;
-  width: 100px;
+  width: 6rem;
   cursor: pointer;
   flex-wrap: wrap;
 }
 
 /* Terceira Seção - Principais Serviços =====================================*/
 
-main section #servicos {
-  padding: 1rem 0;
+main section #principais-servicos {
+  padding: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 #principais-servicos > h2 {
   margin: 1rem 0;
 }
 
-section #principais-servicos .quadrado-wireframe {
-  background-color: var(--bg-color);
+section #principais-servicos .principal-servico-item {
   width: 10rem;
   height: 10rem;
   border-radius: 1rem;
+  text-align: center;
 }
 
-section #principais-servicos .container-servicos {
+#principais-servicos .principal-servico-item img {
+  height: 10rem;
+
+  background-color: var(--primary-color );
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+section #principais-servicos #container-principais-servicos {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -242,14 +254,14 @@ section #bem-avaliados .quadrado-wireframe {
   border-radius: 1rem;
 }
 
-section #bem-avaliados .container-bem-avaliados {
+section #bem-avaliados #container-bem-avaliados {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
 }
 
-#bem-avaliados .container-bem-avaliados .bem-avaliados-item {
+#bem-avaliados #container-bem-avaliados .bem-avaliados-item {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -258,7 +270,7 @@ section #bem-avaliados .container-bem-avaliados {
   margin: 1rem 0;
 }
 
-#bem-avaliados .container-bem-avaliados .quadrado-wireframe {
+#bem-avaliados #container-bem-avaliados .quadrado-wireframe {
   width: 20rem;
 }
 
@@ -291,6 +303,10 @@ section #quem-somos .quadrado-wireframe {
   border-radius: 1rem;
 }
 
+#quem-somos h3 {
+  color: var(--secondary-color);
+}
+
 /* Sexta Seção - Como Trabalhamos ===========================================*/
 
 main section #container-trabalhamos {
@@ -317,6 +333,10 @@ main section #container-neymar > img {
 section#servicos #imagem-banner img {
   width: 100%;
   border-radius: 1rem;
+}
+
+#container-trabalhamos h3 {
+  color: var(--secondary-color);
 }
 
 /* Footer ===================================================================*/
