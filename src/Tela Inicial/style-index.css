@@ -243,14 +243,14 @@ section #bem-avaliados .quadrado-wireframe {
   border-radius: 1rem;
 }
 
-section #bem-avaliados .container-bem-avaliados {
+section #bem-avaliados #container-bem-avaliados {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
 }
 
-#bem-avaliados .container-bem-avaliados .bem-avaliados-item {
+#bem-avaliados #container-bem-avaliados .bem-avaliados-item {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -259,7 +259,7 @@ section #bem-avaliados .container-bem-avaliados {
   margin: 1rem 0;
 }
 
-#bem-avaliados .container-bem-avaliados .quadrado-wireframe {
+#bem-avaliados #container-bem-avaliados .quadrado-wireframe {
   width: 20rem;
 }
 
