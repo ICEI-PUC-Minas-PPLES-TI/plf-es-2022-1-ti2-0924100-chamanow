@@ -76,17 +76,17 @@ const principaisServicos = [
 function imprimeDados() {
   // pega o container dos serviços a serem listados
   let containerServicos = document.getElementById("container-servicos");
-
-  // pega o container dos serviços a serem listados
-  let containerProfissionais = document.getElementById(
-    "container-bem-avaliados"
-  );
+  // pega o container dos principais profissionais a serem listados
+  let containerProfissionais = document.getElementById("container-bem-avaliados");
+  // pega o container dos principais serviços a serem listados
+  let containerPrincipaisServicos = document.getElementById("container-principais-servicos");
 
   // declara variável que irá receber o catálogo
   let conteudoCatalogo = "";
-
   // declara variável que irá receber os profissionais
   let conteudoProfissionais = "";
+  // declara variável que irá receber os principais serviços
+  let conteudoPrincipaisServicos = "";
 
   // executa item por item e salva dentro da variável
   for (let i = 0; i < catalogoServicos.length; i++) {
@@ -99,13 +99,12 @@ function imprimeDados() {
             </div>
     `;
   }
-
   // executa item por item e salva dentro da variável
   for (let i = 0; i < 3; i++) {
     conteudoProfissionais += `
             <div class="bem-avaliados-item">
                 <div class="container-img">
-                    <img src="${profissionaisBemAvaliados[i].imagem}" alt="Icone trabalho">
+                    <img src="${principaisServicos[i].imagem}" alt="Icone trabalho">
                 </div>
                 <div class="container-texto">
                     <h3>${profissionaisBemAvaliados[i].nome}</h3>
@@ -115,12 +114,24 @@ function imprimeDados() {
             </div>
     `;
   }
+  // executa item por item e salva dentro da variável
+  for (let i = 0; i < 3; i++) {
+    conteudoPrincipaisServicos += `
+            <div class="principal-servico-item">
+                <div class="container-img">
+                    <img src="${principaisServicos[i].imagem}" alt="Icone trabalho">
+                </div>
+                <h4>${principaisServicos[i].titulo}</h4>
+            </div>
+    `;
+  }
 
   // coloca a variável no HTML da página
   containerServicos.innerHTML = conteudoCatalogo;
-
   // coloca a variável no HTML da página
   containerProfissionais.innerHTML = conteudoProfissionais;
+  // coloca a variável no HTML da página
+  containerPrincipaisServicos.innerHTML = conteudoPrincipaisServicos;
 }
 
 const button = document.querySelector("#pesquisa-button");

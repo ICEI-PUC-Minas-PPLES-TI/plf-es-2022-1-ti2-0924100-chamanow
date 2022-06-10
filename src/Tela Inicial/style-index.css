@@ -205,22 +205,31 @@ main section #catalogo {
 
 /* Terceira Seção - Principais Serviços =====================================*/
 
-main section #servicos {
-  padding: 1rem 0;
+main section #principais-servicos {
+  padding: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 #principais-servicos > h2 {
   margin: 1rem 0;
 }
 
-section #principais-servicos .quadrado-wireframe {
-  background-color: var(--bg-color);
+section #principais-servicos .principal-servico-item {
   width: 10rem;
   height: 10rem;
   border-radius: 1rem;
+  text-align: center;
 }
 
-section #principais-servicos .container-servicos {
+#principais-servicos .principal-servico-item img {
+  height: 10rem;
+
+  background-color: var(--primary-color );
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+section #principais-servicos #container-principais-servicos {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -294,6 +303,10 @@ section #quem-somos .quadrado-wireframe {
   border-radius: 1rem;
 }
 
+#quem-somos h3 {
+  color: var(--secondary-color);
+}
+
 /* Sexta Seção - Como Trabalhamos ===========================================*/
 
 main section #container-trabalhamos {
@@ -320,6 +333,10 @@ main section #container-neymar > img {
 section#servicos #imagem-banner img {
   width: 100%;
   border-radius: 1rem;
+}
+
+#container-trabalhamos h3 {
+  color: var(--secondary-color);
 }
 
 /* Footer ===================================================================*/
