@@ -94,6 +94,10 @@ function init(data) {
             }
         })
     })
+
+    $("#logout").click(() => {
+        document.cookie = "idUser=; expires=1970-01-01T00:00:00.000Z;";
+    })
 }
 
 function trClicada() {
@@ -123,8 +127,26 @@ function formatarData(date, hour) {
     return dateFormatada;
 }
 
+function getCookie(name) {
+    let cookie = {};
+
+    document.cookie.split(';').forEach(function(el) {
+        let [k, v] = el.split('=');
+        cookie[k.trim()] = v;
+    })
+
+    return cookie[name];
+}
+
 $(document).ready(() => {
-    const idUser = "1-j36dvenx";
+    // Pegar o id do user no cookie
+    const idUser = getCookie("idUser");
+
+    // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
+    if (!idUser)
+        window.location.href = "/";
+
+    // Função para pegar os dados do usuario
     getUserData(idUser).then((data) => {
         init(data);
     });
