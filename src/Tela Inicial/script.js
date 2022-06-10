@@ -23,6 +23,14 @@ const catalogoServicos = [
     imagem: "./imgs/worker.png",
     titulo: "Martelinho de Ouro",
   },
+  {
+    imagem: "./imgs/worker.png",
+    titulo: "Montagem de Móveis",
+  },
+  {
+    imagem: "./imgs/worker.png",
+    titulo: "Reforma de Móveis",
+  },
 ];
 
 const profissionaisBemAvaliados = [
@@ -37,7 +45,8 @@ const profissionaisBemAvaliados = [
     imagem: "./imgs/worker.png",
     nome: "Nikolau 'Du Corte'",
     ocupacao: "Eletricista",
-    descricao: "Nosso Chamaker foi destaque em reparos elétricos nesse mês.",
+    descricao:
+      "Nosso Chamaker nos deixou chocados e foi destaque em reparos elétricos nesse mês.",
   },
   {
     imagem: "./imgs/worker.png",
@@ -45,6 +54,21 @@ const profissionaisBemAvaliados = [
     ocupacao: "Bombeiro",
     descricao:
       "Nosso Chamamaker não dormiu no ponto e prestou notórios serviços como bombeiro nesse mês.",
+  },
+];
+
+const principaisServicos = [
+  {
+    imagem: "./imgs/worker.png",
+    titulo: "Elétrica",
+  },
+  {
+    imagem: "./imgs/worker.png",
+    titulo: "Pintura",
+  },
+  {
+    imagem: "./imgs/worker.png",
+    titulo: "Martelinho de Ouro",
   },
 ];
 
@@ -97,6 +121,12 @@ function imprimeDados() {
 
   // coloca a variável no HTML da página
   containerProfissionais.innerHTML = conteudoProfissionais;
+}
+
+const button = document.querySelector("#pesquisa-button");
+button.addEventListener("click", abrirServicos);
+function abrirServicos() {
+  window.location.href = "../Escolha do Serviço/index.html";
 }
 
 // quando todos os itens da tela terminas de ser carregados, chama a função imprimeDados

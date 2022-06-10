@@ -185,9 +185,11 @@ main section #catalogo {
   display: flex;
   flex-direction: row;
   align-content: space-between;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: stretch;
   flex-wrap: wrap;
+  column-gap: 3rem;
+  row-gap: 1rem;
 }
 
 #catalogo .servico-catalogo {
@@ -196,7 +198,7 @@ main section #catalogo {
   align-items: stretch;
   justify-content: center;
   text-align: center;
-  width: 100px;
+  width: 6rem;
   cursor: pointer;
   flex-wrap: wrap;
 }
