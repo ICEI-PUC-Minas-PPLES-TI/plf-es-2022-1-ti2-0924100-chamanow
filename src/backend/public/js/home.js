@@ -132,7 +132,7 @@ const button = document.querySelector("#pesquisa-button");
 button.addEventListener("click", abrirServicos);
 
 function abrirServicos() {
-    window.location.href = "../Escolha do Serviço/index.html";
+    window.location.href = "/escolha-servico";
 }
 
 // quando todos os itens da tela terminas de ser carregados, chama a função imprimeDados

@@ -39,10 +39,14 @@ router.get('/descrever-problema', (req, res) => {
 })
 
 // Página com os detalhes do servico
-router.get('perfil/servicos/:servicoId', (req, res) => {
+router.get('perfil/servicos/m y6:servicoId', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/detalhe-servico.html"))
 })
 
+// Página com escolha do serviço
+router.get('/escolha-servico', (req, res) => {
+    res.sendFile(__dirname.replace("routes", "html/escolha-servico.html"))
+})
 
 
 // Rotas POST
