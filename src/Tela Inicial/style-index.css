@@ -177,10 +177,11 @@ main section #catalogo {
 }
 
 #catalogo img {
-  height: 4rem;
+  height: 3.5rem;
+  margin: 0.4rem;
 }
 
-#catalogo .container-servicos {
+#catalogo #container-servicos {
   display: flex;
   flex-direction: row;
   align-content: space-between;
