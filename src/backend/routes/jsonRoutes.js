@@ -86,5 +86,14 @@ apiRoutes.get('/services/:serviceId', async(req, res) => {
     return res.json(data);
 })
 
+apiRoutes.get('/user-datas/rating/cod_user=:userId', async(req, res) => {
+    const data = await Avaliacao.findAll({
+        where: { cod_avaliado: req.params.userId },
+        include: Usuario
+    });
+
+    return res.json(data);
+})
+
 // Exportar rotas
 module.exports = apiRoutes;

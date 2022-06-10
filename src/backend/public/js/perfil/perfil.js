@@ -22,7 +22,7 @@ function init(data) {
 
     dataServicos.then((data) => {
         // Referenciar a div com a tabela
-        const divTabelaServico = tabelaServicos(cod_user, data, );
+        const divTabelaServico = tabelaServicos(cod_user, data);
 
         // Adicionar divTabelaServico na divDadosMenu
         divDadosMenu.appendChild(divTabelaServico);
@@ -53,22 +53,46 @@ function init(data) {
         // Apagar todos os elementos da seção
         $(".dadosMenu").html("");
 
-        for (var i = 0; i < 6; i++) {
-            // Referenciar a div com a tabela
-            const divAvaliacoes = criarListaAvaliacoes(cod_user);
+        const dataAvaliacoes = getUserRating(cod_user);
+        dataAvaliacoes.then((data) => {
+            console.log(data)
+            if (data != null) {
+                for (var i = 0; i < data.length; i++) {
+                    // Referenciar a div com a tabela
+                    const divAvaliacoes = criarListaAvaliacoes(cod_user, data[i]);
 
-            // Adicionar divAvaliacoeso na divDadosMenu
-            divDadosMenu.appendChild(divAvaliacoes);
-        }
+                    // Adicionar divAvaliacoeso na divDadosMenu
+                    divDadosMenu.appendChild(divAvaliacoes);
+                }
+            } else {
+                // Referenciar a div com a tabela
+                const divAvaliacoes = document.createElement('p');
+                divAvaliacoes.className = "dataNull";
+                divAvaliacoes.innerText = "Você ainda não possui avaliações";
+
+                // Adicionar divAvaliacoeso na divDadosMenu
+                divDadosMenu.appendChild(divAvaliacoes);
+            }
+        })
     })
 
     // Identificar qual serviço da tabela foi clicado
     $('#tabelaServico tr').click(() => {
-        var target = this.closest('[id]');
-        setTimeout(() => {
-            window.location.href = `../detalhe-servico/index.html?cod-servico=${String(target.id)}`;
-        }, 50);
+        console.log("Teste")
+        var target = this.id;
+        console.log(target);
+        /*setTimeout(() => {
+            window.location.href = `/detalhe-servico/index.html?cod-servico=${String(target.id)}`;
+        }, 50);*/
     });
+}
+
+function formatarData(date, hour) {
+    var dateFormatada = date.split('T')[0].replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+    if (hour)
+        dateFormatada += ` às ${hour.substring(0, 5)}`;
+
+    return dateFormatada;
 }
 
 $(document).ready(() => {
@@ -76,4 +100,9 @@ $(document).ready(() => {
     getUserData(idUser).then((data) => {
         init(data);
     });
+
+    if (idUser.charAt(0) != '1') {
+        const btnCadastrarProfissional = document.querySelector("#cadastroPrestador");
+        btnCadastrarProfissional.style = "display: none";
+    }
 })

@@ -30,9 +30,9 @@ async function getUserAdress(adressId) {
     }
 }
 
-async function getUserRating() {
+async function getUserRating(idUser) {
     try {
-        const response = await fetch('http://localhost:8786/api/user-datas/rating');
+        const response = await fetch(`http://localhost:8786/api/user-datas/rating/cod_user=${idUser}`);
         const data = await response.json();
         return data;
     } catch (error) {

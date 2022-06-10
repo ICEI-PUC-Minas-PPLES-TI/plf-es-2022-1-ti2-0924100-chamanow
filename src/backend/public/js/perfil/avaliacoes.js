@@ -1,5 +1,4 @@
-function criarListaAvaliacoes(cod_user) {
-
+function criarListaAvaliacoes(cod_user, data) {
     // Referenciar div dadosMenu
     const divAvaliacoes = document.createElement("div");
     divAvaliacoes.className = "divAvaliacoes";
@@ -13,7 +12,7 @@ function criarListaAvaliacoes(cod_user) {
     // Criação do elemento para o nome do avaliador
     const nomeAvaliador = document.createElement('h5');
     nomeAvaliador.id = "nome-avaliador";
-    nomeAvaliador.innerText = "Nome do Avaliador";
+    nomeAvaliador.innerText = "lorem ipsum";
 
     // Criação do elemento para o hifen
     const hifen = document.createElement('span');
@@ -23,7 +22,7 @@ function criarListaAvaliacoes(cod_user) {
     // Criação do elemento para a data da publicação da avaliação
     const dataPublicacao = document.createElement('span');
     dataPublicacao.id = "data-publicacao";
-    dataPublicacao.innerText = "Data da publicacao";
+    dataPublicacao.innerText = formatarData(data.createdAt);
 
     // Colocando os elementos criados dentro de div nomeData
     divNomeData.appendChild(nomeAvaliador);
@@ -39,7 +38,7 @@ function criarListaAvaliacoes(cod_user) {
     // Criação do elemento para a nota
     const notaAvaliacao = document.createElement('span');
     notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = "4,5";
+    notaAvaliacao.innerText = data.nota;
 
     // Criação do elemento para o ponto de separação
     const ponto = document.createElement('span');
@@ -69,7 +68,7 @@ function criarListaAvaliacoes(cod_user) {
     // Criação do elemento para o comentario da avaliação
     const comentarioAvaliacao = document.createElement('p');
     comentarioAvaliacao.id = "comentario";
-    comentarioAvaliacao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    comentarioAvaliacao.innerText = data.comentario;
 
     // Div Geral =============================================
 
