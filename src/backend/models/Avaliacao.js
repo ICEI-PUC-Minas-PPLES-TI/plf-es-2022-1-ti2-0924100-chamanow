@@ -7,12 +7,10 @@ const Avaliacao_Usuario = require("../models/Avaliacao_Usuario");
 const Avaliacao = db.define('avaliacao', {
     cod_avaliador: {
         type: Sequelize.STRING,
-        primaryKey: true,
         allowNull: false
     },
     cod_avaliado: {
         type: Sequelize.STRING,
-        primaryKey: true,
         allowNull: false
     },
     nota: Sequelize.FLOAT,

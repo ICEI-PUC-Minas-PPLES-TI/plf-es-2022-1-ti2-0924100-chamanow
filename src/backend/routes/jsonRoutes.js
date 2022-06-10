@@ -3,6 +3,11 @@ const express = require("express");
 const apiRoutes = express.Router();
 apiRoutes.use(express.json());
 
+// Instalação do SEQUELIZE
+
+const connection = require('../database');
+const { QueryTypes } = require('sequelize');
+
 // Importar o Método POST
 const Usuario = require("../models/Usuario");
 const Avaliacao = require("../models/Avaliacao");
@@ -87,10 +92,7 @@ apiRoutes.get('/services/:serviceId', async(req, res) => {
 })
 
 apiRoutes.get('/user-datas/rating/cod_user=:userId', async(req, res) => {
-    const data = await Avaliacao.findAll({
-        where: { cod_avaliado: req.params.userId },
-        include: Usuario
-    });
+    const data = await connection.query("SELECT A.ID,A.COD_AVALIADOR,A.COD_AVALIADO,A.NOTA,A.COMENTARIO,A.CREATED_AT,A.UPDATED_AT, B.NOME FROM AVALIACAOS AS A JOIN USUARIOS AS B ON A.COD_AVALIADOR = B.COD_USER WHERE COD_AVALIADOR LIKE '2%' GROUP BY A.ID", { type: QueryTypes.SELECT });
 
     return res.json(data);
 })

@@ -20,6 +20,8 @@ function init(data) {
     else
         dataServicos = getUserServicesPrestador(cod_user);
 
+    console.log(dataServicos)
+
     dataServicos.then((data) => {
         // Referenciar a div com a tabela
         const divTabelaServico = tabelaServicos(cod_user, data);
@@ -96,8 +98,9 @@ function formatarData(date, hour) {
 }
 
 $(document).ready(() => {
-    const idUser = "2-a9s807xo";
+    const idUser = "1-j36dvenx";
     getUserData(idUser).then((data) => {
+        console.log(data)
         init(data);
     });
 
