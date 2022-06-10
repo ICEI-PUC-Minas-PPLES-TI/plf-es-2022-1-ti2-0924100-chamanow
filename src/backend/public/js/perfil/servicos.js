@@ -19,8 +19,10 @@ function tabelaServicos(cod_user, data) {
     tabelaServico.id = "tabelaServico";
 
     // Criação do cabeçalho da tabela
-    const cabecalhoTabela = document.createElement("tr");
+    const cabecalhoTabela = document.createElement("thead");
     cabecalhoTabela.className = "cabecalho";
+
+    const contentTabela = document.createElement("th");
 
     // Criação das colunas do cabeçalho =======================
 
@@ -56,14 +58,19 @@ function tabelaServicos(cod_user, data) {
     cabecalhoTabela.appendChild(colunaStatus);
 
     // Adicionar a cabeçalho na tabela
-    tabelaServico.appendChild(cabecalhoTabela);
-    console.log(data)
+    contentTabela.appendChild(cabecalhoTabela);
+    tabelaServico.appendChild(contentTabela);
+
+    const tbody = document.createElement("tbody");
 
     //Criação das tuplas da tabela
     for (var i = 0; i < data.length; i++) {
         // Criação da linha
         const tupla = document.createElement("tr");
         tupla.id = `${data[i].cod_servico}`;
+        tupla.setAttribute('data-toggle', 'modal');
+        tupla.setAttribute('data-target', '#servico-modal');
+        tupla.setAttribute('data-dismiss', 'modal');
 
         // Criação das colunas da tupla =======================
 
@@ -121,8 +128,10 @@ function tabelaServicos(cod_user, data) {
         tupla.appendChild(colunaStatusTupla);
 
         // Adicionar a tupla na tabela
-        tabelaServico.appendChild(tupla);
+        tbody.appendChild(tupla);
     }
+
+    tabelaServico.appendChild(tbody);
 
     // Adicionar a tabela na divTabela
     divTabelaServico.appendChild(tabelaServico);

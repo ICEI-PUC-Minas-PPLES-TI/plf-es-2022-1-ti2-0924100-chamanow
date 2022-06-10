@@ -5,6 +5,11 @@ function init(data) {
     const nomeUser = document.querySelector("#nomeUser");
     nomeUser.innerText = data.nome;
 
+    // Alterar a nota do usuario
+    const notaUser = document.querySelector("#nota");
+    notaUser.innerText = "4,5";
+    //notaUser.innerText = data.nota;
+
     // Alterar a foto de perfil do user, se houver
     // const ft_perfil = document.querySelector("#ftUser");
     // if(data.foto_perfil)
@@ -20,15 +25,26 @@ function init(data) {
     else
         dataServicos = getUserServicesPrestador(cod_user);
 
-    console.log(dataServicos)
-
     dataServicos.then((data) => {
         // Referenciar a div com a tabela
         const divTabelaServico = tabelaServicos(cod_user, data);
 
         // Adicionar divTabelaServico na divDadosMenu
         divDadosMenu.appendChild(divTabelaServico);
+
+        trClicada();
     })
+
+
+    // Identificar qual serviço da tabela foi clicado
+    /*$('#tabelaServico tr').click((e) => {
+        console.log("Teste")
+        //var target = this.id;
+        console.log(e.target);
+        /*setTimeout(() => {
+            window.location.href = `/detalhe-servico/index.html?cod-servico=${String(target.id)}`;
+        }, 50);*/
+    /*});*/
 
     // Identifica se o btn alterar cadastro foi clicado
     $("#servicos").click(() => {
@@ -38,6 +54,8 @@ function init(data) {
 
             // Adicionar divTabelaServico na divDadosMenu
             divDadosMenu.appendChild(divTabelaServico);
+
+            trClicada();
         })
     })
 
@@ -57,7 +75,6 @@ function init(data) {
 
         const dataAvaliacoes = getUserRating(cod_user);
         dataAvaliacoes.then((data) => {
-            console.log(data)
             if (data != null) {
                 for (var i = 0; i < data.length; i++) {
                     // Referenciar a div com a tabela
@@ -77,16 +94,25 @@ function init(data) {
             }
         })
     })
+}
 
-    // Identificar qual serviço da tabela foi clicado
-    $('#tabelaServico tr').click(() => {
-        console.log("Teste")
-        var target = this.id;
-        console.log(target);
-        /*setTimeout(() => {
-            window.location.href = `/detalhe-servico/index.html?cod-servico=${String(target.id)}`;
-        }, 50);*/
+function trClicada() {
+    $('#tabelaServico tr').click((e) => {
+        const element = e.target;
+        const nodeElement = element.closest("tr");
+        const nome = nodeElement.firstChild
+        dadosModel(nome.textContent, nodeElement);
     });
+}
+
+function dadosModel(nome, element) {
+    // Adicionar link para acessar os detalhes do serviço clicado
+    const service = document.querySelector("#servicoUrl");
+    service.setAttribute("href", `/perfil/servicos?cod_servico=${element.id}`)
+
+    // Colocar nome do user avaliado no modal de avaliação
+    const nomeUser = document.querySelector(".nome-usuario");
+    nomeUser.innerText = nome;
 }
 
 function formatarData(date, hour) {
@@ -100,7 +126,6 @@ function formatarData(date, hour) {
 $(document).ready(() => {
     const idUser = "1-j36dvenx";
     getUserData(idUser).then((data) => {
-        console.log(data)
         init(data);
     });
 
