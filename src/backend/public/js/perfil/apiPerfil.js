@@ -2,6 +2,7 @@ async function getUserData(idUser) {
     try {
         const response = await fetch(`http://localhost:8786/api/user-datas/user-infos/${idUser}`);
         const data = await response.json();
+        console.log(data)
 
         return data;
     } catch (error) {
