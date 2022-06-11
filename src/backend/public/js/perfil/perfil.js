@@ -7,8 +7,35 @@ function init(data) {
 
     // Alterar a nota do usuario
     const notaUser = document.querySelector("#nota");
-    notaUser.innerText = "4,5";
-    //notaUser.innerText = data.nota;
+    const userRating = getUserRating(cod_user);
+    userRating.then((rating) => {
+        if (rating.length) {
+            // Cálculo da média das avaliacoes
+            var mediaNota = 0;
+
+            // Soma as notas das avaliações
+            for (let avaliacao of rating) {
+                mediaNota += avaliacao.nota;
+            }
+
+            // Divide o total pela quantidade de notas
+            mediaNota /= rating.length;
+
+            // Adiciona a nota média calculada na página com uma casa decimal
+            notaUser.innerText = mediaNota.toFixed(1);
+
+            // Configura as estrelas de acordo com a nota média
+            const stars = document.querySelectorAll(".avaliacao li");
+            stars[mediaNota.toFixed(0) - 1].classList.add("active");
+        } else {
+            // Se não houver avaliações, elas são ocultas
+            const avaliacaoUsuario = document.querySelector(".avaliacao-usuario");
+            avaliacaoUsuario.style = "display: none";
+        }
+    })
+
+    const userEmail = document.querySelector("#userEmail");
+    userEmail.innerText = data.email;
 
     // Alterar a foto de perfil do user, se houver
     // const ft_perfil = document.querySelector("#ftUser");
@@ -31,7 +58,6 @@ function init(data) {
 
         // Adicionar divTabelaServico na divDadosMenu
         divDadosMenu.appendChild(divTabelaServico);
-        console.log(data)
 
         trClicada(data, cod_user);
     })
@@ -60,12 +86,20 @@ function init(data) {
 
     // Identifica se o btn alterar cadastro foi clicado
     $("#avaliacoes").click(() => {
+        // Alterar o título da seção
+        const tituloSecao = document.querySelector("h2.tituloSecao");
+        tituloSecao.innerText = "Avaliações";
+
+        // Alterar a descrição da seção
+        const descricaoSecao = document.querySelector(".descricaoSecao");
+        descricaoSecao.innerText = "Lista de avaliações em que você foi avaliado:";
+
         // Apagar todos os elementos da seção
         $(".dadosMenu").html("");
 
         const dataAvaliacoes = getUserRating(cod_user);
         dataAvaliacoes.then((data) => {
-            if (data != null) {
+            if (data.length) {
                 for (var i = 0; i < data.length; i++) {
                     // Referenciar a div com a tabela
                     const divAvaliacoes = criarListaAvaliacoes(cod_user, data[i]);
@@ -111,8 +145,7 @@ function getCookie(name) {
 
 $(document).ready(() => {
     // Pegar o id do user no cookie
-    //const idUser = getCookie("idUser");
-    const idUser = '1-j36dvenx';
+    const idUser = getCookie("idUser");
 
     // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
     if (!idUser)

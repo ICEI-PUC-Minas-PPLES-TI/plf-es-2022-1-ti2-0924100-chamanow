@@ -69,6 +69,11 @@ body {
     text-align: center;
 }
 
+#userEmail {
+    font-size: 15px;
+    text-align: center;
+}
+
 #cadastroPrestador {
     margin-top: 30px;
     background: var(--secondary-color);
@@ -369,6 +374,11 @@ input[type=number] {
     margin: 15px 0 0;
 }
 
+.dataNull {
+    font-style: italic;
+    text-align: center;
+}
+
 
 /* ========== Avaliações ========== */
 
@@ -424,3 +434,6 @@ input[type=number] {
 .star-icon:hover~.star-icon::before {
     content: "\2606";
 }
+
+
+/* Modal de Servico */

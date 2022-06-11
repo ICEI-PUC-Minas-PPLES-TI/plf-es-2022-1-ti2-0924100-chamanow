@@ -442,7 +442,11 @@ $(document).ready(function() {
         formGeral(searchParam);
 
     $("#confirmar").click = () => {
+        var date = new Date();
+        date.setTime(date.getTime() + (1000 * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+
         const idUsuario = document.querySelector("#idUser");
-        document.cookie = `idUser = ${idUsuario.id}`;
+        document.cookie = `idUser = ${idUsuario.id}; expires: ${expires}`;
     }
 })

@@ -1,4 +1,4 @@
-function criarListaAvaliacoes(cod_user, data) {
+function criarListaAvaliacoes(data) {
     // Referenciar div dadosMenu
     const divAvaliacoes = document.createElement("div");
     divAvaliacoes.className = "divAvaliacoes";
