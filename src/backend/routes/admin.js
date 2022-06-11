@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 const userController = require("../controller/userController");
-const Usuario = require("../models/Usuario");
+const ratingController = require("..//controller/ratingController");
 
 // Rotas GET
 
@@ -56,6 +56,9 @@ router.post('/cadastro/user-data', userController.cadastroUser);
 
 // POST para alterar os dados do usuario no perfil
 router.post('/perfil/update-user', userController.updateUserData);
+
+// POST para adicionar nova avaliação de serviço
+router.post('/perfil/avaliacao', ratingController.addAvaliacao);
 
 // Exportar rotas
 module.exports = router;

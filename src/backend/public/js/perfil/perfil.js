@@ -31,20 +31,10 @@ function init(data) {
 
         // Adicionar divTabelaServico na divDadosMenu
         divDadosMenu.appendChild(divTabelaServico);
+        console.log(data)
 
-        trClicada();
+        trClicada(data, cod_user);
     })
-
-
-    // Identificar qual serviço da tabela foi clicado
-    /*$('#tabelaServico tr').click((e) => {
-        console.log("Teste")
-        //var target = this.id;
-        console.log(e.target);
-        /*setTimeout(() => {
-            window.location.href = `/detalhe-servico/index.html?cod-servico=${String(target.id)}`;
-        }, 50);*/
-    /*});*/
 
     // Identifica se o btn alterar cadastro foi clicado
     $("#servicos").click(() => {
@@ -55,7 +45,7 @@ function init(data) {
             // Adicionar divTabelaServico na divDadosMenu
             divDadosMenu.appendChild(divTabelaServico);
 
-            trClicada();
+            trClicada(data);
         })
     })
 
@@ -100,25 +90,6 @@ function init(data) {
     })
 }
 
-function trClicada() {
-    $('#tabelaServico tr').click((e) => {
-        const element = e.target;
-        const nodeElement = element.closest("tr");
-        const nome = nodeElement.firstChild
-        dadosModel(nome.textContent, nodeElement);
-    });
-}
-
-function dadosModel(nome, element) {
-    // Adicionar link para acessar os detalhes do serviço clicado
-    const service = document.querySelector("#servicoUrl");
-    service.setAttribute("href", `/perfil/servicos?cod_servico=${element.id}`)
-
-    // Colocar nome do user avaliado no modal de avaliação
-    const nomeUser = document.querySelector(".nome-usuario");
-    nomeUser.innerText = nome;
-}
-
 function formatarData(date, hour) {
     var dateFormatada = date.split('T')[0].replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
     if (hour)
@@ -140,7 +111,8 @@ function getCookie(name) {
 
 $(document).ready(() => {
     // Pegar o id do user no cookie
-    const idUser = getCookie("idUser");
+    //const idUser = getCookie("idUser");
+    const idUser = '1-j36dvenx';
 
     // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
     if (!idUser)

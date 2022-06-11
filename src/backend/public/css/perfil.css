@@ -398,7 +398,8 @@ input[type=number] {
     content: "\2027";
 }
 
-.star-icon {
+.star-icon,
+.star-icon-view {
     list-style-type: none;
     cursor: pointer;
     color: #ffe500;
@@ -406,11 +407,13 @@ input[type=number] {
     /* alterar o tamanho das estrelas */
 }
 
-.star-icon::before {
+.star-icon::before,
+.star-icon-view::before {
     content: "\2605";
 }
 
-.star-icon.ativo~.star-icon::before {
+.star-icon.active~.star-icon::before,
+.star-icon-view.active~.star-icon-view::before {
     content: "\2606";
 }
 

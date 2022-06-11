@@ -85,14 +85,31 @@ apiRoutes.get('/user-datas/services/provider/:cod_prestador', async(req, res) =>
 })
 
 // Rota com os dados de todos os usuarios
-apiRoutes.get('/services/:serviceId', async(req, res) => {
+apiRoutes.get('/services/cod_servico=:serviceId', async(req, res) => {
     const data = await Servico.findOne({ where: { cod_tipo: req.params.serviceId } });
 
     return res.json(data);
 })
 
 apiRoutes.get('/user-datas/rating/cod_user=:userId', async(req, res) => {
-    const data = await connection.query("SELECT A.ID,A.COD_AVALIADOR,A.COD_AVALIADO,A.NOTA,A.COMENTARIO,A.CREATED_AT,A.UPDATED_AT, B.NOME FROM AVALIACAOS AS A JOIN USUARIOS AS B ON A.COD_AVALIADOR = B.COD_USER WHERE COD_AVALIADOR LIKE '2%' GROUP BY A.ID", { type: QueryTypes.SELECT });
+    const data = await connection.query(
+        `SELECT A.id, A.cod_avaliador, A.cod_avaliado, A.nota, A.comentario, A.created_at, A.cod_agendamento, B.nome\
+        FROM avaliacaos AS A JOIN usuarios AS B\
+        ON A.cod_avaliador = B.cod_user\
+        WHERE cod_avaliado = '${req.params.userId}'\
+        GROUP BY A.id`, { type: QueryTypes.SELECT }
+    );
+
+    return res.json(data);
+})
+
+apiRoutes.get('/user-datas/rating/cod_agendamento=:cod_agendamento/cod_avaliador=:cod_avaliador', async(req, res) => {
+    const data = await Avaliacao.findOne({
+        where: {
+            cod_agendamento: req.params.cod_agendamento,
+            cod_avaliador: req.params.cod_avaliador
+        }
+    });
 
     return res.json(data);
 })

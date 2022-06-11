@@ -33,11 +33,15 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="titulo-modal" id="titulo-modal"></h2>
+                    <h2 class="titulo-modal" id="titulo-modal">Serviço</h2>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
+                    <h5 class="nome-usuario"></h5>
+                    <p class="servico"></p>
+                    <p class="endereco"></p>
+                    <p class="data-servico"></p>
+                    <p class="status"></p>
                 </div>
                 <div class="modal-footer">
                     <a href="" id="servicoUrl"><button type="button">Acessar página</button></a>
@@ -55,29 +59,7 @@
                     <h2 class="titulo-modal" id="titulo-modal">Avaliação</h2>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="informacoes-perfil">
-                        <h2 class="nome-usuario"></h2>
-                    </div>
-                    <div class="avaliacao-usuario">
-                        <ul class="avaliacao">
-                            <li class="star-icon" data-avaliacao="1"></li>
-                            <li class="star-icon" data-avaliacao="2"></li>
-                            <li class="star-icon" data-avaliacao="3"></li>
-                            <li class="star-icon" data-avaliacao="4"></li>
-                            <li class="star-icon" data-avaliacao="5"></li>
-                        </ul>
-                    </div>
-                    <form>
-                        <div>
-                            <textarea class="form-control" id="comentario-avaliacao" placeholder="Adicionar comentário..."></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="btn-sair-avaliacao" data-bs-dismiss="modal"><i class="fa-solid fa-chevron-left"></i> Sair</button>
-                    <button type="button" id="btn-enviar-avaliacao">Enviar <i class="fa-solid fa-chevron-right"></i></button>
-                </div>
+                <div class="modal-body body-avaliacao"></div>
             </div>
         </div>
     </div>
@@ -89,8 +71,8 @@
             <div class="avaliacao-usuario">
                 <span id="nota"></span>
                 <span class="ponto"></span>
-                <ul class="avaliacao">
-                    <li class="star-icon" data-avaliacao="1"></li>
+                <ul class="avaliacaoPerfil">
+                    <li class="star-icon" id="1"></li>
                 </ul>
             </div>
         </div>
