@@ -154,17 +154,17 @@ button[id^="btn-"] {
 /* ========== Cabeçalho ========== */
 
 .site-header {
+    background-color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 7px 15%;
-    border-radius: 0 0 12px 12px;
     height: 60px;
 }
 
 .menu a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--color-text);
     margin-left: 30px;
     transition: var(--transition);
 }

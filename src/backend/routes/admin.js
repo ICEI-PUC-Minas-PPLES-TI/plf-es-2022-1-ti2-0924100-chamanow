@@ -57,6 +57,9 @@ router.post('/cadastro/user-data', userController.cadastroUser);
 // POST para alterar os dados do usuario no perfil
 router.post('/perfil/update-user', userController.updateUserData);
 
+// POST da descrição do problema do cliente
+router.post('/servico/agendamento', userController.descreverProblema);
+
 // POST para adicionar nova avaliação de serviço
 router.post('/perfil/avaliacao', ratingController.addAvaliacao);
 

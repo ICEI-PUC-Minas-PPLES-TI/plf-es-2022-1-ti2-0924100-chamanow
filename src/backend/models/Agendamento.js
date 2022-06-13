@@ -33,14 +33,8 @@ const Agendamento = db.define('agendamento', {
         default: null,
         require: true
     },
-    data_solicitacao: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        require: true
-    },
     data_servico: {
         type: Sequelize.DATE,
-        allowNull: false,
         require: true
     },
     horario: {

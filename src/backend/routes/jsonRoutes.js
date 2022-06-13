@@ -149,5 +149,12 @@ apiRoutes.post('/user-datas/user-infos/user-login', async(req, res) => {
     }
 })
 
+// Rota 3 últimas avaliações do prestador
+apiRoutes.post('/user-datas/rating/last-rating/', async(req, res) => {
+    const data = await connection.query(`SELECT A.COD_AVALIADOR, B.NOME, A.COMENTARIO, A.NOTA, A.CREATED_AT, B.COD_USER FROM USUARIOS AS B JOIN AVALIACAOS AS A ON A.COD_AVALIADOR = B.COD_USER WHERE A.COD_AVALIADOR = ${req.body.cod_avaliador} ORDER BY DAY(A.CREATED_AT) DESC LIMIT 3`, { type: QueryTypes.SELECT });
+
+    return res.json(data);
+})
+
 // Exportar rotas
 module.exports = apiRoutes;
