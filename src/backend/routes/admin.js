@@ -39,7 +39,7 @@ router.get('/descrever-problema', (req, res) => {
 })
 
 // Página com os detalhes do servico
-router.get('/perfil/servicos?cod_servico=:servicoId', (req, res) => {
+router.get('/perfil/servicos', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/detalhe-servico.html"))
 })
 
@@ -56,6 +56,10 @@ router.post('/cadastro/user-data', userController.cadastroUser);
 
 // POST para alterar os dados do usuario no perfil
 router.post('/perfil/update-user', userController.updateUserData);
+
+// POST da descrição do problema do cliente
+router.post('/servico/agendamento', userController.descreverProblema);
+
 
 // Exportar rotas
 module.exports = router;

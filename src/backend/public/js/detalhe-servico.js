@@ -1,9 +1,10 @@
 const PERFIL_URL = "../perfil/index.html";
 
-function infoPerfil() {
+function infoPerfil(data,cod_user) {
+    const cod_user = data.cod_user;
     // Nome de usuario
     const nomeUsuario = document.querySelector("#nome-usuario");
-    nomeUsuario.innerText = "Nome do Prestador";
+    nomeUsuario.innerText = data.nome;
 
     // Nota do usuario
     const notaAvaliacao = document.querySelector("#nota");
@@ -12,16 +13,13 @@ function infoPerfil() {
     // Mostrar nota nas estrelas
 
 
-    // Descrição do usuário
-    const descricaoUsuario = document.querySelector("#descricao");
-    descricaoUsuario.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-    // Região de Atuação
+    if (cod_user.charAt(0) != '1'){
+    //Região de atuação
     const regiaoAtuacao = document.querySelector("#location");
-    regiaoAtuacao.innerText = "";
-}
+    regiaoAtuacao.innerText = data.regiao_atuacao;
+}}
 
-function criarListaAvaliacoes(cod_cliente) {
+function criarListaAvaliacoes(cod_user, data) {
     // Criação da div geral
     const divGeral = document.createElement('div');
     divGeral.className = "content-avaliacoes";
@@ -35,7 +33,7 @@ function criarListaAvaliacoes(cod_cliente) {
     // Criação do elemento para o nome do avaliador
     const nomeAvaliador = document.createElement('h5');
     nomeAvaliador.id = "nome-avaliador";
-    nomeAvaliador.innerText = "Nome do Avaliador";
+    nomeAvaliador.innerText = data.NOME;
 
     // Criação do elemento para o hifen
     const hifen = document.createElement('span');
@@ -45,7 +43,7 @@ function criarListaAvaliacoes(cod_cliente) {
     // Criação do elemento para a data da publicação da avaliação
     const dataPublicacao = document.createElement('span');
     dataPublicacao.id = "data-publicacao";
-    dataPublicacao.innerText = "Data da publicacao";
+    dataPublicacao.innerText = formatarData(data.CREATED_AT);
 
     // Colocando os elementos criados dentro de div nomeData
     divNomeData.appendChild(nomeAvaliador);
@@ -61,7 +59,7 @@ function criarListaAvaliacoes(cod_cliente) {
     // Criação do elemento para a nota
     const notaAvaliacao = document.createElement('span');
     notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = "4,5";
+    notaAvaliacao.innerText = data.NOTA;
 
     // Criação do elemento para o ponto de separação
     const ponto = document.createElement('span');
@@ -91,7 +89,7 @@ function criarListaAvaliacoes(cod_cliente) {
     // Criação do elemento para o comentario da avaliação
     const comentarioAvaliacao = document.createElement('p');
     comentarioAvaliacao.id = "comentario";
-    comentarioAvaliacao.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    comentarioAvaliacao.innerText = data.COMENTARIO;
 
     // Div Geral =============================================
 
@@ -432,7 +430,7 @@ function comprovantePagamento(cod_servico, tipoUser, codStatus) {
 }
 
 function data_Orcamento(tipoUser) {
-    $("#btn-aceitar-servico").click(function() {
+    $("#btn-aceitar-servico").click(function () {
         orcamento(0, tipoUser);
 
         this.parentNode.removeChild(this);
@@ -444,7 +442,7 @@ function data_Orcamento(tipoUser) {
         const divBtnHub = document.querySelector(".btn-hud");
         divBtnHub.appendChild(btnEnviarOrcamento);
 
-        $("#btn-enviar-orcamento").click(function() {
+        $("#btn-enviar-orcamento").click(function () {
             window.location.assign(PERFIL_URL);
         })
     })
@@ -490,7 +488,7 @@ function btnAceitarComprovante() {
     btnEnviarComprovante.innerHTML = `Aceitar Pagamento <i class="fa-solid fa-check"></i>`;
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     //Calcula o ano
     document.querySelector('#ano').innerHTML = new Date().getFullYear();
 
@@ -544,7 +542,7 @@ $(document).ready(function() {
                     if (dataInicio) {
                         escolherData(0, tipoUser, codStatusServico, 6);
 
-                        $("#btn-aceitar-servico").click(function() {
+                        $("#btn-aceitar-servico").click(function () {
                             localStorage.setItem("dataEscolhida", `${$("#inputDataDisponivel").val()}`);
                         })
                     } else
@@ -613,7 +611,7 @@ $(document).ready(function() {
 
                 case 2:
                     escolherData(0, tipoUser, codStatusServico, 6);
-                    $("#btn-aceitar-servico").click(function() {
+                    $("#btn-aceitar-servico").click(function () {
                         localStorage.setItem("dataInicio", `${$("#inputDataDisponivel").val()}T${$("#inputHorarioDisponivel").val()}`);
                         localStorage.setItem("dataFim", `${$("#inputDataFim").val()}T${$("#inputHorarioFim").val()}`);
                     })
@@ -633,7 +631,7 @@ $(document).ready(function() {
                             hudBtn.style = "display: none";
                     }
 
-                    $("#btn-aceitar-servico").click(function() {
+                    $("#btn-aceitar-servico").click(function () {
                         window.location.assign(PERFIL_URL);
                     })
 
@@ -683,7 +681,7 @@ $(document).ready(function() {
 
     if ((tipoUser == "cliente")) {
         linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
-        $("#btn-aceitar-servico").click(function() {
+        $("#btn-aceitar-servico").click(function () {
             window.location.assign(PERFIL_URL);
         })
     }
