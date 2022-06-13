@@ -39,7 +39,7 @@ router.get('/descrever-problema', (req, res) => {
 })
 
 // Página com os detalhes do servico
-router.get('/perfil/servicos?cod_servico=:servicoId', (req, res) => {
+router.get('/perfil/servicos', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/detalhe-servico.html"))
 })
 
