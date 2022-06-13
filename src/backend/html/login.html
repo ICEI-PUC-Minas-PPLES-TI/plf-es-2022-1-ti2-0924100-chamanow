@@ -28,6 +28,7 @@
 </head>
 
 <body class="backgroundMobile">
+    <span id="alertLogin"></span>
     <div class="cadastro">
         <img src="/img/Logo.svg" alt="Logo ChamaNow" id="logo">
         <div class="textoCadastro">
@@ -45,10 +46,8 @@
             <form id="formDados" class="form">
                 <input type="email" name="email" id="email" class="form-control" placeholder="Email" minlength="8" maxlength="50" required>
                 <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" minlength="8" maxlength="25" required>
+                <button type="submit" id="entrar">Entrar <i class="fa-solid fa-chevron-right"></i></button>
             </form>
-        </div>
-        <div class="btns">
-            <a href="" id="btn-entrar"><button id="entrar">Entrar <i class="fa-solid fa-chevron-right"></i></button></a>
         </div>
 
         <div class="cadastrarMobile">
@@ -57,7 +56,9 @@
     </div>
 
     <!-- Arquivos JS -->
-    <script src="/js/login.js"></script>
+    <script src="/js/login/login.js"></script>
+    <script src="/js/login/apiLogin.js"></script>
+    <script src="/js/login/backendLogin.js"></script>
     <script src="/js/validaForm.js"></script>
 
     <!-- JQuery -->

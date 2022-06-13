@@ -1,4 +1,4 @@
-function criarListaAvaliacoes(cod_user, data) {
+function criarListaAvaliacoes(data) {
     // Referenciar div dadosMenu
     const divAvaliacoes = document.createElement("div");
     divAvaliacoes.className = "divAvaliacoes";
@@ -12,7 +12,7 @@ function criarListaAvaliacoes(cod_user, data) {
     // Criação do elemento para o nome do avaliador
     const nomeAvaliador = document.createElement('h5');
     nomeAvaliador.id = "nome-avaliador";
-    nomeAvaliador.innerText = data.NOME;
+    nomeAvaliador.innerText = data.nome;
 
     // Criação do elemento para o hifen
     const hifen = document.createElement('span');
@@ -22,7 +22,7 @@ function criarListaAvaliacoes(cod_user, data) {
     // Criação do elemento para a data da publicação da avaliação
     const dataPublicacao = document.createElement('span');
     dataPublicacao.id = "data-publicacao";
-    dataPublicacao.innerText = formatarData(data.CREATED_AT);
+    dataPublicacao.innerText = formatarData(data.created_at);
 
     // Colocando os elementos criados dentro de div nomeData
     divNomeData.appendChild(nomeAvaliador);
@@ -38,7 +38,7 @@ function criarListaAvaliacoes(cod_user, data) {
     // Criação do elemento para a nota
     const notaAvaliacao = document.createElement('span');
     notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = data.NOTA;
+    notaAvaliacao.innerText = data.nota;
 
     // Criação do elemento para o ponto de separação
     const ponto = document.createElement('span');
@@ -68,7 +68,7 @@ function criarListaAvaliacoes(cod_user, data) {
     // Criação do elemento para o comentario da avaliação
     const comentarioAvaliacao = document.createElement('p');
     comentarioAvaliacao.id = "comentario";
-    comentarioAvaliacao.innerText = data.COMENTARIO;
+    comentarioAvaliacao.innerText = data.comentario;
 
     // Div Geral =============================================
 
@@ -79,4 +79,33 @@ function criarListaAvaliacoes(cod_user, data) {
 
     // Retornar divAvaliacoes
     return divAvaliacoes;
+}
+
+function actveStar(idAvaliado, idAvaliador, idAgendamento) {
+    $('.avaliacao li').click((e) => {
+        // Remove a classe 'active' de todas as estrelas
+        const stars = document.querySelectorAll(".avaliacao li");
+        for (let star of stars)
+            star.classList.remove("active");
+
+        // Adiciona a classe 'active' apenas na estre clicada
+        const element = e.target;
+        element.classList.add("active");
+
+        // Adicionar a avaliação input hidden
+        const inputRating = document.querySelector("#inputRating");
+        inputRating.value = element.id;
+
+        // Adicionar o cod do avaliado no input hidden
+        const inputCodAvaliado = document.querySelector("#inputAvaliado");
+        inputCodAvaliado.value = idAvaliado;
+
+        // Adicionar o cod do avaliador no input hidden
+        const inputCodAvaliador = document.querySelector("#inputAvaliador");
+        inputCodAvaliador.value = idAvaliador;
+
+        // Adicionar o cod do agendamento
+        const inputAgendamento = document.querySelector("#inputAgendamento");
+        inputAgendamento.value = idAgendamento;
+    });
 }

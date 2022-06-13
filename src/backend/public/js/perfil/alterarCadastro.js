@@ -1,4 +1,12 @@
 function formLogin(data) {
+    // Alterar o título da seção
+    const tituloSecao = document.querySelector("h2.tituloSecao");
+    tituloSecao.innerText = "Alterar Cadastro";
+
+    // Alterar a descrição da seção
+    const descricaoSecao = document.querySelector(".descricaoSecao");
+    descricaoSecao.innerText = "Preencha os campos para alterar os seus dados:";
+
     // Criação da div com o form de login
     const divFormLogin = document.createElement("div");
     divFormLogin.className = "info-login";
