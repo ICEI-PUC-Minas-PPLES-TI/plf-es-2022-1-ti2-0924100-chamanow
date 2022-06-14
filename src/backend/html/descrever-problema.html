@@ -75,8 +75,13 @@
         <h2 class="titulo-detalhar-problema">Detalhar o Problema</h2>
         <p class="descricao-detalhar-problema">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <form id="formDetalheProblema" action="/servico/agendamento" method="post">
+            <input type="text" name="rua" id="inputRua" placeholder="Rua" required>
+            <input type="text" name="bairro" id="inputBairro" maxlength="30" placeholder="Bairro" required>
+            <input type="text" name="cidade" id="inputCidade" maxlength="30" placeholder="Cidade" required>
+            <input type="number" name="cep" id="inputCEP" placeholder="CEP" minlength="8" maxlength="8" required>
+            <input type="number" name="numero" id="inputNum" maxlength="5" placeholder="Numero" required>
             <input type="hidden" name="cod_servico" id="input_cod_servico">
-            <input type="hidden" name="endereco" id="input_endereco">
+            <input type="hidden" name="enderecos" id="input_endereco">
             <input type="hidden" name="cod_contratante" id="input_cod_contratante">
             <input type="hidden" name="cod_prestador" id="input_cod_prestador">
             <input type="hidden" name="cod_tipo" id="input_cod_tipo">

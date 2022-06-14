@@ -48,8 +48,8 @@ module.exports = {
             if (user)
                 res.status(200).json({ message: "Email já cadastrado" })
             else {
-                await Usuario.create(novoUser).then(async () => {
-                    await Telefone.create(novoTel).then(async () => {
+                await Usuario.create(novoUser).then(async() => {
+                    await Telefone.create(novoTel).then(async() => {
                         await Endereco.create(novoEndereco).then(() => {
                             res.redirect('/');
                         })
@@ -112,14 +112,14 @@ module.exports = {
         } catch (error) {
             console.log(error)
             res.status(400).error;
-        } 
+        }
     },
     async descreverProblema(req, res) {
         try {
             const newAgendamento = {
                 cod_servico: req.body.cod_servico,
                 descricao: req.body.descricao,
-                endereco: req.body.endereco,
+                endereco: `${req.body.rua} N. ${req.body.numero}, ${req.body.bairro}, ${req.body.cidade} - ${req.body.cep}`,
                 cod_contratante: req.body.cod_contratante,
                 cod_prestador: req.body.cod_prestador,
                 cod_tipo: req.body.cod_tipo,
@@ -129,7 +129,7 @@ module.exports = {
 
             await Agendamento.create(newAgendamento).then(() => {
                 console.log(newAgendamento)
-              //  res.redirect('/');
+                res.redirect('/');
             });
 
         } catch (error) {
@@ -138,6 +138,3 @@ module.exports = {
         }
     }
 }
-
-
-

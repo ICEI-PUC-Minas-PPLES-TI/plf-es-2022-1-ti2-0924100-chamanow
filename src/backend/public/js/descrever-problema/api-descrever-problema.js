@@ -1,26 +1,17 @@
-async function getAvaliacao(cod_avaliador){
-        try {
-            const url = 'http://localhost:8786/api//user-datas/rating/last-rating/'
-            const request = new Request(url, {
-                method: 'POST',
-                body: JSON.stringify(cod_avaliador),
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8'
-                },
-            })
-            const response = await fetch(request);
-            const data = await response.json();
-            console.log(data)
-    
-            return data;
-        } catch (error) {
-            console.error(error);
-        }
+async function getAvaliacao(cod_avaliador) {
+    try {
+        const response = await fetch(`http://localhost:8786/api//user-datas/rating/last-rating/cod_avaliador=${cod_avaliador}`)
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 async function getUserData(idUser) {
     try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/user-infos/${idUser}`);
+        const response = await fetch(`http://localhost:8786/api/user-datas/user-infos/cod_user=${idUser}`);
         const data = await response.json();
 
         return data;
@@ -39,10 +30,11 @@ async function getUserAdress(adressId) {
     }
 }
 
-async function getUserRating(idUser) {
+async function getUserRating(userId) {
     try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/rating/cod_user=${idUser}`);
+        const response = await fetch(`http://localhost:8786/api/user-datas/rating/cod_avaliado=${userId}`);
         const data = await response.json();
+
         return data;
     } catch (error) {
         console.error(error);

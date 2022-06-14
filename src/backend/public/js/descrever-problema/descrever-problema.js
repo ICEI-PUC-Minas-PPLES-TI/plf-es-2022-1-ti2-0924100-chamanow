@@ -32,7 +32,7 @@ function infoPerfil(data) {
         }
     })
 
-//Região de atuação
+    //Região de atuação
     const regiaoAtuacao = document.querySelector("#location");
     regiaoAtuacao.innerText = data.regiao_atuacao;
 }
@@ -72,6 +72,7 @@ function criarListaAvaliacoes(data) {
     // Criação do elemento para a data da publicação da avaliação
     const dataPublicacao = document.createElement('span');
     dataPublicacao.id = "data-publicacao";
+    console.log(data.created_at);
     dataPublicacao.innerText = formatarData(data.created_at);
 
     // Colocando os elementos criados dentro de div nomeData
@@ -133,18 +134,20 @@ function criarListaAvaliacoes(data) {
 
 
 $(document).ready(function() {
-    const cod_prestador = getUserData('2-8mtnnpka');
+    const cod_prestadorAux = "2-1iskd06o";
+    const cod_prestador = getUserData(cod_prestadorAux);
     cod_prestador.then(data => {
-    // Gera os dados do perfil
-    infoPerfil(data);
+        // Gera os dados do perfil
+        infoPerfil(data);
 
-    // Gera as avaliações
-    const divDadosAvaliacoes = document.querySelector("#avaliacoes");
-    const dataAvaliacoes = getUserRating(data.cod_user);
+        // Gera as avaliações
+        const divDadosAvaliacoes = document.querySelector("#avaliacoes");
+        const dataAvaliacoes = getAvaliacao(data.cod_user);
         dataAvaliacoes.then((data) => {
             if (data.length) {
                 for (var i = 0; i < 3; i++) {
                     // Referenciar a div com a tabela
+                    console.log(data[i])
                     const divAvaliacoes = criarListaAvaliacoes(data[i]);
 
                     // Adicionar divAvaliacoeso na divDadosMenu
@@ -171,27 +174,30 @@ $(document).ready(function() {
 
     const btnOrcamento = document.querySelector("#contratar-servico");
     btnOrcamento.onclick = () => {
-        completaInput(getCookie('idUser'));
+        completaInput(getCookie('idUser'), cod_prestadorAux);
     }
 })
 
-function completaInput(cod_user){
+function formatarData(date, hour) {
+    console.log(date)
+    var dateFormatada = date.split('T')[0];
+    dateFormatada.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+
+    if (hour)
+        dateFormatada += ` às ${hour.substring(0, 5)}`;
+
+    return dateFormatada;
+}
+
+function completaInput(cod_user, cod_prestador) {
     const input_cod_servico = document.querySelector("#input_cod_servico");
     input_cod_servico.value = Math.floor(Date.now() * Math.random()).toString(36);
-
-    const userAdress = getUserAdress(cod_user);
-         userAdress.then((data) => {
-         const enderecoString = `${data.rua} N. ${data.numero}, ${data.bairro}, ${data.cidade} - ${data.cep}`
-         const input_endereco = document.querySelector("#input_endereco");
-         input_endereco.value = enderecoString;
-         console.log(input_endereco.value)
-    })
 
     const input_cod_contratante = document.querySelector("#input_cod_contratante");
     input_cod_contratante.value = getCookie('idUser');
 
     const input_cod_prestador = document.querySelector("#input_cod_prestador");
-    input_cod_prestador.value = '2-8mtnnpka';
+    input_cod_prestador.value = cod_prestador;
 
     const input_cod_tipo = document.querySelector("#input_cod_tipo");
     input_cod_tipo.value = 500;
