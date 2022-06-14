@@ -9,7 +9,7 @@ function init(data) {
     const notaUser = document.querySelector("#nota");
     const userRating = getUserRating(cod_user);
     userRating.then((rating) => {
-        if (rating.length) {
+        if (rating) {
             // Cálculo da média das avaliacoes
             var mediaNota = 0;
 
@@ -99,7 +99,7 @@ function init(data) {
 
         const dataAvaliacoes = getUserRating(cod_user);
         dataAvaliacoes.then((data) => {
-            if (data.length) {
+            if (data) {
                 for (var i = 0; i < data.length; i++) {
                     // Referenciar a div com a tabela
                     const divAvaliacoes = criarListaAvaliacoes(cod_user, data[i]);
