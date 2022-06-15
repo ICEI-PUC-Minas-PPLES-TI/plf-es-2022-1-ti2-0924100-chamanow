@@ -47,6 +47,39 @@ apiRoutes.get('/user-datas/user-infos/email=:email', async(req, res) => {
     }
 })
 
+//Rota de um serviço específico
+
+apiRoutes.get('/escolha-servico/todos-servicos/cod_tipo=:cod_tipo', async(req, res) => {
+    try {
+        const data = await Servico.findAll({ where: { cod_tipo: req.params.cod_tipo } });
+        res.json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
+//Rota de todos os serviços
+
+apiRoutes.get('/escolha-servico/todos-servicos', async(req, res) => {
+    try {
+        const data = await Servico.findAll();
+        res.json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
+//Rota de profissionais que prestam um serviço especifico
+
+apiRoutes.get('/user-datas/cod_tipo=:cod_tipo', async(req, res) => {
+    try {
+        const data = await Usuario.findAll({where: {cod_tipo: req.params.cod_tipo}})
+        return res.status(200).json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
 // Rota com os dados do telefone dos users
 apiRoutes.get('/user-datas/user-tel/cod_user=:userId', async(req, res) => {
     try {
@@ -66,6 +99,8 @@ apiRoutes.get('/user-datas/user-adress/cod_user=:userId', async(req, res) => {
         console.log("Error: " + error);
     }
 })
+
+
 
 // Rota com os dados das avaliações
 apiRoutes.get('/user-datas/rating/cod_avaliado=:userId', async(req, res) => {
