@@ -17,7 +17,7 @@ const ratingController = require("..//controller/ratingController");
 router.get('/', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/home.html"));
 })
-
+ 
 // Página de Login
 router.get('/login', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/login.html"));

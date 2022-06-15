@@ -1,25 +1,45 @@
 const PERFIL_URL = "../perfil/index.html";
 
-function infoPerfil(data,cod_user) {
-    const cod_user = data.cod_user;
+function infoPerfil(data) {
     // Nome de usuario
     const nomeUsuario = document.querySelector("#nome-usuario");
     nomeUsuario.innerText = data.nome;
 
-    // Nota do usuario
-    const notaAvaliacao = document.querySelector("#nota");
-    notaAvaliacao.innerText = "4,5"; // Cálcular a média no banco de dados
+    // Alterar a nota do usuario
+    const notaUser = document.querySelector("#nota");
+    const userRating = getUserRating(data.cod_user);
+    userRating.then((rating) => {
+        if (rating.length) {
+            // Cálculo da média das avaliacoes
+            var mediaNota = 0;
 
-    // Mostrar nota nas estrelas
+            // Soma as notas das avaliações
+            for (let avaliacao of rating) {
+                mediaNota += avaliacao.nota;
+            }
 
+            // Divide o total pela quantidade de notas
+            mediaNota /= rating.length;
 
-    if (cod_user.charAt(0) != '1'){
+            // Adiciona a nota média calculada na página com uma casa decimal
+            notaUser.innerText = mediaNota.toFixed(1);
+
+            // Configura as estrelas de acordo com a nota média
+            const stars = document.querySelectorAll(".avaliacao li");
+            stars[mediaNota.toFixed(0) - 1].classList.add("active");
+        } else {
+            // Se não houver avaliações, elas são ocultas
+            const avaliacaoUsuario = document.querySelector(".avaliacao-usuario");
+            avaliacaoUsuario.style = "display: none";
+        }
+    })
+    if (data.cod_user.charAt(0) != '1'){
     //Região de atuação
     const regiaoAtuacao = document.querySelector("#location");
     regiaoAtuacao.innerText = data.regiao_atuacao;
 }}
 
-function criarListaAvaliacoes(cod_user, data) {
+function criarListaAvaliacoes(data) {
     // Criação da div geral
     const divGeral = document.createElement('div');
     divGeral.className = "content-avaliacoes";
@@ -33,17 +53,18 @@ function criarListaAvaliacoes(cod_user, data) {
     // Criação do elemento para o nome do avaliador
     const nomeAvaliador = document.createElement('h5');
     nomeAvaliador.id = "nome-avaliador";
-    nomeAvaliador.innerText = data.NOME;
+    nomeAvaliador.innerText = data.nome;
 
     // Criação do elemento para o hifen
     const hifen = document.createElement('span');
     hifen.className = "hifen";
     hifen.innerText = "-";
 
-    // Criação do elemento para a data da publicação da avaliação
-    const dataPublicacao = document.createElement('span');
-    dataPublicacao.id = "data-publicacao";
-    dataPublicacao.innerText = formatarData(data.CREATED_AT);
+     // Criação do elemento para a data da publicação da avaliação
+     const dataPublicacao = document.createElement('span');
+     dataPublicacao.id = "data-publicacao";
+     console.log(data.created_at);
+     dataPublicacao.innerText = formatarData(data.created_at);
 
     // Colocando os elementos criados dentro de div nomeData
     divNomeData.appendChild(nomeAvaliador);
@@ -59,7 +80,7 @@ function criarListaAvaliacoes(cod_user, data) {
     // Criação do elemento para a nota
     const notaAvaliacao = document.createElement('span');
     notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = data.NOTA;
+    notaAvaliacao.innerText = data.nota;
 
     // Criação do elemento para o ponto de separação
     const ponto = document.createElement('span');
@@ -89,7 +110,7 @@ function criarListaAvaliacoes(cod_user, data) {
     // Criação do elemento para o comentario da avaliação
     const comentarioAvaliacao = document.createElement('p');
     comentarioAvaliacao.id = "comentario";
-    comentarioAvaliacao.innerText = data.COMENTARIO;
+    comentarioAvaliacao.innerText = data.comentario;
 
     // Div Geral =============================================
 
@@ -103,27 +124,28 @@ function criarListaAvaliacoes(cod_user, data) {
     return divGeral;
 }
 
-function avaliacoesUsuario(quantAvaliacoes) {
-    const divAvaliacoes = document.querySelector('#avaliacoes');
+function getCookie(name) {
+    let cookie = {};
 
-    // Criando múltiplas avaliações na página
-    for (var i = 0; i < quantAvaliacoes; i++) {
-        const avaliacoes = criarListaAvaliacoes(0000);
-        divAvaliacoes.appendChild(avaliacoes);
-    }
+    document.cookie.split(';').forEach(function(el) {
+        let [k, v] = el.split('=');
+        cookie[k.trim()] = v;
+    })
+
+    return cookie[name];
 }
 
-function detalharProblema(cod_usuario) {
+function detalharProblema(data) {
     // Descrição do problema
     const descricaoProblema = document.querySelector("#detalhe-problema-cliente");
-    descricaoProblema.innerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae. Eleifend donec pretium vulputate sapien nec sagittis.Cras adipiscing enim eu turpis egestas pretium aenean.Consequat interdum varius sit amet mattis vulputate enim nulla aliquet.";
+    descricaoProblema.innerText = data.descricao;
 }
 
-function orcamento(cod_servico, tipoUser, codStatus) {
+function orcamento(data) {
     // Criação do título da seção
     const titulo = document.createElement("h2");
     titulo.className = "titulo-orcamento";
-    titulo.innerText = "Orçamento";
+    titulo.innerText = data.orcamento;
 
     // Criação da descrição da seção
     const descricao = document.createElement("p");
@@ -134,7 +156,7 @@ function orcamento(cod_servico, tipoUser, codStatus) {
     const divOrcamento = document.createElement("div");
     divOrcamento.className = "divOrcamento";
 
-    if (tipoUser == "cliente" || codStatus > 1) {
+    if (data.cod_user.charAt(0) == '1' || data.cod_status > 1) {
         // Adicionando o btn criado na página
         divOrcamento.appendChild(orcamentoCliente());
     } else {
