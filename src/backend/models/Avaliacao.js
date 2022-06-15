@@ -1,8 +1,11 @@
 const db = require('../database');
 const Sequelize = require('sequelize');
 
+const Usuario = require("../models/Usuario");
+const Avaliacao_Usuario = require("../models/Avaliacao_Usuario");
+
 const Avaliacao = db.define('avaliacao', {
-    cod_avaliacao: {
+    cod_avaliador: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -10,10 +13,22 @@ const Avaliacao = db.define('avaliacao', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    cod_agendamento: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     nota: Sequelize.FLOAT,
     comentario: Sequelize.TEXT,
 });
 
-//Avaliacao.sync({ alter: true });
+Avaliacao.belongsToMany(Usuario, {
+    through: {
+        model: Avaliacao_Usuario
+    },
+    foreignKey: 'idAvaliacao_Usuario',
+    constraint: true
+});
+
+Avaliacao.sync({ alter: true })
 
 module.exports = Avaliacao;

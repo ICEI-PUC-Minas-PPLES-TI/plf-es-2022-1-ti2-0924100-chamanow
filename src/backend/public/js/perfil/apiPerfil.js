@@ -1,6 +1,6 @@
 async function getUserData(idUser) {
     try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/user-infos/${idUser}`);
+        const response = await fetch(`http://localhost:8786/api/user-datas/user-infos/cod_user=${idUser}`);
         const data = await response.json();
 
         return data;
@@ -11,7 +11,7 @@ async function getUserData(idUser) {
 
 async function getUserTel(idUser) {
     try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/user-tel/${idUser}`);
+        const response = await fetch(`http://localhost:8786/api/user-datas/user-tel/cod_user=${idUser}`);
         const data = await response.json();
 
         return data;
@@ -24,16 +24,18 @@ async function getUserAdress(adressId) {
     try {
         const response = await fetch(`http://localhost:8786/api/user-datas/user-adress/cod_user=${adressId}`);
         const data = await response.json();
+
         return data;
     } catch (error) {
         console.error(error);
     }
 }
 
-async function getUserRating() {
+async function getUserRating(idUser) {
     try {
-        const response = await fetch('http://localhost:8786/api/user-datas/rating');
+        const response = await fetch(`http://localhost:8786/api/user-datas/rating/cod_user=${idUser}`);
         const data = await response.json();
+
         return data;
     } catch (error) {
         console.error(error);
@@ -42,8 +44,9 @@ async function getUserRating() {
 
 async function getUserServicesCliente(idUser) {
     try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/services/client/${idUser}`);
+        const response = await fetch(`http://localhost:8786/api/user-datas/services/client/cod_client=${idUser}`);
         const data = await response.json();
+
         return data;
     } catch (error) {
         console.error(error);
@@ -52,8 +55,9 @@ async function getUserServicesCliente(idUser) {
 
 async function getUserServicesPrestador(idUser) {
     try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/services/provider/${idUser}`);
+        const response = await fetch(`http://localhost:8786/api/user-datas/services/provider=${idUser}`);
         const data = await response.json();
+
         return data;
     } catch (error) {
         console.error(error);
@@ -62,8 +66,9 @@ async function getUserServicesPrestador(idUser) {
 
 async function getService(serviceId) {
     try {
-        const response = await fetch(`http://localhost:8786/api/services/${serviceId}`);
+        const response = await fetch(`http://localhost:8786/api/services/cod_servico=${serviceId}`);
         const data = await response.json();
+
         return data;
     } catch (error) {
         console.error(error);
@@ -74,6 +79,18 @@ async function getRating(userId) {
     try {
         const response = await fetch(`http://localhost:8786/api/user-datas/rating/cod_avaliado=${userId}`);
         const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+async function getRatingByService(cod_agendamento, cod_avaliador) {
+    try {
+        const response = await fetch(`http://localhost:8786/api/user-datas/rating/cod_agendamento=${cod_agendamento}/cod_avaliador=${cod_avaliador}`);
+        const data = await response.json();
+
         return data;
     } catch (error) {
         console.error(error);

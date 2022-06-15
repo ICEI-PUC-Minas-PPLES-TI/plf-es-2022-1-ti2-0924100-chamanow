@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 const userController = require("../controller/userController");
-const Usuario = require("../models/Usuario");
+const ratingController = require("..//controller/ratingController");
 
 // Rotas GET
 
@@ -39,10 +39,14 @@ router.get('/descrever-problema', (req, res) => {
 })
 
 // Página com os detalhes do servico
-router.get('perfil/servicos/:servicoId', (req, res) => {
+router.get('/perfil/servicos', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/detalhe-servico.html"))
 })
 
+// Página com escolha do serviço
+router.get('/escolha-servico', (req, res) => {
+    res.sendFile(__dirname.replace("routes", "html/escolha-servico.html"))
+})
 
 
 // Rotas POST
@@ -52,6 +56,12 @@ router.post('/cadastro/user-data', userController.cadastroUser);
 
 // POST para alterar os dados do usuario no perfil
 router.post('/perfil/update-user', userController.updateUserData);
+
+// POST da descrição do problema do cliente
+router.post('/servico/agendamento', userController.descreverProblema);
+
+// POST para adicionar nova avaliação de serviço
+router.post('/perfil/avaliacao', ratingController.addAvaliacao);
 
 // Exportar rotas
 module.exports = router;
