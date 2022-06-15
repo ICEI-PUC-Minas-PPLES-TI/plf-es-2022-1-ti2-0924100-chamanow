@@ -49,6 +49,7 @@ function getCookie(name) {
 }
 
 function criarListaAvaliacoes(data) {
+    console.log(data)
     // Referenciar div dadosMenu
     const divAvaliacoes = document.createElement("div");
     divAvaliacoes.className = "divAvaliacoes";
@@ -134,7 +135,7 @@ function criarListaAvaliacoes(data) {
 
 
 $(document).ready(function() {
-    const cod_prestadorAux = "2-1iskd06o";
+    const cod_prestadorAux = "2-8mtnnpka";
     const cod_prestador = getUserData(cod_prestadorAux);
     cod_prestador.then(data => {
         // Gera os dados do perfil
@@ -143,6 +144,7 @@ $(document).ready(function() {
         // Gera as avaliações
         const divDadosAvaliacoes = document.querySelector("#avaliacoes");
         const dataAvaliacoes = getAvaliacao(data.cod_user);
+        console.log(data)
         dataAvaliacoes.then((data) => {
             if (data.length) {
                 for (var i = 0; i < 3; i++) {
@@ -153,7 +155,7 @@ $(document).ready(function() {
                     // Adicionar divAvaliacoeso na divDadosMenu
                     divDadosAvaliacoes.appendChild(divAvaliacoes);
                 }
-            } else {
+              } else {
                 // Referenciar a div com a tabela
                 const divAvaliacoes = document.createElement('p');
                 divAvaliacoes.className = "dataNull";

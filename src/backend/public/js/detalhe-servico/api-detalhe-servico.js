@@ -1,6 +1,6 @@
 async function getAvaliacao(idUser) {
     try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/rating/last-rating/cod_avaliado=${idUser}`)
+        const response = await fetch(`http://localhost:8786/api//user-datas/rating/last-rating/cod_avaliador=${idUser}`)
         const data = await response.json();
 
         return data;

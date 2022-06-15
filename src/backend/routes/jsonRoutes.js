@@ -151,13 +151,13 @@ apiRoutes.post('/user-datas/user-infos/user-login', async(req, res) => {
 })
 
 // Rota 3 últimas avaliações do prestador
-apiRoutes.get('/user-datas/rating/last-rating/cod_avaliador=:cod_avaliador', async(req, res) => {
+apiRoutes.get('/user-datas/rating/last-rating/cod_avaliado=:cod_avaliado', async(req, res) => {
     try {
         const data = await connection.query(
             `SELECT A.cod_avaliador, A.nota, A.comentario, A.created_at, B.nome\
             FROM avaliacaos AS A JOIN usuarios AS B\
-            ON A.cod_avaliado = B.cod_user\
-            WHERE A.cod_avaliador = '${req.params.cod_avaliador}'\
+            ON A.cod_avaliador = B.cod_user\
+            WHERE A.cod_avaliado = '${req.params.cod_avaliado}'\
             ORDER BY DAY(A.created_at) DESC LIMIT 3`, { type: QueryTypes.SELECT }
         );
         return res.status(200).json(data);
