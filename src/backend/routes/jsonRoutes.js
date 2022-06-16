@@ -4,7 +4,6 @@ const apiRoutes = express.Router();
 apiRoutes.use(express.json());
 
 // Instalação do SEQUELIZE
-
 const connection = require('../database');
 const { paramsTypes } = require('sequelize');
 const { QueryTypes } = require('sequelize');
@@ -20,7 +19,7 @@ const Servico = require("../models/Servico");
 // Rota com os dados de todos os usuarios
 apiRoutes.get('/user-datas/datas', async(req, res) => {
     try {
-        const data = await Avaliacao.findAll();
+        const data = await Usuario.findAll();
         return res.status(200).json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -73,7 +72,6 @@ apiRoutes.get('/escolha-servico/todos-servicos/cod_tipo=:cod_tipo', async(req, r
 })
 
 //Rota de todos os serviços
-
 apiRoutes.get('/escolha-servico/todos-servicos', async(req, res) => {
     try {
         const data = await Servico.findAll();
@@ -87,7 +85,7 @@ apiRoutes.get('/escolha-servico/todos-servicos', async(req, res) => {
 
 apiRoutes.get('/user-datas/cod_tipo=:cod_tipo', async(req, res) => {
     try {
-        const data = await Usuario.findAll({where: {cod_tipo: req.params.cod_tipo}})
+        const data = await Usuario.findAll({ where: { cod_tipo: req.params.cod_tipo } })
         return res.status(200).json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -113,8 +111,6 @@ apiRoutes.get('/user-datas/user-adress/cod_user=:userId', async(req, res) => {
         console.log("Error: " + error);
     }
 })
-
-
 
 // Rota com os dados das avaliações
 apiRoutes.get('/user-datas/rating/cod_avaliado=:userId', async(req, res) => {

@@ -44,7 +44,3 @@ connection.query("SELECT B.nome, SUM(A.valor_orcamento) / COUNT(CASE WHEN A.cod_
 /*Quantidade de serviços pendentes*/
 const servPendente = '';
 connection.query("SELECT COUNT(CASE WHEN status LIKE 'Pendente' THEN 1 END) / COUNT(CASE WHEN cod_tipo IS NOT NULL THEN 1 END) *100 AS servicod_pendentes FROM agendamentos GROUP BY MONTH(created_at)", { type: QueryTypes.SELECT }).then(servPendente => { console.log("SERVIÇOS PENDENTES", servPendente) });
-
-/*Quantidade de serviços não pagos*/
-const servNaoPagos = '';
-connection.query("SELECT COUNT(CASE WHEN status LIKE 'Não Pago' THEN 1 END) / COUNT(CASE WHEN cod_tipo IS NOT NULL THEN 1 END) *100 AS NAO_PAGO FROM agendamentos GROUP BY MONTH(created_at)", { type: QueryTypes.SELECT }).then(servNaoPagos => { console.log("SERVIÇOS NÃO PAGOS", servNaoPagos) });

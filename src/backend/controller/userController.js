@@ -117,19 +117,42 @@ module.exports = {
     async descreverProblema(req, res) {
         try {
             const newAgendamento = {
-                cod_servico: req.body.cod_servico,
-                descricao: req.body.descricao,
-                endereco: `${req.body.rua} N. ${req.body.numero}, ${req.body.bairro}, ${req.body.cidade} - ${req.body.cep}`,
-                cod_contratante: req.body.cod_contratante,
-                cod_prestador: req.body.cod_prestador,
-                cod_tipo: req.body.cod_tipo,
-                cod_status: 0,
-                status: 'Pendente'
-            }
+                    cod_servico: req.body.cod_servico,
+                    cod_contratante: req.body.cod_contratante,
+                    cod_prestador: req.body.cod_prestador,
+                    endereco: req.body.endereco,
+                    //endereco: `${req.body.rua} N. ${req.body.numero}, ${req.body.bairro}, ${req.body.cidade} - ${req.body.cep}`,
+                    cod_tipo: req.body.cod_tipo,
+                    descricao: req.body.descricao,
+                    valor_orcamento: req.body.valor_orcamento,
+                    data_servico: req.body.data_servico,
+                    data_pagamento: req.body.data_pagamento,
+                    horario: req.body.horario,
+                    cod_status: 1,
+                    status: 'Concluido',
+                    comprovante_pagamento: req.body.comprovante_pagamento,
+                    data_solicitacao: req.body.created_at
+                }
+                /*const newAgendamento = {
+                    cod_servico: req.body.cod_servico,
+                    descricao: req.body.descricao,
+                    endereco: `${req.body.rua} N. ${req.body.numero}, ${req.body.bairro}, ${req.body.cidade} - ${req.body.cep}`,
+                    cod_contratante: req.body.cod_contratante,
+                    cod_prestador: req.body.cod_prestador,
+                    cod_tipo: req.body.cod_tipo,
+                    cod_status: 0,
+                    status: 'Pendente'
+                }*/
 
+            // Se houver algum valor undefined, ele será null
+            for (let atributo in newAgendamento) {
+                if (newAgendamento[atributo] == undefined)
+                    newAgendamento[atributo] = null;
+            }
             await Agendamento.create(newAgendamento).then(() => {
-                console.log(newAgendamento)
-                res.redirect('/');
+                //console.log(newAgendamento);
+                res.redirect('/admin/indicadores');
+                //res.redirect('/');
             });
 
         } catch (error) {
@@ -137,8 +160,8 @@ module.exports = {
             res.status(400).error;
         }
     },
-    async detalharServico(req,res){
-        try{
+    async detalharServico(req, res) {
+        try {
             const newDetalhe = {
                 cod_servico: req.body.cod_servico,
                 cod_contratante: req.body.cod_contratante,
@@ -152,16 +175,16 @@ module.exports = {
                 data_pagamento: req.body.data_pagamento,
                 cod_status: 0,
                 status: 'Pendente',
-                comprovante_pagamento: req.body.comprovante_pagamento,
-                created_at: req.body.created_at
+                comprovante_pagamento: req.body.comprovante_pagamento
             }
 
             await Agendamento.create(newDetalhe).then(() => {
                 console.log(newDetalhe)
-                res.redirect('/');
+                res.redirect('/admin/indicadores');
+                //res.redirect('/');
             });
 
-        }catch(error){
+        } catch (error) {
             console.log(error);
             res.status(400).error;
         }

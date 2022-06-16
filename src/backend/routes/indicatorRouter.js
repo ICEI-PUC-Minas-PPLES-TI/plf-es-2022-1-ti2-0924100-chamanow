@@ -28,7 +28,7 @@ indicador.get('/rating/prestadores', async(req, res) => {
 indicador.get('/time-service', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT SUM(DATEDIFF(A.data_pagamento, A.created_at)) / COUNT(A.created_at) AS tempo_servico_media, B.nome\
+            "SELECT SUM(DATEDIFF(A.data_pagamento, A.data_solicitacao)) / COUNT(A.data_solicitacao) AS tempo_servico_media, B.nome\
             FROM agendamentos AS A JOIN servicos AS B\
             WHERE A.cod_tipo = B.cod_tipo\
             GROUP BY 2", { type: QueryTypes.SELECT }
@@ -108,7 +108,7 @@ indicador.get('/preco-medio', async(req, res) => {
             ON A.cod_tipo = B.cod_tipo\
             WHERE A.valor_orcamento IS NOT NULL\
             GROUP BY A.cod_tipo\
-            ORDER BY 2 DESC", { type: QueryTypes.SELECT }
+            ORDER BY 1", { type: QueryTypes.SELECT }
         );
         res.status(200).send(data);
     } catch (error) {
@@ -120,10 +120,12 @@ indicador.get('/preco-medio', async(req, res) => {
 indicador.get('/servicos-pendentes', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT B.nome, COUNT(CASE WHEN A.status LIKE 'Pendente' THEN 1 END) AS servicos_pendentes\
+            `SELECT B.nome, MONTH(A.data_solicitacao) AS mes, YEAR(A.data_solicitacao) AS ano, COUNT(CASE WHEN A.status LIKE 'Pendente' THEN 1 END) AS servicos_pendentes\
             FROM agendamentos AS A JOIN servicos AS B\
             ON A.cod_tipo = B.cod_tipo\
-            GROUP BY MONTH(A.created_at), B.cod_tipo", { type: QueryTypes.SELECT }
+            WHERE A.cod_tipo = ${req.query.cod_tipo} AND A.status LIKE 'Pendente'\
+            GROUP BY 3, 2, B.cod_tipo\
+            ORDER BY 3, 2`, { type: QueryTypes.SELECT }
         );
         res.status(200).send(data);
     } catch (error) {
