@@ -127,8 +127,12 @@ module.exports = {
                 status: 'Pendente'
             }
 
+            // Se houver algum valor undefined, ele será null
+            for (let atributo in newAgendamento) {
+                if (newAgendamento[atributo] == undefined)
+                    newAgendamento[atributo] = null;
+            }
             await Agendamento.create(newAgendamento).then(() => {
-                console.log(newAgendamento)
                 res.redirect('/');
             });
 
@@ -137,8 +141,8 @@ module.exports = {
             res.status(400).error;
         }
     },
-    async detalharServico(req,res){
-        try{
+    async detalharServico(req, res) {
+        try {
             const newDetalhe = {
                 cod_servico: req.body.cod_servico,
                 cod_contratante: req.body.cod_contratante,
@@ -152,16 +156,14 @@ module.exports = {
                 data_pagamento: req.body.data_pagamento,
                 cod_status: 0,
                 status: 'Pendente',
-                comprovante_pagamento: req.body.comprovante_pagamento,
-                created_at: req.body.created_at
+                comprovante_pagamento: req.body.comprovante_pagamento
             }
 
             await Agendamento.create(newDetalhe).then(() => {
-                console.log(newDetalhe)
                 res.redirect('/');
             });
 
-        }catch(error){
+        } catch (error) {
             console.log(error);
             res.status(400).error;
         }

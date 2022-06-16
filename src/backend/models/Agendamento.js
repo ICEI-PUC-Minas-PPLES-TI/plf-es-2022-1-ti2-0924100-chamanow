@@ -28,6 +28,10 @@ const Agendamento = db.define('agendamento', {
         allowNull: false,
         require: true
     },
+    data_solicitacao: {
+        type: Sequelize.DATE,
+        require: true
+    },
     valor_orcamento: {
         type: Sequelize.FLOAT,
         default: null,

@@ -67,7 +67,14 @@ function graficoTimeService(data) {
         font: {
             family: 'Poppins'
         },
-        showlegend: false
+        showlegend: false,
+        xaxis: {
+            showgrid: false
+        },
+        yaxis: {
+            title: 'Dias',
+            showline: false
+        }
     };
 
     var time = [garf_1];
@@ -135,11 +142,13 @@ function graficoCadastroUsuario(data) {
 
     var dados = [];
     filteredAno.forEach(ano => {
+        meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+
         // Adiciona todos os meses em que foram cadastrados novos usuarios na variável row
         var row = [];
         array.forEach(element => {
             if (element[1] == ano)
-                row.push(element[0])
+                row.push(meses[element[0] - 1])
         });
 
         // Adiciona a quantidade de usuarios novos cadastrados na variável column
@@ -156,6 +165,14 @@ function graficoCadastroUsuario(data) {
             name: ano,
             mode: 'lines+markers',
             type: 'scatter',
+            xaxis: {
+                title: '',
+                showgrid: false,
+            },
+            yaxis: {
+                title: 'Serviços Pendentes',
+                showline: false
+            }
         }
 
         // Adiciona o array da linha
@@ -194,11 +211,13 @@ function graficoCadastroPrestador(data) {
 
     var dados = [];
     filteredAno.forEach(ano => {
+        meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+
         // Adiciona todos os meses em que foram cadastrados novos usuarios na variável row
         var row = [];
         array.forEach(element => {
             if (element[1] == ano)
-                row.push(element[0])
+                row.push(meses[element[0] - 1])
         });
 
         // Adiciona a quantidade de usuarios novos cadastrados na variável column
@@ -214,7 +233,15 @@ function graficoCadastroPrestador(data) {
             y: column,
             name: ano,
             mode: 'lines+markers',
-            type: 'scatter'
+            type: 'scatter',
+            xaxis: {
+                title: '',
+                showgrid: false,
+            },
+            yaxis: {
+                title: 'Serviços Pendentes',
+                showline: false
+            }
         }
 
         // Adiciona o array da linha
@@ -265,8 +292,7 @@ function graficoServicosMaisContratados(data) {
         title: 'Porcentagem de serviços contratados',
         font: {
             family: 'Poppins'
-        },
-        showlegend: false
+        }
     };
 
     Plotly.newPlot('mostContractedServices', dados, layout)
@@ -306,51 +332,83 @@ function graficoPrecoMedio(data) {
         font: {
             family: 'Poppins'
         },
-        showlegend: false
+        showlegend: false,
+        yaxis: {
+            title: 'Preço (R$)',
+            showline: false
+        }
     };
 
     Plotly.newPlot('avgPriceService', barra, layout)
 }
 
 function graficoServicosPendentes(data) {
-    console.log(data)
-        // Transforma o JSON data em array
-        /*const array = data.map(obj => {
-            return Object.keys(obj).map(key => {
-                return obj[key];
-            });
+    // Transforma o JSON data em array
+    const array = data.map(obj => {
+        return Object.keys(obj).map(key => {
+            return obj[key];
         });
+    });
 
-        // Adiciona o nome dos serviços na variável row
+    // Separa os anos num array
+    var anos = [];
+    array.forEach(element => {
+        anos.push(element[2]);
+    });
+
+    // Filtra os valores repetidos
+    const filteredAno = anos.filter((ele, pos) => {
+        return anos.indexOf(ele) == pos;
+    })
+
+    var dados = [];
+    filteredAno.forEach(ano => {
+        meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+
+        // Adiciona todos os meses em que foram cadastrados novos usuarios na variável row
         var row = [];
         array.forEach(element => {
-            row.push(element[0]);
+            if (element[2] == ano)
+                row.push(meses[element[1] - 1])
         });
 
-        // Adiciona a média de tempo dos serviços na variável columns
+        // Adiciona a quantidade de usuarios novos cadastrados na variável column
         var column = [];
         array.forEach(element => {
-            column.push(element[1]);
+            if (element[2] == ano)
+                column.push(element[3]);
         });
 
-        const barra = [{
+        // Cria uma linha no gráfico do ano correspondente
+        var lines = {
             x: row,
             y: column,
-            type: 'bar',
-            marker: {
-                color: ['red', 'blue', 'green', 'orange']
-            }
-        }]
-
-        const layout = {
-            title: 'Preço médio de cada serviço',
-            font: {
-                family: 'Poppins'
+            name: ano,
+            mode: 'lines+markers',
+            type: 'scatter',
+            xaxis: {
+                title: '',
+                showgrid: false,
             },
-            showlegend: false
-        };
+            yaxis: {
+                title: 'Serviços Pendentes',
+                showline: false
+            }
+        }
 
-        Plotly.newPlot('pendingServices', barra, layout)*/
+        // Adiciona o array da linha
+        dados.push(lines);
+    })
+
+    const layout = {
+        title: 'Quantidade de usuarios cadastrados por ano',
+        font: {
+            family: 'Poppins'
+        },
+        showlegend: false
+    };
+
+    Plotly.newPlot('pendingServices', dados, layout);
 }
 
 function criarElementos(element, id, classe, valor, content) {
@@ -375,4 +433,38 @@ function criarElementos(element, id, classe, valor, content) {
 
     // Retornar o input criado
     return elemento;
+}
+
+function criarGrafico(array, posicaoRow, posicaoColumn, tipo, titulo) {
+
+    // Adiciona o nome dos serviços na variável row
+    var row = [];
+    array.forEach(element => {
+        row.push(element[posicaoRow]);
+    });
+
+    // Adiciona a média de tempo dos serviços na variável columns
+    var column = [];
+    array.forEach(element => {
+        column.push(element[posicaoColumn]);
+    });
+
+    const grafico = [{
+        x: row,
+        y: column,
+        type: tipo,
+        marker: {
+            color: ['red', 'blue', 'green', 'orange']
+        }
+    }]
+
+    const layout = {
+        title: titulo,
+        font: {
+            family: 'Poppins'
+        },
+        showlegend: false
+    };
+
+    return { grafico, layout };
 }
