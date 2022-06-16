@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const userController = require("../controller/userController");
 const ratingController = require("..//controller/ratingController");
 
-// Rotas GET
+// Rotas GET ===============================
 
 // Página Principal
 router.get('/', (req, res) => {
@@ -34,7 +34,7 @@ router.get('/perfil', (req, res) => {
 })
 
 // Página de descrever o problema para o agendamento do serviço
-router.get('/descrever-problema', (req, res) => {
+router.get('/descrever-problema/', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/descrever-problema.html"))
 })
 
@@ -48,8 +48,7 @@ router.get('/escolha-servico', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/escolha-servico.html"))
 })
 
-
-// Rotas POST
+// Rotas POST ==============================
 
 // POST do cadastro de novos usuarios
 router.post('/cadastro/user-data', userController.cadastroUser);
@@ -62,6 +61,13 @@ router.post('/servico/agendamento', userController.descreverProblema);
 
 // POST para adicionar nova avaliação de serviço
 router.post('/perfil/avaliacao', ratingController.addAvaliacao);
+
+// Indicadores =============================
+
+// Rota para a página de indicadores
+router.get('/admin/indicadores', (req, res) => {
+    res.sendFile(__dirname.replace("routes", "html/indicadores.html"))
+})
 
 // Exportar rotas
 module.exports = router;

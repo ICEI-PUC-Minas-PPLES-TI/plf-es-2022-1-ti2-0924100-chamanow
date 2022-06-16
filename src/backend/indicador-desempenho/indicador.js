@@ -15,36 +15,32 @@ const { QueryTypes } = require('sequelize');
 
 /*Avaliação do Prestador*/
 const avalPrestador = '';
-connection.query("SELECT A.COD_AVALIADO, B.COD_USER, AVG(A.NOTA)  AS NOTA_MEDIA_PRESTADOR, B.NOME FROM AVALIACAOS AS A JOIN USUARIOS AS B ON A.COD_AVALIADO =  B.COD_USER WHERE COD_AVALIADO LIKE '2%' GROUP BY A.COD_AVALIADO ORDER BY AVG(A.NOTA) DESC LIMIT 3", { type: QueryTypes.SELECT }).then(avalPrestador => { console.log("AVALIACÃOO PRESTADOR", avalPrestador) });
+connection.query("SELECT A.cod_avaliado, B.cod_user, AVG(A.nota) AS nota_media_prestador, B.nome FROM avaliacaos AS A JOIN usuarios AS B ON A.cod_avaliado =  B.cod_user WHERE cod_avaliado LIKE '2%' GROUP BY A.cod_avaliado ORDER BY AVG(A.nota) DESC LIMIT 3", { type: QueryTypes.SELECT }).then(avalPrestador => { console.log("AVALIACÃOO PRESTADOR", avalPrestador) });
 
 /*Tempo para a realização do serviço*/
 const tempoServico = '';
-connection.query("SELECT SUM(DATEDIFF (DATA_PAGAMENTO,DATA_SERVICO)) / COUNT(DATA_SERVICO) AS TEMPO_SERVICO_MEDIO FROM AGENDAMENTOS GROUP BY MONTH(DATA_PAGAMENTO)", { type: QueryTypes.SELECT }).then(tempoServico => { console.log("TEMPO MEDIO SERVIÇOS", tempoServico) });
+connection.query("SELECT SUM(DATEDIFF (data_pagamento,data_servico)) / COUNT(data_servico) AS tempo_servico_media FROM agendamentos GROUP BY MONTH(data_pagamento)", { type: QueryTypes.SELECT }).then(tempoServico => { console.log("TEMPO MEDIO SERVIÇOS", tempoServico) });
 
-/*Cancelamento*/
+/*cancelamento*/
 const cancel = '';
-connection.query("SELECT COUNT(CASE WHEN STATUS LIKE 'Cancelado' THEN 1 END) / COUNT(CASE WHEN STATUS LIKE 'Concluído' THEN 1 END) *100  AS CANCELAMENTO FROM AGENDAMENTOS GROUP BY MONTH(DATA_SOLICITACAO)", { type: QueryTypes.SELECT }).then(cancel => { console.log("SERVIÇOS CANCELADOS", cancel) });
+connection.query("SELECT COUNT(CASE WHEN status LIKE 'Cancelado' THEN 1 END) / COUNT(CASE WHEN status LIKE 'Concluído' THEN 1 END) *100  AS cancelamento FROM agendamentos GROUP BY MONTH(created_at)", { type: QueryTypes.SELECT }).then(cancel => { console.log("SERVIÇOS CANCELADOS", cancel) });
 
 /*Cadastro de Usuários*/
 const cadastroUser = '';
-connection.query("SELECT MONTH(CREATED_AT), YEAR(CREATED_AT), COUNT(CREATED_AT) AS CADASTRO_USUARIOS FROM USUARIOS GROUP BY MONTH(CREATED_AT), YEAR(CREATED_AT) ORDER BY 1,2", { type: QueryTypes.SELECT }).then(cadastroUser => { console.log("CADASTRO DE USUÁRIOS", cadastroUser) });
+connection.query("SELECT MONTH(created_at), YEAR(created_at), COUNT(created_at) AS cadastro_usuarios FROM usuarios GROUP BY MONTH(created_at), YEAR(created_at) ORDER BY 1,2", { type: QueryTypes.SELECT }).then(cadastroUser => { console.log("CADASTRO DE USUÁRIOS", cadastroUser) });
 
 /*Cadastro de Prestadores*/
 const cadastroPrest = '';
-connection.query("SELECT MONTH(CREATED_AT), YEAR(CREATED_AT), COUNT(CASE WHEN COD_TIPO IS NOT NULL THEN 1 END)  AS CADASTRO_PRESTADORES FROM USUARIOS GROUP BY MONTH(CREATED_AT) , YEAR(CREATED_AT) ORDER BY 1,2", { type: QueryTypes.SELECT }).then(cadastroPrest => { console.log("CADASTRO DE PRESTADORES", cadastroPrest) });
+connection.query("SELECT MONTH(created_at), YEAR(created_at), COUNT(CASE WHEN cod_tipo IS NOT NULL THEN 1 END)  AS cadastro_prestadores FROM usuarios GROUP BY MONTH(created_at) , YEAR(created_at) ORDER BY 1,2", { type: QueryTypes.SELECT }).then(cadastroPrest => { console.log("CADASTRO DE PRESTADORES", cadastroPrest) });
 
 /*Serviços mais contratados */
 const servMaisContrat = '';
-connection.query("SELECT B.NOME, COUNT(CASE WHEN A.COD_TIPO IS NOT NULL THEN 1 END) AS SERVICOS_MAIS_CONTRATADOS FROM AGENDAMENTOS AS A JOIN SERVICOS AS B ON A.COD_TIPO = B.COD_TIPO GROUP BY A.COD_TIPO ORDER BY COUNT(CASE WHEN COD_TIPO IS NOT NULL THEN 1 END) DESC LIMIT 3", { type: QueryTypes.SELECT }).then(servMaisContrat => { console.log("SERVIÇOS MAIS CONTRATADOS", servMaisContrat) });
+connection.query("SELECT B.nome, COUNT(CASE WHEN A.cod_tipo IS NOT NULL THEN 1 END) AS servicos_MAIS_CONTRATADOS FROM agendamentos AS A JOIN servicos AS B ON A.cod_tipo = B.cod_tipo GROUP BY A.cod_tipo ORDER BY COUNT(CASE WHEN cod_tipo IS NOT NULL THEN 1 END) DESC LIMIT 3", { type: QueryTypes.SELECT }).then(servMaisContrat => { console.log("SERVIÇOS MAIS CONTRATADOS", servMaisContrat) });
 
 /*Preço médio dos serviços*/
 const precoMedio = '';
-connection.query("SELECT B.NOME, SUM(A.VALOR_ORCAMENTO) / COUNT(CASE WHEN A.COD_TIPO IS NOT NULL THEN 1 END) AS PRECO_MEDIO_SERVICO FROM AGENDAMENTOS AS A JOIN SERVICOS AS B ON A.COD_TIPO = B.COD_TIPO WHERE A.VALOR_ORCAMENTO IS NOT NULL GROUP BY A.COD_TIPO", { type: QueryTypes.SELECT }).then(precoMedio => { console.log("PREÇO MÉDIO", precoMedio) });
+connection.query("SELECT B.nome, SUM(A.valor_orcamento) / COUNT(CASE WHEN A.cod_tipo IS NOT NULL THEN 1 END) AS PRECO_MEDIO_SERVICO FROM agendamentos AS A JOIN servicos AS B ON A.cod_tipo = B.cod_tipo WHERE A.valor_orcamento IS NOT NULL GROUP BY A.cod_tipo", { type: QueryTypes.SELECT }).then(precoMedio => { console.log("PREÇO MÉDIO", precoMedio) });
 
 /*Quantidade de serviços pendentes*/
 const servPendente = '';
-connection.query("SELECT COUNT(CASE WHEN STATUS LIKE 'Pendente' THEN 1 END) / COUNT(CASE WHEN COD_TIPO IS NOT NULL THEN 1 END) *100 AS SERVICOS_PENDENTES FROM AGENDAMENTOS GROUP BY MONTH(DATA_SOLICITACAO)", { type: QueryTypes.SELECT }).then(servPendente => { console.log("SERVIÇOS PENDENTES", servPendente) });
-
-/*Quantidade de serviços não pagos*/
-const servNaoPagos = '';
-connection.query("SELECT COUNT(CASE WHEN STATUS LIKE 'Nâo Pago' THEN 1 END) / COUNT(CASE WHEN COD_TIPO IS NOT NULL THEN 1 END) *100 AS NAO_PAGO FROM AGENDAMENTOS GROUP BY MONTH(DATA_SOLICITACAO)", { type: QueryTypes.SELECT }).then(servNaoPagos => { console.log("SERVIÇOS NÃO PAGOS", servNaoPagos) });
+connection.query("SELECT COUNT(CASE WHEN status LIKE 'Pendente' THEN 1 END) / COUNT(CASE WHEN cod_tipo IS NOT NULL THEN 1 END) *100 AS servicod_pendentes FROM agendamentos GROUP BY MONTH(created_at)", { type: QueryTypes.SELECT }).then(servPendente => { console.log("SERVIÇOS PENDENTES", servPendente) });

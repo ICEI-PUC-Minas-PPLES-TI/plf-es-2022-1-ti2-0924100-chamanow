@@ -135,8 +135,10 @@ function criarListaAvaliacoes(data) {
 
 
 $(document).ready(function() {
-    const cod_prestadorAux = "2-8mtnnpka";
-    const cod_prestador = getUserData(cod_prestadorAux);
+
+    const urlParams = new URLSearchParams(location.search);
+
+    const cod_prestador = getUserData(urlParams.get('cod_prestador'));
     cod_prestador.then(data => {
         // Gera os dados do perfil
         infoPerfil(data);

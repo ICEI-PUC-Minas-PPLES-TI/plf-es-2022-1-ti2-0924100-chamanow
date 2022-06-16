@@ -8,6 +8,7 @@ const cors = require("cors");
 const app = express();
 const admin = require("./routes/admin");
 const apiRoutes = require("./routes/jsonRoutes");
+const indicatorRoutes = require("./routes/indicatorRouter");
 const path = require("path");
 
 (async() => {
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Rotas
 app.use(admin);
 app.use('/api', apiRoutes);
+app.use('/indicator', indicatorRoutes);
 
 //Middleware
 app.use((req, res, next) => {
