@@ -61,6 +61,39 @@ apiRoutes.get('/user-datas/user-infos/email=:email', async(req, res) => {
     }
 })
 
+//Rota de um serviço específico
+
+apiRoutes.get('/escolha-servico/todos-servicos/cod_tipo=:cod_tipo', async(req, res) => {
+    try {
+        const data = await Servico.findAll({ where: { cod_tipo: req.params.cod_tipo } });
+        res.json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
+//Rota de todos os serviços
+
+apiRoutes.get('/escolha-servico/todos-servicos', async(req, res) => {
+    try {
+        const data = await Servico.findAll();
+        res.json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
+//Rota de profissionais que prestam um serviço especifico
+
+apiRoutes.get('/user-datas/cod_tipo=:cod_tipo', async(req, res) => {
+    try {
+        const data = await Usuario.findAll({where: {cod_tipo: req.params.cod_tipo}})
+        return res.status(200).json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
 // Rota com os dados do telefone dos users
 apiRoutes.get('/user-datas/user-tel/cod_user=:userId', async(req, res) => {
     try {
@@ -80,6 +113,8 @@ apiRoutes.get('/user-datas/user-adress/cod_user=:userId', async(req, res) => {
         console.log("Error: " + error);
     }
 })
+
+
 
 // Rota com os dados das avaliações
 apiRoutes.get('/user-datas/rating/cod_avaliado=:userId', async(req, res) => {
@@ -165,13 +200,13 @@ apiRoutes.post('/user-datas/user-infos/user-login', async(req, res) => {
 })
 
 // Rota 3 últimas avaliações do prestador
-apiRoutes.get('/user-datas/rating/last-rating/cod_avaliador=:cod_avaliador', async(req, res) => {
+apiRoutes.get('/user-datas/rating/last-rating/cod_avaliado=:cod_avaliado', async(req, res) => {
     try {
         const data = await connection.query(
             `SELECT A.cod_avaliador, A.nota, A.comentario, A.created_at, B.nome\
             FROM avaliacaos AS A JOIN usuarios AS B\
-            ON A.cod_avaliado = B.cod_user\
-            WHERE A.cod_avaliador = '${req.params.cod_avaliador}'\
+            ON A.cod_avaliador = B.cod_user\
+            WHERE A.cod_avaliado = '${req.params.cod_avaliado}'\
             ORDER BY DAY(A.created_at) DESC LIMIT 3`, { type: QueryTypes.SELECT }
         );
         return res.status(200).json(data);
