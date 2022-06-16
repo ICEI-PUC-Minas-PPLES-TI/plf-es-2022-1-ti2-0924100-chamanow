@@ -185,6 +185,23 @@ apiRoutes.post('/user-datas/user-infos/user-login', async(req, res) => {
     }
 })
 
+//Rota para as avaliações de um usuario
+
+apiRoutes.get('/user-datas/avg-rating/', async(req, res) => {
+    try {
+        
+        const media_avaliacao = req.query.cod_avaliado;
+
+        const data = await connection.query(
+            `select avg(nota) as nota from avaliacaos where cod_avaliado = "${media_avaliacao}"`, { type: QueryTypes.SELECT }
+        );
+
+        return res.status(200).json(data);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 // Rota 3 últimas avaliações do prestador
 apiRoutes.get('/user-datas/rating/last-rating/cod_avaliado=:cod_avaliado', async(req, res) => {
     try {
