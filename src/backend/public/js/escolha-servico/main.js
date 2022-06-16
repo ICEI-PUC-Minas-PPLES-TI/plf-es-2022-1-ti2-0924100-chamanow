@@ -46,7 +46,7 @@ function criaBanner() {
     titulo_banner.innerHTML = `O melhor <span class="corLaranja"> serviço </span> pelo melhor <span class="corLaranja"> preço</span>`;
     titulo_banner.classList.add('titulo');
     const img_banner = new Image;
-    iamg_banner.src = '/img/gustvo.png';
+    img_banner.src = '/img/gustvo.png';
     banner.appendChild(titulo_banner);
     banner.appendChild(img_banner);
     return banner;
@@ -117,7 +117,7 @@ function criaServicoNP(e, servico) {
     tudo.appendChild(div_servicoNP);
 }
 
-function criaCardsNP(profissional) {
+function criaCardsNP(profissional, cod_servico) {
     const card = document.createElement('div');
     card.classList.add('card');
     const img_prof = new Image;
@@ -139,10 +139,13 @@ function criaCardsNP(profissional) {
     const card_button = document.createElement('button');
     card_button.innerText = 'Acessar Perfil';
     card_button.id = 'card_button';
+    const aLinkBotao = document.createElement("a");
+    aLinkBotao.setAttribute("href", `/descrever-problema/?cod_prestador=${profissional.cod_user}&cod_servico=${cod_servico}`);
+    aLinkBotao.appendChild(card_button)
     card_text.appendChild(card_title);
     card_text.appendChild(div_avaliacao);
     card_text.appendChild(card_p);
-    card_text.appendChild(card_button);
+    card_text.appendChild(aLinkBotao);
     card.appendChild(img_prof);
     card.appendChild(card_text);
     return card;
@@ -163,11 +166,11 @@ function mostraServicos() {
         console.log(servico);
         const div_servicos = document.createElement('div');
         div_servicos.className = 'div_servicos';
-        servico.forEach(element => {
-            const divServicos = criaServicos(element, servico);
+        servico.forEach(servico => {
+            const divServicos = criaServicos(servico);
             divServicos.addEventListener('click', function (e) {
                 tudo.innerHTML = ``;
-                criaServicoNP(divServicos, element);
+                criaServicoNP(divServicos, servico);
                 const elemento = e.target;
                 const nodeElement = elemento.closest("div");
                 console.log(nodeElement.id);
@@ -179,7 +182,7 @@ function mostraServicos() {
                     tudo.appendChild(profissionais);
                 
                     profissional.forEach(element =>  {
-                    const card = criaCardsNP(element);
+                    const card = criaCardsNP(element, servico.cod_tipo);
                     profissionais.appendChild(card);
                     });
                 }) 

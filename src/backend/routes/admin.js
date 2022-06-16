@@ -34,7 +34,7 @@ router.get('/perfil', (req, res) => {
 })
 
 // Página de descrever o problema para o agendamento do serviço
-router.get('/descrever-problema', (req, res) => {
+router.get('/descrever-problema/', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/descrever-problema.html"))
 })
 
