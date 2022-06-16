@@ -153,6 +153,7 @@ $(document).ready(() => {
 
     // Função para pegar os dados do usuario
     getUserData(idUser).then((data) => {
+        console.log(data)
         init(data);
     });
 

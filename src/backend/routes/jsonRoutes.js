@@ -27,6 +27,20 @@ apiRoutes.get('/user-datas/datas', async(req, res) => {
     }
 })
 
+// Rota com os dados de todos os usuarios
+apiRoutes.get('/user-datas/teste', async(req, res) => {
+    try {
+        const data = await connection.query(
+            `select a.nome, a.regiao_atuacao\
+            from usuarios as a join servicos as b\
+            on a.cod_tipo = b.cod_tipo`, { type: QueryTypes.SELECT }
+        );
+        return res.status(200).json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
 // Rota com os dados dos users
 apiRoutes.get('/user-datas/user-infos/cod_user=:userId', async(req, res) => {
     try {
