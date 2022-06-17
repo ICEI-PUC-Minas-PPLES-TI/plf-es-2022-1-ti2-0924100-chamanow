@@ -9,7 +9,7 @@
     }
 }*/
 
-async function getServices(serviceId) {
+async function getServices() {
     try {
         const response = await fetch(`http://localhost:8786/api/escolha-servico/todos-servicos`);
         const data = await response.json();
