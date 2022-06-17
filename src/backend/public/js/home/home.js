@@ -73,9 +73,9 @@ function imprimePrincipaisServicos(data) {
     conteudoPrincipaisServicos += `
           <div class="principal-servico-item">
               <div class="container-img">
-                  <img src="${principaisServicos[i].imagem}" alt="Icone trabalho">
+                <img src="/img/worker.png" alt="Icone trabalho">
               </div>
-              <h4>${principaisServicos[i].titulo}</h4>
+              <h4>${data[i].nome}</h4>
           </div>
   `;
   }
@@ -112,21 +112,13 @@ function imprimeProfissionais(data) {
   // coloca a variável no HTML da página
   containerProfissionais.innerHTML = conteudoProfissionais;
 }
-
-// função que imprime os dados na tela
-function imprimeDados(data) {
-  imprimeCatalogo(data);
-  imprimePrincipaisServicos(data);
-  imprimeProfissionais(data);
-}
-
 const button = document.querySelector("#pesquisa-button");
 button.addEventListener("click", abrirServicos);
 function abrirServicos() {
   window.location.href = "/escolha-servico";
 }
 
-// quando todos os itens da tela terminas de ser carregados, chama a função imprimeDados
+// quando todos os itens da tela terminas de ser carregados, chama a função que carrega tudo
 window.addEventListener("load", init);
 
 function getCookie(name) {
@@ -144,13 +136,25 @@ function init() {
   // Pegar o id do user no cookie
   const idUser = getCookie("idUser");
 
-  // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
+  // Caso o usuario não esteja logado (idUser == null), ele é direcionado para a página inicial
   if (!idUser) window.location.href = "/";
 
   // Função para pegar os dados dos serviços
   getServices().then((data) => {
     console.log(data);
-    imprimeDados(data);
+    imprimeCatalogo(data);
+  });
+
+  // Função para pegar os dados dos serviços
+  getServicosMaisContratados().then((data) => {
+    console.log(data);
+    imprimePrincipaisServicos(data);
+  });
+
+  // Função para pegar os dados dos serviços
+  getAvaliacaoPrestador().then((data) => {
+    console.log(data);
+    imprimePrincipaisServicos(data);
   });
 
   /*if (idUser.charAt(0) != '1') {

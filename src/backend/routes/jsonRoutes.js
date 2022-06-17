@@ -61,7 +61,6 @@ apiRoutes.get('/user-datas/user-infos/email=:email', async(req, res) => {
 })
 
 //Rota de um serviço específico
-
 apiRoutes.get('/escolha-servico/todos-servicos/cod_tipo=:cod_tipo', async(req, res) => {
     try {
         const data = await Servico.findAll({ where: { cod_tipo: req.params.cod_tipo } });
