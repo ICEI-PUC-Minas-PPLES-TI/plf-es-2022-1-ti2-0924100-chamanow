@@ -22,21 +22,6 @@ let profissionaisBemAvaliados = [
   },
 ];
 
-let principaisServicos = [
-  {
-    imagem: "/img/worker.png",
-    titulo: "Elétrica",
-  },
-  {
-    imagem: "/img/worker.png",
-    titulo: "Pintura",
-  },
-  {
-    imagem: "/img/worker.png",
-    titulo: "Martelinho de Ouro",
-  },
-];
-
 function imprimeCatalogo(data) {
   // pega o container dos serviços a serem listados
   let containerServicos = document.getElementById("container-servicos");
@@ -86,32 +71,32 @@ function imprimePrincipaisServicos(data) {
 
 function imprimeProfissionais(data) {
   // pega o container dos principais profissionais a serem listados
-  let containerProfissionais = document.getElementById(
-    "container-bem-avaliados"
-  );
+  let containerProfissionais = document.getElementById("container-bem-avaliados");
 
   // declara variável que irá receber os profissionais
   let conteudoProfissionais = "";
 
   // executa item por item e salva dentro da variável
+  // executa item por item e salva dentro da variável
   for (let i = 0; i < 3; i++) {
     conteudoProfissionais += `
-          <div class="bem-avaliados-item">
-              <div class="container-img">
-                  <img src="${principaisServicos[i].imagem}" alt="Icone trabalho">
-              </div>
-              <div class="container-texto">
-                  <h3>${profissionaisBemAvaliados[i].nome}</h3>
-                  <h4>${profissionaisBemAvaliados[i].ocupacao}</h4>
-                  <p>${profissionaisBemAvaliados[i].descricao}</p>
-              </div>
-          </div>
-  `;
+            <div class="bem-avaliados-item">
+                <div class="container-img">
+                    <img src="${profissionaisBemAvaliados[i].imagem}" alt="Icone trabalho">
+                </div>
+                <div class="container-texto">
+                    <h3>${profissionaisBemAvaliados[i].nome}</h3>
+                    <h4>${profissionaisBemAvaliados[i].ocupacao}</h4>
+                    <p>${profissionaisBemAvaliados[i].descricao}</p>
+                </div>
+            </div>
+    `;
   }
 
   // coloca a variável no HTML da página
   containerProfissionais.innerHTML = conteudoProfissionais;
 }
+
 const button = document.querySelector("#pesquisa-button");
 button.addEventListener("click", abrirServicos);
 function abrirServicos() {
@@ -145,16 +130,16 @@ function init() {
     imprimeCatalogo(data);
   });
 
-  // Função para pegar os dados dos serviços
+  // Função para pegar os dados dos serviços mais contratados
   getServicosMaisContratados().then((data) => {
     console.log(data);
     imprimePrincipaisServicos(data);
   });
 
-  // Função para pegar os dados dos serviços
+  // Função para pegar os dados dos profissionais mais bem avaliados
   getAvaliacaoPrestador().then((data) => {
     console.log(data);
-    imprimePrincipaisServicos(data);
+    imprimeProfissionais(data);
   });
 
   /*if (idUser.charAt(0) != '1') {
