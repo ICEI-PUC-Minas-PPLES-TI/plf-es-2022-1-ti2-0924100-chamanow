@@ -50,7 +50,7 @@ function getCookie(name) {
 
 function criarListaAvaliacoes(data) {
     console.log(data)
-    // Referenciar div dadosMenu
+        // Referenciar div dadosMenu
     const divAvaliacoes = document.createElement("div");
     divAvaliacoes.className = "divAvaliacoes";
 
@@ -133,9 +133,79 @@ function criarListaAvaliacoes(data) {
     return divAvaliacoes;
 }
 
+function getCookie(name) {
+    let cookie = {};
 
+    document.cookie.split(';').forEach(function(el) {
+        let [k, v] = el.split('=');
+        cookie[k.trim()] = v;
+    })
+
+    return cookie[name];
+}
+
+function alterarHeaderLogado(user) {
+    // Referenciar a nav menu
+    const menu = document.querySelector(".menu");
+    menu.innerHTML = "";
+
+    // Criar os itens do menu ================================
+
+    // Acesso ao perfil
+    const perfil = criarElementoLink("/perfil", user.nome);
+
+    // Adiciona os elementos criados dentro do menu
+    menu.appendChild(perfil);
+}
+
+function alterarHeaderDeslogado() {
+    // Referenciar a nav menu
+    const menu = document.querySelector(".menu");
+    menu.innerHTML = "";
+
+    // Criar os itens do menu ================================
+
+    // Acesso ao perfil
+    const cadastroProfissional = criarElementoLink("/cadastro?user=profissional", "Sou um Profissa");
+
+    // Acesso à página inicial
+    const cadastro = criarElementoLink("/cadastro", "Sign Up");
+
+    // Acesso à página inicial
+    const login = criarElementoLink("/login", "Login");
+
+    // Adiciona os elementos criados dentro do menu
+    menu.appendChild(cadastroProfissional);
+    menu.appendChild(cadastro);
+    menu.appendChild(login);
+}
+
+function criarElementoLink(href, conteudo) {
+    // Cria o elemento a
+    const a = document.createElement('a');
+
+    // Atribui uma rota a ele
+    a.setAttribute('href', href);
+
+    // Adiciona um conteúdo a ele
+    a.innerText = conteudo;
+
+    // Retorna o elemento criado
+    return a;
+}
 $(document).ready(function() {
+    // Pegar o id do user no cookie
+    const idUser = getCookie("idUser");
 
+    // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
+    if (!idUser)
+        alterarHeaderDeslogado();
+    else {
+        const user = getUserData(idUser);
+        user.then(user => {
+            alterarHeaderLogado(user);
+        })
+    }
     const urlParams = new URLSearchParams(location.search);
 
     const cod_prestador = getUserData(urlParams.get('cod_prestador'));
@@ -157,7 +227,7 @@ $(document).ready(function() {
                     // Adicionar divAvaliacoeso na divDadosMenu
                     divDadosAvaliacoes.appendChild(divAvaliacoes);
                 }
-              } else {
+            } else {
                 // Referenciar a div com a tabela
                 const divAvaliacoes = document.createElement('p');
                 divAvaliacoes.className = "dataNull";
