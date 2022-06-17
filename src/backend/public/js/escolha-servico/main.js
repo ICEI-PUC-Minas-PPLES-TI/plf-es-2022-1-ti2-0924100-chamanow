@@ -46,7 +46,7 @@ function criaBanner() {
     titulo_banner.innerHTML = `O melhor <span class="corLaranja"> serviço </span> pelo melhor <span class="corLaranja"> preço</span>`;
     titulo_banner.classList.add('titulo');
     const img_banner = new Image;
-    img_banner.src = '/img/gustvo.png';
+    img_banner.src = '/img/gustavo.png';
     banner.appendChild(titulo_banner);
     banner.appendChild(img_banner);
     return banner;
@@ -92,7 +92,7 @@ function criaServicoNP(e, servico) {
     const tit_servicoNP = document.createElement('h1');
     tit_servicoNP.innerHTML = servico.nome;
     div_tit_servicoNP.appendChild(tit_servicoNP);
-    const div_avaliacao = document.createElement('div');
+    /*const div_avaliacao = document.createElement('div');
     div_avaliacao.classList.add('avaliacao_usuario');
     const avaliacao = document.createElement('ul');
     avaliacao.classList.add('avaliacao');
@@ -100,7 +100,7 @@ function criaServicoNP(e, servico) {
     estrela.classList.add('star-icon');
     avaliacao.appendChild(estrela);
     div_avaliacao.appendChild(avaliacao);
-    div_tit_servicoNP.appendChild(div_avaliacao);
+    div_tit_servicoNP.appendChild(div_avaliacao);*/
     const btn_voltar = document.createElement('button');
     btn_voltar.innerHTML = 'Voltar';
     btn_voltar.classList.add('voltar');
@@ -122,20 +122,30 @@ function criaCardsNP(profissional, cod_servico) {
     card.classList.add('card');
     const img_prof = new Image;
     img_prof.src = '/img/3329962-corpo-do-cantor-gusttavo-lima-foi-elogia-opengraph_1200-3.jpg';
+    img_prof.id = 'card_img';
     const card_text = document.createElement('div');
     card_text.classList.add('card_text');
     const card_title = document.createElement('h1');
     card_text.innerHTML = profissional.nome;
+    card_text.id = 'card_tit';
+   
+    
     const div_avaliacao = document.createElement('div');
     div_avaliacao.classList.add('avaliacao_usuario');
     const avaliacao = document.createElement('ul');
     avaliacao.classList.add('avaliacao');
-    const estrela = document.createElement('li');
-    estrela.classList.add('star-icon');
-    avaliacao.appendChild(estrela);
+    const media_avaliacao = getAvgRating(profissional.cod_user);
+    media_avaliacao.then(avaliacao =>{
+        console.log(avaliacao[0]);
+        const notaAvaliacao = document.createElement('span');
+        notaAvaliacao.id = "nota";
+        notaAvaliacao.innerText = avaliacao[0].nota.toFixed(1);
+        div_avaliacao.appendChild(notaAvaliacao);
+    })
     div_avaliacao.appendChild(avaliacao);
     const card_p = document.createElement('p');
     card_p.innerHTML = profissional.email;
+    card_p.id = 'card_p';
     const card_button = document.createElement('button');
     card_button.innerText = 'Acessar Perfil';
     card_button.id = 'card_button';
@@ -143,7 +153,16 @@ function criaCardsNP(profissional, cod_servico) {
     aLinkBotao.setAttribute("href", `/descrever-problema/?cod_prestador=${profissional.cod_user}&cod_servico=${cod_servico}`);
     aLinkBotao.appendChild(card_button)
     card_text.appendChild(card_title);
-    card_text.appendChild(div_avaliacao);
+    
+    
+    for (let index = 0; index < 5; index++) {
+        const estrela = document.createElement('li');
+        estrela.classList.add('star-icon');
+        avaliacao.appendChild(estrela);
+        card_text.appendChild(div_avaliacao);
+        
+    }
+    
     card_text.appendChild(card_p);
     card_text.appendChild(aLinkBotao);
     card.appendChild(img_prof);

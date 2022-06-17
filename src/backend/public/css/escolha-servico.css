@@ -15,7 +15,7 @@
 
 /*-----------Menu-----------*/
 
-header{
+.site-header{
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -25,8 +25,9 @@ header{
     border-bottom-right-radius: 10px;
 }
 
-.logo img{
+#logo-header{
     width: 300px;
+    margin-left: 300px;
 }
 
 .logo{
@@ -42,23 +43,23 @@ header{
     margin: auto;
 }
 
-.menu li a{
+.btn_menu{
     text-decoration: none;
     display: block;
     border-radius: 10px;
     padding: 10px;
 }
 
-.menu li a:hover{
+.btn_menu:hover{
     text-decoration: none;
     display: block;
     background-color: #ff9940;
 }
 
 
-.menu li{
+.menu{
     list-style: none;
-    padding: 10px;
+    padding: 50px;
 }
 
 .menu a{
@@ -185,14 +186,23 @@ header{
     margin-top: 30px;
 }
 
+.nota{
+    margin-left: 5px;
+}
+
 .star-icon::before{
     content: "\2605";
     color: #FFD600;
 }
 
-.avaliacao_usuario{
-    margin: 0 auto;
+.avaliacao, .avaliacao_usuario{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
+
+
+
 
 .star-icon {
     list-style-type: none;
@@ -248,27 +258,26 @@ header{
     border-bottom-right-radius: 10px;
 }
 
-.card_text h4{
+.card_tit{
     color: #4939FF;
 }
 
-.card p{
+.card_p{
     font-size: 10px;
     margin-top: 10px;
     color: black;
 }
-
-
 
 #card_button{
     background-color: #EEEEEE;
     border-width: 1px;
     border-color: #FF7500;
     color: #FF7500;
-    padding: 0px 5px;
+    padding: 20px;
     border-radius: 30px;
-    margin-top: 10px;
-    margin-left: 120px;
+    margin-top: 20px;
+    margin-left: 500px;
+    
 }
 
 #card_button:hover{
@@ -276,10 +285,10 @@ header{
     border-width: 1px;
     border-color: #FF7500;
     color: #fff;
-    padding: 0px 5px;
+    padding: 20px;
     border-radius: 30px;
-    margin-top: 10px;
-    margin-left: 120px;
+    margin-top: 20px;
+    margin-left: 500px;
 }
 
 /*--------Footer-------*/

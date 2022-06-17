@@ -61,7 +61,6 @@ apiRoutes.get('/user-datas/user-infos/', async(req, res) => {
 })
 
 //Rota de um serviço específico
-
 apiRoutes.get('/escolha-servico/todos-servicos/', async(req, res) => {
     try {
         const data = await Servico.findAll({ where: { cod_tipo: req.query.cod_tipo } });
@@ -82,7 +81,6 @@ apiRoutes.get('/escolha-servico/todos-servicos', async(req, res) => {
 })
 
 //Rota de profissionais que prestam um serviço especifico
-
 apiRoutes.get('/user-datas/', async(req, res) => {
     try {
         const data = await Usuario.findAll({ where: { cod_tipo: req.query.cod_tipo } })
@@ -189,6 +187,22 @@ apiRoutes.post('/user-datas/user-infos/user-login', async(req, res) => {
         const senha = req.body.senha;
 
         const data = await Usuario.findOne({ where: { email: email, senha: senha } });
+        return res.status(200).json(data);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+//Rota para as avaliações de um usuario
+apiRoutes.get('/user-datas/avg-rating/', async(req, res) => {
+    try {
+
+        const media_avaliacao = req.query.cod_avaliado;
+
+        const data = await connection.query(
+            `select avg(nota) as nota from avaliacaos where cod_avaliado = "${media_avaliacao}"`, { type: QueryTypes.SELECT }
+        );
+
         return res.status(200).json(data);
     } catch (error) {
         console.log(error);
