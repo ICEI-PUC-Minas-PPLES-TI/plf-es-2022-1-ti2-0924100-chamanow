@@ -5,54 +5,35 @@ function avaliacaoPrestador(data) {
 }
 
 $(document).ready(() => {
-    const users = getAllUsers();
-    users.then(users => {
-            const allServices = getAllServices();
-            allServices.then(services => {
-                const arrayServices = services.map(obj => {
-                    return Object.keys(obj).map(key => {
-                        return obj[key];
-                    });
-                });
+    // Pegar o id do user no cookie
+    const idUser = getCookie("idUser");
 
-                var cod_tipo = [];
-                arrayServices.forEach(element => {
-                    cod_tipo.push(element[0]);
-                });
-
-                const arrayUsers = users.map(obj => {
-                    return Object.keys(obj).map(key => {
-                        return obj[key];
-                    });
-                });
-
-                var cod_prestador = [];
-                arrayUsers.forEach(element => {
-                    if (element[0].startsWith("2"))
-                        cod_prestador.push(element[0]);
-                });
-
-                povoarTabela(users, cod_tipo, cod_prestador);
-            })
+    // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
+    if (!idUser)
+        alterarHeaderDeslogado();
+    else {
+        const user = getUserData(idUser);
+        user.then(user => {
+            alterarHeaderLogado(user);
         })
-        // Função para mostrar os dez prestadores mais bem avaliados
+    }
+
+    // Função para mostrar os dez prestadores mais bem avaliados
     const rating = getAvaliacaoPrestador();
     rating.then(rating => {
-
         avaliacaoPrestador(rating);
     });
 
     // Função para mostrar a média do tempo de realização do serviço de cada tipo
     const timeService = getTimeService();
     timeService.then(time => {
-        console.log(time)
         graficoTimeService(time);
     })
 
     // Função para mostrar a taxa de cancelamento dos servicos
     const cancellation = getCancellationRate();
     cancellation.then(data => {
-        //console.log(data);
+        console.log(data);
     })
 
     // Função para mostrar usuarios novos cadastrados
@@ -90,11 +71,76 @@ $(document).ready(() => {
 
         $("#servicoSelection").change(e => {
             const index = servicoSelection.selectedIndex;
-            const optionId = servicoSelection.options[index].id;
-            const pendingServices = getServicosPendentes(optionId);
+            const option = servicoSelection.options[index];
+            const pendingServices = getServicosPendentes(option.id);
             pendingServices.then(service => {
-                graficoServicosPendentes(service);
+                graficoServicosPendentes(service, option.value);
             })
         })
     })
 })
+
+function alterarHeaderLogado(user) {
+    // Referenciar a nav menu
+    const menu = document.querySelector(".menu");
+    menu.innerHTML = "";
+
+    // Criar os itens do menu ================================
+
+    // Acesso ao perfil
+    const perfil = criarElementoLink("/perfil", user.nome);
+
+    // Acesso à página inicial
+    const home = criarElementoLink("/", "Tela inicial");
+
+    // Adiciona os elementos criados dentro do menu
+    menu.appendChild(home);
+    menu.appendChild(perfil);
+}
+
+function alterarHeaderDeslogado() {
+    // Referenciar a nav menu
+    const menu = document.querySelector(".menu");
+    menu.innerHTML = "";
+
+    // Criar os itens do menu ================================
+
+    // Acesso ao perfil
+    const cadastroProfissional = criarElementoLink("/cadastro?user=profissional", "Sou um Profissa");
+
+    // Acesso à página inicial
+    const cadastro = criarElementoLink("/cadastro", "Sign Up");
+
+    // Acesso à página inicial
+    const login = criarElementoLink("/login", "Login");
+
+    // Adiciona os elementos criados dentro do menu
+    menu.appendChild(cadastroProfissional);
+    menu.appendChild(cadastro);
+    menu.appendChild(login);
+}
+
+function criarElementoLink(href, conteudo) {
+    // Cria o elemento a
+    const a = document.createElement('a');
+
+    // Atribui uma rota a ele
+    a.setAttribute('href', href);
+
+    // Adiciona um conteúdo a ele
+    a.innerText = conteudo;
+
+    // Retorna o elemento criado
+    return a;
+}
+
+function getCookie(name) {
+    let cookie = {};
+
+    document.cookie.split(';').forEach(function(el) {
+        let [k, v] = el.split('=');
+        cookie[k.trim()] = v;
+    })
+
+    return cookie[name];
+}

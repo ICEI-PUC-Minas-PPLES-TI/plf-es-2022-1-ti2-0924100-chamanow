@@ -122,7 +122,8 @@ function graficoTaxaCancelamento(data) {
 }
 
 function graficoCadastroUsuario(data) {
-    // Transforma o JSON data em array
+    console.log(data)
+        // Transforma o JSON data em array
     const array = data.map(obj => {
         return Object.keys(obj).map(key => {
             return obj[key];
@@ -184,7 +185,9 @@ function graficoCadastroUsuario(data) {
         font: {
             family: 'Poppins'
         },
-        showlegend: false
+        yaxis: {
+            title: 'Quantidade'
+        }
     };
 
     Plotly.newPlot('userRegister', dados, layout)
@@ -233,15 +236,7 @@ function graficoCadastroPrestador(data) {
             y: column,
             name: ano,
             mode: 'lines+markers',
-            type: 'scatter',
-            xaxis: {
-                title: '',
-                showgrid: false,
-            },
-            yaxis: {
-                title: 'Serviços Pendentes',
-                showline: false
-            }
+            type: 'scatter'
         }
 
         // Adiciona o array da linha
@@ -253,7 +248,9 @@ function graficoCadastroPrestador(data) {
         font: {
             family: 'Poppins'
         },
-        showlegend: false
+        yaxis: {
+            title: 'Quantidade'
+        }
     };
 
     Plotly.newPlot('providerRegister', dados, layout)
@@ -332,17 +329,15 @@ function graficoPrecoMedio(data) {
         font: {
             family: 'Poppins'
         },
-        showlegend: false,
         yaxis: {
             title: 'Preço (R$)',
-            showline: false
         }
     };
 
     Plotly.newPlot('avgPriceService', barra, layout)
 }
 
-function graficoServicosPendentes(data) {
+function graficoServicosPendentes(data, nomeServico) {
     // Transforma o JSON data em array
     const array = data.map(obj => {
         return Object.keys(obj).map(key => {
@@ -385,15 +380,7 @@ function graficoServicosPendentes(data) {
             y: column,
             name: ano,
             mode: 'lines+markers',
-            type: 'scatter',
-            xaxis: {
-                title: '',
-                showgrid: false,
-            },
-            yaxis: {
-                title: 'Serviços Pendentes',
-                showline: false
-            }
+            type: 'scatter'
         }
 
         // Adiciona o array da linha
@@ -401,11 +388,13 @@ function graficoServicosPendentes(data) {
     })
 
     const layout = {
-        title: 'Quantidade de usuarios cadastrados por ano',
+        title: `Agendamentos pendentes relativo à ${nomeServico}`,
         font: {
             family: 'Poppins'
         },
-        showlegend: false
+        yaxis: {
+            title: 'Serviços Pendentes'
+        }
     };
 
     Plotly.newPlot('pendingServices', dados, layout);
@@ -433,38 +422,4 @@ function criarElementos(element, id, classe, valor, content) {
 
     // Retornar o input criado
     return elemento;
-}
-
-function criarGrafico(array, posicaoRow, posicaoColumn, tipo, titulo) {
-
-    // Adiciona o nome dos serviços na variável row
-    var row = [];
-    array.forEach(element => {
-        row.push(element[posicaoRow]);
-    });
-
-    // Adiciona a média de tempo dos serviços na variável columns
-    var column = [];
-    array.forEach(element => {
-        column.push(element[posicaoColumn]);
-    });
-
-    const grafico = [{
-        x: row,
-        y: column,
-        type: tipo,
-        marker: {
-            color: ['red', 'blue', 'green', 'orange']
-        }
-    }]
-
-    const layout = {
-        title: titulo,
-        font: {
-            family: 'Poppins'
-        },
-        showlegend: false
-    };
-
-    return { grafico, layout };
 }

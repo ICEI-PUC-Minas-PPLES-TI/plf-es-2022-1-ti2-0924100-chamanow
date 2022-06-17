@@ -31,18 +31,14 @@
     <script src="/js/indicadores/apiIndicadores.js"></script>
     <script src="/js/indicadores/funcoesIndicadores.js"></script>
 
-    <!-- API de gráficos -->
+    <!-- Bliblioteca de gráficos -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
     <header class="site-header">
-        <img src="/img/logo-horizontal-transparente.png" alt="Logo ChamaNow">
-        <nav class="menu">
-            <a href="/cadastro?user=profissional">Sou um Profissa</a>
-            <a href="/cadastro">Sign Up</a>
-            <a href="/login">Login</a>
-        </nav>
+        <a href="/"><img src="/img/logo-horizontal-transparente.png" alt="Logo ChamaNow"></a>
+        <nav class="menu"></nav>
     </header>
 
     <main>
@@ -81,7 +77,7 @@
             <h3 class="titleIndicador">Quantidade de serviços pendentes</h3>
             <p class="descaricaoindicador">Calcula a percentagem de serviços pendentes</p>
             <select id="servicoSelection" name="servico">
-                <option value="default">Selecione um serviço</option>
+                <option value="default" selected>Selecione um serviço</option>
             </select>
             <div id="pendingServices"></div>
         </div>

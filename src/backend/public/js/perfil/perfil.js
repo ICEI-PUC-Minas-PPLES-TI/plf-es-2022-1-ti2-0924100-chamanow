@@ -99,15 +99,16 @@ function init(data) {
 
         const dataAvaliacoes = getUserRating(cod_user);
         dataAvaliacoes.then((data) => {
-            if (data) {
-                for (var i = 0; i < data.length; i++) {
+            console.log(data)
+            if (data)
+                data.forEach(data => {
                     // Referenciar a div com a tabela
-                    const divAvaliacoes = criarListaAvaliacoes(cod_user, data[i]);
+                    const divAvaliacoes = criarListaAvaliacoes(cod_user, data);
 
                     // Adicionar divAvaliacoeso na divDadosMenu
                     divDadosMenu.appendChild(divAvaliacoes);
-                }
-            } else {
+                })
+            else {
                 // Referenciar a div com a tabela
                 const divAvaliacoes = document.createElement('p');
                 divAvaliacoes.className = "dataNull";
@@ -153,7 +154,6 @@ $(document).ready(() => {
 
     // Função para pegar os dados do usuario
     getUserData(idUser).then((data) => {
-        console.log(data)
         init(data);
     });
 
