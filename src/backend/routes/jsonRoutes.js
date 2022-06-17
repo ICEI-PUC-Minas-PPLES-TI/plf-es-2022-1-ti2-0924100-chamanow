@@ -82,7 +82,6 @@ apiRoutes.get('/escolha-servico/todos-servicos', async(req, res) => {
 })
 
 //Rota de profissionais que prestam um serviço especifico
-
 apiRoutes.get('/user-datas/cod_tipo=:cod_tipo', async(req, res) => {
     try {
         const data = await Usuario.findAll({ where: { cod_tipo: req.params.cod_tipo } })
@@ -196,7 +195,6 @@ apiRoutes.post('/user-datas/user-infos/user-login', async(req, res) => {
 })
 
 //Rota para as avaliações de um usuario
-
 apiRoutes.get('/user-datas/avg-rating/', async(req, res) => {
     try {
         
