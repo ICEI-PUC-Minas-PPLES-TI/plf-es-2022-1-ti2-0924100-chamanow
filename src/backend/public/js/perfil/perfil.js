@@ -125,14 +125,6 @@ function init(data) {
     })
 }
 
-function formatarData(date, hour) {
-    var dateFormatada = date.split('T')[0].replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
-    if (hour)
-        dateFormatada += ` às ${hour.substring(0, 5)}`;
-
-    return dateFormatada;
-}
-
 function getCookie(name) {
     let cookie = {};
 

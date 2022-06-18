@@ -1,22 +1,3 @@
-/* Global ====================================================================*/
-
-:root {
-    --bg: #333333;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: #fff;
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --primary-color-bright: #778ffc;
-    --secondary-color: #ff6b00;
-    --right-color: #20E300;
-    --wrong-color: #FF3737;
-    --yellow-color: #FFD600;
-    --transition: all 0.1s linear;
-    --box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
-}
-
-
 /* Elementos =================================================================*/
 
 * {
@@ -31,150 +12,205 @@ html {
 }
 
 body {
-    background: rgb(240, 240, 240);
     font-family: "Poppins", sans-serif;
 }
 
 
-/* Cabeçalho =================================================================*/
+/* Body =====================================================================*/
 
-.site-header {
+main {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 7px 15%;
-    height: 60px;
-    background-color: var(--primary-color);
+    justify-content: center;
+    padding: 30px 15%;
+    font-family: 'Poppins';
 }
 
-body header img {
-    max-width: 15rem;
+main>div {
+    width: 100%;
+    margin: 15px 0;
 }
 
-.menu a {
-    text-decoration: none;
-    color: var(--color-text);
-    margin-left: 30px;
-    transition: var(--transition);
-}
-
-.menu a:hover {
+.titleIndicador {
     color: var(--secondary-color);
 }
 
-.menu a:nth-child(2) {
-    padding: 5px 20px;
-    border-radius: 7px;
-    border: 1.2px var(--primary-color-bright) solid;
-    transition: var(--transition);
-}
 
-.menu a:nth-child(2):hover {
-    border: 1.2px var(--secondary-color) solid;
-}
+/* ========== Configuração da Tabela ========== */
 
-.menu a:last-child {
-    background-color: var(--secondary-color);
-    color: var(--color-text);
-    padding: 5px 20px;
-    border-radius: 7px;
-}
-
-.menu a:last-child:hover {
-    background-color: var(--color-text);
-    color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-}
-
-#logo-header {
-    cursor: pointer;
-    width: 150px;
-}
-
-
-/* Footer ===================================================================*/
-
-.footer {
-    background-color: var(--primary-color);
-    color: var(--color-text);
+#tabelaAvaliacao {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    margin-top: 100px;
-}
-
-.beforeLine {
-    display: flex;
-    justify-content: space-between;
-    padding: 60px 10% 40px;
-}
-
-.logoSlogan {
-    display: flex;
-    flex-direction: column;
-}
-
-.logoSlogan>img {
-    width: 50px;
-}
-
-.logoSlogan>span {
-    margin-top: 12px;
-    font-size: 15px;
-}
-
-.contentFooter {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-}
-
-.contentFooter li {
-    list-style: none;
-    font-size: 15px;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-.line {
-    width: 80%;
-    border-bottom: 1px var(--bg-rating) solid;
-    margin: 0 auto;
-}
-
-.afterLine {
-    display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 60px 0;
+    width: 100%;
 }
 
-.socialMedia {
+
+/* ========== Configuração do Cabeçalho ========== */
+
+.cabecalho {
+    background-color: var(--color-table);
+    color: var(--primary-color);
+    border-radius: 10px;
+    width: 100%;
+    padding: 5px 20px;
+}
+
+.cabecalho th {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 200px;
 }
 
-.socialMedia a {
-    font-size: 16px;
-    color: var(--color-text);
-    border: 0.8px var(--color-text) solid;
-    border-radius: 100%;
-    height: 35px;
+
+/* ========== Configuração do Corpo da Tabela ========== */
+
+.corpoTabela {
+    width: 100%;
+    padding: 5px 20px;
+}
+
+.corpoTabela tr {
+    border-bottom: 1px solid var(--color-line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* ========== Configuração dos tds ========== */
+
+#tabelaAvaliacao td {
+    font-size: 14px;
+}
+
+
+/* Configuração dos tamanhos das colunas*/
+
+td[id|="tipo"] {
     width: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.socialMedia a:hover {
-    color: var(--secondary-color);
-    border-color: var(--secondary-color);
+td[id|="nome"] {
+    width: 100px;
 }
 
-.copyright {
-    margin-top: 15px;
-    font-size: 12px;
+td[id|="nota"] {
+    width: 35px;
+}
+
+td[id|="servico"] {
+    width: 100px;
+}
+
+td[id|="email"] {
+    width: 240px;
+}
+
+td[id|="dataNasc"] {
+    width: 90px;
+}
+
+td[id|="cpf-cnpj"] {
+    width: 75px;
+}
+
+
+/* ========== Configuração dos spans ========== */
+
+td span {
+    padding: 5px 10px;
+    border-radius: 7px;
+}
+
+
+/* span do profissional */
+
+span[id="2"] {
+    color: #DA2929;
+    background-color: #fca5a5;
+}
+
+
+/* span da empresa */
+
+span[id="3"] {
+    color: #20E300;
+    background-color: #c4ffbb;
+}
+
+
+/* span para o serviço de encanador */
+
+span[id|="100"] {
+    color: #4939FF;
+    background-color: #a4b3fa;
+}
+
+
+/* span para o serviço de dentista */
+
+span[id|="555"] {
+    color: #FFE500;
+    background-color: #fff7b4;
+}
+
+
+/* span para o serviço de ferreiro */
+
+span[id|="500"] {
+    color: #0da100;
+    background-color: #92ff88;
+}
+
+
+/* span para o serviço de marceneiro */
+
+span[id|="872"] {
+    color: #FF6B00;
+    background-color: #ffd6b8;
+}
+
+
+/* ========== Configuração do Selection dos serviços ========== */
+
+#servicoSelection {
+    margin-top: 25px;
+    border: none;
+    border-radius: 30px;
+    padding: 7px 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('/img/chevron-down-solid.svg');
+    background-position: 95% center;
+    background-size: 18px;
+    background-color: var(--color-input);
+    background-repeat: no-repeat;
+    width: 240px;
+}
+
+#servicoSelection.active {
+    background: url('/img/chevron-up-solid.svg');
+    background-position: 95% center;
+    background-size: 18px;
+    background-color: var(--color-input);
+    background-repeat: no-repeat;
+}
+
+#servicoSelection:focus {
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+
+/* ========== Configuração da Responsividade ========== */
+
+@media (max-width: 600px) {
+    main {
+        padding: 30px 5%;
+    }
 }

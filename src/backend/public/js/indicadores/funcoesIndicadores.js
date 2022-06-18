@@ -1,35 +1,156 @@
 function criarListaAvaliacoes(data) {
-    // Criar elemento li
-    const liAvaliacoes = document.createElement("li");
-    liAvaliacoes.className = "liAvaliacoes";
-
-    // Div Nome e Nota ===================================
-
-    // Criação da div com o nome e nota
-    const divNomeData = document.createElement('div');
-    divNomeData.className = "nome-data";
-
-    // Criação do elemento para o nome do avaliado
-    const nomeAvaliador = document.createElement('h5');
-    nomeAvaliador.id = "nome-avaliador";
-    nomeAvaliador.innerText = data.nome + " -";
-
-    // Criação do elemento para a nota
-    const notaAvaliacao = document.createElement('span');
-    notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = data.nota_media_prestador.toFixed(1);
-
-    // Colocando os elementos criados dentro de div nomeNota
-    divNomeData.appendChild(nomeAvaliador);
-    divNomeData.appendChild(notaAvaliacao);
+    console.log(data);
 
     // Adicionar elementos na página =====================
 
     // Referenciar ul na página
     const ulAvaliacao = document.querySelector("#avaliacoesPrestadores");
 
-    // Colocar todas as liAvaliacoes criadas dentro de ulAvaliacao
-    ulAvaliacao.appendChild(divNomeData);
+    // Criação da tabela dos serviços
+    const tabelaServico = document.createElement("table");
+    tabelaServico.id = "tabelaAvaliacao";
+
+    // Criação do cabeçalho da tabela
+    const cabecalhoTabela = document.createElement("thead");
+    cabecalhoTabela.className = "cabecalho";
+
+    const contentTabela = document.createElement("th");
+
+    // Criação das colunas do cabeçalho =======================
+
+    // Criação da coluna do tipo de prestador do cabeçalho
+    const colunaTipo = document.createElement("td");
+    colunaTipo.id = "tipo";
+    colunaTipo.innerText = "Tipo";
+
+    // Criação da coluna do nome do cabeçalho
+    const colunaNome = document.createElement("td");
+    colunaNome.id = "nome"
+    colunaNome.innerText = "Prestador";
+
+    // Criação da coluna do serviço do cabeçalho
+    const colunaNota = document.createElement("td");
+    colunaNota.id = "nota";
+    colunaNota.innerText = "Nota";
+
+    // Criação da coluna do email do cabeçalho
+    const colunaEmail = document.createElement("td");
+    colunaEmail.id = "email";
+    colunaEmail.innerText = "Email";
+
+    // Criação da coluna da data nascimento do cabeçalho
+    const colunaDataNasc = document.createElement("td");
+    colunaDataNasc.id = "dataNasc";
+    colunaDataNasc.innerText = "Data Nascimento";
+
+    // Criação da coluna do CPF do cabeçalho
+    const colunaCPFCNPJ = document.createElement("td");
+    colunaCPFCNPJ.id = "cpf-cnpj";
+    colunaCPFCNPJ.innerText = "CPF/CNPJ";
+
+    // Criação da coluna da serviço do cabeçalho
+    const colunaServico = document.createElement("td");
+    colunaServico.id = "servico";
+    colunaServico.innerText = "Serviço";
+
+    // Adicionar as colunas dentro do cabeçalho
+    contentTabela.appendChild(colunaTipo);
+    contentTabela.appendChild(colunaNome);
+    contentTabela.appendChild(colunaNota);
+    contentTabela.appendChild(colunaEmail);
+    contentTabela.appendChild(colunaDataNasc);
+    contentTabela.appendChild(colunaCPFCNPJ);
+    contentTabela.appendChild(colunaServico);
+
+    // Adicionar a cabeçalho na tabela
+    cabecalhoTabela.appendChild(contentTabela);
+    tabelaServico.appendChild(cabecalhoTabela);
+
+    // Criação do corpo da tabela
+    const tbody = document.createElement("tbody");
+    tbody.className = "corpoTabela";
+
+    // Criação das tuplas da tabela
+    data.forEach(data => {
+        // Criação da linha
+        const tupla = document.createElement("tr");
+
+        // Criação das colunas da tupla =======================
+
+        // Criação da coluna do tipo de usuario do cabeçalho
+        const tipo_user = data.cod_usuario.split("-")[0];
+        const colunaTipoTupla = document.createElement("td");
+        colunaTipoTupla.id = `tipo-${tipo_user}`;
+        const spanTipo = document.createElement("span");
+        spanTipo.id = tipo_user;
+        spanTipo.innerText = tipo_user;
+
+        // Adicionar o spanServico dentro da coluna do serviço
+        colunaTipoTupla.appendChild(spanTipo);
+
+        // Criação da coluna do nome do cabeçalho
+        const colunaNomeTupla = document.createElement("td");
+        colunaNomeTupla.id = `nome-${data.cod_usuario}`;
+        colunaNomeTupla.innerText = data.nome;
+
+        // Criação da coluna da nota do cabeçalho
+        const colunaNotaTupla = document.createElement("td");
+        colunaNotaTupla.id = `nota-${data.cod_usuario}`;
+        colunaNotaTupla.innerText = data.nota_media_prestador.toFixed(2);
+
+        // Criação da coluna do email do cabeçalho
+        const colunaEmailTupla = document.createElement("td");
+        colunaEmailTupla.id = `email-${data.cod_usuario}`;
+        colunaEmailTupla.innerText = data.email;
+
+        // Criação da coluna da data de nascimento do cabeçalho
+        const colunaDataNascTupla = document.createElement("td");
+        colunaDataNascTupla.id = `dataNasc-${data.cod_usuario}`;
+        if (data.data_nascimento)
+            colunaDataNascTupla.innerText = formatarData(data.data_nascimento);
+        else
+            colunaDataNascTupla.innerText = "-";
+
+        // Criação da coluna do CPF e CNPJ do cabeçalho
+        const colunaCPFTupla = document.createElement("td");
+        colunaCPFTupla.id = `cpf-cnpj-${data.cod_usuario}`;
+        if (tipo_user == 2)
+            colunaCPFTupla.innerText = data.CPF;
+        else
+            colunaCPFTupla.innerText = data.CNPJ;
+
+        // Criação da coluna do serviço do cabeçalho
+        const colunaServicoTupla = document.createElement("td");
+        colunaServicoTupla.id = `servico-${data.cod_servico}`;
+        const spanServico = document.createElement("span");
+        spanServico.id = data.cod_servico;
+        spanServico.innerText = data.servico;
+
+        // Adicionar o spanServico dentro da coluna do serviço
+        colunaServicoTupla.appendChild(spanServico);
+
+        // Adicionar as colunas dentro do cabeçalho
+        tupla.appendChild(colunaTipoTupla);
+        tupla.appendChild(colunaNomeTupla);
+        tupla.appendChild(colunaNotaTupla);
+        tupla.appendChild(colunaEmailTupla);
+        tupla.appendChild(colunaDataNascTupla);
+        tupla.appendChild(colunaCPFTupla);
+        tupla.appendChild(colunaServicoTupla);
+
+        // Adicionar a tupla na tabela
+        tbody.appendChild(tupla);
+    })
+
+    tabelaServico.appendChild(tbody);
+
+    // Adicionar a tabela na divTabela
+    ulAvaliacao.appendChild(tabelaServico);
+}
+
+const config = {
+    responsive: true,
+    displayModeBar: false
 }
 
 function graficoTimeService(data) {
@@ -63,7 +184,7 @@ function graficoTimeService(data) {
     }
 
     const layout = {
-        title: 'Média de tempo para a realização do serviço',
+        title: 'Média de tempo para a <br>realização do serviço',
         font: {
             family: 'Poppins'
         },
@@ -78,7 +199,7 @@ function graficoTimeService(data) {
     };
 
     var time = [garf_1];
-    Plotly.newPlot('timeService', time, layout)
+    Plotly.newPlot('timeService', time, layout, config)
 }
 
 function graficoTaxaCancelamento(data) {
@@ -118,12 +239,11 @@ function graficoTaxaCancelamento(data) {
     };
 
         var time = [garf_1];
-        Plotly.newPlot('timeService', time)*/
+        Plotly.newPlot('cancellationRate', time)*/
 }
 
 function graficoCadastroUsuario(data) {
-    console.log(data)
-        // Transforma o JSON data em array
+    // Transforma o JSON data em array
     const array = data.map(obj => {
         return Object.keys(obj).map(key => {
             return obj[key];
@@ -181,7 +301,7 @@ function graficoCadastroUsuario(data) {
     })
 
     const layout = {
-        title: 'Quantidade de usuarios cadastrados por ano',
+        title: 'Quantidade de usuarios <br>cadastrados por mês',
         font: {
             family: 'Poppins'
         },
@@ -190,7 +310,7 @@ function graficoCadastroUsuario(data) {
         }
     };
 
-    Plotly.newPlot('userRegister', dados, layout)
+    Plotly.newPlot('userRegister', dados, layout, config)
 }
 
 function graficoCadastroPrestador(data) {
@@ -244,7 +364,7 @@ function graficoCadastroPrestador(data) {
     })
 
     const layout = {
-        title: 'Quantidade de prestadores cadastrados por ano',
+        title: 'Quantidade de prestadores <br>cadastrados por mês',
         font: {
             family: 'Poppins'
         },
@@ -253,7 +373,7 @@ function graficoCadastroPrestador(data) {
         }
     };
 
-    Plotly.newPlot('providerRegister', dados, layout)
+    Plotly.newPlot('providerRegister', dados, layout, config)
 }
 
 function graficoServicosMaisContratados(data) {
@@ -284,15 +404,13 @@ function graficoServicosMaisContratados(data) {
     }]
 
     const layout = {
-        height: 400,
-        width: 500,
         title: 'Porcentagem de serviços contratados',
         font: {
             family: 'Poppins'
         }
     };
 
-    Plotly.newPlot('mostContractedServices', dados, layout)
+    Plotly.newPlot('mostContractedServices', dados, layout, config)
 }
 
 function graficoPrecoMedio(data) {
@@ -334,7 +452,7 @@ function graficoPrecoMedio(data) {
         }
     };
 
-    Plotly.newPlot('avgPriceService', barra, layout)
+    Plotly.newPlot('avgPriceService', barra, layout, config)
 }
 
 function graficoServicosPendentes(data, nomeServico) {
@@ -388,7 +506,7 @@ function graficoServicosPendentes(data, nomeServico) {
     })
 
     const layout = {
-        title: `Agendamentos pendentes relativo à ${nomeServico}`,
+        title: `Agendamentos pendentes <br>relativo à ${nomeServico}`,
         font: {
             family: 'Poppins'
         },
@@ -397,29 +515,5 @@ function graficoServicosPendentes(data, nomeServico) {
         }
     };
 
-    Plotly.newPlot('pendingServices', dados, layout);
-}
-
-function criarElementos(element, id, classe, valor, content) {
-    // Criar o elemento
-    const elemento = document.createElement(element);
-
-    // Atribuir um id para ele
-    if (id)
-        elemento.id = id;
-
-    // Atribuir um tipo para ele
-    if (classe)
-        elemento.className = classe;
-
-    // Atribuir um valor para ele
-    if (valor)
-        elemento.value = valor;
-
-    // Atribuir um placeholder para ele
-    if (content)
-        elemento.innerHTML = content;
-
-    // Retornar o input criado
-    return elemento;
+    Plotly.newPlot('pendingServices', dados, layout, config, { responsive: true });
 }

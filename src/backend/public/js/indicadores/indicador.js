@@ -5,6 +5,17 @@ function avaliacaoPrestador(data) {
 }
 
 $(document).ready(() => {
+    setaSelect();
+
+    // Verifica a largura da tela
+    const width = window.screen.width;
+
+    // Se for menor do que 600px, a logo é trocada
+    if (width < 600) {
+        const logo = document.querySelector("#logo");
+        logo.setAttribute("src", "/img/Logo.svg");
+    }
+
     // Pegar o id do user no cookie
     const idUser = getCookie("idUser");
 
@@ -21,7 +32,7 @@ $(document).ready(() => {
     // Função para mostrar os dez prestadores mais bem avaliados
     const rating = getAvaliacaoPrestador();
     rating.then(rating => {
-        avaliacaoPrestador(rating);
+        avaliacaoPrestador([rating]);
     });
 
     // Função para mostrar a média do tempo de realização do serviço de cada tipo
@@ -32,32 +43,32 @@ $(document).ready(() => {
 
     // Função para mostrar a taxa de cancelamento dos servicos
     const cancellation = getCancellationRate();
-    cancellation.then(data => {
-        console.log(data);
+    cancellation.then(rate => {
+        graficoTaxaCancelamento(rate);
     })
 
     // Função para mostrar usuarios novos cadastrados
     const userRegister = getUserRegister();
-    userRegister.then(data => {
-        graficoCadastroUsuario(data);
+    userRegister.then(users => {
+        graficoCadastroUsuario(users);
     })
 
     // Função para mostrar prestadores novos cadastrados
     const providerRegister = getProviderRegister();
-    providerRegister.then(data => {
-        graficoCadastroPrestador(data);
+    providerRegister.then(providers => {
+        graficoCadastroPrestador(providers);
     })
 
     // Função para mostrar prestadores novos cadastrados
     const mostContractedServices = getServicosMaisContratados();
-    mostContractedServices.then(data => {
-        graficoServicosMaisContratados(data);
+    mostContractedServices.then(services => {
+        graficoServicosMaisContratados(services);
     })
 
     // Função para mostrar prestadores novos cadastrados
     const avgPriceService = getPrecoMedio();
-    avgPriceService.then(data => {
-        graficoPrecoMedio(data);
+    avgPriceService.then(prices => {
+        graficoPrecoMedio(prices);
     })
 
     // Função para mostrar a taxa de serviços pendentes
@@ -79,68 +90,3 @@ $(document).ready(() => {
         })
     })
 })
-
-function alterarHeaderLogado(user) {
-    // Referenciar a nav menu
-    const menu = document.querySelector(".menu");
-    menu.innerHTML = "";
-
-    // Criar os itens do menu ================================
-
-    // Acesso ao perfil
-    const perfil = criarElementoLink("/perfil", user.nome);
-
-    // Acesso à página inicial
-    const home = criarElementoLink("/", "Tela inicial");
-
-    // Adiciona os elementos criados dentro do menu
-    menu.appendChild(home);
-    menu.appendChild(perfil);
-}
-
-function alterarHeaderDeslogado() {
-    // Referenciar a nav menu
-    const menu = document.querySelector(".menu");
-    menu.innerHTML = "";
-
-    // Criar os itens do menu ================================
-
-    // Acesso ao perfil
-    const cadastroProfissional = criarElementoLink("/cadastro?user=profissional", "Sou um Profissa");
-
-    // Acesso à página inicial
-    const cadastro = criarElementoLink("/cadastro", "Sign Up");
-
-    // Acesso à página inicial
-    const login = criarElementoLink("/login", "Login");
-
-    // Adiciona os elementos criados dentro do menu
-    menu.appendChild(cadastroProfissional);
-    menu.appendChild(cadastro);
-    menu.appendChild(login);
-}
-
-function criarElementoLink(href, conteudo) {
-    // Cria o elemento a
-    const a = document.createElement('a');
-
-    // Atribui uma rota a ele
-    a.setAttribute('href', href);
-
-    // Adiciona um conteúdo a ele
-    a.innerText = conteudo;
-
-    // Retorna o elemento criado
-    return a;
-}
-
-function getCookie(name) {
-    let cookie = {};
-
-    document.cookie.split(';').forEach(function(el) {
-        let [k, v] = el.split('=');
-        cookie[k.trim()] = v;
-    })
-
-    return cookie[name];
-}

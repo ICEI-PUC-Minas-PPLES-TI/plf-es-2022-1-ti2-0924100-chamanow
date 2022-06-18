@@ -11,10 +11,14 @@ const { QueryTypes } = require('sequelize');
 indicador.get('/rating/prestadores', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT AVG(A.nota) AS nota_media_prestador, B.cod_user, B.nome\
+            "SELECT AVG(A.nota) AS nota_media_prestador, B.cod_user AS cod_usuario, B.nome,\
+            B.email, B.cpf AS CPF, B.cnpj AS CNPJ, B.data_nasc AS data_nascimento, B.cod_tipo AS cod_servico,\
+            B.created_at AS data_criacao, C.nome AS servico\
             FROM avaliacaos AS A JOIN usuarios AS B\
             ON A.cod_avaliado = B.cod_user\
-            WHERE cod_avaliado LIKE '2%'\
+            JOIN servicos AS C\
+            ON B.cod_tipo = C.cod_tipo\
+            WHERE cod_avaliado LIKE '2%' OR cod_avaliado LIKE '3%'\
             GROUP BY A.cod_avaliado\
             ORDER BY 1 DESC LIMIT 10", { type: QueryTypes.SELECT }
         );
@@ -28,7 +32,7 @@ indicador.get('/rating/prestadores', async(req, res) => {
 indicador.get('/time-service', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT DATEDIFF(A.data_pagamento, A.data_solicitacao) AS tempo_servico_media, B.nome\
+            "SELECT AVG(DATEDIFF(A.data_pagamento, A.data_solicitacao)) AS tempo_servico_media, B.nome\
             FROM agendamentos AS A JOIN servicos AS B\
             WHERE A.cod_tipo = B.cod_tipo\
             GROUP BY 2", { type: QueryTypes.SELECT }
@@ -43,9 +47,10 @@ indicador.get('/time-service', async(req, res) => {
 indicador.get('/cancellation-rate', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT created_at AS data, AVG(CASE WHEN status LIKE 'Cancelado' THEN 1 END) AS cancelamento\
+            "SELECT data_solicitacao AS data, SUM(status='Cancelado') AS cancelamento\
             FROM agendamentos\
-            GROUP BY MONTH(created_at)", { type: QueryTypes.SELECT }
+            GROUP BY MONTH(data_solicitacao)\
+            HAVING cancelamento > 0", { type: QueryTypes.SELECT }
         );
         res.status(200).send(data);
     } catch (error) {
@@ -120,10 +125,10 @@ indicador.get('/preco-medio', async(req, res) => {
 indicador.get('/servicos-pendentes', async(req, res) => {
     try {
         const data = await connection.query(
-            `SELECT B.nome, MONTH(A.data_solicitacao) AS mes, YEAR(A.data_solicitacao) AS ano, COUNT(CASE WHEN A.status LIKE 'Pendente' THEN 1 END) AS servicos_pendentes\
+            `SELECT B.nome, MONTH(A.data_solicitacao) AS mes, YEAR(A.data_solicitacao) AS ano, COUNT(A.status='Pendente') AS servicos_pendentes\
             FROM agendamentos AS A JOIN servicos AS B\
             ON A.cod_tipo = B.cod_tipo\
-            WHERE A.cod_tipo = ${req.query.cod_tipo} AND A.status LIKE 'Pendente'\
+            WHERE A.cod_tipo = ${req.query.cod_tipo} AND A.status='Pendente'\
             GROUP BY 3, 2, B.cod_tipo\
             ORDER BY 3, 2`, { type: QueryTypes.SELECT }
         );
