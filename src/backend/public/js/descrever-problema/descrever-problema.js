@@ -154,7 +154,15 @@ function alterarHeaderLogado(user) {
     // Acesso ao perfil
     const perfil = criarElementoLink("/perfil", user.nome);
 
+    // Acesso à página inicial
+    const home = criarElementoLink("/", "Tela inicial");
+
+    // Acesso à página inicial
+    const indicadores = criarElementoLink("/admin/indicadores", "Indicadores");
+
     // Adiciona os elementos criados dentro do menu
+    menu.appendChild(home);
+    menu.appendChild(indicadores);
     menu.appendChild(perfil);
 }
 

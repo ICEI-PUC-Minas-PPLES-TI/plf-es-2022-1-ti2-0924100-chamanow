@@ -35,49 +35,53 @@ body>div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--primary-color);
-    padding: 7px 100px;
-    border-radius: 0 0 12px 12px;
+    padding: 7px 15%;
     height: 60px;
+    background-color: var(--primary-color);
 }
 
-.site-header a {
+body header img {
+    max-width: 15rem;
+}
+
+.menu a {
     text-decoration: none;
     color: var(--color-text);
     margin-left: 30px;
+    transition: var(--transition);
 }
 
-.site-header a:hover {
+.menu a:hover {
     color: var(--secondary-color);
+}
+
+.menu a:nth-child(2) {
+    padding: 5px 20px;
+    border-radius: 7px;
+    border: 1.2px var(--primary-color-bright) solid;
+    transition: var(--transition);
+}
+
+.menu a:nth-child(2):hover {
+    border: 1.2px var(--secondary-color) solid;
+}
+
+.menu a:last-child {
+    background-color: var(--secondary-color);
+    color: var(--color-text);
+    padding: 5px 20px;
+    border-radius: 7px;
+}
+
+.menu a:last-child:hover {
+    background-color: var(--color-text);
+    color: var(--secondary-color);
+    box-shadow: var(--box-shadow);
 }
 
 #logo-header {
     cursor: pointer;
     width: 150px;
-}
-
-
-/* ========== Perfil do Usuario ========== */
-
-#info-prestador {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin-top: 50px;
-}
-
-#nome-usuario {
-    margin-bottom: 0;
-    color: var(--secondary-color);
-    font-weight: 700;
-}
-
-.nome-avaliacao {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
 }
 
 
