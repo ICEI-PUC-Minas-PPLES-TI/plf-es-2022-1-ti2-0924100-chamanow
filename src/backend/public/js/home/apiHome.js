@@ -31,7 +31,7 @@ async function getServicosMaisContratados() {
     }
 }
 
-async function getAvaliacaoPrestador() {
+async function getAvaliacaoPrestadores() {
     try {
         const response = await fetch(`http://localhost:8786/indicator/rating/prestadores`);
         const data = await response.json();

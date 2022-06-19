@@ -95,10 +95,8 @@
                             <li class="star-icon" data-avaliacao="5"></li>
                         </ul>
                     </div>
-                    <p id="descricao"></p>
-                    <div id="regiao-atuacao">
-                        <h5 class="titulo-regiao-atuacao">Região de Atuação:</h5>
-                        <p id="location"></p>
+                    <div id="div-infos">
+                        <p class="subtitulo"></p>
                     </div>
                 </div>
             </div>
@@ -112,9 +110,12 @@
             <h2 class="titulo-detalhar-problema">Detalhar o Problema</h2>
             <p id="detalhe-problema-cliente"></p>
         </div>
-
+        <form action="/update/agendamento" method="post">
         <div class="escolher-data-orcamento">
-            <div class="orcamento"></div>
+            <div class="orcamento">
+                <h2 class="titulo-orcamento">Orçamento</h2>
+                <p id="descricao-orcamento">Envie ou receba seu orçamento por aqui</p>
+            </div>
             <div class="escolher-data"></div>
         </div>
 
@@ -124,6 +125,7 @@
             <a href="" id="recusarServico"><button id="btn-recusar-servico">Recusar Serviço <i class="fa-solid fa-xmark"></i></button></a>
             <button id="btn-aceitar-servico">Aceitar Serviço <i class="fa-solid fa-check"></i></button>
         </div>
+    </form>
     </main>
 
     <footer class="footer">

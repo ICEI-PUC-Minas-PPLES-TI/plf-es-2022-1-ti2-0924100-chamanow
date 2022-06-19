@@ -225,5 +225,24 @@ apiRoutes.get('/user-datas/rating/last-rating/', async(req, res) => {
     }
 })
 
+apiRoutes.get('/agendamento/', async(req, res) => {
+    try {
+        const data = await connection.query(
+            `SELECT A.nome, A.cod_user, AVG(B.nota) AS media_nota, A.regiao_atuacao, C.descricao, B.cod_avaliador, C.cod_status, C.cod_contratante\
+            FROM USUARIOS AS A JOIN AVALIACAOS AS B\
+            ON A.COD_USER=B.COD_AVALIADO\
+            JOIN AGENDAMENTOS AS C\
+            ON A.COD_USER=C.COD_CONTRATANTE OR A.COD_USER=C.COD_PRESTADOR\
+            WHERE C.COD_SERVICO='${req.query.cod_servico}'
+            AND B.COD_AVALIADOR='${req.query.cod_user}'\
+            GROUP BY C.COD_SERVICO`,{ type: QueryTypes.SELECT }
+        )
+        return res.status(200).json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
+
 // Exportar rotas
 module.exports = apiRoutes;
