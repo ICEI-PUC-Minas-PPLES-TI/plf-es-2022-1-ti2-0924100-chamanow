@@ -148,7 +148,7 @@ function trClicada(data, cod_user) {
         const nodeElement = element.closest("tr");
 
         // Carrega os dados da tr clicada no modal
-        dadosModel(nodeElement);
+        dadosModel(nodeElement, cod_user);
 
         // Verifica se o usuario já foi avaliado em um determinado serviço
         const avaliacoes = getRatingByService(nodeElement.id, cod_user);
@@ -179,10 +179,10 @@ function trClicada(data, cod_user) {
     })
 }
 
-function dadosModel(nodeElement) {
+function dadosModel(nodeElement, cod_user) {
     // Adicionar link para acessar os detalhes do serviço clicado
     const service = document.querySelector("#servicoUrl");
-    service.setAttribute("href", `/perfil/servicos?cod_servico=${nodeElement.id}`)
+    service.setAttribute("href", `/perfil/servicos?cod_servico=${nodeElement.id}&cod_user=${cod_user}`)
 
     // Colocar nome do user nos modais
     const nomeUser = document.querySelector(".nome-usuario");
