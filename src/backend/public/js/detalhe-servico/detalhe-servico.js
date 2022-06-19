@@ -34,11 +34,12 @@ function infoPerfil(data) {
             avaliacaoUsuario.style = "display: none";
         }
     })
-    if (data.cod_user.charAt(0) != '1'){
-    //Região de atuação
-    const regiaoAtuacao = document.querySelector("#location");
-    regiaoAtuacao.innerText = data.regiao_atuacao;
-}}
+    if (data.cod_user.charAt(0) != '1') {
+        //Região de atuação
+        const regiaoAtuacao = document.querySelector("#location");
+        regiaoAtuacao.innerText = data.regiao_atuacao;
+    }
+}
 
 function criarListaAvaliacoes(data) {
     // Criação da div geral
@@ -61,11 +62,11 @@ function criarListaAvaliacoes(data) {
     hifen.className = "hifen";
     hifen.innerText = "-";
 
-     // Criação do elemento para a data da publicação da avaliação
-     const dataPublicacao = document.createElement('span');
-     dataPublicacao.id = "data-publicacao";
-     console.log(data.created_at);
-     dataPublicacao.innerText = formatarData(data.created_at);
+    // Criação do elemento para a data da publicação da avaliação
+    const dataPublicacao = document.createElement('span');
+    dataPublicacao.id = "data-publicacao";
+    console.log(data.created_at);
+    dataPublicacao.innerText = formatarData(data.created_at);
 
     // Colocando os elementos criados dentro de div nomeData
     divNomeData.appendChild(nomeAvaliador);
@@ -134,6 +135,64 @@ function getCookie(name) {
     })
 
     return cookie[name];
+}
+
+function alterarHeaderLogado(user) {
+    // Referenciar a nav menu
+    const menu = document.querySelector(".menu");
+    menu.innerHTML = "";
+
+    // Criar os itens do menu ================================
+
+    // Acesso ao perfil
+    const perfil = criarElementoLink("/perfil", user.nome);
+
+    // Acesso à página inicial
+    const home = criarElementoLink("/", "Tela inicial");
+
+    // Acesso à página inicial
+    const indicadores = criarElementoLink("/admin/indicadores", "Indicadores");
+
+    // Adiciona os elementos criados dentro do menu
+    menu.appendChild(home);
+    menu.appendChild(indicadores);
+    menu.appendChild(perfil);
+}
+
+function alterarHeaderDeslogado() {
+    // Referenciar a nav menu
+    const menu = document.querySelector(".menu");
+    menu.innerHTML = "";
+
+    // Criar os itens do menu ================================
+
+    // Acesso ao perfil
+    const cadastroProfissional = criarElementoLink("/cadastro?user=profissional", "Sou um Profissa");
+
+    // Acesso à página inicial
+    const cadastro = criarElementoLink("/cadastro", "Sign Up");
+
+    // Acesso à página inicial
+    const login = criarElementoLink("/login", "Login");
+
+    // Adiciona os elementos criados dentro do menu
+    menu.appendChild(cadastroProfissional);
+    menu.appendChild(cadastro);
+    menu.appendChild(login);
+}
+
+function criarElementoLink(href, conteudo) {
+    // Cria o elemento a
+    const a = document.createElement('a');
+
+    // Atribui uma rota a ele
+    a.setAttribute('href', href);
+
+    // Adiciona um conteúdo a ele
+    a.innerText = conteudo;
+
+    // Retorna o elemento criado
+    return a;
 }
 
 function detalharProblema(data) {
@@ -453,7 +512,7 @@ function comprovantePagamento(cod_servico, tipoUser, codStatus) {
 }
 
 function data_Orcamento(tipoUser) {
-    $("#btn-aceitar-servico").click(function () {
+    $("#btn-aceitar-servico").click(function() {
         orcamento(0, tipoUser);
 
         this.parentNode.removeChild(this);
@@ -465,7 +524,7 @@ function data_Orcamento(tipoUser) {
         const divBtnHub = document.querySelector(".btn-hud");
         divBtnHub.appendChild(btnEnviarOrcamento);
 
-        $("#btn-enviar-orcamento").click(function () {
+        $("#btn-enviar-orcamento").click(function() {
             window.location.assign(PERFIL_URL);
         })
     })
@@ -510,8 +569,20 @@ function btnAceitarComprovante() {
     const btnEnviarComprovante = document.querySelector("#btn-aceitar-servico");
     btnEnviarComprovante.innerHTML = `Aceitar Pagamento <i class="fa-solid fa-check"></i>`;
 }
-*/
-$(document).ready(function () {
+
+$(document).ready(function() {
+    // Pegar o id do user no cookie
+    const idUser = getCookie("idUser");
+
+    // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
+    if (!idUser)
+        alterarHeaderDeslogado();
+    else {
+        const user = getUserData(idUser);
+        user.then(user => {
+            alterarHeaderLogado(user);
+        })
+    }
     //Calcula o ano
     document.querySelector('#ano').innerHTML = new Date().getFullYear();
 
@@ -597,7 +668,7 @@ $(document).ready(function () {
                     if (dataInicio) {
                         escolherData(0, tipoUser, codStatusServico, 6);
 
-                        $("#btn-aceitar-servico").click(function () {
+                        $("#btn-aceitar-servico").click(function() {
                             localStorage.setItem("dataEscolhida", `${$("#inputDataDisponivel").val()}`);
                         })
                     } else
@@ -666,7 +737,7 @@ $(document).ready(function () {
 
                 case 2:
                     escolherData(0, tipoUser, codStatusServico, 6);
-                    $("#btn-aceitar-servico").click(function () {
+                    $("#btn-aceitar-servico").click(function() {
                         localStorage.setItem("dataInicio", `${$("#inputDataDisponivel").val()}T${$("#inputHorarioDisponivel").val()}`);
                         localStorage.setItem("dataFim", `${$("#inputDataFim").val()}T${$("#inputHorarioFim").val()}`);
                     })
@@ -686,7 +757,7 @@ $(document).ready(function () {
                             hudBtn.style = "display: none";
                     }
 
-                    $("#btn-aceitar-servico").click(function () {
+                    $("#btn-aceitar-servico").click(function() {
                         window.location.assign(PERFIL_URL);
                     })
 
@@ -736,8 +807,8 @@ $(document).ready(function () {
 
     if ((tipoUser == "cliente")) {
         linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
-        $("#btn-aceitar-servico").click(function () {
+        $("#btn-aceitar-servico").click(function() {
             window.location.assign(PERFIL_URL);
         })
-    }*/
-})
+    }
+})*/

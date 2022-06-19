@@ -5,78 +5,71 @@ function avaliacaoPrestador(data) {
 }
 
 $(document).ready(() => {
-    const users = getAllUsers();
-    users.then(users => {
-            const allServices = getAllServices();
-            allServices.then(services => {
-                const arrayServices = services.map(obj => {
-                    return Object.keys(obj).map(key => {
-                        return obj[key];
-                    });
-                });
+    // Função que muda a seta do select quando clicado
+    setaSelect();
 
-                var cod_tipo = [];
-                arrayServices.forEach(element => {
-                    cod_tipo.push(element[0]);
-                });
+    // Verifica a largura da tela
+    const width = window.screen.width;
 
-                const arrayUsers = users.map(obj => {
-                    return Object.keys(obj).map(key => {
-                        return obj[key];
-                    });
-                });
+    // Se for menor do que 600px, a logo é trocada
+    if (width < 600) {
+        const logo = document.querySelector("#logo");
+        logo.setAttribute("src", "/img/Logo.svg");
+    }
 
-                var cod_prestador = [];
-                arrayUsers.forEach(element => {
-                    if (element[0].startsWith("2"))
-                        cod_prestador.push(element[0]);
-                });
+    // Pegar o id do user no cookie
+    const idUser = getCookie("idUser");
 
-                povoarTabela(users, cod_tipo, cod_prestador);
-            })
+    // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
+    if (!idUser)
+        alterarHeaderDeslogado();
+    else {
+        const user = getUserData(idUser);
+        user.then(user => {
+            alterarHeaderLogado(user);
         })
-        // Função para mostrar os dez prestadores mais bem avaliados
+    }
+
+    // Função para mostrar os dez prestadores mais bem avaliados
     const rating = getAvaliacaoPrestador();
     rating.then(rating => {
-
-        avaliacaoPrestador(rating);
+        avaliacaoPrestador([rating]);
     });
 
     // Função para mostrar a média do tempo de realização do serviço de cada tipo
     const timeService = getTimeService();
     timeService.then(time => {
-        console.log(time)
         graficoTimeService(time);
     })
 
     // Função para mostrar a taxa de cancelamento dos servicos
     const cancellation = getCancellationRate();
-    cancellation.then(data => {
-        //console.log(data);
+    cancellation.then(rate => {
+        graficoTaxaCancelamento(rate);
     })
 
     // Função para mostrar usuarios novos cadastrados
     const userRegister = getUserRegister();
-    userRegister.then(data => {
-        graficoCadastroUsuario(data);
+    userRegister.then(users => {
+        graficoCadastroUsuario(users);
     })
 
     // Função para mostrar prestadores novos cadastrados
     const providerRegister = getProviderRegister();
-    providerRegister.then(data => {
-        graficoCadastroPrestador(data);
+    providerRegister.then(providers => {
+        graficoCadastroPrestador(providers);
     })
 
     // Função para mostrar prestadores novos cadastrados
     const mostContractedServices = getServicosMaisContratados();
-    mostContractedServices.then(data => {
-        graficoServicosMaisContratados(data);
+    mostContractedServices.then(services => {
+        graficoServicosMaisContratados(services);
     })
 
     // Função para mostrar prestadores novos cadastrados
     const avgPriceService = getPrecoMedio();
-    avgPriceService.then(data => {
-        graficoPrecoMedio(data);
+    avgPriceService.then(prices => {
+        graficoPrecoMedio(prices);
     })
 
     // Função para mostrar a taxa de serviços pendentes
@@ -90,10 +83,10 @@ $(document).ready(() => {
 
         $("#servicoSelection").change(e => {
             const index = servicoSelection.selectedIndex;
-            const optionId = servicoSelection.options[index].id;
-            const pendingServices = getServicosPendentes(optionId);
+            const option = servicoSelection.options[index];
+            const pendingServices = getServicosPendentes(option.id);
             pendingServices.then(service => {
-                graficoServicosPendentes(service);
+                graficoServicosPendentes(service, option.value);
             })
         })
     })

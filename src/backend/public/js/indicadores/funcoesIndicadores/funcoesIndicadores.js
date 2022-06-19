@@ -1,35 +1,6 @@
-function criarListaAvaliacoes(data) {
-    // Criar elemento li
-    const liAvaliacoes = document.createElement("li");
-    liAvaliacoes.className = "liAvaliacoes";
-
-    // Div Nome e Nota ===================================
-
-    // Criação da div com o nome e nota
-    const divNomeData = document.createElement('div');
-    divNomeData.className = "nome-data";
-
-    // Criação do elemento para o nome do avaliado
-    const nomeAvaliador = document.createElement('h5');
-    nomeAvaliador.id = "nome-avaliador";
-    nomeAvaliador.innerText = data.nome + " -";
-
-    // Criação do elemento para a nota
-    const notaAvaliacao = document.createElement('span');
-    notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = data.nota_media_prestador.toFixed(1);
-
-    // Colocando os elementos criados dentro de div nomeNota
-    divNomeData.appendChild(nomeAvaliador);
-    divNomeData.appendChild(notaAvaliacao);
-
-    // Adicionar elementos na página =====================
-
-    // Referenciar ul na página
-    const ulAvaliacao = document.querySelector("#avaliacoesPrestadores");
-
-    // Colocar todas as liAvaliacoes criadas dentro de ulAvaliacao
-    ulAvaliacao.appendChild(divNomeData);
+const config = {
+    responsive: true,
+    displayModeBar: false
 }
 
 function graficoTimeService(data) {
@@ -63,7 +34,7 @@ function graficoTimeService(data) {
     }
 
     const layout = {
-        title: 'Média de tempo para a realização do serviço',
+        title: 'Média de tempo para a <br>realização do serviço',
         font: {
             family: 'Poppins'
         },
@@ -78,7 +49,7 @@ function graficoTimeService(data) {
     };
 
     var time = [garf_1];
-    Plotly.newPlot('timeService', time, layout)
+    Plotly.newPlot('timeService', time, layout, config)
 }
 
 function graficoTaxaCancelamento(data) {
@@ -118,7 +89,7 @@ function graficoTaxaCancelamento(data) {
     };
 
         var time = [garf_1];
-        Plotly.newPlot('timeService', time)*/
+        Plotly.newPlot('cancellationRate', time)*/
 }
 
 function graficoCadastroUsuario(data) {
@@ -180,14 +151,16 @@ function graficoCadastroUsuario(data) {
     })
 
     const layout = {
-        title: 'Quantidade de usuarios cadastrados por ano',
+        title: 'Quantidade de usuarios <br>cadastrados por mês',
         font: {
             family: 'Poppins'
         },
-        showlegend: false
+        yaxis: {
+            title: 'Quantidade'
+        }
     };
 
-    Plotly.newPlot('userRegister', dados, layout)
+    Plotly.newPlot('userRegister', dados, layout, config)
 }
 
 function graficoCadastroPrestador(data) {
@@ -233,15 +206,7 @@ function graficoCadastroPrestador(data) {
             y: column,
             name: ano,
             mode: 'lines+markers',
-            type: 'scatter',
-            xaxis: {
-                title: '',
-                showgrid: false,
-            },
-            yaxis: {
-                title: 'Serviços Pendentes',
-                showline: false
-            }
+            type: 'scatter'
         }
 
         // Adiciona o array da linha
@@ -249,14 +214,16 @@ function graficoCadastroPrestador(data) {
     })
 
     const layout = {
-        title: 'Quantidade de prestadores cadastrados por ano',
+        title: 'Quantidade de prestadores <br>cadastrados por mês',
         font: {
             family: 'Poppins'
         },
-        showlegend: false
+        yaxis: {
+            title: 'Quantidade'
+        }
     };
 
-    Plotly.newPlot('providerRegister', dados, layout)
+    Plotly.newPlot('providerRegister', dados, layout, config)
 }
 
 function graficoServicosMaisContratados(data) {
@@ -287,15 +254,13 @@ function graficoServicosMaisContratados(data) {
     }]
 
     const layout = {
-        height: 400,
-        width: 500,
         title: 'Porcentagem de serviços contratados',
         font: {
             family: 'Poppins'
         }
     };
 
-    Plotly.newPlot('mostContractedServices', dados, layout)
+    Plotly.newPlot('mostContractedServices', dados, layout, config)
 }
 
 function graficoPrecoMedio(data) {
@@ -332,17 +297,15 @@ function graficoPrecoMedio(data) {
         font: {
             family: 'Poppins'
         },
-        showlegend: false,
         yaxis: {
             title: 'Preço (R$)',
-            showline: false
         }
     };
 
-    Plotly.newPlot('avgPriceService', barra, layout)
+    Plotly.newPlot('avgPriceService', barra, layout, config)
 }
 
-function graficoServicosPendentes(data) {
+function graficoServicosPendentes(data, nomeServico) {
     // Transforma o JSON data em array
     const array = data.map(obj => {
         return Object.keys(obj).map(key => {
@@ -385,15 +348,7 @@ function graficoServicosPendentes(data) {
             y: column,
             name: ano,
             mode: 'lines+markers',
-            type: 'scatter',
-            xaxis: {
-                title: '',
-                showgrid: false,
-            },
-            yaxis: {
-                title: 'Serviços Pendentes',
-                showline: false
-            }
+            type: 'scatter'
         }
 
         // Adiciona o array da linha
@@ -401,70 +356,14 @@ function graficoServicosPendentes(data) {
     })
 
     const layout = {
-        title: 'Quantidade de usuarios cadastrados por ano',
+        title: `Agendamentos pendentes <br>relativo à ${nomeServico}`,
         font: {
             family: 'Poppins'
         },
-        showlegend: false
-    };
-
-    Plotly.newPlot('pendingServices', dados, layout);
-}
-
-function criarElementos(element, id, classe, valor, content) {
-    // Criar o elemento
-    const elemento = document.createElement(element);
-
-    // Atribuir um id para ele
-    if (id)
-        elemento.id = id;
-
-    // Atribuir um tipo para ele
-    if (classe)
-        elemento.className = classe;
-
-    // Atribuir um valor para ele
-    if (valor)
-        elemento.value = valor;
-
-    // Atribuir um placeholder para ele
-    if (content)
-        elemento.innerHTML = content;
-
-    // Retornar o input criado
-    return elemento;
-}
-
-function criarGrafico(array, posicaoRow, posicaoColumn, tipo, titulo) {
-
-    // Adiciona o nome dos serviços na variável row
-    var row = [];
-    array.forEach(element => {
-        row.push(element[posicaoRow]);
-    });
-
-    // Adiciona a média de tempo dos serviços na variável columns
-    var column = [];
-    array.forEach(element => {
-        column.push(element[posicaoColumn]);
-    });
-
-    const grafico = [{
-        x: row,
-        y: column,
-        type: tipo,
-        marker: {
-            color: ['red', 'blue', 'green', 'orange']
+        yaxis: {
+            title: 'Serviços Pendentes'
         }
-    }]
-
-    const layout = {
-        title: titulo,
-        font: {
-            family: 'Poppins'
-        },
-        showlegend: false
     };
 
-    return { grafico, layout };
+    Plotly.newPlot('pendingServices', dados, layout, config, { responsive: true });
 }

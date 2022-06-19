@@ -1,5 +1,3 @@
-
-
 /*const profissional = {
     profissional0 : {
         "nome_prof": "Marcos II Arraial",
@@ -46,7 +44,7 @@ function criaBanner() {
     titulo_banner.innerHTML = `O melhor <span class="corLaranja"> serviço </span> pelo melhor <span class="corLaranja"> preço</span>`;
     titulo_banner.classList.add('titulo');
     const img_banner = new Image;
-    img_banner.src = '/img/gustvo.png';
+    img_banner.src = '/img/gustavo.png';
     banner.appendChild(titulo_banner);
     banner.appendChild(img_banner);
     return banner;
@@ -92,7 +90,7 @@ function criaServicoNP(e, servico) {
     const tit_servicoNP = document.createElement('h1');
     tit_servicoNP.innerHTML = servico.nome;
     div_tit_servicoNP.appendChild(tit_servicoNP);
-    const div_avaliacao = document.createElement('div');
+    /*const div_avaliacao = document.createElement('div');
     div_avaliacao.classList.add('avaliacao_usuario');
     const avaliacao = document.createElement('ul');
     avaliacao.classList.add('avaliacao');
@@ -100,11 +98,11 @@ function criaServicoNP(e, servico) {
     estrela.classList.add('star-icon');
     avaliacao.appendChild(estrela);
     div_avaliacao.appendChild(avaliacao);
-    div_tit_servicoNP.appendChild(div_avaliacao);
+    div_tit_servicoNP.appendChild(div_avaliacao);*/
     const btn_voltar = document.createElement('button');
     btn_voltar.innerHTML = 'Voltar';
     btn_voltar.classList.add('voltar');
-    btn_voltar.addEventListener('click', function (e) {
+    btn_voltar.addEventListener('click', function(e) {
         tudo.innerHTML = ``;
         mostraServicos();
     })
@@ -122,20 +120,30 @@ function criaCardsNP(profissional, cod_servico) {
     card.classList.add('card');
     const img_prof = new Image;
     img_prof.src = '/img/3329962-corpo-do-cantor-gusttavo-lima-foi-elogia-opengraph_1200-3.jpg';
+    img_prof.id = 'card_img';
     const card_text = document.createElement('div');
     card_text.classList.add('card_text');
     const card_title = document.createElement('h1');
     card_text.innerHTML = profissional.nome;
+    card_text.id = 'card_tit';
+
+
     const div_avaliacao = document.createElement('div');
     div_avaliacao.classList.add('avaliacao_usuario');
     const avaliacao = document.createElement('ul');
     avaliacao.classList.add('avaliacao');
-    const estrela = document.createElement('li');
-    estrela.classList.add('star-icon');
-    avaliacao.appendChild(estrela);
+    const media_avaliacao = getAvgRating(profissional.cod_user);
+    media_avaliacao.then(avaliacao => {
+        console.log(avaliacao[0]);
+        const notaAvaliacao = document.createElement('span');
+        notaAvaliacao.id = "nota";
+        notaAvaliacao.innerText = avaliacao[0].nota.toFixed(1);
+        div_avaliacao.appendChild(notaAvaliacao);
+    })
     div_avaliacao.appendChild(avaliacao);
     const card_p = document.createElement('p');
     card_p.innerHTML = profissional.email;
+    card_p.id = 'card_p';
     const card_button = document.createElement('button');
     card_button.innerText = 'Acessar Perfil';
     card_button.id = 'card_button';
@@ -143,7 +151,16 @@ function criaCardsNP(profissional, cod_servico) {
     aLinkBotao.setAttribute("href", `/descrever-problema/?cod_prestador=${profissional.cod_user}&cod_servico=${cod_servico}`);
     aLinkBotao.appendChild(card_button)
     card_text.appendChild(card_title);
-    card_text.appendChild(div_avaliacao);
+
+
+    for (let index = 0; index < 5; index++) {
+        const estrela = document.createElement('li');
+        estrela.classList.add('star-icon');
+        avaliacao.appendChild(estrela);
+        card_text.appendChild(div_avaliacao);
+
+    }
+
     card_text.appendChild(card_p);
     card_text.appendChild(aLinkBotao);
     card.appendChild(img_prof);
@@ -168,7 +185,7 @@ function mostraServicos() {
         div_servicos.className = 'div_servicos';
         servico.forEach(servico => {
             const divServicos = criaServicos(servico);
-            divServicos.addEventListener('click', function (e) {
+            divServicos.addEventListener('click', function(e) {
                 tudo.innerHTML = ``;
                 criaServicoNP(divServicos, servico);
                 const elemento = e.target;
@@ -180,28 +197,28 @@ function mostraServicos() {
                     profissionais.classList.add('profissionais');
 
                     tudo.appendChild(profissionais);
-                
-                    profissional.forEach(element =>  {
-                    const card = criaCardsNP(element, servico.cod_tipo);
-                    profissionais.appendChild(card);
+
+                    profissional.forEach(element => {
+                        const card = criaCardsNP(element, servico.cod_tipo);
+                        profissionais.appendChild(card);
                     });
-                }) 
+                })
                 console.log(e.target);
-                
-                
-                
+
+
+
             });
             div_servicos.appendChild(divServicos);
-            
+
         });
         tudo.appendChild(div_servicos);
-       /* $('.div_servico div').click((e) => {
-            const element = e.target;
-            const nodeElement = element.closest("div");
-            console.log(nodeElement);
-            
-        })*/
-        
+        /* $('.div_servico div').click((e) => {
+             const element = e.target;
+             const nodeElement = element.closest("div");
+             console.log(nodeElement);
+             
+         })*/
+
     })
 
 }
@@ -209,13 +226,94 @@ function mostraServicos() {
 /*A função a seguir carrega a página de escolha de serviço----------- */
 
 function carregarPagina() {
-    window.addEventListener('load', function (e) {
+    window.addEventListener('load', function(e) {
         e.preventDefault();
         mostraServicos();
     })
 }
 
 /*Chamando funções----------- */
+$(document).ready(function() {
+    // Pegar o id do user no cookie
+    const idUser = getCookie("idUser");
 
-carregarPagina();
+    // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
+    if (!idUser)
+        alterarHeaderDeslogado();
+    else {
+        const user = getUserData(idUser);
+        user.then(user => {
+            alterarHeaderLogado(user);
+        })
+    }
+    carregarPagina();
+})
 
+function getCookie(name) {
+    let cookie = {};
+
+    document.cookie.split(';').forEach(function(el) {
+        let [k, v] = el.split('=');
+        cookie[k.trim()] = v;
+    })
+
+    return cookie[name];
+}
+
+function alterarHeaderLogado(user) {
+    // Referenciar a nav menu
+    const menu = document.querySelector(".menu");
+    menu.innerHTML = "";
+
+    // Criar os itens do menu ================================
+
+    // Acesso ao perfil
+    const perfil = criarElementoLink("/perfil", user.nome);
+
+    // Acesso à página inicial
+    const home = criarElementoLink("/", "Tela inicial");
+
+    // Acesso à página inicial
+    const indicadores = criarElementoLink("/admin/indicadores", "Indicadores");
+
+    // Adiciona os elementos criados dentro do menu
+    menu.appendChild(home);
+    menu.appendChild(indicadores);
+    menu.appendChild(perfil);
+}
+
+function alterarHeaderDeslogado() {
+    // Referenciar a nav menu
+    const menu = document.querySelector(".menu");
+    menu.innerHTML = "";
+
+    // Criar os itens do menu ================================
+
+    // Acesso ao perfil
+    const cadastroProfissional = criarElementoLink("/cadastro?user=profissional", "Sou um Profissa");
+
+    // Acesso à página inicial
+    const cadastro = criarElementoLink("/cadastro", "Sign Up");
+
+    // Acesso à página inicial
+    const login = criarElementoLink("/login", "Login");
+
+    // Adiciona os elementos criados dentro do menu
+    menu.appendChild(cadastroProfissional);
+    menu.appendChild(cadastro);
+    menu.appendChild(login);
+}
+
+function criarElementoLink(href, conteudo) {
+    // Cria o elemento a
+    const a = document.createElement('a');
+
+    // Atribui uma rota a ele
+    a.setAttribute('href', href);
+
+    // Adiciona um conteúdo a ele
+    a.innerText = conteudo;
+
+    // Retorna o elemento criado
+    return a;
+}

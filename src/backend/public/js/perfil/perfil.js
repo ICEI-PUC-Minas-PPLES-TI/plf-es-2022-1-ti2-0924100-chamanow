@@ -99,15 +99,16 @@ function init(data) {
 
         const dataAvaliacoes = getUserRating(cod_user);
         dataAvaliacoes.then((data) => {
-            if (data) {
-                for (var i = 0; i < data.length; i++) {
+            console.log(data)
+            if (data)
+                data.forEach(data => {
                     // Referenciar a div com a tabela
-                    const divAvaliacoes = criarListaAvaliacoes(cod_user, data[i]);
+                    const divAvaliacoes = criarListaAvaliacoes(cod_user, data);
 
                     // Adicionar divAvaliacoeso na divDadosMenu
                     divDadosMenu.appendChild(divAvaliacoes);
-                }
-            } else {
+                })
+            else {
                 // Referenciar a div com a tabela
                 const divAvaliacoes = document.createElement('p');
                 divAvaliacoes.className = "dataNull";
@@ -122,14 +123,6 @@ function init(data) {
     $("#logout").click(() => {
         document.cookie = "idUser=; expires=1970-01-01T00:00:00.000Z;";
     })
-}
-
-function formatarData(date, hour) {
-    var dateFormatada = date.split('T')[0].replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
-    if (hour)
-        dateFormatada += ` às ${hour.substring(0, 5)}`;
-
-    return dateFormatada;
 }
 
 function getCookie(name) {
@@ -153,7 +146,6 @@ $(document).ready(() => {
 
     // Função para pegar os dados do usuario
     getUserData(idUser).then((data) => {
-        console.log(data)
         init(data);
     });
 

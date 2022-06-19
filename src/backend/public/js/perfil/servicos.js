@@ -63,11 +63,11 @@ function tabelaServicos(cod_user, data) {
 
     const tbody = document.createElement("tbody");
 
-    //Criação das tuplas da tabela
-    for (var i = 0; i < data.length; i++) {
+    // Criação das tuplas da tabela
+    data.forEach(data => {
         // Criação da linha
         const tupla = document.createElement("tr");
-        tupla.id = `${data[i].cod_servico}`;
+        tupla.id = `${data.cod_servico}`;
         tupla.setAttribute('data-toggle', 'modal');
         tupla.setAttribute('data-target', '#servico-modal');
         tupla.setAttribute('data-dismiss', 'modal');
@@ -77,15 +77,15 @@ function tabelaServicos(cod_user, data) {
         // Criação da coluna do nome do cabeçalho
         const colunaNomeTupla = document.createElement("td");
         if (cod_user.charAt(0) == '1') {
-            colunaNomeTupla.id = `prestador.${data[i].cod_prestador}`;
+            colunaNomeTupla.id = `prestador.${data.cod_prestador}`;
 
-            const nomeUsuario = getUserData(data[i].cod_prestador);
+            const nomeUsuario = getUserData(data.cod_prestador);
             nomeUsuario.then((user) => {
                 colunaNomeTupla.innerText = `${user.nome}`;
             })
         } else {
-            colunaNomeTupla.id = `cliente.${data[i].cod_contratante}`;
-            const nomeUsuario = getUserData(data[i].cod_contratante);
+            colunaNomeTupla.id = `cliente.${data.cod_contratante}`;
+            const nomeUsuario = getUserData(data.cod_contratante);
             nomeUsuario.then((user) => {
                 colunaNomeTupla.innerText = `${user.nome}`;
             })
@@ -93,29 +93,29 @@ function tabelaServicos(cod_user, data) {
 
         // Criação da coluna do serviço do cabeçalho
         const colunaServicoTupla = document.createElement("td");
-        colunaServicoTupla.id = `serviço.${data[i].cod_tipo}`;
+        colunaServicoTupla.id = `serviço.${data.cod_tipo}`;
 
-        const nomeServico = getService(data[i].cod_tipo);
-        nomeServico.then((service) => {
+        const nomeServico = getService(data.cod_tipo);
+        nomeServico.then(service => {
             colunaServicoTupla.innerText = `${service.nome}`;
         })
 
         // Criação da coluna do endereço do cabeçalho
         const colunaEnderecoTupla = document.createElement("td");
-        colunaEnderecoTupla.id = `endereco.${data[i].cod_endereco}`;
-        colunaEnderecoTupla.innerText = `${data[i].endereco}`;
+        colunaEnderecoTupla.id = `endereco.${data.cod_endereco}`;
+        colunaEnderecoTupla.innerText = `${data.endereco}`;
 
 
         // Criação da coluna da data do cabeçalho
         const colunaDataTupla = document.createElement("td");
-        colunaDataTupla.id = `data-${data[i].data_servico}`;
-        colunaDataTupla.innerText = formatarData(data[i].data_servico, data[i].horario);
+        colunaDataTupla.id = `data-${data.data_servico}`;
+        colunaDataTupla.innerText = formatarData(data.data_servico, data.horario);
 
         // Criação da coluna do status do cabeçalho
         const colunaStatusTupla = document.createElement("td");
         const spanStatus = document.createElement("span");
-        spanStatus.id = `status.${data[i].cod_status}`;
-        spanStatus.innerText = `${data[i].status}`;
+        spanStatus.id = `status.${data.cod_status}`;
+        spanStatus.innerText = `${data.status}`;
 
         // Adicionar o spanStatus dentro da coluna status
         colunaStatusTupla.appendChild(spanStatus);
@@ -129,7 +129,7 @@ function tabelaServicos(cod_user, data) {
 
         // Adicionar a tupla na tabela
         tbody.appendChild(tupla);
-    }
+    })
 
     tabelaServico.appendChild(tbody);
 

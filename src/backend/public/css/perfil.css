@@ -1,18 +1,5 @@
 /* ========== Formatações Gerais ==========*/
 
-:root {
-    --bg: #999999;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: #fff;
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --secondary-color: #ff6b00;
-    --star-color: #ffe500;
-    --color-input: #ededed;
-    --transition: all 0.3s linear;
-}
-
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -174,12 +161,12 @@ body {
 }
 
 #tabelaServico tr {
-    border-bottom: 1px solid #E8E8E8;
+    border-bottom: 1px solid var(--color-line);
     cursor: pointer;
 }
 
 .cabecalho {
-    background-color: #FCFBFB;
+    background-color: var(--color-table);
     color: var(--secondary-color);
     border-radius: 10px;
 }
