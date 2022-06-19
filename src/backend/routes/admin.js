@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 const userController = require("../controller/userController");
 const ratingController = require("..//controller/ratingController");
+const serviceController = require("../controller/serviceController");
 
 // Rotas GET ===============================
 
@@ -17,7 +18,7 @@ const ratingController = require("..//controller/ratingController");
 router.get('/', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/home.html"));
 })
- 
+
 // Página de Login
 router.get('/login', (req, res) => {
     res.sendFile(__dirname.replace("routes", "html/login.html"));
@@ -56,11 +57,17 @@ router.post('/cadastro/user-data', userController.cadastroUser);
 // POST para alterar os dados do usuario no perfil
 router.post('/perfil/update-user', userController.updateUserData);
 
-// POST da descrição do problema do cliente
-router.post('/servico/agendamento', userController.descreverProblema);
-
 // POST para adicionar nova avaliação de serviço
 router.post('/perfil/avaliacao', ratingController.addAvaliacao);
+
+// POST da descrição do problema do cliente
+router.post('/agendamento/novo-servico', serviceController.descreverProblema);
+
+// POST para atualizar os registros da tabela de agendamento
+router.post('/agendamento/atualizar-servico', serviceController.detalharServico);
+
+// POST para cancelar o cervico
+router.post('/agendamento/cancelar-servico', serviceController.cancelarServico);
 
 // Indicadores =============================
 

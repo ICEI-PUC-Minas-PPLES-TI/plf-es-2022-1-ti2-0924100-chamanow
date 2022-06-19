@@ -1,21 +1,5 @@
 /* ========== Formatações Gerais ==========*/
 
- :root {
-    --bg: #333333;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: #fff;
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --primary-color-bright: #778ffc;
-    --secondary-color: #ff6b00;
-    --right-color: #20E300;
-    --wrong-color: #FF3737;
-    --yellow-color: #FFD600;
-    --transition: all 0.1s linear;
-    --box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -148,58 +132,6 @@ button[id^="btn-"] {
 #btn-sair-avaliacao:hover {
     background-color: var(--color-text);
     color: var(--primary-color);
-}
-
-
-/* ========== Cabeçalho ========== */
-
-.site-header {
-    background-color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 7px 15%;
-    height: 60px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: var(--color-text);
-    margin-left: 30px;
-    transition: var(--transition);
-}
-
-.menu a:hover {
-    color: var(--secondary-color);
-}
-
-.menu a:nth-child(2) {
-    padding: 5px 20px;
-    border-radius: 7px;
-    border: 1.2px var(--primary-color-bright) solid;
-    transition: var(--transition);
-}
-
-.menu a:nth-child(2):hover {
-    border: 1.2px var(--secondary-color) solid;
-}
-
-.menu a:last-child {
-    background-color: var(--secondary-color);
-    color: var(--color-text);
-    padding: 5px 20px;
-    border-radius: 7px;
-}
-
-.menu a:last-child:hover {
-    background-color: var(--color-text);
-    color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-}
-
-#logo-header {
-    cursor: pointer;
-    width: 150px;
 }
 
 
@@ -496,92 +428,4 @@ label[for^="btn-"]:hover {
 #btn-aceitar-servico:hover {
     background-color: var(--color-text);
     color: var(--right-color);
-}
-
-
-/* ========== Footer ==========*/
-
-.footer {
-    background-color: var(--primary-color);
-    color: var(--color-text);
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    margin-top: 100px;
-}
-
-.beforeLine {
-    display: flex;
-    justify-content: space-between;
-    padding: 60px 10% 40px;
-}
-
-.logoSlogan {
-    display: flex;
-    flex-direction: column;
-}
-
-.logoSlogan>img {
-    width: 50px;
-}
-
-.logoSlogan>span {
-    margin-top: 12px;
-    font-size: 15px;
-}
-
-.contentFooter {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-}
-
-.contentFooter li {
-    list-style: none;
-    font-size: 15px;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-.line {
-    width: 80%;
-    border-bottom: 1px var(--bg-rating) solid;
-    margin: 0 auto;
-}
-
-.afterLine {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 60px 0;
-}
-
-.socialMedia {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
-}
-
-.socialMedia a {
-    font-size: 16px;
-    color: var(--color-text);
-    border: .8px var(--color-text) solid;
-    border-radius: 100%;
-    height: 35px;
-    width: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.socialMedia a:hover {
-    color: var(--secondary-color);
-    border-color: var(--secondary-color);
-}
-
-.copyright {
-    margin-top: 15px;
-    font-size: 12px;
 }

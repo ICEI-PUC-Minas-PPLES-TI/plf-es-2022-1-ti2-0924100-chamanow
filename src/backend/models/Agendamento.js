@@ -53,7 +53,12 @@ const Agendamento = db.define('agendamento', {
         type: Sequelize.STRING,
         default: null
     },
-    comprovante_pagamento: Sequelize.BLOB
+    comprovante_pagamento: Sequelize.BLOB,
+    orcamento: Sequelize.BLOB,
+    data_inicio: Sequelize.DATE,
+    data_fim: Sequelize.DATE,
+    horario_inicio: Sequelize.TIME,
+    horario_fim: Sequelize.TIME
 });
 
 //Agendamento.sync({ alter: true });

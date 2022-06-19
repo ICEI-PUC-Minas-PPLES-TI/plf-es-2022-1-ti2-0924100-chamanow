@@ -51,3 +51,14 @@ async function getServico(cod_servico, cod_user) {
         console.error(error);
     }
 }
+
+async function getServicoEspecifico(cod_servico) {
+    try {
+        const response = await fetch(`http://localhost:8786/api/agendamento/servico/?cod_servico=${cod_servico}`);
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
