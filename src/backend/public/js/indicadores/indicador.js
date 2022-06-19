@@ -5,6 +5,7 @@ function avaliacaoPrestador(data) {
 }
 
 $(document).ready(() => {
+    // Função que muda a seta do select quando clicado
     setaSelect();
 
     // Verifica a largura da tela

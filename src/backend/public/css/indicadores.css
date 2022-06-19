@@ -64,6 +64,10 @@ main>div {
     align-items: center;
 }
 
+.cabecalho th td {
+    text-align: left !important;
+}
+
 
 /* ========== Configuração do Corpo da Tabela ========== */
 
@@ -90,7 +94,8 @@ main>div {
 /* Configuração dos tamanhos das colunas*/
 
 td[id|="tipo"] {
-    width: 35px;
+    width: 105px;
+    text-align: center;
 }
 
 td[id|="nome"] {
@@ -99,6 +104,7 @@ td[id|="nome"] {
 
 td[id|="nota"] {
     width: 35px;
+    text-align: center;
 }
 
 td[id|="servico"] {
@@ -123,6 +129,7 @@ td[id|="cpf-cnpj"] {
 td span {
     padding: 5px 10px;
     border-radius: 7px;
+    font-weight: 500;
 }
 
 
@@ -209,8 +216,14 @@ span[id|="872"] {
 
 /* ========== Configuração da Responsividade ========== */
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     main {
         padding: 30px 5%;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1400px) {
+    main {
+        padding: 30px 12%;
     }
 }
