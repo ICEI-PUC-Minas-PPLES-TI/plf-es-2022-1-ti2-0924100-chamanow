@@ -152,7 +152,7 @@ apiRoutes.get('/services/cod_servico=:serviceId', async(req, res) => {
     }
 })
 
-// Rota para as avalaições do usuario com o nome do avaliador
+// Rota para as avaliações do usuario com o nome do avaliador
 apiRoutes.get('/user-datas/rating/cod_avaliado=:userId', async(req, res) => {
     try {
         const data = await connection.params(
@@ -210,6 +210,16 @@ apiRoutes.get('/user-datas/rating/last-rating/cod_avaliado=:cod_avaliado', async
         console.error(error);
     }
 })
+
+apiRoutes.get('/agendamento/', async(req, res) => {
+    try {
+        const data = await Agendamento.findOne({ where: { cod_tipo: req.query.cod_servico } });
+        return res.status(200).json(data);
+    } catch (error) {
+        console.log("Error: " + error);
+    }
+})
+
 
 // Exportar rotas
 module.exports = apiRoutes;

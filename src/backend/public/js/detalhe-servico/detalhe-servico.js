@@ -1,6 +1,7 @@
 const PERFIL_URL = "../perfil/index.html";
 
 function infoPerfil(data) {
+    console.log(data)
     // Nome de usuario
     const nomeUsuario = document.querySelector("#nome-usuario");
     nomeUsuario.innerText = data.nome;
@@ -213,7 +214,7 @@ function orcamentoCliente() {
 
     return btnOrcamento;
 }
-
+/*
 function escolherData(cod_servico, tipoUser, codStatus, opicoes) {
     // Criação do título da seção
     const titulo = criarElementos("h2", null, "titulo-escolher-data", "Escolher Datas");
@@ -509,7 +510,7 @@ function btnAceitarComprovante() {
     const btnEnviarComprovante = document.querySelector("#btn-aceitar-servico");
     btnEnviarComprovante.innerHTML = `Aceitar Pagamento <i class="fa-solid fa-check"></i>`;
 }
-
+*/
 $(document).ready(function () {
     //Calcula o ano
     document.querySelector('#ano').innerHTML = new Date().getFullYear();
@@ -521,15 +522,47 @@ $(document).ready(function () {
     const dataEscolhida = localStorage.getItem('dataEscolhida');
     const arquivoComprovante = null;
 
-    // Gera os dados do perfil
-    infoPerfil();
+    const urlParams = new URLSearchParams(location.search);
 
-    // Gera as avaliações
-    avaliacoesUsuario(2);
+    const cod_servico = getServico(urlParams.get('cod_servico'));
+    cod_servico.then(data => {
+        // Gera os dados do perfil
+        console.log(data)
+        infoPerfil(data);
 
-    // Gerar o detalhamento do problema
-    detalharProblema();
+        // Gera as avaliações
+        const divDadosAvaliacoes = document.querySelector("#avaliacoes");
+        if (data.cod_user.charAt(0) == '1'){
+        var dataAvaliacoes = getAvaliacao(data.cod_contratante);
+        }else{
+            var dataAvaliacoes = getAvaliacao(data.cod_prestador);
+        }
+        console.log(data)
+        dataAvaliacoes.then((data) => {
+            if (data.length) {
+                for (var i = 0; i < 3; i++) {
+                    // Referenciar a div com a tabela
+                    console.log(data[i])
+                    const divAvaliacoes = criarListaAvaliacoes(data[i]);
 
+                    // Adicionar divAvaliacoeso na divDadosMenu
+                    divDadosAvaliacoes.appendChild(divAvaliacoes);
+                }
+              } else {
+                // Referenciar a div com a tabela
+                const divAvaliacoes = document.createElement('p');
+                divAvaliacoes.className = "dataNull";
+                divAvaliacoes.innerText = "Você ainda não possui avaliações";
+
+                // Adicionar divAvaliacoeso na divDadosMenu
+                divDadosAvaliacoes.appendChild(divAvaliacoes);
+            }
+                // Gerar o detalhamento do problema
+            detalharProblema(data);
+        })
+    });
+
+/*
     // Refenciar alguns elementos
     const hudBtn = document.querySelector(".btn-hud");
     const linkRecusarServico = document.querySelector("#recusarServico");
@@ -606,7 +639,7 @@ $(document).ready(function () {
 
                 case -5:
                     if ((tipoUser == "cliente")) {
-                        linkRecusarServico.setAttribute("href", "../Escolha do Serviço/index.html");
+                        linkRecusarServico.setAttribute("href", "/escolha-servico");
                         btnRecusarServico.style = "width: 105%";
                         btnRecusarServico.innerHTML = `Escolher outro prestador <i class="fa-solid fa-chevron-left"></i>`;
                     }
@@ -706,6 +739,5 @@ $(document).ready(function () {
         $("#btn-aceitar-servico").click(function () {
             window.location.assign(PERFIL_URL);
         })
-    }
+    }*/
 })
-console.log(window.fetch)

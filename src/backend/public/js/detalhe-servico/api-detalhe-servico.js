@@ -40,3 +40,14 @@ async function getUserRating(userId) {
         console.error(error);
     }
 }
+
+async function getServico(cod_servico) {
+    try {
+        const response = await fetch(`http://localhost:8786/api/agendamento/?cod_servico=${cod_servico}`);
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
