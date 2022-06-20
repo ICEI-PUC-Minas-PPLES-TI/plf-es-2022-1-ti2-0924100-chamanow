@@ -38,6 +38,9 @@ function detalharProblema(data) {
 }
 
 $(document).ready(() => {
+    // Muda a logo em dispositivos com display menor que 1000px
+    logoMobile();
+
     //Calcula o ano
     document.querySelector('#ano').innerHTML = new Date().getFullYear();
 

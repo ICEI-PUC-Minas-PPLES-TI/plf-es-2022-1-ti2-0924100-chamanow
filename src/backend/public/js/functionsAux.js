@@ -1,3 +1,15 @@
+function logoMobile() {
+    // Verifica a largura da tela
+    const widthWindow = window.innerWidth;
+    const widthScreen = screen.width;
+
+    // Se for menor do que 1000px, a logo é trocada
+    if (widthWindow < 1000 || widthScreen < 1000) {
+        const logo = document.querySelector("#logo");
+        logo.setAttribute("src", "/img/Logo.svg");
+    }
+}
+
 function getCookie(name) {
     let cookie = {};
 

@@ -6,12 +6,12 @@
     justify-content: space-between;
     padding: 7px 15%;
     height: 60px;
-    background-color: var(--primary-color);
-    width: 100vw;
+    background: linear-gradient( -45deg, rgba(88, 195, 255, 1) 0, rgba(0, 77, 230, 1) 40%, rgba(0, 59, 177, 1) 100%);
+    width: 100%;
 }
 
 #logo {
-    max-width: 15rem;
+    max-width: 150px;
 }
 
 .menu a {
@@ -59,14 +59,14 @@
     width: 150px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .site-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 7px 5%;
         height: 60px;
-        background-color: var(--primary-color);
+        width: 100%;
     }
     #logo {
         cursor: pointer;

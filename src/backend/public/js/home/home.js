@@ -1,23 +1,3 @@
-let profissionaisBemAvaliados = [{
-        imagem: "/img/worker.png",
-        nome: "Fred Silva",
-        ocupacao: "Ator Profissional",
-        descricao: "Nosso Chamaker prestou notórios serviços na arte da atuação nesse mês.",
-    },
-    {
-        imagem: "/img/worker.png",
-        nome: "Nikolau 'Du Corte'",
-        ocupacao: "Eletricista",
-        descricao: "Nosso Chamaker nos deixou chocados e foi destaque em reparos elétricos nesse mês.",
-    },
-    {
-        imagem: "/img/worker.png",
-        nome: "Maicon Douglas",
-        ocupacao: "Bombeiro",
-        descricao: "Nosso Chamamaker não dormiu no ponto e prestou notórios serviços como bombeiro nesse mês.",
-    },
-];
-
 function imprimeCatalogo(data) {
     // pega o container dos serviços a serem listados
     let containerServicos = document.getElementById("container-servicos");
@@ -98,6 +78,9 @@ function imprimeProfissionais(data) {
 }
 
 $(document).ready(() => {
+    // Muda a logo em dispositivos com display menor que 1000px
+    logoMobile();
+
     // Pegar o id do user no cookie
     const idUser = getCookie("idUser");
 

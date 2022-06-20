@@ -69,7 +69,7 @@
     justify-content: start;
     align-items: center;
     flex-direction: row;
-    margin-bottom: 0;
+    margin: 0;
     padding: 0;
     height: 30px;
 }
@@ -89,10 +89,8 @@
 .star-icon,
 .star-icon-view {
     list-style-type: none;
-    cursor: pointer;
     color: #ffe500;
     font-size: 30px;
-    /* alterar o tamanho das estrelas */
 }
 
 .star-icon::before,
@@ -111,4 +109,5 @@
 
 .star-icon:hover~.star-icon::before {
     content: "\2606";
+    cursor: pointer;
 }

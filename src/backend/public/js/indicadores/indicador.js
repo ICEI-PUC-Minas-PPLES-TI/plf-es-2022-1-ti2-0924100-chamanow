@@ -8,14 +8,8 @@ $(document).ready(() => {
     // Função que muda a seta do select quando clicado
     setaSelect();
 
-    // Verifica a largura da tela
-    const width = window.screen.width;
-
-    // Se for menor do que 600px, a logo é trocada
-    if (width < 600) {
-        const logo = document.querySelector("#logo");
-        logo.setAttribute("src", "/img/Logo.svg");
-    }
+    // Muda a logo quando o dispositivo é mobile
+    logoMobile();
 
     // Pegar o id do user no cookie
     const idUser = getCookie("idUser");

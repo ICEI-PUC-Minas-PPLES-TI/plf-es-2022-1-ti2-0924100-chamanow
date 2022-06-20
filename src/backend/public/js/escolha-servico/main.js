@@ -13,13 +13,14 @@ function carregaPesquisa() {
     const searchInput = criarInputs('pesquisar', null, "searchInput", "Pesquisar Serviço", "servicos");
 
     // Criação da div search
-    const search = criarElementos('div', null, "banner");
+    const search = criarElementos('div', null, "search");
 
     // Imagem ================================================================
 
     // Criação da imagem
     const img_banner = new Image;
     img_banner.src = '/img/gustavo.png';
+    img_banner.id = "embaixador";
 
     // Append Child ==========================================================
 
@@ -138,6 +139,7 @@ function criaCardsNP(prestador, cod_servico) {
         // Atribui a nota à uma variável
         const nota = avaliacao[0].nota;
 
+        // Se houver nota para o prestador, ela é carregada na página
         if (nota) {
             // Criação do elemento para o ponto de separação
             const ponto = criarElementos('span', null, "ponto");
@@ -164,8 +166,15 @@ function criaCardsNP(prestador, cod_servico) {
             // Configura as estrelas de acordo com a nota média
             const stars = document.querySelectorAll(".avaliacao li");
             stars[nota.toFixed(0) - 1].classList.add("active");
-        } else
-            notaAvaliacao.innerText = "Este prestador não possui avaliações ainda";
+        } else {
+            // Caso contrario, uma mesagem é exibida
+
+            // Atribui uma class para o elemento
+            notaAvaliacao.className = "sem-avaliacao";
+
+            // Adiciona uma mensagem no elemento
+            notaAvaliacao.innerText = "Este prestador ainda não possui avaliações";
+        }
     })
 
     // Email ================================================
@@ -293,6 +302,12 @@ function mostraServicos() {
 
 /*Chamando funções----------- */
 $(document).ready(() => {
+    // Verifica a largura da tela
+    const width = window.screen.width;
+
+    // Muda a logo em dispositivos com display menor que 1000px
+    logoMobile();
+
     // Pegar o id do user no cookie
     const idUser = getCookie("idUser");
 

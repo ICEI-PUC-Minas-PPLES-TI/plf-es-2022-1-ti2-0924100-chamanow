@@ -37,17 +37,6 @@ function infoPerfil(data) {
     regiaoAtuacao.innerText = data.regiao_atuacao;
 }
 
-function getCookie(name) {
-    let cookie = {};
-
-    document.cookie.split(';').forEach(function(el) {
-        let [k, v] = el.split('=');
-        cookie[k.trim()] = v;
-    })
-
-    return cookie[name];
-}
-
 function criarListaAvaliacoes(data) {
     console.log(data)
         // Referenciar div dadosMenu
@@ -74,7 +63,7 @@ function criarListaAvaliacoes(data) {
     const dataPublicacao = document.createElement('span');
     dataPublicacao.id = "data-publicacao";
     console.log(data.created_at);
-    dataPublicacao.innerText = formatarData(data.created_at);
+    dataPublicacao.innerText = formatarDataHora(data.created_at);
 
     // Colocando os elementos criados dentro de div nomeData
     divNomeData.appendChild(nomeAvaliador);
@@ -104,7 +93,7 @@ function criarListaAvaliacoes(data) {
     for (var i = 0; i < 5; i++) {
         // Criação do elemento para as estrelas
         const estrelas = document.createElement('li');
-        estrelas.className = "star-icon";
+        estrelas.className = "star-icon-view";
 
         // Colocando os elementos estrela dentro da lista
         listEstrelas.appendChild(estrelas);
@@ -133,75 +122,10 @@ function criarListaAvaliacoes(data) {
     return divAvaliacoes;
 }
 
-function getCookie(name) {
-    let cookie = {};
-
-    document.cookie.split(';').forEach(function(el) {
-        let [k, v] = el.split('=');
-        cookie[k.trim()] = v;
-    })
-
-    return cookie[name];
-}
-
-function alterarHeaderLogado(user) {
-    // Referenciar a nav menu
-    const menu = document.querySelector(".menu");
-    menu.innerHTML = "";
-
-    // Criar os itens do menu ================================
-
-    // Acesso ao perfil
-    const perfil = criarElementoLink("/perfil", user.nome);
-
-    // Acesso à página inicial
-    const home = criarElementoLink("/", "Tela inicial");
-
-    // Acesso à página inicial
-    const indicadores = criarElementoLink("/admin/indicadores", "Indicadores");
-
-    // Adiciona os elementos criados dentro do menu
-    menu.appendChild(home);
-    menu.appendChild(indicadores);
-    menu.appendChild(perfil);
-}
-
-function alterarHeaderDeslogado() {
-    // Referenciar a nav menu
-    const menu = document.querySelector(".menu");
-    menu.innerHTML = "";
-
-    // Criar os itens do menu ================================
-
-    // Acesso ao perfil
-    const cadastroProfissional = criarElementoLink("/cadastro?user=profissional", "Sou um Profissa");
-
-    // Acesso à página inicial
-    const cadastro = criarElementoLink("/cadastro", "Sign Up");
-
-    // Acesso à página inicial
-    const login = criarElementoLink("/login", "Login");
-
-    // Adiciona os elementos criados dentro do menu
-    menu.appendChild(cadastroProfissional);
-    menu.appendChild(cadastro);
-    menu.appendChild(login);
-}
-
-function criarElementoLink(href, conteudo) {
-    // Cria o elemento a
-    const a = document.createElement('a');
-
-    // Atribui uma rota a ele
-    a.setAttribute('href', href);
-
-    // Adiciona um conteúdo a ele
-    a.innerText = conteudo;
-
-    // Retorna o elemento criado
-    return a;
-}
 $(document).ready(function() {
+    // Muda a logo em dispositivos com display menor que 1000px
+    logoMobile();
+
     // Pegar o id do user no cookie
     const idUser = getCookie("idUser");
 
@@ -259,17 +183,6 @@ $(document).ready(function() {
         completaInput(getCookie('idUser'), cod_prestadorAux);
     }
 })
-
-function formatarData(date, hour) {
-    console.log(date)
-    var dateFormatada = date.split('T')[0];
-    dateFormatada.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
-
-    if (hour)
-        dateFormatada += ` às ${hour.substring(0, 5)}`;
-
-    return dateFormatada;
-}
 
 function completaInput(cod_user, cod_prestador) {
     const input_cod_servico = document.querySelector("#input_cod_servico");

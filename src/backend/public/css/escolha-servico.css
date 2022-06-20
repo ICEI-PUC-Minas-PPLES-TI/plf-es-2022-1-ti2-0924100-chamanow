@@ -4,10 +4,6 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
     padding: 0;
     margin: 0;
 }
@@ -17,189 +13,198 @@ body {
 }
 
 
-/*--------Body--------*/
+/* ========== Banner ========== */
+
+.tudo {
+    width: 80%;
+    margin: 0 auto;
+}
 
 .banner {
     display: flex;
     align-items: center;
-    padding-left: 80px;
+    justify-content: space-between;
 }
 
-.banner img {
+#embaixador {
     width: 400px;
     margin: 0 auto;
 }
 
 .titulo {
     text-align: left;
+    font-size: 25px;
 }
 
 .search {
-    display: inline;
-    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
-.pesquisar {
-    margin-top: 25px;
+#pesquisar {
+    margin-top: 15px;
     border: none;
     border-radius: 30px;
     padding: 10px 20px;
-    background-color: #EDEDED;
-    padding-right: 400px;
-    margin-bottom: 40px;
+    background-color: var(--color-input);
+    width: 300px;
 }
 
-.pesquisar:focus {
-    margin-top: 25px;
+#pesquisar:focus {
     border: none;
-    border-radius: 30px;
-    background-color: #EDEDED;
-    padding-right: 400px;
-    border-left-style: groove;
-    border-bottom-style: groove;
-    border-color: #4939FF;
-    cursor: default;
-    border-width: 5px;
+    outline: none;
 }
 
-.verServicos {
-    justify-content: center;
-    border-radius: 20px;
-    border: none;
-    padding: 10px 20px 9px;
-    background-color: #4939FF;
-    color: #fff;
-    margin-left: 10px;
-}
 
-.servicos {
-    padding: 30px;
-}
+/* ========== SearchResults ========== */
 
 .servico {
-    padding: 20px;
-    background-color: #EEEEEE;
-    border-radius: 20px;
-    margin: 30px;
+    padding: 10px 20px;
+    background-color: var(--color-input);
+    border-radius: 10px;
+    border: none;
+    margin-top: 30px;
+    transition: var(--transition);
+}
+
+.result-title {
+    margin: 15px 0 0;
 }
 
 .corLaranja {
-    color: #FF7500;
+    color: var(--secondary-color);
 }
 
 .servico:hover {
-    padding: 20px;
-    background-color: #EEEEEE;
-    border-radius: 20px;
-    border-bottom-style: groove;
-    border-color: #4939FF;
-    cursor: default;
-    border-width: 5px;
-    transition: 0.3s;
+    border-bottom: 2px solid var(--primary-color);
+    cursor: pointer;
+    transform: translateY(-7px);
 }
 
-.servico:hover h3 {
-    color: #4939FF;
-}
-
-.servico h1 {
-    color: #4939FF;
-    text-align: left;
-    margin-bottom: 10px;
+.servico:hover .result-title {
+    color: var(--primary-color);
 }
 
 
-/*----------Nova página criada---------*/
+/* ========== Nova página criada ========== */
 
 .servicoNP {
-    align-items: center;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 
 .tit_servicoNP {
     display: flex;
-    color: #FF7500;
-    padding: 10px;
-    margin-top: 40px;
+    align-items: center;
     justify-content: space-between;
+    color: var(--secondary-color);
 }
 
-.voltar {
-    margin-top: 40px;
-    border-radius: 20px;
+.tit_servicoNP h1 {
+    margin: 0;
+}
+
+.btn-voltar {
+    background-color: var(--primary-color);
+    margin: 0;
+    padding: 7px 15px;
     border: none;
-    padding: 10px 20px 9px;
-    background-color: #4939FF;
-    color: #fff;
-    margin: 0 auto;
-    margin-left: 750px;
+    font-size: 15px;
+    color: var(--color-text);
+    border-radius: 50px;
+    width: 80px;
+    height: 35px;
+    transition: all .3s;
 }
 
-.servicoNP p {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 30px;
+.btn-voltar:hover {
+    background-color: var(--color-text);
+    color: var(--primary-color);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+}
+
+.descricao-servico {
+    font-size: 17px;
 }
 
 
-/*--------Cards-------*/
+/* ========== Cards ========== */
 
-.profissionais {
+.prestadores {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
 .card {
-    border-radius: 10px;
-    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    border-radius: 15px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
     transition: all 0.3s ease-out;
-    flex: 1 1 300px;
-    margin: 10px;
+    margin: 20px auto;
+    background-color: var(--color-table);
+    width: 400px;
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
-.card img {
+#card_img {
     width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
-.card_text {
-    padding: 10px;
-    background-color: #EEEEEE;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+.card-infos {
+    padding: 15px 30px;
 }
 
-.card_tit {
-    color: #4939FF;
+.card-name {
+    margin: 0 0 10px;
+    color: var(--primary-color);
+    font-size: 25px;
 }
 
-.card_p {
-    font-size: 10px;
+.sem-avaliacao {
+    font-style: italic;
+    font-size: 14px;
+}
+
+#card-p {
+    font-size: 14px;
     margin-top: 10px;
-    color: black;
+    color: var(--color-text-secondary)
 }
 
-#card_button {
-    background-color: #EEEEEE;
-    border-width: 1px;
-    border-color: #FF7500;
-    color: #FF7500;
-    padding: 20px;
-    border-radius: 30px;
-    margin-top: 20px;
-    margin-left: 500px;
+#card-button {
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 7px 15px;
+    border: none;
+    font-size: 15px;
+    color: var(--color-text);
+    border-radius: 50px;
+    height: 35px;
+    transition: all .3s;
+    margin: 0 auto 20px 25px;
 }
 
-#card_button:hover {
-    background-color: #FF7500;
-    border-width: 1px;
-    border-color: #FF7500;
-    color: #fff;
-    padding: 20px;
-    border-radius: 30px;
-    margin-top: 20px;
-    margin-left: 500px;
+#card-button:hover {
+    background-color: var(--color-text);
+    color: var(--secondary-color);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+}
+
+@media (max-width: 600px) {
+    #embaixador {
+        display: none;
+    }
+    .search {
+        margin: 50px 0 30px;
+    }
+    .titulo {
+        font-size: 20px;
+        text-align: center;
+    }
 }
