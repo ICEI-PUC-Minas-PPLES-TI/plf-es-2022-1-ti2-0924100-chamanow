@@ -32,16 +32,32 @@ body>div {
 #info-prestador {
     display: flex;
     justify-content: left;
-    align-items: flex-start;
+    align-items: center;
+}
+
+#nome-usuario {
+    color: var(--secondary-color);
+    font-weight: 600;
 }
 
 #descricao {
-    max-width: 600px;
-    margin: 20px 0;
+    margin: 15px 0 0;
+}
+
+#regiao-atuacao {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .titulo-regiao-atuacao {
     font-size: 16px;
+    margin: 0;
+}
+
+#location {
+    margin: 0 0 0 10px;
+    text-align: center;
 }
 
 
@@ -94,4 +110,22 @@ body>div {
 #contratar-servico:hover {
     background-color: var(--color-text);
     color: var(--secondary-color);
+}
+
+@media (max-width: 1000px) {
+    #info-prestador {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    #foto-perfil {
+        margin: 0 0 25px;
+    }
+    #regiao-atuacao {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

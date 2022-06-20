@@ -215,12 +215,15 @@ body {
 
 /* ========== Mobile ========== */
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     #embaixador {
         display: none;
     }
     .search {
-        margin: 50px 0 30px;
+        margin: 50px auto 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .titulo {
         font-size: 20px;

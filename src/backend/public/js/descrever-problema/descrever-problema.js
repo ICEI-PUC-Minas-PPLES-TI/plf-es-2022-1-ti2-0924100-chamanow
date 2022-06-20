@@ -25,6 +25,16 @@ function infoPerfil(data) {
         } else {
             // Caso contrario, uma mesagem é exibida
 
+            // Oculta as estrelas ==================
+
+            // Referencia os elementos que serão ocultos
+            const ulAvalicao = document.querySelector(".avaliacao");
+            const ponto = document.querySelector(".ponto");
+
+            // Atribui 'display: none' aos elementos
+            ulAvalicao.style = "display: none";
+            ponto.style = "display: none";
+
             // Atribui uma class para o elemento
             notaUser.className = "sem-avaliacao";
 
@@ -177,7 +187,7 @@ $(document).ready(function() {
                 // Referenciar a div com a tabela
                 const divAvaliacoes = document.createElement('p');
                 divAvaliacoes.className = "dataNull";
-                divAvaliacoes.innerText = "Você ainda não possui avaliações";
+                divAvaliacoes.innerText = "Este prestador ainda não possui avaliações";
 
                 // Adicionar divAvaliacoeso na divDadosMenu
                 divDadosAvaliacoes.appendChild(divAvaliacoes);
