@@ -5,30 +5,31 @@ function infoPerfil(data) {
 
     // Alterar a nota do usuario
     const notaUser = document.querySelector("#nota");
-    const userRating = getUserRating(data.cod_user);
-    userRating.then((rating) => {
-        if (rating.length) {
-            // Cálculo da média das avaliacoes
-            var mediaNota = 0;
 
-            // Soma as notas das avaliações
-            for (let avaliacao of rating) {
-                mediaNota += avaliacao.nota;
-            }
+    // Div Avaliação ========================================
 
-            // Divide o total pela quantidade de notas
-            mediaNota /= rating.length;
+    // Busca no banco de dados a média da nota do prestador
+    const media_avaliacao = getAvgRating(data.cod_user);
+    media_avaliacao.then(avaliacao => {
+        // Atribui a nota à uma variável
+        const nota = avaliacao[0].nota;
 
+        // Se houver nota para o prestador, ela é carregada na página
+        if (nota) {
             // Adiciona a nota média calculada na página com uma casa decimal
-            notaUser.innerText = mediaNota.toFixed(1);
+            notaUser.innerText = nota.toFixed(1);
 
             // Configura as estrelas de acordo com a nota média
             const stars = document.querySelectorAll(".avaliacao li");
-            stars[mediaNota.toFixed(0) - 1].classList.add("active");
+            stars[nota.toFixed(0) - 1].classList.add("active");
         } else {
-            // Se não houver avaliações, elas são ocultas
-            const avaliacaoUsuario = document.querySelector(".avaliacao-usuario");
-            avaliacaoUsuario.style = "display: none";
+            // Caso contrario, uma mesagem é exibida
+
+            // Atribui uma class para o elemento
+            notaUser.className = "sem-avaliacao";
+
+            // Adiciona uma mensagem no elemento
+            notaUser.innerText = "Este prestador ainda não possui avaliações";
         }
     })
 
@@ -38,8 +39,7 @@ function infoPerfil(data) {
 }
 
 function criarListaAvaliacoes(data) {
-    console.log(data)
-        // Referenciar div dadosMenu
+    // Referenciar div dadosMenu
     const divAvaliacoes = document.createElement("div");
     divAvaliacoes.className = "divAvaliacoes";
 
@@ -62,7 +62,6 @@ function criarListaAvaliacoes(data) {
     // Criação do elemento para a data da publicação da avaliação
     const dataPublicacao = document.createElement('span');
     dataPublicacao.id = "data-publicacao";
-    console.log(data.created_at);
     dataPublicacao.innerText = formatarDataHora(data.created_at);
 
     // Colocando os elementos criados dentro de div nomeData
@@ -73,36 +72,53 @@ function criarListaAvaliacoes(data) {
     // Div Avaliação ========================================
 
     // Criação da div com a nota da avaliação
-    const divAvaliacao = document.createElement('div');
-    divAvaliacao.className = "avaliacao-usuario";
+    const divAvaliacao = criarElementos('div', null, "avaliacao-usuario");
 
     // Criação do elemento para a nota
-    const notaAvaliacao = document.createElement('span');
-    notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = data.nota;
+    const notaAvaliacao = criarElementos('span', "nota", null);
 
-    // Criação do elemento para o ponto de separação
-    const ponto = document.createElement('span');
-    ponto.className = "ponto";
+    // Adiciona a divAvaliacao na página
 
-    // Criação do elemento que conterá as estrelas
-    const listEstrelas = document.createElement('ul');
-    listEstrelas.className = "avaliacao";
 
-    // Criando e colocando os elementos estrela dentro da lista
-    for (var i = 0; i < 5; i++) {
-        // Criação do elemento para as estrelas
-        const estrelas = document.createElement('li');
-        estrelas.className = "star-icon-view";
-
-        // Colocando os elementos estrela dentro da lista
-        listEstrelas.appendChild(estrelas);
-    }
-
-    // Colocando os elementos criados dentro da divAvaliacao
+    // Colocando notaAvaliacao dentro da divAvaliacao
     divAvaliacao.appendChild(notaAvaliacao);
-    divAvaliacao.appendChild(ponto);
-    divAvaliacao.appendChild(listEstrelas);
+
+    // Se houver nota para o prestador, ela é carregada na página
+    if (data.nota) {
+        // Criação do elemento para o ponto de separação
+        const ponto = criarElementos('span', null, "ponto");
+
+        // Criação do elemento que conterá as estrelas
+        const listEstrelas = criarElementos('ul', null, "avaliacao");
+
+        // Colocando os elementos criados dentro da divAvaliacao
+        divAvaliacao.appendChild(ponto);
+        divAvaliacao.appendChild(listEstrelas);
+
+        // Adicionando a média da nota no elemento 'span'
+        notaAvaliacao.innerText = data.nota;
+
+        // Criando e colocando os elementos estrela dentro da lista
+        for (var i = 0; i < 5; i++) {
+            // Criação do elemento para as estrelas
+            const estrelas = criarElementos('li', null, "star-icon-view");
+
+            // Adiciona a class 'active' na estrela correspondente à nota do usuario
+            if (i == (data.nota.toFixed(0) - 1))
+                estrelas.classList.add("active");
+
+            // Colocando os elementos estrela dentro da lista
+            listEstrelas.appendChild(estrelas);
+        }
+    } else {
+        // Caso contrario, uma mesagem é exibida
+
+        // Atribui uma class para o elemento
+        notaAvaliacao.className = "sem-avaliacao";
+
+        // Adiciona uma mensagem no elemento
+        notaAvaliacao.innerText = "Este prestador ainda não possui avaliações";
+    }
 
     // Comentario ============================================
 
@@ -148,12 +164,10 @@ $(document).ready(function() {
         // Gera as avaliações
         const divDadosAvaliacoes = document.querySelector("#avaliacoes");
         const dataAvaliacoes = getAvaliacao(data.cod_user);
-        console.log(data)
         dataAvaliacoes.then((data) => {
             if (data.length) {
                 for (var i = 0; i < 3; i++) {
                     // Referenciar a div com a tabela
-                    console.log(data[i])
                     const divAvaliacoes = criarListaAvaliacoes(data[i]);
 
                     // Adicionar divAvaliacoeso na divDadosMenu
@@ -168,6 +182,11 @@ $(document).ready(function() {
                 // Adicionar divAvaliacoeso na divDadosMenu
                 divDadosAvaliacoes.appendChild(divAvaliacoes);
             }
+
+            const btnOrcamento = document.querySelector("#contratar-servico");
+            btnOrcamento.onclick = () => {
+                completaInput(getCookie('idUser'), data.cod_user);
+            }
         })
     });
 
@@ -176,11 +195,6 @@ $(document).ready(function() {
     if (detalhamento) {
         $("#inputProblema").val(detalhamento);
         localStorage.removeItem("detalhamento");
-    }
-
-    const btnOrcamento = document.querySelector("#contratar-servico");
-    btnOrcamento.onclick = () => {
-        completaInput(getCookie('idUser'), cod_prestadorAux);
     }
 })
 

@@ -1,14 +1,3 @@
-:root {
-    --bg: #333333;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: #fff;
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --secondary-color: #ff6b00;
-    transition: all 0.3s linear;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -29,62 +18,6 @@ body>div {
 }
 
 
-/* ========== Cabeçalho ========== */
-
-.site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 7px 15%;
-    height: 60px;
-    background-color: var(--primary-color);
-}
-
-body header img {
-    max-width: 15rem;
-}
-
-.menu a {
-    text-decoration: none;
-    color: var(--color-text);
-    margin-left: 30px;
-    transition: var(--transition);
-}
-
-.menu a:hover {
-    color: var(--secondary-color);
-}
-
-.menu a:nth-child(2) {
-    padding: 5px 20px;
-    border-radius: 7px;
-    border: 1.2px var(--primary-color-bright) solid;
-    transition: var(--transition);
-}
-
-.menu a:nth-child(2):hover {
-    border: 1.2px var(--secondary-color) solid;
-}
-
-.menu a:last-child {
-    background-color: var(--secondary-color);
-    color: var(--color-text);
-    padding: 5px 20px;
-    border-radius: 7px;
-}
-
-.menu a:last-child:hover {
-    background-color: var(--color-text);
-    color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-}
-
-#logo-header {
-    cursor: pointer;
-    width: 150px;
-}
-
-
 /* Foto de Perfil */
 
 #foto-perfil {
@@ -94,57 +27,13 @@ body header img {
 }
 
 
-/* Avaliação */
-
-.avaliacao-usuario,
-.avaliacao {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row;
-    margin-bottom: 0;
-    padding: 0;
-    height: 30px;
-}
-
-#nota {
-    padding-right: 5px;
-}
-
-.ponto {
-    font-size: 40px;
-}
-
-.ponto::before {
-    content: "\2027";
-}
-
-.star-icon {
-    list-style-type: none;
-    cursor: pointer;
-    color: #ffe500;
-    font-size: 30px;
-    /* alterar o tamanho das estrelas */
-}
-
-.star-icon::before {
-    content: "\2605";
-}
-
-.star-icon.ativo~.star-icon::before {
-    content: "\2606";
-}
-
-.avaliacao:hover .star-icon::before {
-    content: "\2605";
-}
-
-.star-icon:hover~.star-icon::before {
-    content: "\2606";
-}
-
-
 /* Descrição */
+
+#info-prestador {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
 
 #descricao {
     max-width: 600px;
@@ -152,81 +41,34 @@ body header img {
 }
 
 .titulo-regiao-atuacao {
-    font-size: 15px;
-}
-
-
-/* ========== Avaliações ========== */
-
-
-/* Blocos */
-
-.content-avaliacoes {
-    background: var(--bg-rating);
-    border-radius: 15px;
-    margin-bottom: 30px;
-    padding: 20px 30px;
-    border: none;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
-    transition: all .2s;
-}
-
-.content-avaliacoes:hover {
-    border-bottom: 2px solid var(--secondary-color);
-    transform: translateY(-7px);
-}
-
-.content-avaliacoes:hover #nome-avaliador {
-    color: var(--secondary-color);
-}
-
-.nome-data {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row;
-}
-
-#nome-avaliador {
-    margin: 0;
-    font-weight: 600;
-}
-
-.hifen {
-    padding: 0 10px;
-}
-
-#data-publicacao {
-    font-style: italic;
-}
-
-#content-avaliacoes #nota {
-    font-size: 13px;
-}
-
-#content-avaliacoes .star-icon {
-    font-size: 20px;
-}
-
-#comentario {
-    font-style: italic;
-    margin: 15px 0 0;
+    font-size: 16px;
 }
 
 
 /* ========== Detalhar Problema ========== */
 
+#formDetalheProblema {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#formDetalheProblema input,
 #inputProblema {
     font-size: 14px;
-    border: #F4F2F2;
-    background-color: #F4F2F2;
+    border: none;
+    background-color: var(--color-input);
     padding: 7px 15px;
     border-radius: 10px 10px;
     margin: 30px 0 0;
 }
 
+#formDetalheProblema input {
+    width: 270px;
+}
+
 #inputProblema::placeholder {
-    font-size: 15px;
+    font-size: 16px;
 }
 
 #inputProblema:focus {
@@ -236,113 +78,20 @@ body header img {
 
 /* ========== Btn Contratar ========== */
 
-.btn-contratar {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 80%;
-    margin: 50px auto;
-}
-
 #contratar-servico {
+    display: flex;
+    justify-content: flex-end;
     border: none;
     border-radius: 30px;
     padding: 5px 15px;
     background-color: var(--secondary-color);
-    color: #FFF;
+    color: var(--color-text);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin: 50px 0 0 auto;
     transition: all 0.2s;
 }
 
 #contratar-servico:hover {
-    background-color: #FFF;
+    background-color: var(--color-text);
     color: var(--secondary-color);
-}
-
-
-/* Footer ===================================================================*/
-
-.footer {
-    background-color: var(--primary-color);
-    color: var(--color-text);
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    margin-top: 100px;
-}
-
-.beforeLine {
-    display: flex;
-    justify-content: space-between;
-    padding: 60px 10% 40px;
-}
-
-.logoSlogan {
-    display: flex;
-    flex-direction: column;
-}
-
-.logoSlogan>img {
-    width: 50px;
-}
-
-.logoSlogan>span {
-    margin-top: 12px;
-    font-size: 15px;
-}
-
-.contentFooter {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-}
-
-.contentFooter li {
-    list-style: none;
-    font-size: 15px;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-.line {
-    width: 80%;
-    border-bottom: 1px var(--bg-rating) solid;
-    margin: 0 auto;
-}
-
-.afterLine {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 60px 0;
-}
-
-.socialMedia {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
-}
-
-.socialMedia a {
-    font-size: 16px;
-    color: var(--color-text);
-    border: .8px var(--color-text) solid;
-    border-radius: 100%;
-    height: 35px;
-    width: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.socialMedia a:hover {
-    color: var(--secondary-color);
-    border-color: var(--secondary-color);
-}
-
-.copyright {
-    margin-top: 15px;
-    font-size: 12px;
 }
