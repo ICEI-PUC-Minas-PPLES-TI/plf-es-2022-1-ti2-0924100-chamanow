@@ -9,7 +9,6 @@ function getCookie(name) {
     return cookie[name];
 }
 
-
 function alterarHeaderLogado(user) {
     // Referenciar a nav menu
     const menu = document.querySelector(".menu");
@@ -54,20 +53,6 @@ function alterarHeaderDeslogado() {
     menu.appendChild(login);
 }
 
-function criarElementoLink(href, conteudo) {
-    // Cria o elemento a
-    const a = document.createElement('a');
-
-    // Atribui uma rota a ele
-    a.setAttribute('href', href);
-
-    // Adiciona um conteúdo a ele
-    a.innerText = conteudo;
-
-    // Retorna o elemento criado
-    return a;
-}
-
 function formatarData(data, format) {
     const map = {
         dd: data.substring(8, 10),
@@ -95,8 +80,32 @@ function formatarHorario(horario, format) {
     return format.replace(/hh|mm/gi, matched => map[matched])
 }
 
-function criarInputs(id, type, nome, placeholder) {
-    // Criar o elemento
+
+function formatarDataHora(date, hour) {
+    var dateFormatada = date.split('T')[0].replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+    if (hour)
+        dateFormatada += ` às ${hour.substring(0, 5)}`;
+
+    return dateFormatada;
+}
+
+function criarElementoLink(href, conteudo) {
+    // Cria o elemento 'a'
+    const a = document.createElement('a');
+
+    // Atribui uma rota a ele
+    a.setAttribute('href', href);
+
+    // Adiciona um conteúdo a ele
+    if (conteudo)
+        a.innerHTML = conteudo;
+
+    // Retorna o elemento criado
+    return a;
+}
+
+function criarInputs(id, type, nome, placeholder, datalist) {
+    // Criar o elemento 'input'
     const input = document.createElement("input");
 
     // Atribuir um id para ele
@@ -114,12 +123,16 @@ function criarInputs(id, type, nome, placeholder) {
     if (placeholder)
         input.placeholder = placeholder;
 
+    // Atribuir um placeholder para ele
+    if (datalist)
+        input.setAttribute('list', datalist);
+
     // Retornar o input criado
     return input;
 }
 
 function criarLabels(id, para, content) {
-    // Criar o elemento
+    // Criar o elemento 'label'
     const label = document.createElement("label");
 
     // Atribuir um id para ele
@@ -137,7 +150,7 @@ function criarLabels(id, para, content) {
     return label;
 }
 
-function criarElementos(element, id, classe, content) {
+function criarElementos(element, id, classe, content, value) {
     // Criar o elemento
     const elemento = document.createElement(element);
 
@@ -153,6 +166,33 @@ function criarElementos(element, id, classe, content) {
     if (content)
         elemento.innerHTML = content;
 
+    // Atribuir um value para ele
+    if (value)
+        elemento.value = value;
+
     // Retornar o input criado
     return elemento;
+}
+
+function criarBtns(type, id, classe, content) {
+    // Criar o elemento 'button'
+    const btn = document.createElement("button");
+
+    // Atribuir um tipo para ele
+    if (type)
+        btn.setAttribute("type", type);
+
+    // Atribuir um id para ele
+    btn.id = id;
+
+    // Atribuir um tipo para ele
+    if (classe)
+        btn.className = classe;
+
+    // Atribuir um placeholder para ele
+    if (content)
+        btn.innerHTML = content;
+
+    // Retornar o input criado
+    return btn;
 }

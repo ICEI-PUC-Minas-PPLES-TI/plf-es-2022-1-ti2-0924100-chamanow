@@ -1,239 +1,298 @@
-/*const profissional = {
-    profissional0 : {
-        "nome_prof": "Marcos II Arraial",
-        "descricao_prof": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, rerum. Cupiditate maxime earum ipsam, autem ut voluptatem laboriosam reiciendis optio? Voluptates repudiandae a perspiciatis sunt quasi, adipisci iure error in!"
-    },
+// Função que cria os elementos da pesquisa
+function carregaPesquisa() {
+    // Slogan e Barra de Pesquisa ============================================
 
-    profissional1 : {
-        "nome_prof": "Igor Pamp",
-        "descricao_prof": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, rerum. Cupiditate maxime earum ipsam, autem ut voluptatem laboriosam reiciendis optio? Voluptates repudiandae a perspiciatis sunt quasi, adipisci iure error in!"
-    },
+    // Criação do slogan
+    const content = `O melhor <span class="corLaranja"> serviço </span> pelo melhor <span class="corLaranja"> preço</span>`;
+    const slogan = criarElementos("h1", null, "titulo", content);
 
-    profissional2 : {
-        "nome_prof": "Nicolau Maquiavélico",
-        "descricao_prof": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, rerum. Cupiditate maxime earum ipsam, autem ut voluptatem laboriosam reiciendis optio? Voluptates repudiandae a perspiciatis sunt quasi, adipisci iure error in!"
-    },
+    // Criar o datalist
+    const datalist = criarElementos('datalist', "servicos");
 
-    profissional3 : {
-        "nome_prof": "Frederico Twitterboy",
-        "descricao_prof": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, rerum. Cupiditate maxime earum ipsam, autem ut voluptatem laboriosam reiciendis optio? Voluptates repudiandae a perspiciatis sunt quasi, adipisci iure error in!"
-    },
+    // Criação do input
+    const searchInput = criarInputs('pesquisar', null, "searchInput", "Pesquisar Serviço", "servicos");
 
-    profissional4 : {
-        "nome_prof": "Daniel Sheirado",
-        "descricao_prof": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, rerum. Cupiditate maxime earum ipsam, autem ut voluptatem laboriosam reiciendis optio? Voluptates repudiandae a perspiciatis sunt quasi, adipisci iure error in!"
-    },
+    // Criação da div search
+    const search = criarElementos('div', null, "banner");
 
-    profissional5 : {
-        "nome_prof": "Tortugo Airpods",
-        "descricao_prof": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, rerum. Cupiditate maxime earum ipsam, autem ut voluptatem laboriosam reiciendis optio? Voluptates repudiandae a perspiciatis sunt quasi, adipisci iure error in!"
-    }
+    // Imagem ================================================================
 
-}*/
-
-/*Constantes globais----------- */
-
-const tudo = document.querySelector('.tudo');
-
-/*As funções a seguir criam elementos da página de escolha de serviço----------- */
-
-function criaBanner() {
-    const banner = document.createElement('div');
-    banner.classList.add('banner');
-    const titulo_banner = document.createElement('h1');
-    titulo_banner.innerHTML = `O melhor <span class="corLaranja"> serviço </span> pelo melhor <span class="corLaranja"> preço</span>`;
-    titulo_banner.classList.add('titulo');
+    // Criação da imagem
     const img_banner = new Image;
     img_banner.src = '/img/gustavo.png';
-    banner.appendChild(titulo_banner);
+
+    // Append Child ==========================================================
+
+    // Adicionar os slogan e barra de pesquisa criados dentro da div search
+    search.appendChild(slogan);
+    search.appendChild(searchInput);
+    search.appendChild(datalist);
+
+    // Criação da div que vai conter todos os elementos
+    const banner = criarElementos('div', null, "banner");
+
+    // Adicionar a div search e a imagem criados dentro da div banner 
+    banner.appendChild(search);
     banner.appendChild(img_banner);
+
+    // Retornar banner
     return banner;
 }
 
-function criaPesquisar() {
-    const search = document.createElement('div');
-    search.classList.add('search');
-    const pesquisar = document.createElement('input');
-    pesquisar.classList.add('pesquisar');
-    const verServicos = document.createElement('button');
-    verServicos.innerHTML = 'Ver Serviços';
-    verServicos.classList.add('verServicos');
-    search.appendChild(pesquisar);
-    search.appendChild(verServicos);
-    return search;
+// Função que cria a lista do resultado de busca dos serviços e povoa o datalist
+function listSearchResults(servico) {
+    // Povoar datalist =============================================================
+
+    // Criar a option com o servico
+    const option = criarElementos('option', null, null, servico.nome, servico.nome);
+
+    // Referencia o datalist
+    const datalist = document.querySelector("#servicos");
+
+    // Adicionar o option dentro do datalist
+    datalist.appendChild(option);
+
+    // Resultados ==================================================================
+
+    // Criação da div que vai conter o resultado de busca
+    const resultService = criarElementos('div', servico.cod_tipo, "servico");
+
+    // Criação do título do resultado
+    const titulo = criarElementos('h3', null, "result-title", servico.nome);
+
+    // Criação da descrição do serviço
+    const descricao = criarElementos('p', null, "result-description", servico.descricao);
+
+    // Adicionar os elementos na página
+    resultService.appendChild(titulo);
+    resultService.appendChild(descricao);
+
+    // Retorna o elemento criado
+    return resultService;
 }
 
+// Função que cria o título e descrição do serviço escolhido
+function criaServicoNP(servico) {
+    // Criação da div para armazenar as infos
+    const divServicoNP = criarElementos('div', null, "servicoNP");
 
-function criaServicos(servico) {
-    const listServico = document.createElement(`div`);
-    listServico.classList.add('servico');
-    const titulo_servico = document.createElement('h3');
-    titulo_servico.innerHTML = servico.nome;
-    const p_servico = document.createElement('p');
-    p_servico.innerHTML = servico.descricao;
-    listServico.appendChild(titulo_servico);
-    listServico.appendChild(p_servico);
-    listServico.id = servico.cod_tipo;
-    tudo.appendChild(listServico);
-    console.log(servico);
-    return listServico;
+    // Div Título e botao voltar ===========================================
+
+    // Criação da div para armazenar o título e o botão para voltar
+    const divTitulo = criarElementos('div', null, "tit_servicoNP");
+
+    // Criação do título
+    const titulo = criarElementos('h1', null, null, servico.nome);
+
+    // Criação do btn voltar
+    const btnVoltar = criarBtns('button', null, "btn-voltar", "Voltar");
+
+    // Criação do parágrafo de descrilção
+    const descricao = criarElementos('p', null, "descricao-servico", servico.descricao);
+
+    // Append Child =======================================================
+
+    // Adicionar o título e o btn dentro da divTitulo
+    divTitulo.appendChild(titulo);
+    divTitulo.appendChild(btnVoltar);
+
+    // Adiciona os elementos criados na página
+    divServicoNP.appendChild(divTitulo);
+    divServicoNP.appendChild(descricao);
+
+    // Retorna a  divServicoNP
+    return divServicoNP;
 }
 
-/*As funções a seguir criam elementos da página de escolha do profissional----------- */
+// Função que cria os cards dos prestadores
+function criaCardsNP(prestador, cod_servico) {
+    console.log(prestador)
+    console.log(cod_servico)
 
-function criaServicoNP(e, servico) {
-    console.log(e.id);
-    const div_servicoNP = document.createElement('div');
-    div_servicoNP.classList.add('servicoNP');
-    const div_tit_servicoNP = document.createElement('div');
-    div_tit_servicoNP.classList.add('tit_servicoNP');
-    const tit_servicoNP = document.createElement('h1');
-    tit_servicoNP.innerHTML = servico.nome;
-    div_tit_servicoNP.appendChild(tit_servicoNP);
-    /*const div_avaliacao = document.createElement('div');
-    div_avaliacao.classList.add('avaliacao_usuario');
-    const avaliacao = document.createElement('ul');
-    avaliacao.classList.add('avaliacao');
-    const estrela = document.createElement('li');
-    estrela.classList.add('star-icon');
-    avaliacao.appendChild(estrela);
-    div_avaliacao.appendChild(avaliacao);
-    div_tit_servicoNP.appendChild(div_avaliacao);*/
-    const btn_voltar = document.createElement('button');
-    btn_voltar.innerHTML = 'Voltar';
-    btn_voltar.classList.add('voltar');
-    btn_voltar.addEventListener('click', function(e) {
-        tudo.innerHTML = ``;
-        mostraServicos();
-    })
-    div_tit_servicoNP.appendChild(btn_voltar);
-    const p_servicoNP = document.createElement('p');
-    p_servicoNP.innerHTML = servico.descricao;
-    p_servicoNP.classList.add('p_servicoNP');
-    div_servicoNP.appendChild(div_tit_servicoNP);
-    div_servicoNP.appendChild(p_servicoNP);
-    tudo.appendChild(div_servicoNP);
-}
-
-function criaCardsNP(profissional, cod_servico) {
-    const card = document.createElement('div');
-    card.classList.add('card');
+    // Criação da imagem
     const img_prof = new Image;
     img_prof.src = '/img/3329962-corpo-do-cantor-gusttavo-lima-foi-elogia-opengraph_1200-3.jpg';
     img_prof.id = 'card_img';
-    const card_text = document.createElement('div');
-    card_text.classList.add('card_text');
-    const card_title = document.createElement('h1');
-    card_text.innerHTML = profissional.nome;
-    card_text.id = 'card_tit';
 
+    // Infos do prestador ==================================================
 
-    const div_avaliacao = document.createElement('div');
-    div_avaliacao.classList.add('avaliacao_usuario');
-    const avaliacao = document.createElement('ul');
-    avaliacao.classList.add('avaliacao');
-    const media_avaliacao = getAvgRating(profissional.cod_user);
+    // Nome =================================================
+
+    // Criação do elemento nome do prestador
+    const nome = criarElementos('h1', null, "card-name", prestador.nome);
+
+    // Div Avaliação ========================================
+
+    // Criação da div com a nota da avaliação
+    const divAvaliacao = criarElementos('div', null, "avaliacao-usuario");
+
+    // Criação do elemento para a nota
+    const notaAvaliacao = criarElementos('span', "nota", null);
+
+    // Colocando notaAvaliacao dentro da divAvaliacao
+    divAvaliacao.appendChild(notaAvaliacao);
+
+    // Busca no banco de dados a média da nota do prestador
+    const media_avaliacao = getAvgRating(prestador.cod_user);
     media_avaliacao.then(avaliacao => {
-        console.log(avaliacao[0]);
-        const notaAvaliacao = document.createElement('span');
-        notaAvaliacao.id = "nota";
-        notaAvaliacao.innerText = avaliacao[0].nota.toFixed(1);
-        div_avaliacao.appendChild(notaAvaliacao);
+        // Atribui a nota à uma variável
+        const nota = avaliacao[0].nota;
+
+        if (nota) {
+            // Criação do elemento para o ponto de separação
+            const ponto = criarElementos('span', null, "ponto");
+
+            // Criação do elemento que conterá as estrelas
+            const listEstrelas = criarElementos('ul', null, "avaliacao");
+
+            // Colocando os elementos criados dentro da divAvaliacao
+            divAvaliacao.appendChild(ponto);
+            divAvaliacao.appendChild(listEstrelas);
+
+            // Adicionando a média da nota no elemento 'span'
+            notaAvaliacao.innerText = nota.toFixed(1);
+
+            // Criando e colocando os elementos estrela dentro da lista
+            for (var i = 0; i < 5; i++) {
+                // Criação do elemento para as estrelas
+                const estrelas = criarElementos('li', null, "star-icon-view");
+
+                // Colocando os elementos estrela dentro da lista
+                listEstrelas.appendChild(estrelas);
+            }
+
+            // Configura as estrelas de acordo com a nota média
+            const stars = document.querySelectorAll(".avaliacao li");
+            stars[nota.toFixed(0) - 1].classList.add("active");
+        } else
+            notaAvaliacao.innerText = "Este prestador não possui avaliações ainda";
     })
-    div_avaliacao.appendChild(avaliacao);
-    const card_p = document.createElement('p');
-    card_p.innerHTML = profissional.email;
-    card_p.id = 'card_p';
-    const card_button = document.createElement('button');
-    card_button.innerText = 'Acessar Perfil';
-    card_button.id = 'card_button';
-    const aLinkBotao = document.createElement("a");
-    aLinkBotao.setAttribute("href", `/descrever-problema/?cod_prestador=${profissional.cod_user}&cod_servico=${cod_servico}`);
-    aLinkBotao.appendChild(card_button)
-    card_text.appendChild(card_title);
 
+    // Email ================================================
 
-    for (let index = 0; index < 5; index++) {
-        const estrela = document.createElement('li');
-        estrela.classList.add('star-icon');
-        avaliacao.appendChild(estrela);
-        card_text.appendChild(div_avaliacao);
+    const email = criarElementos('p', "card-p", null, prestador.email);
 
-    }
+    // Btn Escolher Prestador ===============================
 
-    card_text.appendChild(card_p);
-    card_text.appendChild(aLinkBotao);
+    const btnEscolherPrestador = criarBtns("button", "card-button", null, "Escolher Prestador");
+
+    // Cria uma constante com o link para a página de descrever problema
+    const href = `/descrever-problema/?cod_prestador=${prestador.cod_user}&cod_servico=${cod_servico}`;
+
+    // Cria o elemento com o link e o btnEscolherPrestador
+    const aEscolherPrestador = criarElementoLink(href);
+
+    // Adicionar o btnEscolherPrestador dentro de aEscolherPrestador
+    aEscolherPrestador.appendChild(btnEscolherPrestador);
+
+    // Append Child ========================================================
+
+    // Criação da div que vai armazenar as infos do prestador
+    const cardInfo = criarElementos("div", null, "card-infos");
+
+    // Adiciona o nome, nota e email do prestador na div cardInfo
+    cardInfo.appendChild(nome);
+    cardInfo.appendChild(divAvaliacao);
+    cardInfo.appendChild(email);
+
+    // Criação da div card
+    const card = criarElementos("div", null, "card");
+
+    // Adiciona os elementos criados dentro de card
     card.appendChild(img_prof);
-    card.appendChild(card_text);
+    card.appendChild(cardInfo);
+    card.appendChild(aEscolherPrestador);
+
+    // Retorna o card completo
     return card;
-
 }
-
-
 
 /*A função a seguir cria a página de escolha de serviço----------- */
 
 function mostraServicos() {
-    const banner = criaBanner();
+    const tudo = document.querySelector(".tudo");
+
+    // Criação do banner do site
+    const banner = carregaPesquisa();
+
+    // Criação da div searchResults
+    const searchResults = criarElementos("div", null, "searchResults");
+
+    // Adição do banner e da div searchResults na página
     tudo.appendChild(banner);
-    const search = criaPesquisar();
-    tudo.appendChild(search);
+    tudo.appendChild(searchResults);
+
+    // Busca todos os serviços no banco de dados
     const servicos = getAllServices();
     servicos.then(servico => {
-        console.log(servico);
-        const div_servicos = document.createElement('div');
-        div_servicos.className = 'div_servicos';
-        servico.forEach(servico => {
-            const divServicos = criaServicos(servico);
-            divServicos.addEventListener('click', function(e) {
-                tudo.innerHTML = ``;
-                criaServicoNP(divServicos, servico);
-                const elemento = e.target;
-                const nodeElement = elemento.closest("div");
-                console.log(nodeElement.id);
-                const prestador_servico = getSpecProfessional(nodeElement.id);
-                prestador_servico.then(profissional => {
-                    const profissionais = document.createElement('div');
-                    profissionais.classList.add('profissionais');
+        // Criação dos cards para cada servico
+        servico.forEach(data => {
+            // Criação de uma div para conter os resultados da busca
+            const divServicos = listSearchResults(data);
 
-                    tudo.appendChild(profissionais);
+            // Adiciona o elemento criado na div searchResults
+            searchResults.appendChild(divServicos);
+        })
 
-                    profissional.forEach(element => {
-                        const card = criaCardsNP(element, servico.cod_tipo);
-                        profissionais.appendChild(card);
-                    });
+        // Identifica o elemento clicado
+        $('.searchResults div').click((event) => {
+            // Limpa a tela
+            $(".tudo").html("");
+
+            // Salva o id do elemento clicado em uma constante
+            const elemento = event.target;
+            const nodeElementId = elemento.closest("div").id;
+
+            // Criação o título e descrição do serviço escolhido ========================
+
+            // Identificação do serviço escolhido
+            const servicoClicado = servico.find(dado => dado.cod_tipo = nodeElementId);
+
+            // Criação da seção com o título e descrição do serviço escolhido
+            const secao = criaServicoNP(servicoClicado);
+            tudo.appendChild(secao);
+
+            // Cria a div que vai conter os cards dos prestadores
+            const divPrestadores = criarElementos('div', null, "prestadores");
+
+            // Adiciona a div criada na página
+            tudo.appendChild(divPrestadores);
+
+            // Busca no banco de dados as informações de todos os prestadores que prestam o servico escolhido pelo usuario
+            const prestadores = getSpecProfessional(nodeElementId);
+            prestadores.then(prestador => {
+                prestador.forEach(prestador => {
+                    // Cria o card de cada prestador
+                    const card = criaCardsNP(prestador, nodeElementId);
+
+                    // Adiciona o card na divPrestadores
+                    divPrestadores.appendChild(card);
                 })
-                console.log(e.target);
+            })
 
+            // Refencia o btn de voltar
+            const btnVoltar = document.querySelector(".btn-voltar");
 
+            // Quando clicado, a página é apagada e os servicos são mostrodos novamente
+            btnVoltar.onclick = () => {
+                // Limpa a tela
+                $(".tudo").html("");
 
-            });
-            div_servicos.appendChild(divServicos);
-
-        });
-        tudo.appendChild(div_servicos);
-        /* $('.div_servico div').click((e) => {
-             const element = e.target;
-             const nodeElement = element.closest("div");
-             console.log(nodeElement);
-             
-         })*/
-
+                // Os resultados de busca são renderizados novamente
+                mostraServicos();
+            }
+        })
     })
 
-}
-
-/*A função a seguir carrega a página de escolha de serviço----------- */
-
-function carregarPagina() {
-    window.addEventListener('load', function(e) {
-        e.preventDefault();
-        mostraServicos();
-    })
+    // Filtrar resultados de acordo com o input
+    const pesquisar = document.querySelector("#pesquisar");
+    pesquisar.onclick = () => {
+        filtroPerguntas();
+    }
 }
 
 /*Chamando funções----------- */
-$(document).ready(function() {
+$(document).ready(() => {
     // Pegar o id do user no cookie
     const idUser = getCookie("idUser");
 
@@ -246,74 +305,7 @@ $(document).ready(function() {
             alterarHeaderLogado(user);
         })
     }
-    carregarPagina();
+
+    // Carrega os serviços
+    mostraServicos();
 })
-
-function getCookie(name) {
-    let cookie = {};
-
-    document.cookie.split(';').forEach(function(el) {
-        let [k, v] = el.split('=');
-        cookie[k.trim()] = v;
-    })
-
-    return cookie[name];
-}
-
-function alterarHeaderLogado(user) {
-    // Referenciar a nav menu
-    const menu = document.querySelector(".menu");
-    menu.innerHTML = "";
-
-    // Criar os itens do menu ================================
-
-    // Acesso ao perfil
-    const perfil = criarElementoLink("/perfil", user.nome);
-
-    // Acesso à página inicial
-    const home = criarElementoLink("/", "Tela inicial");
-
-    // Acesso à página inicial
-    const indicadores = criarElementoLink("/admin/indicadores", "Indicadores");
-
-    // Adiciona os elementos criados dentro do menu
-    menu.appendChild(home);
-    menu.appendChild(indicadores);
-    menu.appendChild(perfil);
-}
-
-function alterarHeaderDeslogado() {
-    // Referenciar a nav menu
-    const menu = document.querySelector(".menu");
-    menu.innerHTML = "";
-
-    // Criar os itens do menu ================================
-
-    // Acesso ao perfil
-    const cadastroProfissional = criarElementoLink("/cadastro?user=profissional", "Sou um Profissa");
-
-    // Acesso à página inicial
-    const cadastro = criarElementoLink("/cadastro", "Sign Up");
-
-    // Acesso à página inicial
-    const login = criarElementoLink("/login", "Login");
-
-    // Adiciona os elementos criados dentro do menu
-    menu.appendChild(cadastroProfissional);
-    menu.appendChild(cadastro);
-    menu.appendChild(login);
-}
-
-function criarElementoLink(href, conteudo) {
-    // Cria o elemento a
-    const a = document.createElement('a');
-
-    // Atribui uma rota a ele
-    a.setAttribute('href', href);
-
-    // Adiciona um conteúdo a ele
-    a.innerText = conteudo;
-
-    // Retorna o elemento criado
-    return a;
-}

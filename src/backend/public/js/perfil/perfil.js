@@ -125,17 +125,6 @@ function init(data) {
     })
 }
 
-function getCookie(name) {
-    let cookie = {};
-
-    document.cookie.split(';').forEach(function(el) {
-        let [k, v] = el.split('=');
-        cookie[k.trim()] = v;
-    })
-
-    return cookie[name];
-}
-
 $(document).ready(() => {
     // Pegar o id do user no cookie
     const idUser = getCookie("idUser");
@@ -154,11 +143,3 @@ $(document).ready(() => {
         btnCadastrarProfissional.style = "display: none";
     }
 })
-
-function formatarData(date, hour) {
-    var dateFormatada = date.split('T')[0].replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
-    if (hour)
-        dateFormatada += ` às ${hour.substring(0, 5)}`;
-
-    return dateFormatada;
-}

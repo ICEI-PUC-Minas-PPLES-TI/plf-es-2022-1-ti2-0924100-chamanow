@@ -109,3 +109,118 @@ function actveStar(idAvaliado, idAvaliador, idAgendamento) {
         inputAgendamento.value = idAgendamento;
     });
 }
+
+
+
+function dadosModelAvaliar(nodeElement) {
+    // Limpa o corpo do modal para criar um novo
+    $(".body-avaliacao").html("");
+
+    // Referencia a div do corpo do modal de avaliacao
+    const modalBody = document.querySelector(".body-avaliacao");
+
+    // Criar e colocar o nome do user no modal
+    const nomeUserContent = nodeElement.firstChild.textContent
+    const nomeUser = criarElementos("h5", null, "nome-usuario-avaliacao", nomeUserContent);
+
+    // Criar a div para a avaliacao
+    const divAvalicao = criarElementos("div", null, "avaliacao-usuario");
+
+    // Criar a ul para comportar as estrelas
+    const ulEstrelas = criarElementos("ul", null, "avaliacao");
+
+    // Criar as estrelas
+    for (var i = 1; i <= 5; i++) {
+        // Criar o elemento das estrelas
+        const star = criarElementos("li", i, "star-icon");
+
+        if (i == 1)
+            star.classList.add("active");
+
+        // Inserir elemento criado no ulEstrelas
+        ulEstrelas.appendChild(star);
+    }
+
+    // Adicionar a ulEstrelas dentro da divAvaliação
+    divAvalicao.appendChild(ulEstrelas);
+
+    // Criar o form do comentário
+    const formRating = criarElementos("form", null, "form");
+    formRating.setAttribute("action", "/perfil/avaliacao");
+    formRating.setAttribute("method", "post");
+
+    // Criar os inputs
+    const inputAvaliado = criarInputs("inputAvaliado", "hidden", "cod_avaliado");
+    const inputAvaliador = criarInputs("inputAvaliador", "hidden", "cod_avaliador");
+    const inputAgendamento = criarInputs("inputAgendamento", "hidden", "cod_agendamento");
+    const inputRating = criarInputs("inputRating", "hidden", "nota");
+    const inputComentario = criarInputs("comentario-avaliacao", "textarea", "comentario", "Adicionar comentário...");
+
+    // Atribuir required para o input de comentário
+    inputComentario.setAttribute("required", "");
+
+    // Criar os btns
+    const btnSair = criarBtns("button", "btn-sair-avaliacao", null, `<i class="fa-solid fa-chevron-left"></i> Sair`);
+    btnSair.setAttribute("data-bs-dismiss", "modal");
+
+    const btnAvaliar = criarBtns("submit", "btn-enviar-avaliacao", null, `Enviar <i class="fa-solid fa-chevron-right"></i>`);
+
+    // Adicionar os elementos criados no form
+    formRating.appendChild(inputAvaliado);
+    formRating.appendChild(inputAvaliador);
+    formRating.appendChild(inputAgendamento);
+    formRating.appendChild(inputRating);
+    formRating.appendChild(inputComentario);
+    formRating.appendChild(btnSair);
+    formRating.appendChild(btnAvaliar);
+
+    // Adicionar os itens criados no corpo do modal
+    modalBody.appendChild(nomeUser);
+    modalBody.appendChild(divAvalicao);
+    modalBody.appendChild(formRating);
+}
+
+function dadosModelVisualizarAvaliacao(nodeElement, rating) {
+    // Limpa o corpo do modal para criar um novo
+    $(".body-avaliacao").html("");
+
+    // Referencia a div do corpo do modal de avaliacao
+    const modalBody = document.querySelector(".body-avaliacao");
+
+    // Criar e colocar o nome do user no modal
+    const nomeUserContent = nodeElement.firstChild.textContent
+    const nomeUser = criarElementos("h5", null, "nome-usuario-avaliacao", nomeUserContent);
+
+    // Criar a div para a avaliacao
+    const divAvalicao = criarElementos("div", null, "avaliacao-usuario");
+
+    // Adicionar a nota da avaliação
+    const nota = criarElementos("p", null, "nota-avaliaca", rating.nota)
+
+    // Criar a ul para comportar as estrelas
+    const ulEstrelas = criarElementos("ul", null, "avaliacao");
+
+    // Criar as estrelas
+    for (var i = 1; i <= 5; i++) {
+        // Criar o elemento das estrelas
+        const star = criarElementos("li", i, "star-icon-view");
+        if (i == rating.nota)
+            star.classList.add("active");
+
+        // Inserir elemento criado no ulEstrelas
+        ulEstrelas.appendChild(star);
+    }
+
+    // Adicionar a nota e a ulEstrelas dentro da divAvaliação
+    divAvalicao.appendChild(nota);
+    divAvalicao.appendChild(ulEstrelas);
+
+    // Adicionar o comentário escrito
+    const contentComentario = "Comentário: " + rating.comentario;
+    const comentario = criarElementos("p", null, "comentario", contentComentario);
+
+    // Adicionar os itens criados no corpo do modal
+    modalBody.appendChild(nomeUser);
+    modalBody.appendChild(divAvalicao);
+    modalBody.appendChild(comentario);
+}

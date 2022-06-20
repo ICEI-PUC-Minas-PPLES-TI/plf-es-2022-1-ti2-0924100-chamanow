@@ -92,7 +92,7 @@ indicador.get('/cadastro-prestador', async(req, res) => {
 indicador.get('/servicos-mais-contratados', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT B.nome, COUNT(A.cod_tipo) AS percentagem\
+            "SELECT B.nome, COUNT(A.cod_tipo) AS percentagem, B.cod_tipo\
             FROM agendamentos AS A JOIN servicos AS B\
             ON A.cod_tipo = B.cod_tipo\
             GROUP BY 1\

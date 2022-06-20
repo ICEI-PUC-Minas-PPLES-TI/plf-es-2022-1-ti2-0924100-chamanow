@@ -88,7 +88,7 @@ async function getRating(userId) {
 
 async function getRatingByService(cod_agendamento, cod_avaliador) {
     try {
-        const response = await fetch(`http://localhost:8786/api/user-datas/rating/?cod_agendamento=${cod_agendamento}&cod_avaliador=${cod_avaliador}`);
+        const response = await fetch(`http://localhost:8786/api/agendamento/rating/?cod_agendamento=${cod_agendamento}&cod_avaliador=${cod_avaliador}`);
         const data = await response.json();
 
         return data;
