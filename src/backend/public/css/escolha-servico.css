@@ -16,7 +16,6 @@ body {
 /* ========== Banner ========== */
 
 .tudo {
-    width: 80%;
     margin: 0 auto;
 }
 
@@ -24,16 +23,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 30px auto 0;
+    width: 70%;
 }
 
 #embaixador {
-    width: 400px;
-    margin: 0 auto;
+    width: 600px;
 }
 
 .titulo {
     text-align: left;
     font-size: 25px;
+}
+
+.searchResults {
+    background-color: var(--color-table);
+    padding: 50px 10% 100px;
 }
 
 .search {
@@ -63,8 +68,9 @@ body {
     background-color: var(--color-input);
     border-radius: 10px;
     border: none;
-    margin-top: 30px;
     transition: var(--transition);
+    max-width: 70%;
+    margin: 30px auto 0;
 }
 
 .result-title {
@@ -90,6 +96,7 @@ body {
 
 .servicoNP {
     margin: 40px auto;
+    width: 60%;
 }
 
 .tit_servicoNP {
@@ -134,6 +141,8 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto 100px;
 }
 
 .card {
@@ -195,6 +204,16 @@ body {
     color: var(--secondary-color);
     box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
 }
+
+
+/* ========== Footer ========== */
+
+.footer {
+    margin: 0 !important;
+}
+
+
+/* ========== Mobile ========== */
 
 @media (max-width: 600px) {
     #embaixador {
