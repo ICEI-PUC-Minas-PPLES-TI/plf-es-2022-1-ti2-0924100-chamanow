@@ -40,43 +40,6 @@
 </head>
 
 <body>
-    <!-- Modal de Avaliação -->
-    <div class="modal fade" id="avaliacao-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="titulo-modal" id="titulo-modal">Avaliação</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="informacoes-perfil">
-                        <img src="/img/perfil-sem-foto.png" alt="Perfil sem foto" id="foto-perfil">
-                        <h2 class="nome-usuario">Nome do Prestador</h2>
-                        <span id="data-atual-avaliacao">Data por extenso</span>
-                    </div>
-                    <div class="avaliacao-usuario">
-                        <ul class="avaliacao">
-                            <li class="star-icon" data-avaliacao="1"></li>
-                            <li class="star-icon" data-avaliacao="2"></li>
-                            <li class="star-icon" data-avaliacao="3"></li>
-                            <li class="star-icon" data-avaliacao="4"></li>
-                            <li class="star-icon" data-avaliacao="5"></li>
-                        </ul>
-                    </div>
-                    <form>
-                        <div>
-                            <textarea class="form-control" id="comentario-avaliacao" placeholder="Adicionar comentário..."></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="btn-sair-avaliacao" data-bs-dismiss="modal"><i class="fa-solid fa-chevron-left"></i> Sair</button>
-                    <button type="button" id="btn-enviar-avaliacao">Enviar <i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <header class="site-header">
         <img id="logo-header" src="/img/Logo-nome.svg" alt="Logo ChamaNow">
         <nav class="menu">
@@ -92,7 +55,7 @@
             <div class="descricao-perfil">
                 <div class="nome-avaliacao">
                     <h2 id="nome-usuario"></h2>
-                    <div class="avaliacao-usuario">
+                    <div class="avaliacao-usuario avaliacao-perfil">
                         <span id="nota">4,5</span>
                         <span class="ponto"></span>
                         <ul class="avaliacao">
@@ -105,6 +68,7 @@
                     </div>
                     <div id="div-infos">
                         <p class="infos"></p>
+                        <p class="endereco"></p>
                     </div>
                 </div>
             </div>

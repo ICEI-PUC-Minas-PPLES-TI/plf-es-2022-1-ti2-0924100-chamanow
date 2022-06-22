@@ -12,13 +12,13 @@ function escolherData(servico, tipoUser) {
     divEscolherData.appendChild(descricao);
 
     if (!servico.data_servico) {
-
         // Criação dos inputs e labels =================================================
+
         if (tipoUser == "1") {
             // Input Date ====================================================
 
             // Criação da label para o input de data
-            const labelData = criarLabels("labelData", "inputEscolherData", "Datas Disponíveis");
+            const labelData = criarLabels("labelData", "inputEscolherData");
 
             // Criação do input para escolher a data
             const inputEscolherDatas = criarInputs("inputEscolherData", "datetime-local", null);
@@ -27,12 +27,35 @@ function escolherData(servico, tipoUser) {
             inputEscolherDatas.name = "data_escolhida";
 
             // Criar o atributo min e max do input
-            const dataInicio = servico.data_inicio.split("T")[0] + "T" + servico.horario_inicio;
-            const dataFim = servico.data_fim.split("T")[0] + "T" + servico.horario_fim;
+            if (servico.data_inicio) {
+                labelData.innerText = "Datas Disponíveis";
 
-            // Alterando o limite mín, max do input e required
-            inputEscolherDatas.setAttribute("min", dataInicio);
-            inputEscolherDatas.setAttribute("max", dataFim);
+                const dataInicio = servico.data_inicio.split("T")[0] + "T" + servico.horario_inicio;
+                const dataFim = servico.data_fim.split("T")[0] + "T" + servico.horario_fim;
+
+                // Alterando o limite mín, max do input e required
+                inputEscolherDatas.setAttribute('min', dataInicio);
+                inputEscolherDatas.setAttribute('max', dataFim);
+
+                // Quando o cliente escolher a data do servico, é decrementado 3 horas do horário
+
+                // Referenciar o btn eviar
+                const btnEnviar = document.querySelector("#btn-aceitar-servico");
+
+                // Pega o evento de click
+                btnEnviar.onclick = () => {
+                    // Decrementa 3 horas do horário escolhido
+                    inputEscolherDatas.stepDown(180);
+                };
+            } else {
+                // Caso o prestador ainda não tenha escolhido o intervalo das datas, o input fica oculto
+
+                // Mudar o conteúdo da label
+                labelData.innerText = "Nenhuma data foi escolhida ainda";
+
+                // Ocultar o input
+                inputEscolherDatas.style = "display: none";
+            }
 
             // AppendChild ===================================================
 
@@ -120,14 +143,38 @@ function escolherData(servico, tipoUser) {
             // Adicionar os inputs e as labels para escolher o horário na divEscolherData
             divEscolherData.appendChild(divInputDate);
             divEscolherData.appendChild(divInputHour);
+
+            if (servico.data_inicio) {
+                // Se o prestador já estiver escolhido o intervalo de datas, elas são exibidas no input porém não será possível alterá-las
+                inputEscolherDataInicio.value = servico.data_inicio.split("T")[0];
+                inputEscolherDataFim.value = servico.data_fim.split("T")[0];
+                inputEscolherHorarioInicio.value = servico.horario_inicio;
+                inputEscolherHorarioFim.value = servico.horario_fim;
+
+                // Desabilita todos os inputs
+                inputEscolherDataInicio.setAttribute("disabled", true);
+                inputEscolherDataFim.setAttribute("disabled", true);
+                inputEscolherHorarioInicio.setAttribute("disabled", true);
+                inputEscolherHorarioFim.setAttribute("disabled", true);
+
+                // Referencia od hud btn
+                const btnEnviar = document.querySelector("#btn-aceitar-servico");
+
+                // Oculta o hud btn
+                btnEnviar.style = "display: none";
+            }
         }
     } else {
-        // Formatar a data e horário do serviço
-        var data_escolhida = formatarData(servico.data_servico, "dd/mm/aaaa");
-        var horario_escolhido = formatarHorario(servico.horario, "hh:mm");
+        // Se o usuário for prestador, os btns são ocultos
+        if (tipoUser != '1') {
+            // Referencia od hud btn
+            const btnEnviar = document.querySelector("#btn-aceitar-servico");
 
-        // Criar uma string para sr adicionada na página
-        const stringDataEscolhida = data_escolhida + " às " + horario_escolhido;
+            // Oculta o hud btn
+            btnEnviar.style = "display: none";
+        }
+        // Formatar a data e horário do serviço
+        const stringDataEscolhida = formatarDataHora(servico.data_servico, servico.data_servico.split("T")[1]);
 
         // Criar o elemento
         const pDataEscolhida = criarElementos("p", "data-escolhida", null, stringDataEscolhida);

@@ -40,8 +40,7 @@ module.exports = {
             servico.data_fim = req.body.data_fim;
             servico.horario_inicio = req.body.horario_inicio;
             servico.horario_fim = req.body.horario_fim;
-            servico.data_servico = req.body.data_servico;
-            servico.horario = req.body.horario_servico;
+            servico.data_servico = req.body.data_escolhida;
             servico.comprovante_pagamento = req.body.comprovante;
 
             // Se houver comprovante, a data do pagamento é salva no banco de dados
@@ -71,7 +70,7 @@ module.exports = {
             // Salva os registros alterados no banco de dados
             await servico.save().then(() => {
                 // Redireciona para a página principal
-                res.redirect('/');
+                res.redirect('/perfil');
             })
         } catch (error) {
             console.log(error)

@@ -195,7 +195,7 @@ $(document).ready(function() {
 
             const btnOrcamento = document.querySelector("#contratar-servico");
             btnOrcamento.onclick = () => {
-                completaInput(getCookie('idUser'), data.cod_user);
+                completaInput(getCookie('idUser'), urlParams.get('cod_prestador'));
             }
         })
     });
@@ -208,12 +208,12 @@ $(document).ready(function() {
     }
 })
 
-function completaInput(cod_user, cod_prestador) {
+function completaInput(cod_contratante, cod_prestador) {
     const input_cod_servico = document.querySelector("#input_cod_servico");
     input_cod_servico.value = Math.floor(Date.now() * Math.random()).toString(36);
 
     const input_cod_contratante = document.querySelector("#input_cod_contratante");
-    input_cod_contratante.value = getCookie('idUser');
+    input_cod_contratante.value = cod_contratante;
 
     const input_cod_prestador = document.querySelector("#input_cod_prestador");
     input_cod_prestador.value = cod_prestador;

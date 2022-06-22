@@ -41,9 +41,9 @@ async function getUserRating(userId) {
     }
 }
 
-async function getServico(cod_servico, cod_user) {
+async function getAvgRating(cod_avaliado) {
     try {
-        const response = await fetch(`http://localhost:8786/api/agendamento/?cod_servico=${cod_servico}&cod_user=${cod_user}`);
+        const response = await fetch(`http://localhost:8786/api/user-datas/avg-rating/?cod_avaliado=${cod_avaliado}`);
         const data = await response.json();
 
         return data;
@@ -52,7 +52,7 @@ async function getServico(cod_servico, cod_user) {
     }
 }
 
-async function getServicoEspecifico(cod_servico) {
+async function getServico(cod_servico) {
     try {
         const response = await fetch(`http://localhost:8786/api/agendamento/servico/?cod_servico=${cod_servico}`);
         const data = await response.json();

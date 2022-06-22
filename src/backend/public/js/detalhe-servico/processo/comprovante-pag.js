@@ -9,22 +9,30 @@ function comprovantePagamento(servico, tipoUser) {
     // Criação da div para armazenar a label e o input
     const divComprovante = criarElementos("div", null, "divComprovante", null);
 
-    if (tipoUser == "1" && servico.comprovante_pagamento == null) {
-        // Criação do btn para download do comprovante de pagamento
-        const btnComprovante = criarInputs("btn-comprovante", "file", null);
+    if (servico.comprovante_pagamento == null) {
+        if (tipoUser == '1') {
+            // Criação do btn para download do comprovante de pagamento
+            const btnComprovante = criarInputs("btn-comprovante", "file", null);
 
-        // Adicionando a exenção dos arquivos aceitos
-        btnComprovante.setAttribute("accept", ".pdf, .png, .jpg, .jpeg");
+            // Adicionando a exenção dos arquivos aceitos
+            btnComprovante.setAttribute("accept", ".pdf, .png, .jpg, .jpeg");
 
-        // Adicionando um name para o btn
-        btnComprovante.setAttribute("name", "comprovante");
+            // Adicionando um name para o btn
+            btnComprovante.setAttribute("name", "comprovante");
 
-        // Criação da label para o btn
-        const label = criarLabels("labelComprovante", "btn-comprovante", `Upload Comprovante <i class="fa-solid fa-upload"></i>`);
+            // Criação da label para o btn
+            const label = criarLabels("labelComprovante", "btn-comprovante", `Upload Comprovante <i class="fa-solid fa-upload"></i>`);
 
-        // Adicionando o btn criado na página
-        divComprovante.appendChild(label);
-        divComprovante.appendChild(btnComprovante);
+            // Adicionando o btn criado na página
+            divComprovante.appendChild(label);
+            divComprovante.appendChild(btnComprovante);
+        } else {
+            // Cria um elemento com uma mensagem
+            const mensagem = criarElementos('p', null, "msg-semOrcamento", "Ainda não há comprovante de pagamento");
+
+            // Adicionando o elemento criado na página
+            divComprovante.appendChild(mensagem);
+        }
     } else {
         // Criação do btn para download do comprovante de pagamento
         const btnComprovante = criarElementos("a", "btn-comprovante", null, `Baixar Comprovante <i class="fa-solid fa-download"></i>`);

@@ -109,7 +109,10 @@ function tabelaServicos(cod_user, data) {
         // Criação da coluna da data do cabeçalho
         const colunaDataTupla = document.createElement("td");
         colunaDataTupla.id = `data-${data.data_servico}`;
-        colunaDataTupla.innerText = formatarData(data.data_servico, data.horario);
+        if (data.data_servico)
+            colunaDataTupla.innerText = formatarDataHora(data.data_servico, data.data_servico.split("T")[1]);
+
+        console.log(data)
 
         // Criação da coluna do status do cabeçalho
         const colunaStatusTupla = document.createElement("td");

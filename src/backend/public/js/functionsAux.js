@@ -208,3 +208,51 @@ function criarBtns(type, id, classe, content) {
     // Retornar o input criado
     return btn;
 }
+
+// Função para converter PDF em base64
+var base64;
+
+function convertToBase64() {
+    //Read File
+    var selectedFile = document.getElementById("").files;
+    //Check File is not Empty
+    if (selectedFile.length > 0) {
+        // Select the very first file from list
+        var fileToLoad = selectedFile[0];
+        // FileReader function for read the file.
+        var fileReader = new FileReader();
+
+        // Onload of file read the file content
+        fileReader.onload = function(fileLoadedEvent) {
+
+            base64 = fileLoadedEvent.target.result;
+            // Print data in console
+
+            console.log(base64);
+        };
+        // Convert data to base64
+        fileReader.readAsDataURL(fileToLoad);
+    }
+}
+var b64;
+var indice = 0;
+
+function baixar() {
+
+}
+var url = "";
+
+function demo1() {
+    console.log("Este é o indice:", indice)
+    var doc = new jsPDF();
+    doc.addPage();
+    doc.text(20, 20, 'Hello world!');
+    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+
+    // Making Data URI
+    var iframe = "<iframe width='100%' height='100%' src='" + base64 + "'></iframe>"
+    var x = window.open();
+    x.document.open();
+    x.document.write(iframe);
+    x.document.close();
+}

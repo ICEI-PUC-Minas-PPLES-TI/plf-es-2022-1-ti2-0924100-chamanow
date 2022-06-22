@@ -3,30 +3,50 @@ function orcamento(data, tipoUser) {
     const divOrcamento = document.createElement("div");
     divOrcamento.className = "div-orcamento";
 
-    if (tipoUser == '1' || data.valor_orcamento != null) {
+    if (data.valor_orcamento != null) {
         // Adicionando o btn criado na página
-        divOrcamento.appendChild(orcamentoCliente());
-    } else {
-        // Criação da label para o btn
-        const label = document.createElement("label");
-        label.setAttribute("for", "btn-orcamento");
+        divOrcamento.appendChild(orcamentoCliente(data));
 
-        // Adicionando o conteúdo do btn
-        label.innerHTML = `Upload Orçamento <i class="fa-solid fa-upload"></i>`;
+        // Criação de um elemento que mostra o valor do orçamento do serviço
+        const valorOrcamento = criarElementos('p', null, "valor_orcamento", `Valor do Orçamento: R$ ${data.valor_orcamento}`);
 
-        // Criação do btn para download do orçamento
-        const btnOrcamento = criarInputs("btn-orcamento", "file", "orcamento");
-
-        // Adicionando o local onde será armazenado o arquivo no banco de dados
-        btnOrcamento.setAttribute("accept", "");
-
-        // Criação do input para o prestador adicionar o valor do orçamento para o serviço
-        const valorOrcamento = criarInputs("valor-orcamento", "number", "valor_orcamento", "Valor do Orçamento");
-
-        // Adicionando o btn criado na página
-        divOrcamento.appendChild(label);
-        divOrcamento.appendChild(btnOrcamento);
+        // Adiciona o valor do orçamento na página
         divOrcamento.appendChild(valorOrcamento);
+    } else {
+        if (tipoUser != '1') {
+            // Criação da label para o btn
+            const label = document.createElement("label");
+            label.setAttribute("for", "btn-orcamento");
+
+            // Adicionando o conteúdo do btn
+            label.innerHTML = `Upload Orçamento <i class="fa-solid fa-upload"></i>`;
+
+            // Criação do btn para download do orçamento
+            const btnOrcamento = criarInputs("btn-orcamento", "file", "orcamento");
+
+            // Adicionando o local onde será armazenado o arquivo no banco de dados
+            btnOrcamento.setAttribute("accept", "");
+
+            // Criação do input para o prestador adicionar o valor do orçamento para o serviço
+            const valorOrcamento = criarInputs("valor-orcamento", "number", "valor_orcamento", "Valor do Orçamento");
+
+            // Adicionando o btn criado na página
+            divOrcamento.appendChild(label);
+            divOrcamento.appendChild(btnOrcamento);
+            divOrcamento.appendChild(valorOrcamento);
+        } else {
+            // Cria um elemento com uma mensagem
+            const mensagem = criarElementos('p', null, "msg-semOrcamento", "Ainda não há orçamento");
+
+            // Adicionando o elemento criado na página
+            divOrcamento.appendChild(mensagem);
+
+            // Referenciar o hud de btns
+            const btnEnviar = document.querySelector("#btn-aceitar-servico");
+
+            // Oculta o hud de btns
+            btnEnviar.style = "display: none";
+        }
     }
 
     // Adição dos elementos criados na div 
@@ -34,7 +54,7 @@ function orcamento(data, tipoUser) {
     divPrincipalOrcamento.appendChild(divOrcamento);
 }
 
-function orcamentoCliente() {
+function orcamentoCliente(data) {
     // Criação do btn para download do orçamento
     const btnOrcamento = criarElementos("a", "btn-orcamento", "titulo-orcamento", `Baixar Orçamento <i class="fa-solid fa-download"></i>`);;
 
@@ -42,7 +62,7 @@ function orcamentoCliente() {
     btnOrcamento.setAttribute("name", "btn-orcamento");
 
     // Adicionando a href de download do arquivo
-    btnOrcamento.setAttribute("href", "");
+    btnOrcamento.setAttribute("href", data.orcamento);
 
     // Adicionando o nome do arquivo de download
     btnOrcamento.setAttribute("download", "Orçamento.pdf");
@@ -51,7 +71,7 @@ function orcamentoCliente() {
 }
 
 function data_Orcamento(tipoUser) {
-    $("#btn-aceitar-servico").click(function() {
+    $("#btn-aceitar-servico").click(() => {
         orcamento(0, tipoUser);
 
         this.parentNode.removeChild(this);
@@ -62,10 +82,6 @@ function data_Orcamento(tipoUser) {
         // Adicionar o btn criado na divBtnHud
         const divBtnHub = document.querySelector(".btn-hud");
         divBtnHub.appendChild(btnEnviarOrcamento);
-
-        $("#btn-enviar-orcamento").click(function() {
-            window.location.assign(PERFIL_URL);
-        })
     })
 }
 

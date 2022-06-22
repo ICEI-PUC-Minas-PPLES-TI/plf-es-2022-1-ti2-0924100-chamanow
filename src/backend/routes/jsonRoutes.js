@@ -196,12 +196,10 @@ apiRoutes.post('/user-datas/user-infos/user-login', async(req, res) => {
 //Rota para as avaliações de um usuario
 apiRoutes.get('/user-datas/avg-rating/', async(req, res) => {
     try {
-        const media_avaliacao = req.query.cod_avaliado;
-
         const data = await connection.query(
             `SELECT AVG(nota) AS nota\
             FROM avaliacaos\
-            WHERE cod_avaliado = "${media_avaliacao}"`, { type: QueryTypes.SELECT }
+            WHERE cod_avaliado = "${req.query.cod_avaliado}"`, { type: QueryTypes.SELECT }
         );
 
         return res.status(200).json(data);
@@ -223,24 +221,6 @@ apiRoutes.get('/user-datas/rating/last-rating/', async(req, res) => {
         return res.status(200).json(data);
     } catch (error) {
         console.error(error);
-    }
-})
-
-apiRoutes.get('/agendamento/', async(req, res) => {
-    try {
-        const data = await connection.query(
-            `SELECT A.nome, A.cod_user, AVG(B.nota) AS media_nota, A.regiao_atuacao, C.descricao, B.cod_avaliador, C.cod_status, C.cod_contratante, C.endereco\
-            FROM usuarios AS A JOIN avaliacaos AS B\
-            ON A.cod_user = B.cod_avaliado\
-            JOIN agendamentos AS C\
-            ON A.cod_user = C.cod_contratante OR A.cod_user = C.cod_prestador\
-            WHERE C.cod_servico = '${req.query.cod_servico}'
-            AND (C.cod_contratante = '${req.query.cod_user}' OR C.cod_prestador = '${req.query.cod_user}')\
-            GROUP BY C.cod_servico`, { type: QueryTypes.SELECT }
-        )
-        return res.status(200).json(data);
-    } catch (error) {
-        console.log("Error: " + error);
     }
 })
 
