@@ -380,12 +380,15 @@ function regiaoAtuacao() {
     selectServico.innerHTML = `<option value="" selected>Selecionar Servico(s)</option>`;
     selectServico.setAttribute("required", "");
 
-    for (var i = 1; i <= 10; i++) {
-        const option = document.createElement('option');
-        option.value = i * 10;
-        option.innerText = `Item ${i}`;
-        selectServico.appendChild(option);
-    }
+    const servicos = getAllServices();
+    servicos.then(servicos => {
+        servicos.forEach(servico => {
+            const option = document.createElement('option');
+            option.value = servico.cod_tipo;
+            option.innerText = servico.nome;
+            selectServico.appendChild(option);
+        })
+    })
 
     // Criação da label para a Seleção doS Serviço
     const labelSelecaoServico = document.createElement('label');
