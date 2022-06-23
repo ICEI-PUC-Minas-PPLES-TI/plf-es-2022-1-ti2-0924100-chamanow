@@ -146,6 +146,11 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 ### Processo 1 – Cadastro do Usuário
 
+**Escolher tipo de usuario**
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Tipo de Usuário | Seleção única |  |  |
+
 **Inserir informações de login**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
@@ -157,29 +162,28 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 **Inserir endereço e contato**
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-|  Telefone  |  Número  | Formato de celular |  |
-| CEP | Número | Formato CEP |  |
+| Telefone  |  Número  |  |  |
+| CEP | Número |  |  |
 | Rua | Caixa de Texto |  |  |
 | Número | Número |  |  |
 | Bairro | Caixa de Texto |  |  |
 | Cidade | Caixa de Texto |  |  |
 | Estado | Seleção única |  |  |
-| Tipo de Usuário | Seleção única |  |  |
 
 **Inserir dados pessoais**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Nome completo | Caixa de Texto | Pelo menos dois nomes |  |
+| Nome completo | Caixa de Texto |  |  |
 | Data de Nascimento | Data | Mínimo 18 anos |  |
-| CPF | Número | Formato de CPF |  |
+| CPF | Número |  |  |
 
 **Inserir dados da Empresa**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Nome da Empresa | Caixa de Texto | Máximo 100 caracteres |  |
-| CNPJ |  Número  | Formato CNPJ |  |
+| CNPJ |  Número  |  |  |
 
 **Selecionar serviços e área de atuação**
 
@@ -204,69 +208,47 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Escolher profissional | Seleção única |  |  |
+
+**Detalhar o problema**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| CEP | Número |  |  |
+| Rua | Caixa de Texto |  |  |
+| Número | Número |  |  |
+| Bairro | Caixa de Texto |  |  |
+| Cidade | Caixa de Texto |  |  |
 | Detalhar problema | Área de texto | Máximo 500 caracteres |  |
-
-**Receber informações do usuário e o problema**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Aceitar serviço? | Link | SIM/NÃO |  |
-
-**Receber mensagem de cancelamento**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Refazer escolha? | Link | SIM/NÃO |  |
 
 **Enviar orçamento**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Preço | Número |  | 00,00 |
-| Detalhar orçamento | Área de texto | Máximo 500 caracteres |  |
-| Enviar arquivo | Arquivo | PDF,PNG,JPEG - até 10mb  |  |
+| Valor do orçamento | Número |  | 00,00 |
+| Enviar arquivo | Arquivo | PDF,PNG,JPEG - até 50KB |  |
 
-**Receber orcamento do profissional**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Aceitar orçamento? | Link | SIM/NÃO |  |
-
-**Selecionar datas disponíveis**
+**Selecionar datas disponíveis - Prestador**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Data | Múltipla escolha | DD/MM/AA |  |
-| Horário | Número | 00:00 |  |
+| Data Início | Data | Data atual |  |
+| Data Fim | Data | Data atual |  |
+| Horário Início | Horário | 00:00 |  |
+| Horário Fim | Horário | 23:59 |  |
 
-**Escolher data**
+**Escolher data - Cliente**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Data | Seleção única | DD/MM/AA |  |
-| Horário | Seleção única | 00:00  |  |
+| Datas Disponíveis | Data e Horário | Intervalo estabelecido pelo prestador |  |
 
  ---
-
-### Processo 3 - Realização do Serviço
-
-**Receber lembrete de serviço agendado**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Serviço agendado. Cancelar? | Link |  |  |
 
 **Enviar o comprovante**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Fazer upload do comprovante | Arquivo | Arquivo de até 10MB |  |
-
-**Confirmar que não há pendências**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Existe alguma pendência? | Seleção única |  |  |
 
 ### Processo 4 - Avaliação do usuário
 
