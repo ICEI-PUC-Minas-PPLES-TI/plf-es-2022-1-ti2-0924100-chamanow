@@ -1,19 +1,5 @@
 /* ========== Formatações Gerais ==========*/
 
-:root {
-    --bg: #999999;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: var(--color-text);
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --secondary-color: #FF6B00;
-    --star-color: #FFE500;
-    --color-input: #EDEDED;
-    --invalid-input: #FA2929;
-    transition: all 0.3s linear;
-}
-
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -85,7 +71,7 @@ body {
 
 #cadastrar:hover {
     background: var(--color-text);
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-weight: 500;
 }
 
@@ -119,6 +105,9 @@ body {
 }
 
 #formDados {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     width: 500px;
     margin: 50px auto 0;
     color: var(--color-text);
@@ -148,16 +137,17 @@ body {
 #entrar {
     border: none;
     border-radius: 30px;
+    margin: 30px 0 0 auto;
     padding: 5px 25px;
     background-color: var(--secondary-color);
     color: var(--color-text);
-    box-shadow: 0 0 15px black;
     transition: all 0.2s;
 }
 
 #entrar:hover {
     background-color: var(--color-text);
     color: var(--secondary-color);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
 }
 
 .cadastrarMobile {

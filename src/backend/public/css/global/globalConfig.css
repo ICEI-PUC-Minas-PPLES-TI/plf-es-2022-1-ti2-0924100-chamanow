@@ -16,7 +16,14 @@
     --invalid-input: #DA2929;
     --right-color: #20E300;
     --wrong-color: #FF3737;
-    --yellow-color: #FFD600;
+    --rating-btn: #ffd000;
     --transition: all 0.1s linear;
     --box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+}
+
+
+/* Todos os btns */
+
+button {
+    cursor: pointer;
 }

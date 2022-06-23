@@ -112,8 +112,6 @@ function tabelaServicos(cod_user, data) {
         if (data.data_servico)
             colunaDataTupla.innerText = formatarDataHora(data.data_servico, data.data_servico.split("T")[1]);
 
-        console.log(data)
-
         // Criação da coluna do status do cabeçalho
         const colunaStatusTupla = document.createElement("td");
         const spanStatus = document.createElement("span");
@@ -150,16 +148,18 @@ function trClicada(data, cod_user) {
         const element = e.target;
         const nodeElement = element.closest("tr");
 
-        // Carrega os dados da tr clicada no modal
-        dadosModel(nodeElement, cod_user);
 
         // Verifica se o usuario já foi avaliado em um determinado serviço
         const avaliacoes = getRatingByService(nodeElement.id, cod_user);
         avaliacoes.then((rating) => {
+            // Carrega os dados da tr clicada no modal
+            dadosModel(nodeElement, cod_user, rating);
+
             if (rating)
                 dadosModelVisualizarAvaliacao(nodeElement, rating);
             else
                 dadosModelAvaliar(nodeElement);
+
 
             for (let service of data) {
                 var codServico = service.cod_servico;
@@ -189,7 +189,7 @@ function trClicada(data, cod_user) {
     })
 }
 
-function dadosModel(nodeElement, cod_user) {
+function dadosModel(nodeElement, cod_user, rating) {
     // Adicionar link para acessar os detalhes do serviço clicado
     const service = document.querySelector("#servicoUrl");
     service.setAttribute("href", `/perfil/servicos?cod_servico=${nodeElement.id}&cod_user=${cod_user}`)
@@ -208,9 +208,17 @@ function dadosModel(nodeElement, cod_user) {
 
     // Adicionar o serviço realizado no modal
     const dataServico = document.querySelector(".data-servico");
-    dataServico.innerText = "Data: " + nodeElement.childNodes[3].textContent;
-
+    if (nodeElement.childNodes[3].textContent)
+        dataServico.innerText = "Data: " + nodeElement.childNodes[3].textContent;
+    else
+        dataServico.innerText = "Data: A data ainda nção foi marcada";
     // Adicionar o serviço realizado no modal
     const status = document.querySelector(".status");
     status.innerText = "Status do serviço: " + nodeElement.childNodes[4].textContent;
+
+    // Se o usuário daquele servico já foi avliado, o btn muda
+    if (rating) {
+        const btnAvaliar = document.querySelector("#btn-enviar-avaliacao");
+        btnAvaliar.innerHTML = `Avaliado <i class="fa-solid fa-star"></i>`;
+    }
 }

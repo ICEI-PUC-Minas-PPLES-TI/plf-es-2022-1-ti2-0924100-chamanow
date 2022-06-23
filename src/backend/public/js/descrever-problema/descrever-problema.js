@@ -148,7 +148,7 @@ function criarListaAvaliacoes(data) {
     return divAvaliacoes;
 }
 
-$(document).ready(function() {
+$(document).ready(() => {
     // Muda a logo em dispositivos com display menor que 1000px
     logoMobile();
 
@@ -157,7 +157,7 @@ $(document).ready(function() {
 
     // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
     if (!idUser)
-        alterarHeaderDeslogado();
+        window.location.href = "/login";
     else {
         const user = getUserData(idUser);
         user.then(user => {

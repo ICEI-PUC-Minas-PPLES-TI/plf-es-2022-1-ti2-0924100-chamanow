@@ -100,26 +100,6 @@ body {
     color: var(--secondary-color);
 }
 
-.servicoNotify {
-    display: block;
-    position: relative;
-}
-
-#notification {
-    display: block;
-    position: absolute;
-    top: -5px;
-    left: 60px;
-    line-height: 16px;
-    height: 16px;
-    padding: 0 5px;
-    color: var(--color-text);
-    font-size: 13px;
-    border: none;
-    border-radius: 10px;
-    background: var(--secondary-color);
-}
-
 
 /* Conteúdo da seção */
 
@@ -187,8 +167,13 @@ td span {
 }
 
 #status-pendente {
-    color: #F4CD00;
-    background-color: #fff3b9;
+    color: #002df4;
+    background-color: #b7c4ff;
+}
+
+#status-nao-pago {
+    color: #f46e00;
+    background-color: #f1ae78;
 }
 
 
@@ -299,3 +284,81 @@ input[type=number] {
 
 
 /* Modal de Servico */
+
+.nome-usuario,
+.nome-usuario-avaliacao {
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+#servicoUrl {
+    text-decoration: none;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-footer button,
+.btns-modal-avaliacao button {
+    background-color: var(--primary-color);
+    margin: 0;
+    padding: 7px 15px;
+    border: none;
+    font-size: 15px;
+    color: var(--color-text);
+    border-radius: 50px;
+    transition: all .2s;
+}
+
+.modal-footer button:hover,
+.btns-modal-avaliacao button:hover {
+    background-color: var(--color-text);
+    color: var(--primary-color);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+}
+
+#btn-enviar-avaliacao {
+    background-color: var(--rating-btn);
+    margin-left: 20px;
+}
+
+#btn-enviar-avaliacao:hover {
+    background-color: var(--color-text);
+    color: var(--rating-btn);
+}
+
+
+/* Modal Avaliacao*/
+
+.body-avaliacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-avaliacao {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#comentario-avaliacao {
+    margin: 25px auto 0;
+    border: none;
+    border-radius: 15px;
+    padding: 7px 15px;
+    background-color: var(--color-input);
+    width: 90%;
+}
+
+.btns-modal-avaliacao {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px auto 0;
+}

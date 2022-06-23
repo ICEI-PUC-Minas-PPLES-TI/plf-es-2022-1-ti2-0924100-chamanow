@@ -110,10 +110,6 @@ function init(data) {
             }
         })
     })
-
-    $("#logout").click(() => {
-        document.cookie = "idUser=; expires=1970-01-01T00:00:00.000Z;";
-    })
 }
 
 $(document).ready(() => {
@@ -133,4 +129,9 @@ $(document).ready(() => {
         const btnCadastrarProfissional = document.querySelector("#cadastroPrestador");
         btnCadastrarProfissional.style = "display: none";
     }
+
+    $("#logout").click(() => {
+        document.cookie = `idUser=; expires=1970-01-01T00:00:00.000Z;`;
+        window.location.replace("/");
+    })
 })

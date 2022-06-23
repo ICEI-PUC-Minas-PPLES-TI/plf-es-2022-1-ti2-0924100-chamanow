@@ -274,6 +274,18 @@ function mostraServicos() {
                     // Adiciona o card na divPrestadores
                     divPrestadores.appendChild(card);
                 })
+
+                // Caso o usuário não esteja logado, ele é redirecionado para a tela de login
+                const btnContratar = document.querySelectorAll("#card-button");
+                $(".card button").click = (e) => {
+                    // Pausa o evento do btn
+                    e.preventDefault();
+
+                    // Redireciona o usuario para o login
+                    if (!getCookie('idUser'))
+                        console.log(e.target)
+                        //window.location.href = '/login';
+                }
             })
 
             // Refencia o btn de voltar

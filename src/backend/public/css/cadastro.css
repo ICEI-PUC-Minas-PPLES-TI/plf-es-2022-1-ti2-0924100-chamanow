@@ -1,16 +1,5 @@
 /* ========== Formatações Gerais ==========*/
 
-:root {
-    --bg: #999999;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: #fff;
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --secondary-color: #ff6b00;
-    transition: all 0.3s linear;
-}
-
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -33,18 +22,21 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 100px;
 }
 
 .escolherUsuario button {
-    margin: 100px 25px 0;
-    padding: 20px 30px;
-    border-color: var(--bg);
-    border-radius: 5px;
-    background-color: var(--bg-rating);
-    transition: all .3s linear;
+    margin: 0 25px 0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-input);
+    transition: all .2s linear;
 }
 
 .escolherUsuario button:hover {
+    border-bottom: 2px solid var(--primary-color);
+    cursor: pointer;
     transform: translateY(-7px);
 }
 
@@ -95,15 +87,15 @@ body {
     background: none;
     padding: 5px 15px;
     width: 120px;
-    border: 2px solid #FFF;
+    border: 2px solid var(--color-text);
     border-radius: 50px;
-    color: white;
+    color: var(--color-text);
     transition: all 0.2s;
 }
 
 #entrarLogin:hover {
-    background: #FFF;
-    color: #4939FF;
+    background: var(--color-text);
+    color: var(--secondary-color);
     font-weight: 500;
 }
 
@@ -158,7 +150,7 @@ input[type=number] {
 .tituloDados {
     font-weight: 700;
     font-size: 25px;
-    color: #4939FF;
+    color: var(--primary-color);
 }
 
 .subtituloDados {
@@ -168,119 +160,75 @@ input[type=number] {
     margin-top: 20px;
 }
 
-#formDados {
+#formUser {
     width: 85%;
     margin: 50px auto 0;
-    color: #fff;
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-
-/* Animações do form */
-
-@keyframes surgir {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes desaparecer {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-}
-
-#formDados input {
+#formUser input {
     margin-top: 25px;
     border: none;
     border-radius: 30px;
     padding: 7px 30px;
-    background-color: #EDEDED;
+    background-color: var(--color-input);
 }
 
-#formDados input:focus {
+#formUser input:focus {
     border: none;
     box-shadow: none;
 }
 
-#formDados label {
+#formUser label {
     margin: 0 0 5px;
     color: var(--color-text-secondary);
 }
 
-#formDados select {
+#formUser select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     border: none;
     border-radius: 30px;
     padding: 7px 30px;
-    background-color: #EDEDED;
+    background-color: var(--color-input);
 }
 
 #selectServico {
     margin-bottom: 25px;
 }
 
-#formDados select:hover {
+#formUser select:hover {
     border: none;
     border-style: none;
 }
 
-#formDados select:focus {
+#formUser select:focus {
     border: none;
     box-shadow: none;
 }
 
-.btns {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    width: 65%;
-}
-
-#voltar {
-    border: none;
-    border-radius: 30px;
-    padding: 5px 15px;
-    background-color: #2B2B2B;
-    color: #FFF;
-    letter-spacing: 1.2px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s;
-}
-
-#voltar:hover {
-    background-color: #FFF;
-    color: #2B2B2B;
-}
-
-#proximo {
-    border: none;
-    border-radius: 30px;
-    padding: 5px 15px;
-    background-color: #FF7033;
-    color: #FFF;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s;
-}
-
-#proximo:hover {
-    background-color: #FFF;
-    color: #FF7033;
-}
-
 .loginMobile {
     display: none;
+}
+
+#confirmar {
+    border: none;
+    border-radius: 30px;
+    margin: 30px 0 0 auto;
+    padding: 5px 25px;
+    background-color: var(--secondary-color);
+    color: var(--color-text);
+    transition: all 0.2s;
+}
+
+#confirmar:hover {
+    background-color: var(--color-text);
+    color: var(--secondary-color);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
 }
 
 @media screen and (max-width: 900px) {
@@ -295,8 +243,8 @@ input[type=number] {
         margin-top: 30px;
     }
     .backgroundMobile {
-        background-color: #4939FF;
-        color: #FFF;
+        background-color: var(--primary-color);
+        color: var(--color-text);
     }
     .login {
         display: none;
@@ -314,12 +262,12 @@ input[type=number] {
     }
     .tituloDados {
         margin-top: 30px;
-        color: #FFF;
+        color: var(--color-text);
     }
     .subtituloDados {
-        color: #FFF;
+        color: var(--color-text);
     }
-    #formDados {
+    #formUser {
         width: 100%;
     }
     .divCEP {
@@ -330,7 +278,7 @@ input[type=number] {
     .divEstado {
         margin-top: 15px;
     }
-    #formDados label {
+    #formUser label {
         color: var(--color-text);
     }
     .labelSelecaoEstado {
@@ -342,6 +290,6 @@ input[type=number] {
     }
     #linkLoginMobile {
         text-decoration: none;
-        color: #FF7033;
+        color: var(--secondary-color);
     }
 }

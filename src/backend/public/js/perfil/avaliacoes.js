@@ -143,16 +143,19 @@ function dadosModelAvaliar(nodeElement) {
     divAvalicao.appendChild(ulEstrelas);
 
     // Criar o form do comentário
-    const formRating = criarElementos("form", null, "form");
+    const formRating = criarElementos("form", null, "form-avaliacao");
     formRating.setAttribute("action", "/perfil/avaliacao");
     formRating.setAttribute("method", "post");
 
     // Criar os inputs
-    const inputAvaliado = criarInputs("inputAvaliado", "hidden", "cod_avaliado");
-    const inputAvaliador = criarInputs("inputAvaliador", "hidden", "cod_avaliador");
-    const inputAgendamento = criarInputs("inputAgendamento", "hidden", "cod_agendamento");
-    const inputRating = criarInputs("inputRating", "hidden", "nota");
-    const inputComentario = criarInputs("comentario-avaliacao", "textarea", "comentario", "Adicionar comentário...");
+    const inputAvaliado = criarInputs('inputAvaliado', "hidden", "cod_avaliado");
+    const inputAvaliador = criarInputs('inputAvaliador', "hidden", "cod_avaliador");
+    const inputAgendamento = criarInputs('inputAgendamento', "hidden", "cod_agendamento");
+    const inputRating = criarInputs('inputRating', "hidden", "nota");
+    const inputComentario = criarElementos('textarea', "comentario-avaliacao", "comentario");
+    inputComentario.placeholder = "Adicionar comentário...";
+    inputComentario.setAttribute("rows", 5);
+    inputComentario.setAttribute("autocomplete", "off");
 
     // Atribuir required para o input de comentário
     inputComentario.setAttribute("required", "");
@@ -163,14 +166,20 @@ function dadosModelAvaliar(nodeElement) {
 
     const btnAvaliar = criarBtns("submit", "btn-enviar-avaliacao", null, `Enviar <i class="fa-solid fa-chevron-right"></i>`);
 
+    // Criar o elemento que vai conter os btns criados
+    const divBtn = criarElementos('div', null, "btns-modal-avaliacao")
+
+    // Adicionar os btns na divBtn
+    divBtn.appendChild(btnSair);
+    divBtn.appendChild(btnAvaliar);
+
     // Adicionar os elementos criados no form
     formRating.appendChild(inputAvaliado);
     formRating.appendChild(inputAvaliador);
     formRating.appendChild(inputAgendamento);
     formRating.appendChild(inputRating);
     formRating.appendChild(inputComentario);
-    formRating.appendChild(btnSair);
-    formRating.appendChild(btnAvaliar);
+    formRating.appendChild(divBtn);
 
     // Adicionar os itens criados no corpo do modal
     modalBody.appendChild(nomeUser);
@@ -193,7 +202,10 @@ function dadosModelVisualizarAvaliacao(nodeElement, rating) {
     const divAvalicao = criarElementos("div", null, "avaliacao-usuario");
 
     // Adicionar a nota da avaliação
-    const nota = criarElementos("p", null, "nota-avaliaca", rating.nota)
+    const nota = criarElementos("p", "nota", null, rating.nota);
+
+    // Adicionar o ponto de separação da nota com as estrelas
+    const ponto = criarElementos('span', null, 'ponto');
 
     // Criar a ul para comportar as estrelas
     const ulEstrelas = criarElementos("ul", null, "avaliacao");
@@ -211,11 +223,12 @@ function dadosModelVisualizarAvaliacao(nodeElement, rating) {
 
     // Adicionar a nota e a ulEstrelas dentro da divAvaliação
     divAvalicao.appendChild(nota);
+    divAvalicao.appendChild(ponto);
     divAvalicao.appendChild(ulEstrelas);
 
     // Adicionar o comentário escrito
     const contentComentario = "Comentário: " + rating.comentario;
-    const comentario = criarElementos("p", null, "comentario", contentComentario);
+    const comentario = criarElementos("p", "comentario", null, contentComentario);
 
     // Adicionar os itens criados no corpo do modal
     modalBody.appendChild(nomeUser);
