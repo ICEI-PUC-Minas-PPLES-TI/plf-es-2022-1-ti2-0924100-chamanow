@@ -284,7 +284,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 ### Tecnologias
 
-As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferramentas de modelagem como o Camunda Modeler e o Draw.io, as linguagens voltadas à criação de páginas web como HTML5, CSS3 e o JavaScript, além do Bootstrap como framework auxiliar. A IDE que utilizaremos para o desenvolvimento será o Visual Studio Code. O SGBD escolhido foi o Microsoft SQL Server, sendo utilizada a linguagem SQL. As informações e o código serão documentados pelo GitHub.
+As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferramentas de modelagem como o Camunda Modeler e o Draw.io, as linguagens voltadas à criação de páginas web como HTML5, CSS3 e o JavaScript, além do Node.js e suas bibliotecas, express e sequelize, como framework. A IDE que utilizaremos para o desenvolvimento será o Visual Studio Code. O SGBD escolhido foi o MYSQL, sendo utilizada a linguagem SQL. As informações e o código serão documentados pelo GitHub.
 
 ## 5. Modelo de dados
 
