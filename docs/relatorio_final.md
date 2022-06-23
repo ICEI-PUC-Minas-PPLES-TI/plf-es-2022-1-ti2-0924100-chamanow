@@ -336,6 +336,7 @@ http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
 
 **Colocar link:**
 
+
 Do código (armazenado no repositório);
 
 Dos artefatos (armazenado do repositório);
@@ -343,3 +344,9 @@ Dos artefatos (armazenado do repositório);
 Da apresentação final (armazenado no repositório);
 
 Do vídeo de apresentação (armazenado no repositório).
+
+Links importantes
+
+- [***Código no repositório***](../src/)
+- [***Artefatos***](../assets/)
+- [***Vídeo de Apresentação***]()
