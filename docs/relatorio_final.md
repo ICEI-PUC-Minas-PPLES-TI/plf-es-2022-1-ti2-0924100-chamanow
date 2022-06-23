@@ -302,7 +302,6 @@ Usar o seguinte modelo:
 | --- | --- | --- | --- | --- | --- |
 | Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | (∑(avaliacao_usuario(nota) e avaliacao_usuario(cod_avaliado)) / Count(avalicao_usuario(nota))  | avaliacao_usuario e usuario | Cliente |
 | Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços mensalmente | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento)) - (agendamento(data_servico))) / Count(agendamento(data_servico))  | agendamento | Cliente |
-| Cancelamento | Identificar processos passíveis de melhorias mensalmente | Percentual de processos cancelados em relação ao total de serviços executados |  (∑(agendamento(status) = cancelado) / ∑(agendamento(status) = concluído) * 100  | agendamento | Otimização de processos |
 | Cadastro de Usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | (∑(usuario(data_criacao))/∑(usuario(cod_usuario))) * 100 | usuario | Processos internos |
 | Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Processos internos |
 | Serviços mais contratados  |  Analisar quais são os serviços mais contratados | Conta a quantidade de serviços contratados de cada tipo pelos usuário | ∑(agendamento(cod_tipo) ≠ nulo) | agendamento | Cliente |
@@ -324,7 +323,7 @@ Inicialmente, o grupo propôs o desenvolvimento de uma ferramenta que agilizasse
 
 Apesar dos conhecimentos de front-end que o grupo possuía, precisamos buscar por novos aprendizados, sendo o curso de Node.js disponibilizado pelo repositório da Universidade Livre a base para a criação do back-end do sistema.
 
-Não obstante, o projeto estimulou o desenvolvimento também de competências relacionais, aproximando os integrantes do grupo e atiçando debates ricos e variado, necessitando que todos compreendessem o lado um do outro e entrassem em um consenso, além de ouvir as críticas ofertadas pelos professores, Hugo e Joyce, entendê-las e nos aperfeiçoar.
+Não obstante, o projeto estimulou o desenvolvimento também de competências relacionais, aproximando os integrantes do grupo e atiçando debates ricos e variados, necessitando que todos compreendessem o lado um do outro e entrassem em um consenso, além de ouvir as críticas ofertadas pelos professores, Hugo e Joyce, entendê-las e nos aperfeiçoar.
 
 Portanto, o trabalho interdisciplinar foi essencial para aproximar os integrantes do grupo de um ambiente real de trabalho, com prazos de entrega, discussões em grupo, manejo de software em âmbito coletivo e o desenvolvimento pessoal, agregando experiência e refinamento para cada membro do ChamaNow.
 
