@@ -23,8 +23,7 @@ Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Min
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final,
-mostrar algum resultado relevante do trabalho (até 10 linhas)._
+_**Resumo**. O ChamaNow é uma aplicação desenvolvida para web que, buscando agilizar processos, virtualiza a contratação de prestadores de serviços de pequenos reparos por pessoas comuns que, procurando rapidez e facilidade, utilizam a ferramenta como um meio de resolver problemas estruturais em seus domicílios, entrando em contato direto com um prestador escolhido pelo mesmo, com base nos seus próprios requisitos, estimulando assim, a confiança do cliente.
 
 ## 1. Introdução
 
