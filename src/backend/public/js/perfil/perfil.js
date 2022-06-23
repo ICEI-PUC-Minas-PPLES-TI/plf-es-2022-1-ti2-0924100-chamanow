@@ -17,7 +17,7 @@ function init(data) {
 
             // Configura as estrelas de acordo com a nota média
             const stars = document.querySelectorAll(".avaliacao li");
-            stars[mediaNota.toFixed(0) - 1].classList.add("active");
+            stars[nota.toFixed(0) - 1].classList.add("active");
         } else {
             // Se não houver avaliações, elas são ocultas
             const avaliacaoUsuario = document.querySelector(".avaliacao-usuario");
