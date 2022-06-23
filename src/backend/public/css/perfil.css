@@ -161,7 +161,8 @@ td span {
     background-color: #ffd4d4;
 }
 
-#status-concluído {
+#status-concluído,
+#status-concluido {
     color: #00E45B;
     background-color: #bbfdd5;
 }
