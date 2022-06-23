@@ -107,9 +107,6 @@ function criaServicoNP(servico) {
 
 // Função que cria os cards dos prestadores
 function criaCardsNP(prestador, cod_servico) {
-    console.log(prestador)
-    console.log(cod_servico)
-
     // Criação da imagem
     const img_prof = new Image;
     img_prof.src = '/img/3329962-corpo-do-cantor-gusttavo-lima-foi-elogia-opengraph_1200-3.jpg';
@@ -255,7 +252,7 @@ function mostraServicos() {
             // Criação o título e descrição do serviço escolhido ========================
 
             // Identificação do serviço escolhido
-            const servicoClicado = servico.find(dado => dado.cod_tipo = nodeElementId);
+            const servicoClicado = servico.find(dado => dado.cod_tipo == nodeElementId);
 
             // Criação da seção com o título e descrição do serviço escolhido
             const secao = criaServicoNP(servicoClicado);

@@ -98,22 +98,27 @@ $(document).ready(() => {
     // Busca os dados do serviço do escolhido
     const servicoMain = getServico(cod_servico);
     servicoMain.then(service => {
-        console.log(service)
-            // Pega o cod do status do servico
+        // Pega o cod do status do servico
         codStatusServico = service.cod_status;
-
-        // Manipula a página de acordo com o cod do status
-        codServico(codStatusServico);
 
         // Pega o tipo de usuario
         tipoUser = idUser.split("-")[0];
+
+        // Manipula a página de acordo com o cod do status
+        codServico(codStatusServico, tipoUser);
 
         // Gera os dados do perfil
         infoPerfil(service, tipoUser);
 
         // Gera as avaliações
         const divDadosAvaliacoes = document.querySelector("#avaliacoes");
-        const dataAvaliacoes = getAvaliacao(service.cod_user);
+
+        var dataAvaliacoes;
+        if (tipoUser == '1')
+            dataAvaliacoes = getAvaliacao(service.cod_prestador);
+        else
+            dataAvaliacoes = getAvaliacao(service.cod_contratante);
+
         dataAvaliacoes.then(data => {
                 //console.log(data)
                 if (data.length) {
@@ -137,14 +142,23 @@ $(document).ready(() => {
             // Gerar o detalhamento do problema
         detalharProblema(service, tipoUser);
 
-        // Gera a seção de enviar/receber o orçamento
-        orcamento(service, tipoUser);
+        var user;
+
+        if (tipoUser == '1')
+            user = getUserData(service.cod_prestador);
+        else
+            user = getUserData(service.cod_contratante);
+        user.then(user => {
+            // Gera a seção de enviar/receber o orçamento
+            orcamento(service, tipoUser, user);
+
+            // Gera a seção de enviar/receber o comprovante de pagamento
+            comprovantePagamento(service, tipoUser, user);
+        })
+
 
         // Gera a seção de escolher datas
         escolherData(service, tipoUser);
-
-        // Gera a seção de enviar/receber o comprovante de pagamento
-        comprovantePagamento(service, tipoUser);
 
         // Adiciona o atributo required para todos os inputs da página exceto do comprovante de pagamento
         const allInputs = document.querySelectorAll("input");
@@ -158,8 +172,16 @@ $(document).ready(() => {
     })
 })
 
-function codServico(cod_status) {
-    if (cod_status == 3) {
+function codServico(cod_status, tipoUser) {
+    if (tipoUser != '1') {
+        if (cod_status == 3) {
+            // Referencia o btn de Aceitar Serviço
+            const btnConcluirServico = document.querySelector("#btn-aceitar-servico");
+
+            // Altera o conteúdo dele
+            btnConcluirServico.innerHTML = `Concluir <i class="fa-solid fa-check"></i>`;
+        }
+    } else if (cod_status == 2) {
         // Referencia o btn de Aceitar Serviço
         const btnConcluirServico = document.querySelector("#btn-aceitar-servico");
 
@@ -177,6 +199,12 @@ function codServico(cod_status) {
         inputs.forEach(input => {
             input.setAttribute("disabled", "true");
         })
+    }
+
+    if (cod_status == 4) {
+        // Some com os btns
+        const hudBtn = document.querySelector(".btn-hud");
+        hudBtn.style = "display: none";
     }
 }
 

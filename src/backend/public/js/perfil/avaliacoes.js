@@ -110,8 +110,6 @@ function actveStar(idAvaliado, idAvaliador, idAgendamento) {
     });
 }
 
-
-
 function dadosModelAvaliar(nodeElement) {
     // Limpa o corpo do modal para criar um novo
     $(".body-avaliacao").html("");

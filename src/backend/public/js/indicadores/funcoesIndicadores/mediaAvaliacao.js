@@ -108,7 +108,7 @@ function criarListaAvaliacoes(data) {
         const colunaDataNascTupla = document.createElement("td");
         colunaDataNascTupla.id = `dataNasc-${data.cod_usuario}`;
         if (data.data_nascimento)
-            colunaDataNascTupla.innerText = formatarData(data.data_nascimento);
+            colunaDataNascTupla.innerText = formatarDataHora(data.data_nascimento);
         else
             colunaDataNascTupla.innerText = "-";
 

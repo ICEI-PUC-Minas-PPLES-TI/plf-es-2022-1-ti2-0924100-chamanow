@@ -117,7 +117,7 @@ function tabelaServicos(cod_user, data) {
         // Criação da coluna do status do cabeçalho
         const colunaStatusTupla = document.createElement("td");
         const spanStatus = document.createElement("span");
-        spanStatus.id = `status.${data.cod_status}`;
+        spanStatus.id = `status-${data.status.toLowerCase()}`;
         spanStatus.innerText = `${data.status}`;
 
         // Adicionar o spanStatus dentro da coluna status
@@ -173,6 +173,13 @@ function trClicada(data, cod_user) {
                         idAvaliador = cod_user;
                         idAvaliado = service.cod_contratante;
                     }
+
+                    // Some com o botão de avaliação do serviço se ele não estiver concluído
+                    const btnAvaliacao = document.querySelector("#btn-enviar-avaliacao");
+                    if (service.status != "Concluído")
+                        btnAvaliacao.style = "display: none";
+                    else
+                        btnAvaliacao.style = "";
 
                     if (!rating)
                         actveStar(idAvaliado, idAvaliador, codServico);

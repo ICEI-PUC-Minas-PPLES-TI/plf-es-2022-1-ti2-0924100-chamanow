@@ -7,22 +7,13 @@ function init(data) {
 
     // Alterar a nota do usuario
     const notaUser = document.querySelector("#nota");
-    const userRating = getUserRating(cod_user);
+    const userRating = getAvgRating(cod_user);
     userRating.then((rating) => {
-        if (rating) {
-            // Cálculo da média das avaliacoes
-            var mediaNota = 0;
+        const nota = rating[0].nota;
 
-            // Soma as notas das avaliações
-            for (let avaliacao of rating) {
-                mediaNota += avaliacao.nota;
-            }
-
-            // Divide o total pela quantidade de notas
-            mediaNota /= rating.length;
-
+        if (nota) {
             // Adiciona a nota média calculada na página com uma casa decimal
-            notaUser.innerText = mediaNota.toFixed(1);
+            notaUser.innerText = nota.toFixed(1);
 
             // Configura as estrelas de acordo com a nota média
             const stars = document.querySelectorAll(".avaliacao li");
@@ -40,7 +31,7 @@ function init(data) {
     // Alterar a foto de perfil do user, se houver
     // const ft_perfil = document.querySelector("#ftUser");
     // if(data.foto_perfil)
-    //     ft_perfil.setAttribute("src")
+    //     ft_perfil.setAttribute("src", data.foto_perfil)
 
     // Referencia a div com o conteúdo dos menus
     const divDadosMenu = document.querySelector(".dadosMenu");

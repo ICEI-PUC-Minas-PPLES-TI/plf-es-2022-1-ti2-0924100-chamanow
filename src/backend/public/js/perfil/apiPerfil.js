@@ -42,6 +42,17 @@ async function getUserRating(idUser) {
     }
 }
 
+async function getAvgRating(cod_avaliado) {
+    try {
+        const response = await fetch(`http://localhost:8786/api/user-datas/avg-rating/?cod_avaliado=${cod_avaliado}`);
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 async function getUserServicesCliente(idUser) {
     try {
         const response = await fetch(`http://localhost:8786/api/user-datas/services/client/?cod_contratante=${idUser}`);

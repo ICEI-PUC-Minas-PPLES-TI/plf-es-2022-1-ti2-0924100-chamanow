@@ -53,9 +53,8 @@ function graficoTimeService(data) {
 }
 
 function graficoTaxaCancelamento(data) {
-    console.log(data)
-        // Transforma o JSON data em array
-        /*const array = data.map(obj => {
+    // Transforma o JSON data em array
+    /*const array = data.map(obj => {
             return Object.keys(obj).map(key => {
                 return obj[key];
             });

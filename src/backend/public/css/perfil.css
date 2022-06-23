@@ -176,26 +176,17 @@ td span {
     border-radius: 7px;
 }
 
-#tabelaServico tr:nth-child(4n + 1) td:last-child span,
-#cancelado {
+#status-cancelado {
     color: #FF4F4F;
     background-color: #ffd4d4;
 }
 
-#tabelaServico tr:nth-child(4n + 2) td:last-child span,
-#naoPago {
-    color: #FF007F;
-    background-color: #ffc6e3;
-}
-
-#tabelaServico tr:nth-child(4n + 3) td:last-child span,
-#concluido {
+#status-concluído {
     color: #00E45B;
     background-color: #bbfdd5;
 }
 
-#tabelaServico tr:nth-child(4n + 4) td:last-child span,
-#pendente {
+#status-pendente {
     color: #F4CD00;
     background-color: #fff3b9;
 }

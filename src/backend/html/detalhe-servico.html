@@ -41,7 +41,7 @@
 
 <body>
     <header class="site-header">
-        <img id="logo-header" src="/img/Logo-nome.svg" alt="Logo ChamaNow">
+        <img id="logo" src="/img/Logo-nome.svg" alt="Logo ChamaNow">
         <nav class="menu">
             <a href="/cadastro?user=profissional">Sou um Profissa</a>
             <a href="/cadastro">Sign Up</a>
@@ -87,11 +87,14 @@
                 <div class="orcamento">
                     <h2 class="titulo-orcamento">Orçamento</h2>
                     <p id="descricao-orcamento">Envie ou receba seu orçamento por aqui</p>
+                    <input type="hidden" id="hidden-orcamento" name="orcamento_pdf">
                 </div>
                 <div class="escolher-data"></div>
             </div>
 
-            <div class="comprovante"></div>
+            <div class="comprovante">
+                <input type="hidden" id="hidden-comprovante" name="comprovante_pdf">
+            </div>
 
             <div class="btn-hud">
                 <button id="btn-recusar-servico" type="submit" formmethod="post" formaction="">Cancelar Serviço <i class="fa-solid fa-xmark"></i></button>

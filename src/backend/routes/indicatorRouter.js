@@ -32,7 +32,7 @@ indicador.get('/rating/prestadores', async(req, res) => {
 indicador.get('/time-service', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT AVG(DATEDIFF(A.data_pagamento, A.data_solicitacao)) AS tempo_servico_media, B.nome\
+            "SELECT AVG(DATEDIFF(A.data_pagamento, A.created_at)) AS tempo_servico_media, B.nome\
             FROM agendamentos AS A JOIN servicos AS B\
             WHERE A.cod_tipo = B.cod_tipo\
             GROUP BY 2", { type: QueryTypes.SELECT }
@@ -47,9 +47,9 @@ indicador.get('/time-service', async(req, res) => {
 indicador.get('/cancellation-rate', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT data_solicitacao AS data, SUM(status='Cancelado') AS cancelamento\
+            "SELECT created_at AS data, SUM(status='Cancelado') AS cancelamento\
             FROM agendamentos\
-            GROUP BY MONTH(data_solicitacao)\
+            GROUP BY MONTH(created_at)\
             HAVING cancelamento > 0", { type: QueryTypes.SELECT }
         );
         res.status(200).send(data);
@@ -125,7 +125,7 @@ indicador.get('/preco-medio', async(req, res) => {
 indicador.get('/servicos-pendentes', async(req, res) => {
     try {
         const data = await connection.query(
-            `SELECT B.nome, MONTH(A.data_solicitacao) AS mes, YEAR(A.data_solicitacao) AS ano, COUNT(A.status='Pendente') AS servicos_pendentes\
+            `SELECT B.nome, MONTH(A.created_at) AS mes, YEAR(A.created_at) AS ano, COUNT(A.status='Pendente') AS servicos_pendentes\
             FROM agendamentos AS A JOIN servicos AS B\
             ON A.cod_tipo = B.cod_tipo\
             WHERE A.cod_tipo = ${req.query.cod_tipo} AND A.status='Pendente'\

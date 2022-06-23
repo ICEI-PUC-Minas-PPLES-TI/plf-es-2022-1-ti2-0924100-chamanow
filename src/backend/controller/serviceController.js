@@ -35,37 +35,29 @@ module.exports = {
 
             // Atualiza os dados coletados
             servico.valor_orcamento = req.body.valor_orcamento;
-            servico.orcamento = req.body.orcamento;
+            servico.orcamento = req.body.orcamento_pdf;
             servico.data_inicio = req.body.data_inicio;
             servico.data_fim = req.body.data_fim;
             servico.horario_inicio = req.body.horario_inicio;
             servico.horario_fim = req.body.horario_fim;
             servico.data_servico = req.body.data_escolhida;
-            servico.comprovante_pagamento = req.body.comprovante;
+
+            if (req.body.comprovante_pdf != "")
+                servico.comprovante_pagamento = req.body.comprovante_pdf;
 
             // Se houver comprovante, a data do pagamento é salva no banco de dados
-            if (req.body.comprovante)
+            if (req.body.comprovante_pdf)
                 servico.data_pagamento = new Date().toISOString();
 
-            // Variável de controle
-            var atributosNulos = false;
-
-            // Se houver algum valor undefined, ele será null
-            for (let atributo in servico) {
-                if (servico.atributo == undefined) {
-                    atributosNulos = true;
-                    servico.atributo = null;
-                }
-            }
-
             // Verifica o cod do status
-            if (servico.cod_status <= 3) {
+            if (servico.cod_status <= 2) {
                 // Se for menor do que 4, ele é apenas incrementado
-                if (!atributosNulos)
-                    servico.cod_status += 1;
-            } else
-            // Se for igual a 4, o status é alterado para 'Concluído'
+                servico.cod_status += 1;
+            } else {
+                // Se for igual a 4, o status é alterado para 'Concluído'
+                servico.cod_status += 1;
                 servico.status = "Concluído";
+            }
 
             // Salva os registros alterados no banco de dados
             await servico.save().then(() => {
