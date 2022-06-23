@@ -319,10 +319,15 @@ Faça aqui uma breve descrição do software e coloque as principais telas com u
 ## 8. Conclusão
 
 O grupo concluiu que para conseguirmos atingir nosso objetivo, precisaríamos estabelecer metas tangíveis para alinharmos os conhecimentos dos integrantes e, assim, podermos desenvolver novas habilidades.
+
 Inicialmente, o grupo propôs o desenvolvimento de uma ferramenta que agilizasse um processo de contratação de serviços de reparos domiciliares, estabelecendo um contato direto entre o contratante e o prestador, seguindo um fluxo de negócio e entregas predeterminadas.
+
 Apesar dos conhecimentos de front-end que o grupo possuía, precisamos buscar por novos aprendizados, sendo o curso de Node.js disponibilizado pelo repositório da Universidade Livre a base para a criação do back-end do sistema.
+
 Não obstante, o projeto estimulou o desenvolvimento também de competências relacionais, aproximando os integrantes do grupo e atiçando debates ricos e variado, necessitando que todos compreendessem o lado um do outro e entrassem em um consenso, além de ouvir as críticas ofertadas pelos professores, Hugo e Joyce, entendê-las e nos aperfeiçoar.
+
 Portanto, o trabalho interdisciplinar foi essencial para aproximar os integrantes do grupo de um ambiente real de trabalho, com prazos de entrega, discussões em grupo, manejo de software em âmbito coletivo e o desenvolvimento pessoal, agregando experiência e refinamento para cada membro do ChamaNow.
+
 Para trabalhos futuros, o grupo pretende hospedar o banco de dados, para que assim a ferramenta possa se tornar de fato pública, além da hospedagem do site em si.
 
 # REFERÊNCIAS
