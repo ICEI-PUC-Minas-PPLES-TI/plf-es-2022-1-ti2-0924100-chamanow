@@ -23,8 +23,7 @@ Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Min
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final,
-mostrar algum resultado relevante do trabalho (até 10 linhas)._
+O ChamaNow é uma aplicação desenvolvida para web que, buscando agilizar processos, virtualiza a contratação de prestadores de serviços de pequenos reparos por pessoas comuns que, procurando rapidez e facilidade, utilizam a ferramenta como um meio de resolver problemas estruturais em seus domicílios, entrando em contato direto com um prestador escolhido pelo mesmo, com base nos seus próprios requisitos, estimulando assim, a confiança do cliente.
 
 ## 1. Introdução
 
@@ -146,6 +145,11 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 ### Processo 1 – Cadastro do Usuário
 
+**Escolher tipo de usuario**
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| Tipo de Usuário | Seleção única |  |  |
+
 **Inserir informações de login**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
@@ -157,29 +161,28 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 **Inserir endereço e contato**
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-|  Telefone  |  Número  | Formato de celular |  |
-| CEP | Número | Formato CEP |  |
+| Telefone  |  Número  |  |  |
+| CEP | Número |  |  |
 | Rua | Caixa de Texto |  |  |
 | Número | Número |  |  |
 | Bairro | Caixa de Texto |  |  |
 | Cidade | Caixa de Texto |  |  |
 | Estado | Seleção única |  |  |
-| Tipo de Usuário | Seleção única |  |  |
 
 **Inserir dados pessoais**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Nome completo | Caixa de Texto | Pelo menos dois nomes |  |
+| Nome completo | Caixa de Texto |  |  |
 | Data de Nascimento | Data | Mínimo 18 anos |  |
-| CPF | Número | Formato de CPF |  |
+| CPF | Número |  |  |
 
 **Inserir dados da Empresa**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Nome da Empresa | Caixa de Texto | Máximo 100 caracteres |  |
-| CNPJ |  Número  | Formato CNPJ |  |
+| CNPJ |  Número  |  |  |
 
 **Selecionar serviços e área de atuação**
 
@@ -204,69 +207,47 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Escolher profissional | Seleção única |  |  |
+
+**Detalhar o problema**
+
+| **Campo** | **Tipo** | **Restrições** | **Valor default** |
+| --- | --- | --- | --- |
+| CEP | Número |  |  |
+| Rua | Caixa de Texto |  |  |
+| Número | Número |  |  |
+| Bairro | Caixa de Texto |  |  |
+| Cidade | Caixa de Texto |  |  |
 | Detalhar problema | Área de texto | Máximo 500 caracteres |  |
-
-**Receber informações do usuário e o problema**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Aceitar serviço? | Link | SIM/NÃO |  |
-
-**Receber mensagem de cancelamento**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Refazer escolha? | Link | SIM/NÃO |  |
 
 **Enviar orçamento**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Preço | Número |  | 00,00 |
-| Detalhar orçamento | Área de texto | Máximo 500 caracteres |  |
-| Enviar arquivo | Arquivo | PDF,PNG,JPEG - até 10mb  |  |
+| Valor do orçamento | Número |  | 00,00 |
+| Enviar arquivo | Arquivo | PDF,PNG,JPEG - até 50KB |  |
 
-**Receber orcamento do profissional**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Aceitar orçamento? | Link | SIM/NÃO |  |
-
-**Selecionar datas disponíveis**
+**Selecionar datas disponíveis - Prestador**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Data | Múltipla escolha | DD/MM/AA |  |
-| Horário | Número | 00:00 |  |
+| Data Início | Data | Data atual |  |
+| Data Fim | Data | Data atual |  |
+| Horário Início | Horário | 00:00 |  |
+| Horário Fim | Horário | 23:59 |  |
 
-**Escolher data**
+**Escolher data - Cliente**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Data | Seleção única | DD/MM/AA |  |
-| Horário | Seleção única | 00:00  |  |
+| Datas Disponíveis | Data e Horário | Intervalo estabelecido pelo prestador |  |
 
  ---
-
-### Processo 3 - Realização do Serviço
-
-**Receber lembrete de serviço agendado**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Serviço agendado. Cancelar? | Link |  |  |
 
 **Enviar o comprovante**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Fazer upload do comprovante | Arquivo | Arquivo de até 10MB |  |
-
-**Confirmar que não há pendências**
-
-| **Campo** | **Tipo** | **Restrições** | **Valor default** |
-| --- | --- | --- | --- |
-| Existe alguma pendência? | Seleção única |  |  |
 
 ### Processo 4 - Avaliação do usuário
 
@@ -284,7 +265,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 ### Tecnologias
 
-As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferramentas de modelagem como o Camunda Modeler e o Draw.io, as linguagens voltadas à criação de páginas web como HTML5, CSS3 e o JavaScript, além do Bootstrap como framework auxiliar. A IDE que utilizaremos para o desenvolvimento será o Visual Studio Code. O SGBD escolhido foi o Microsoft SQL Server, sendo utilizada a linguagem SQL. As informações e o código serão documentados pelo GitHub.
+As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferramentas de modelagem como o Camunda Modeler e o Draw.io, as linguagens voltadas à criação de páginas web como HTML5, CSS3 e o JavaScript, além do Node.js e suas bibliotecas, express e sequelize, como framework. A IDE que utilizaremos para o desenvolvimento será o Visual Studio Code. O SGBD escolhido foi o MYSQL, sendo utilizada a linguagem SQL. As informações e o código serão documentados pelo GitHub.
 
 ## 5. Modelo de dados
 
@@ -302,7 +283,6 @@ Usar o seguinte modelo:
 | --- | --- | --- | --- | --- | --- |
 | Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | (∑(avaliacao_usuario(nota) e avaliacao_usuario(cod_avaliado)) / Count(avalicao_usuario(nota))  | avaliacao_usuario e usuario | Cliente |
 | Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços mensalmente | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento)) - (agendamento(data_servico))) / Count(agendamento(data_servico))  | agendamento | Cliente |
-| Cancelamento | Identificar processos passíveis de melhorias mensalmente | Percentual de processos cancelados em relação ao total de serviços executados |  (∑(agendamento(status) = cancelado) / ∑(agendamento(status) = concluído) * 100  | agendamento | Otimização de processos |
 | Cadastro de Usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | (∑(usuario(data_criacao))/∑(usuario(cod_usuario))) * 100 | usuario | Processos internos |
 | Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Processos internos |
 | Serviços mais contratados  |  Analisar quais são os serviços mais contratados | Conta a quantidade de serviços contratados de cada tipo pelos usuário | ∑(agendamento(cod_tipo) ≠ nulo) | agendamento | Cliente |
@@ -318,7 +298,17 @@ Faça aqui uma breve descrição do software e coloque as principais telas com u
 
 ## 8. Conclusão
 
-Apresente aqui a conclusão do seu trabalho. Discussão dos resultados obtidos no trabalho, onde se verifica as observações pessoais de cada aluno. Poderá também apresentar sugestões de novas linhas de estudo.
+O grupo concluiu que para conseguirmos atingir nosso objetivo, precisaríamos estabelecer metas tangíveis para alinharmos os conhecimentos dos integrantes e, assim, podermos desenvolver novas habilidades.
+
+Inicialmente, o grupo propôs o desenvolvimento de uma ferramenta que agilizasse um processo de contratação de serviços de reparos domiciliares, estabelecendo um contato direto entre o contratante e o prestador, seguindo um fluxo de negócio e entregas predeterminadas.
+
+Apesar dos conhecimentos de front-end que o grupo possuía, precisamos buscar por novos aprendizados, sendo o curso de Node.js disponibilizado pelo repositório da Universidade Livre a base para a criação do back-end do sistema.
+
+Não obstante, o projeto estimulou o desenvolvimento também de competências relacionais, aproximando os integrantes do grupo e atiçando debates ricos e variados, necessitando que todos compreendessem o lado um do outro e entrassem em um consenso, além de ouvir as críticas ofertadas pelos professores, Hugo e Joyce, entendê-las e nos aperfeiçoar.
+
+Portanto, o trabalho interdisciplinar foi essencial para aproximar os integrantes do grupo de um ambiente real de trabalho, com prazos de entrega, discussões em grupo, manejo de software em âmbito coletivo e o desenvolvimento pessoal, agregando experiência e refinamento para cada membro do ChamaNow.
+
+Para trabalhos futuros, o grupo pretende hospedar o banco de dados, para que assim a ferramenta possa se tornar de fato pública, além da hospedagem do site em si.
 
 # REFERÊNCIAS
 
