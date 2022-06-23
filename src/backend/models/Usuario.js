@@ -42,10 +42,9 @@ const Usuario = db.define('usuario', {
         type: Sequelize.BLOB,
         default: null
     },
-    cod_endereco: Sequelize.STRING,
     cod_tipo: Sequelize.STRING
 });
 
-Usuario.sync({ alter: true });
+//Usuario.sync({ alter: true });
 
 module.exports = Usuario;
