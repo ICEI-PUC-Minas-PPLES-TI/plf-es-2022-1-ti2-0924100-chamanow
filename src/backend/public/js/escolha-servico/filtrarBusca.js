@@ -1,7 +1,15 @@
-function filtroPerguntas() {
+function filtroPerguntas(resultParam) {
     const inputSearch = document.querySelector('#pesquisar');
     const filterList = document.querySelector('#servicos');
     const posts = document.querySelectorAll(".searchResults div");
+
+    filterList.addEventListener('click', event => {
+        const inputValue = event.target.textContent.toLocaleLowerCase();
+
+        posts.forEach(showPostIfMatchInputValue(inputValue));
+
+        inputSearch.value = event.target.textContent;
+    });
 
     const filterResults = (results, inputValue, returnMatchedResults) => results
         .filter(result => {
@@ -57,6 +65,11 @@ function filtroPerguntas() {
 
         inputSearch.value = event.target.textContent;
     });
+
+
+    // Caso haja um resultado na barra de pesquisa, o código irá filtrar automaticamente
+    if (resultParam)
+        posts.forEach(showPostIfMatchInputValue(resultParam));
 
     inputSearch.addEventListener('input', handleInputValue);
 }

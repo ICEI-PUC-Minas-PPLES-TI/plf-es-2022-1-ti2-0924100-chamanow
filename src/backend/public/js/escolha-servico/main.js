@@ -302,8 +302,25 @@ function mostraServicos() {
         })
     })
 
-    // Filtrar resultados de acordo com o input
+    // Referencia o input da barra de pesquisa
     const pesquisar = document.querySelector("#pesquisar");
+
+    // Caso haja o codigo do servico na url, ele é adicionado na barra de pesquisa
+
+    // Pega o codigo do tipo na url
+    const urlParams = new URLSearchParams(location.search);
+
+    // Busca no banco de dados o serviço com a url
+    const servico_url = getService(urlParams.get('cod_servico'));
+    servico_url.then(servico => {
+        // Adiciona o serviço no input
+        pesquisar.value = servico.nome;
+
+        // Chama a função para filtrar os resultados de busca
+        filtroPerguntas(servico.nome);
+    })
+
+    // Filtrar resultados de acordo com o input
     pesquisar.onclick = () => {
         filtroPerguntas();
     }
