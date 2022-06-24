@@ -200,7 +200,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 ---
 
-### Processo 2 – Contratação de Serviço
+### Processo 2 – Escolha do Serviço
 
 **Escolher serviço**
 
@@ -215,7 +215,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Escolher profissional | Seleção única |  |  |
 
-**Detalhar o problema**
+**Descrever o problema**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
@@ -226,12 +226,16 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Cidade | Caixa de Texto |  |  |
 | Detalhar problema | Área de texto | Máximo 500 caracteres |  |
 
+---
+
+### Processo 3 – Agendamento do Serviço
+
 **Enviar orçamento**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Valor do orçamento | Número |  | 00,00 |
-| Enviar arquivo | Arquivo | PDF,PNG,JPEG - até 50KB |  |
+| Enviar arquivo | Arquivo | .pdf, .png, .jpeg de até 50KB |  |
 
 **Selecionar datas disponíveis - Prestador**
 
@@ -248,15 +252,19 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Datas Disponíveis | Data e Horário | Intervalo estabelecido pelo prestador |  |
 
- ---
+---
+
+### Processo 4 - Realização do serviço
 
 **Enviar o comprovante**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Fazer upload do comprovante | Arquivo | Arquivo de até 10MB |  |
+| Fazer upload do comprovante | Arquivo | .pdf, .png, .jpeg de até 50KB |  |
 
-### Processo 4 - Avaliação do usuário
+---
+
+### Processo 5 - Avaliação do usuário
 
 **Avaliar o usuário**
 
@@ -288,18 +296,17 @@ Usar o seguinte modelo:
 
 | **Indicador** | **Objetivos** | **Descrição** | **Cálculo** | **Fonte dados** | **Perspectiva** |
 | --- | --- | --- | --- | --- | --- |
-| Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | (∑(avaliacao_usuario(nota) e avaliacao_usuario(cod_avaliado)) / Count(avalicao_usuario(nota))  | avaliacao_usuario e usuario | Cliente |
-| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços mensalmente | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento)) - (agendamento(data_servico))) / Count(agendamento(data_servico))  | agendamento | Cliente |
-| Cadastro de Usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | (∑(usuario(data_criacao))/∑(usuario(cod_usuario))) * 100 | usuario | Processos internos |
-| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Processos internos |
-| Serviços mais contratados  |  Analisar quais são os serviços mais contratados | Conta a quantidade de serviços contratados de cada tipo pelos usuário | ∑(agendamento(cod_tipo) ≠ nulo) | agendamento | Cliente |
-| Preço médio dos serviços | Analisar o preço médio dos serviços contratados na plataforma | Calcula a média do preço de todos os serviços contratados mensalmente |  ∑(agendamento(valor_orcamento) ≠ nulo) / ∑(agendamento(cod_tipo) ≠ nulo) | agendamento | Processos internos |
-| Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Calcula a percentagem de serviços pendentes | ∑(agendamento(status) = pendente) / ∑(agendamento(cod_tipo) ≠ nulo) * 100 | agendamento | Processos internos |
-| Quantidade de serviços não pagos | Analisar se existem muitos serviços a serem pagos | Calcula a percentagem de serviços não pagos | ∑(agendamento(status) = não pago) / ∑(agendamento(cod_tipo) ≠ nulo) * 100 | agendamento | Processos internos |
+| Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | ∑(avaliacao_usuario(nota)) / COUNT(avalicao_usuario(nota))  | avaliacao_usuario e usuario | Cliente |
+| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços mensalmente | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento)) - (agendamento(data_servico))) / COUNT(agendamento(data_servico))  | agendamento | Cliente |
+| Cadastro de Usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | COUNT(usuario(data_criacao)) | usuario | Processos internos |
+| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula o total de cadastro de prestadores mensalmente |  COUNT(usuario(cod_tipo) ≠ nulo) | usuario | Processos internos |
+| Serviços mais contratados  |  Analisar quais são os serviços mais contratados | Conta a quantidade de serviços contratados de cada tipo pelos usuário | COUNT(agendamento(cod_tipo) ≠ nulo) | agendamento | Cliente |
+| Preço médio dos serviços | Analisar o preço médio dos serviços contratados na plataforma | Calcula a média do preço de todos os serviços contratados mensalmente |  ∑(agendamento(valor_orcamento) ≠ nulo) / COUNT(agendamento(cod_tipo) ≠ nulo) | agendamento | Processos internos |
+| Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Conta o total de serviços cujo status é pendentes | COUNT(agendamento(status) = pendente) | agendamento | Processos internos |
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
 
-## 7.Sistema desenvolvido
+## 7. Sistema desenvolvido
 
 Nosso sistemas une simplicidade de uso com funcionalidades para resolver os problemas do usuário.
 
@@ -309,31 +316,54 @@ Nossa tela inicial apresenta um catálogo dos serviços disponibilizados em noss
 
 ![Tela Inicial](../assets/telas/1-tela_inicial.png)
 
+## Cadastro do Cliente
+
 É necessário criar uma conta para usar nossa plataforma. No cadastro de usuário, pede-se algumas informações comuns e básicas para criação de contas em sites.
 
 ![Cadastro do Cliente](../assets/telas/2-tela_de_cadastro_cliente.png)
+
+## Cadastro do Profissional
 
 O profissional também precisa ter uma conta para oferecer seus serviços. As informações solicitadas são praticamente as mesmas que as do cliente, mas com a adição dos campos de serviços a serem prestados e o raio de atuação.
 
 ![Cadastro do Profissional](../assets/telas/3-tela_de_cadastro_profissional.png)
 
+## Escolha do Serviço
+
 Nesta tela são listados os mesmos serviços do catálogo da tela inicial são listados novamente, mas com mais detalhes e com a descrição do serviço.
 
 ![Escolha do Serviço](../assets/telas/4-escolha-servico.png)
+
+## Escolha do Serviço Específico
 
 Após ver todos os serviços, o usuário pode selecionar um em especifico e ver todos os seus detalhes. Além disso, são exibidos todos os profissionais que prestam aquele serviço; com nome, avaliação na plataforma, contato do prestador e a possibilidade de contratá-lo.
 
 ![Escolha do Serviço Específico](../assets/telas/5-escolha-servico-especifico.png)
 
+## Descrição do Problema
+
 Com o serviço e profissional escolhidos, o cliente pode detalhar o problema fazendo sua descrição e colocando detalhes do serviço a ser prestado, como data e horários desejados.
 
 ![Descrição do Problema](../assets/telas/6-descrever-problema.png)
 
-![Perfil](../assets/telas/7-perfil.png)
+Após o cliente detalhar o problema e mandar para o profissional, ele aguarda a resposta do profissional que pode aceitar ou recusar o serviço.
 
-![Perfil Serviços](../assets/telas/8-perfil_servicos.png)
+## Envio do Orçamento Pelo Profissional
 
-![Perfil Serviços Agendados](../assets/telas/9-perfil_servicos_agendados.png)
+![Envio do Orçamento Pelo Profissional](../assets/telas/7-envio-do-orçamento-pelo-profissional.png)
+
+Caso aceite, o profissional irá mandar um orçamento para o cliente que poderá aceitar ou recusar. Caso aceite, o serviço será feito na data e horário previamente combinados.
+Com o serviço prestado, o cliente faz upload do comprovante de pagamento e avalia o profissional. O orçamento e comprovante ficam disponíveis para serem consultados a qualquer momento através do download dos arquivos.
+
+## Enviar Comprovante
+
+![Enviar Comprovante](../assets/telas/8-enviar-comprovante.png)
+
+## Serviços Agendados
+
+O cliente pode, ainda, ver todos os seus serviços que foram agendados e o status que eles se encontram.
+
+![Serviços Agendados](../assets/telas/9-perfil_servicos_agendados.png)
 
 ## 8. Conclusão
 
@@ -351,25 +381,9 @@ Para trabalhos futuros, o grupo pretende hospedar o banco de dados, para que ass
 
 # REFERÊNCIAS
 
-Como um projeto de software não requer revisão bibliográfica, a inclusão das referências não é obrigatória. No entanto, caso você deseje incluir referências relacionadas às tecnologias, padrões, ou metodologias que serão usadas no seu trabalho, relacione-as de acordo com a ABNT.
-
-Verifique no link abaixo como devem ser as referências no padrão ABNT:
-
-http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
-
 **[1.1]** - _STAGGEMEIER, Caroline; MARTINS, Alexandre. **SERVIÇOS DOMÉSTICOS: UMA NECESSIDADE DE PROFISSIONALIZAÇÃO**. Revista interativa, 2 fev. 2021. Disponível em: <https://revistainterativa.org/2021/02/servicos-domesticos-uma-necessidade-de-profissionalizacao/>. Acesso em: 16 fev. 2022_
 
 **[1.2]** - _RIBAS, Raphaela. Serviços de casa já podem ser contratados via apps. O Globo, 13 nov. 2017. Disponível em: <https://oglobo.globo.com/economia/imoveis/servicos-de-casa-ja-podem-ser-contratados-via-apps-22060750>. Acesso em: 16 fev. 2022._
-
-**[1.3]** - _ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019. E-book. ISBN 9788543025001._
-
-**[1.4]** - _COPPIN, Ben. **Inteligência artificial**. Rio de Janeiro, RJ: LTC, c2010. E-book. ISBN 978-85-216-2936-8._
-
-**[1.5]** - _CORMEN, Thomas H. et al. **Algoritmos: teoria e prática**. Rio de Janeiro, RJ: Elsevier, Campus, c2012. xvi, 926 p. ISBN 9788535236996._
-
-**[1.6]** - _SUTHERLAND, Jeffrey Victor. **Scrum: a arte de fazer o dobro do trabalho na metade do tempo**. 2. ed. rev. São Paulo, SP: Leya, 2016. 236, [4] p. ISBN 9788544104514._
-
-**[1.5]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
 
 # APÊNDICES
 
@@ -377,5 +391,5 @@ Links importantes
 
 * [***Código do projeto***](../src/)
 * [***Artefatos***](../assets/)
-* [***Apresentação Final***]()
-* [***Vídeo de Apresentação***]()
+* [***Apresentação Final***](../assets/apresentacoes/)
+* [***Vídeo de Apresentação***](../assets/apresentacoes/Video-Apresentacao-Final.mp4)
