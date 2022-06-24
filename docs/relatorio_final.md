@@ -295,10 +295,14 @@ Obs.: todas as informações para gerar os indicadores devem estar no diagrama d
 ## 7.Sistema desenvolvido
 
 Nosso sistemas une simplicidade de uso com funcionalidades para resolver os problemas do usuário.
+
 ## Tela Inicial
 
-A tela inicial conta 
-![Tela inicial](../assets/telas/1-tela_inicial.png)
+![Tela Inicial](../assets/telas/1-tela_inicial.png)
+
+![Cadastro do Cliente](../assets/telas/2-tela_de_cadastro_cliente.png)
+
+![Cadastro do Profissional](../assets/telas/3-tela_de_cadastro_profissional.png)
 
 ## 8. Conclusão
 
@@ -340,7 +344,7 @@ http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
 
 Links importantes
 
-- [***Código do projeto***](../src/)
-- [***Artefatos***](../assets/)
-- [***Apresentação Final***]()
-- [***Vídeo de Apresentação***]()
+* [***Código do projeto***](../src/)
+* [***Artefatos***](../assets/)
+* [***Apresentação Final***]()
+* [***Vídeo de Apresentação***]()
