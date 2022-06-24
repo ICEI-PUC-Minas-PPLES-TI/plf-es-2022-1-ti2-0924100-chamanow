@@ -288,14 +288,13 @@ Usar o seguinte modelo:
 
 | **Indicador** | **Objetivos** | **Descrição** | **Cálculo** | **Fonte dados** | **Perspectiva** |
 | --- | --- | --- | --- | --- | --- |
-| Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | (∑(avaliacao_usuario(nota) e avaliacao_usuario(cod_avaliado)) / Count(avalicao_usuario(nota))  | avaliacao_usuario e usuario | Cliente |
-| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços mensalmente | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento)) - (agendamento(data_servico))) / Count(agendamento(data_servico))  | agendamento | Cliente |
-| Cadastro de Usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | (∑(usuario(data_criacao))/∑(usuario(cod_usuario))) * 100 | usuario | Processos internos |
-| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Processos internos |
-| Serviços mais contratados  |  Analisar quais são os serviços mais contratados | Conta a quantidade de serviços contratados de cada tipo pelos usuário | ∑(agendamento(cod_tipo) ≠ nulo) | agendamento | Cliente |
-| Preço médio dos serviços | Analisar o preço médio dos serviços contratados na plataforma | Calcula a média do preço de todos os serviços contratados mensalmente |  ∑(agendamento(valor_orcamento) ≠ nulo) / ∑(agendamento(cod_tipo) ≠ nulo) | agendamento | Processos internos |
-| Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Calcula a percentagem de serviços pendentes | ∑(agendamento(status) = pendente) / ∑(agendamento(cod_tipo) ≠ nulo) * 100 | agendamento | Processos internos |
-| Quantidade de serviços não pagos | Analisar se existem muitos serviços a serem pagos | Calcula a percentagem de serviços não pagos | ∑(agendamento(status) = não pago) / ∑(agendamento(cod_tipo) ≠ nulo) * 100 | agendamento | Processos internos |
+| Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | ∑(avaliacao_usuario(nota)) / COUNT(avalicao_usuario(nota))  | avaliacao_usuario e usuario | Cliente |
+| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços mensalmente | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento)) - (agendamento(data_servico))) / COUNT(agendamento(data_servico))  | agendamento | Cliente |
+| Cadastro de Usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | COUNT(usuario(data_criacao)) | usuario | Processos internos |
+| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula o total de cadastro de prestadores mensalmente |  COUNT(usuario(cod_tipo) ≠ nulo) | usuario | Processos internos |
+| Serviços mais contratados  |  Analisar quais são os serviços mais contratados | Conta a quantidade de serviços contratados de cada tipo pelos usuário | COUNT(agendamento(cod_tipo) ≠ nulo) | agendamento | Cliente |
+| Preço médio dos serviços | Analisar o preço médio dos serviços contratados na plataforma | Calcula a média do preço de todos os serviços contratados mensalmente |  ∑(agendamento(valor_orcamento) ≠ nulo) / COUNT(agendamento(cod_tipo) ≠ nulo) | agendamento | Processos internos |
+| Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Conta o total de serviços cujo status é pendentes | COUNT(agendamento(status) = pendente) | agendamento | Processos internos |
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
 
