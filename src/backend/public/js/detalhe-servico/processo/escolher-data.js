@@ -3,7 +3,7 @@ function escolherData(servico, tipoUser) {
     const titulo = criarElementos("h2", null, "titulo-escolher-data", "Escolher Datas");
 
     // Criação da descrição da seção
-    const pText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    const pText = "Defina o intervalo de datas e horários e escolha o dia em será realizado o serviço";
     const descricao = criarElementos("p", "descricao-escolher-data", null, pText);
 
     // Adição dos elementos criados na div 

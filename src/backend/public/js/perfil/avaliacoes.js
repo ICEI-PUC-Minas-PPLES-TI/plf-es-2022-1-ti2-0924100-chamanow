@@ -152,10 +152,11 @@ function dadosModelAvaliar(nodeElement) {
     const inputAvaliador = criarInputs('inputAvaliador', "hidden", "cod_avaliador");
     const inputAgendamento = criarInputs('inputAgendamento', "hidden", "cod_agendamento");
     const inputRating = criarInputs('inputRating', "hidden", "nota");
-    const inputComentario = criarElementos('textarea', "comentario-avaliacao", "comentario");
+    const inputComentario = criarElementos('textarea', "comentario-avaliacao");
     inputComentario.placeholder = "Adicionar comentário...";
     inputComentario.setAttribute("rows", 5);
     inputComentario.setAttribute("autocomplete", "off");
+    inputComentario.name = "comentario";
 
     // Atribuir required para o input de comentário
     inputComentario.setAttribute("required", "");

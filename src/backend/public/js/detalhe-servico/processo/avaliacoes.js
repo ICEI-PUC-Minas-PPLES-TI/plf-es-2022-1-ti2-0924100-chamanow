@@ -1,7 +1,7 @@
 function criarListaAvaliacoes(data) {
     // Criação da div geral
     const divGeral = document.createElement('div');
-    divGeral.className = "content-avaliacoes";
+    divGeral.className = "divAvaliacoes";
 
     // Div Nome e Data ====================================
 
@@ -48,15 +48,21 @@ function criarListaAvaliacoes(data) {
     const listEstrelas = document.createElement('ul');
     listEstrelas.className = "avaliacao";
 
+    // Pegar as avaliações do cliente
+
     // Criando e colocando os elementos estrela dentro da lista
     for (var i = 0; i < 5; i++) {
         // Criação do elemento para as estrelas
         const estrelas = document.createElement('li');
-        estrelas.className = "star-icon";
+        estrelas.className = "star-icon-view";
+
+        if (i == data.nota - 1)
+            estrelas.classList.add("active");
 
         // Colocando os elementos estrela dentro da lista
         listEstrelas.appendChild(estrelas);
     }
+
 
     // Colocando os elementos criados dentro da divAvaliacao
     divAvaliacao.appendChild(notaAvaliacao);

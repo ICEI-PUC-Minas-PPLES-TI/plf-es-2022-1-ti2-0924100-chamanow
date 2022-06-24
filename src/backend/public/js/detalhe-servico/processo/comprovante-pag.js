@@ -3,7 +3,7 @@ function comprovantePagamento(servico, tipoUser, usuario) {
     const titulo = criarElementos("h2", null, "titulo-comprovante-pagamento", "Comprovante de Pagamento");
 
     // Criação da descrição da seção
-    const pText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    const pText = "Envie e receba aqui o comprovante de pagamento disponibilizado pelo cliente após a realização do serviço";
     const descricao = criarElementos("p", "descricao-comprovante", null, pText);
 
     // Criação da div para armazenar a label e o input

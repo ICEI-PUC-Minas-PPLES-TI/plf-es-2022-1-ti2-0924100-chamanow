@@ -168,126 +168,6 @@ button[id^="btn-"] {
 }
 
 
-/* Avaliação */
-
-.avaliacao-usuario,
-.avaliacao {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row;
-    margin-bottom: 0;
-    padding: 0;
-    height: 30px;
-}
-
-#nota {
-    padding-right: 5px;
-}
-
-.ponto {
-    font-size: 40px;
-}
-
-.ponto::before {
-    content: "\2027";
-}
-
-.star-icon {
-    list-style-type: none;
-    cursor: pointer;
-    color: #ffe500;
-    font-size: 30px;
-    /* alterar o tamanho das estrelas */
-}
-
-.star-icon::before {
-    content: "\2605";
-}
-
-.star-icon.ativo~.star-icon::before {
-    content: "\2606";
-}
-
-.avaliacao:hover .star-icon::before {
-    content: "\2605";
-}
-
-.star-icon:hover~.star-icon::before {
-    content: "\2606";
-}
-
-
-/* Descrição */
-
-#descricao {
-    max-width: 600px;
-    margin: 20px 0;
-}
-
-.titulo-regiao-atuacao {
-    font-size: 15px;
-}
-
-
-/* ========== Avaliações ========== */
-
-
-/* Blocos */
-
-.content-avaliacoes {
-    background: var(--bg-rating);
-    border-radius: 15px;
-    margin-bottom: 30px;
-    padding: 20px 30px;
-    border: none;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
-    transition: all .2s;
-}
-
-.content-avaliacoes:hover {
-    border-bottom: 2px solid var(--secondary-color);
-    transform: translateY(-7px);
-}
-
-.content-avaliacoes:hover #nome-avaliador {
-    color: var(--secondary-color);
-}
-
-.nome-data {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row;
-}
-
-#nome-avaliador {
-    margin: 0;
-    font-weight: 600;
-}
-
-.hifen {
-    padding: 0 10px;
-}
-
-#data-publicacao {
-    font-style: italic;
-}
-
-#content-avaliacoes #nota {
-    font-size: 13px;
-}
-
-#content-avaliacoes .star-icon {
-    font-size: 20px;
-}
-
-#comentario {
-    font-style: italic;
-    margin: 15px 0 0;
-}
-
-
 /* ========== Escolher Datas Disponvíeis ========== */
 
 .escolher-data-orcamento {
@@ -297,21 +177,40 @@ button[id^="btn-"] {
     flex-direction: row;
 }
 
-.escolher-data input {
+.escolher-data {
+    margin-left: 30px;
+    width: 60%;
+}
+
+.divInputDate {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.divInputDate:last-child {
+    margin-top: 20px;
+}
+
+.escolher-data input,
+#valor-orcamento {
     font-size: 14px;
     border: none;
     background-color: var(--bg-rating);
     padding: 7px 15px;
     border-radius: 10px 10px;
     margin: 30px 0 0;
+    max-width: 400px;
 }
 
-.escolher-data input:focus {
+.escolher-data input:focus,
+#valor-orcamento:focus {
     border: none;
     box-shadow: none;
 }
 
-.escolher-data input::placeholder {
+.escolher-data input::placeholder,
+#valor-orcamento::placeholder {
     font-size: 15px;
 }
 
@@ -368,14 +267,11 @@ label[for^="btn-"]:hover {
 
 /* ========== Orçamento ========== */
 
-.divOrcamento {
-    margin-top: 46px;
+.orcamento {
+    width: 40%;
 }
 
-
-/* ========== Comprovante de Pagamento ========== */
-
-.divComprovante {
+.div-orcamento {
     max-width: 230px;
 }
 
