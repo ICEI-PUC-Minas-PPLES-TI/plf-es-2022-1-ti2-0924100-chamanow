@@ -294,7 +294,11 @@ Obs.: todas as informações para gerar os indicadores devem estar no diagrama d
 
 ## 7.Sistema desenvolvido
 
-Faça aqui uma breve descrição do software e coloque as principais telas com uma explicação de como usar cada uma.
+Nosso sistemas une simplicidade de uso com funcionalidades para resolver os problemas do usuário.
+## Tela Inicial
+
+A tela inicial conta 
+![Tela inicial](../assets/telas/1-tela_inicial.png)
 
 ## 8. Conclusão
 
@@ -334,19 +338,9 @@ http://www.pucminas.br/imagedb/documento/DOC\_DSC\_NOME\_ARQUI20160217102425.pdf
 
 # APÊNDICES
 
-**Colocar link:**
-
-
-Do código (armazenado no repositório);
-
-Dos artefatos (armazenado do repositório);
-
-Da apresentação final (armazenado no repositório);
-
-Do vídeo de apresentação (armazenado no repositório).
-
 Links importantes
 
-- [***Código no repositório***](../src/)
+- [***Código do projeto***](../src/)
 - [***Artefatos***](../assets/)
+- [***Apresentação Final***]()
 - [***Vídeo de Apresentação***]()
