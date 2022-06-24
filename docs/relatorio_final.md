@@ -328,13 +328,19 @@ O profissional também precisa ter uma conta para oferecer seus serviços. As in
 
 ![Cadastro do Profissional](../assets/telas/3-tela_de_cadastro_profissional.png)
 
+## Escolha do Serviço
+
 Nesta tela são listados os mesmos serviços do catálogo da tela inicial são listados novamente, mas com mais detalhes e com a descrição do serviço.
 
 ![Escolha do Serviço](../assets/telas/4-escolha-servico.png)
 
+## Escolha do Serviço Específico
+
 Após ver todos os serviços, o usuário pode selecionar um em especifico e ver todos os seus detalhes. Além disso, são exibidos todos os profissionais que prestam aquele serviço; com nome, avaliação na plataforma, contato do prestador e a possibilidade de contratá-lo.
 
 ![Escolha do Serviço Específico](../assets/telas/5-escolha-servico-especifico.png)
+
+## Descrição do Problema
 
 Com o serviço e profissional escolhidos, o cliente pode detalhar o problema fazendo sua descrição e colocando detalhes do serviço a ser prestado, como data e horários desejados.
 
@@ -342,16 +348,22 @@ Com o serviço e profissional escolhidos, o cliente pode detalhar o problema faz
 
 Após o cliente detalhar o problema e mandar para o profissional, ele aguarda a resposta do profissional que pode aceitar ou recusar o serviço.
 
+## Envio do Orçamento Pelo Profissional
+
 ![Perfil](../assets/telas/7-perfil.png)
 
 Caso aceite, o profissional irá mandar um orçamento para o cliente que poderá aceitar ou recusar. Caso aceite, o serviço será feito na data e horário previamente combinados.
 Com o serviço prestado, o cliente faz upload do comprovante de pagamento e avalia o profissional. O orçamento e comprovante ficam disponíveis para serem consultados a qualquer momento através do download dos arquivos.
 
+## Enviar Comprovante
+
 ![Perfil Serviços](../assets/telas/8-perfil_servicos.png)
+
+## Serviços Agendados
 
 O cliente pode, ainda, ver todos os seus serviços que foram agendados e o status que eles se encontram.
 
-![Perfil Serviços Agendados](../assets/telas/9-perfil_servicos_agendados.png)
+![Serviços Agendados](../assets/telas/9-perfil_servicos_agendados.png)
 
 ## 8. Conclusão
 
