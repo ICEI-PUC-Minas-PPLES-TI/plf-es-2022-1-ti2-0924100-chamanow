@@ -7,7 +7,7 @@ indicador.use(express.json());
 const connection = require('../database');
 const { QueryTypes } = require('sequelize');
 
-// Rotas dos indicadores
+// Rotas do indicador da nota média dos prestadores
 indicador.get('/rating/prestadores', async(req, res) => {
     try {
         const data = await connection.query(
@@ -73,7 +73,7 @@ indicador.get('/cadastro-usuario', async(req, res) => {
     }
 })
 
-// Rota para o indicador da quantidade de usuarios novos cadastrados
+// Rota para o indicador da quantidade de prestadores novos cadastrados
 indicador.get('/cadastro-prestador', async(req, res) => {
     try {
         const data = await connection.query(
@@ -88,7 +88,7 @@ indicador.get('/cadastro-prestador', async(req, res) => {
     }
 })
 
-// Rota para o indicador dos serviços mais cadastrados
+// Rota para o indicador dos serviços mais contratados
 indicador.get('/servicos-mais-contratados', async(req, res) => {
     try {
         const data = await connection.query(
