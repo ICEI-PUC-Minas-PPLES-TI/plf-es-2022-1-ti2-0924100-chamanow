@@ -378,5 +378,5 @@ Links importantes
 
 * [***Código do projeto***](../src/)
 * [***Artefatos***](../assets/)
-* [***Apresentação Final***]()
-* [***Vídeo de Apresentação***]()
+* [***Apresentação Final***](../assets/apresentacoes/)
+* [***Vídeo de Apresentação***](../assets/apresentacoes/Video-Apresentacao-Final.mp4)
