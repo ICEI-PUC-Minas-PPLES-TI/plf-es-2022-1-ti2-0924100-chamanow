@@ -179,6 +179,8 @@ function mostraServicos(){
     tudo.appendChild(banner);
     const search = criaPesquisar();
     tudo.appendChild(search);
+    
+    console.log("asdasd");
     for (let index = 0; index < Object.keys(servico).length; index++) {
         const divServicos = criaServicos(index);
         divServicos.addEventListener('click', function(){
