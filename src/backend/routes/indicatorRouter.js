@@ -43,21 +43,6 @@ indicador.get('/time-service', async(req, res) => {
     }
 })
 
-// Rota para o indicador da taxa de cancelamento
-indicador.get('/cancellation-rate', async(req, res) => {
-    try {
-        const data = await connection.query(
-            "SELECT created_at AS data, SUM(status='Cancelado') AS cancelamento\
-            FROM agendamentos\
-            GROUP BY MONTH(created_at)\
-            HAVING cancelamento > 0", { type: QueryTypes.SELECT }
-        );
-        res.status(200).send(data);
-    } catch (error) {
-        console.error(error);
-    }
-})
-
 // Rota para o indicador da quantidade de usuarios novos cadastrados
 indicador.get('/cadastro-usuario', async(req, res) => {
     try {
@@ -77,7 +62,7 @@ indicador.get('/cadastro-usuario', async(req, res) => {
 indicador.get('/cadastro-prestador', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT MONTH(created_at) AS mes, YEAR(created_at) AS ano, COUNT(cod_tipo) AS novos_prestadores\
+            "SELECT MONTH(created_at) AS mes, YEAR(created_at) AS ano, COUNT(cod_tipo NOT NULL) AS novos_prestadores\
             FROM usuarios\
             GROUP BY MONTH(created_at), YEAR(created_at)\
             ORDER BY 2, 1", { type: QueryTypes.SELECT }
@@ -92,7 +77,7 @@ indicador.get('/cadastro-prestador', async(req, res) => {
 indicador.get('/servicos-mais-contratados', async(req, res) => {
     try {
         const data = await connection.query(
-            "SELECT B.nome, COUNT(A.cod_tipo) AS percentagem, B.cod_tipo\
+            "SELECT B.nome, COUNT(A.cod_tipo) AS quantidade, B.cod_tipo\
             FROM agendamentos AS A JOIN servicos AS B\
             ON A.cod_tipo = B.cod_tipo\
             GROUP BY 1\
