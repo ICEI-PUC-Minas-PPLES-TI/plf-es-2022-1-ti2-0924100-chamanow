@@ -31,7 +31,15 @@ function processaFormLogin(event) {
     })
 }
 
-$(document).ready(function() {
+$(document).ready(() => {
+    // Pega o cookie do usuário
+    const idUser = getCookie("idUser");
+
+    // Se ele existir, o usuário é redirecionado para a página inicial
+    if (idUser)
+        window.location.replace('/');
+
+
     // Associa a funçao processaFormLogin  formulário adicionado um manipulador do evento submit
     $("#entrar").click(processaFormLogin);
 })

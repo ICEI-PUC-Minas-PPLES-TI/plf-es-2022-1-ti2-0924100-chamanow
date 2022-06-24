@@ -7,26 +7,17 @@ function init(data) {
 
     // Alterar a nota do usuario
     const notaUser = document.querySelector("#nota");
-    const userRating = getUserRating(cod_user);
+    const userRating = getAvgRating(cod_user);
     userRating.then((rating) => {
-        if (rating) {
-            // Cálculo da média das avaliacoes
-            var mediaNota = 0;
+        const nota = rating[0].nota;
 
-            // Soma as notas das avaliações
-            for (let avaliacao of rating) {
-                mediaNota += avaliacao.nota;
-            }
-
-            // Divide o total pela quantidade de notas
-            mediaNota /= rating.length;
-
+        if (nota) {
             // Adiciona a nota média calculada na página com uma casa decimal
-            notaUser.innerText = mediaNota.toFixed(1);
+            notaUser.innerText = nota.toFixed(1);
 
             // Configura as estrelas de acordo com a nota média
             const stars = document.querySelectorAll(".avaliacao li");
-            stars[mediaNota.toFixed(0) - 1].classList.add("active");
+            stars[nota.toFixed(0) - 1].classList.add("active");
         } else {
             // Se não houver avaliações, elas são ocultas
             const avaliacaoUsuario = document.querySelector(".avaliacao-usuario");
@@ -40,7 +31,7 @@ function init(data) {
     // Alterar a foto de perfil do user, se houver
     // const ft_perfil = document.querySelector("#ftUser");
     // if(data.foto_perfil)
-    //     ft_perfil.setAttribute("src")
+    //     ft_perfil.setAttribute("src", data.foto_perfil)
 
     // Referencia a div com o conteúdo dos menus
     const divDadosMenu = document.querySelector(".dadosMenu");
@@ -99,15 +90,16 @@ function init(data) {
 
         const dataAvaliacoes = getUserRating(cod_user);
         dataAvaliacoes.then((data) => {
-            if (data) {
-                for (var i = 0; i < data.length; i++) {
+            console.log(data)
+            if (data)
+                data.forEach(data => {
                     // Referenciar a div com a tabela
-                    const divAvaliacoes = criarListaAvaliacoes(cod_user, data[i]);
+                    const divAvaliacoes = criarListaAvaliacoes(cod_user, data);
 
                     // Adicionar divAvaliacoeso na divDadosMenu
                     divDadosMenu.appendChild(divAvaliacoes);
-                }
-            } else {
+                })
+            else {
                 // Referenciar a div com a tabela
                 const divAvaliacoes = document.createElement('p');
                 divAvaliacoes.className = "dataNull";
@@ -118,29 +110,6 @@ function init(data) {
             }
         })
     })
-
-    $("#logout").click(() => {
-        document.cookie = "idUser=; expires=1970-01-01T00:00:00.000Z;";
-    })
-}
-
-function formatarData(date, hour) {
-    var dateFormatada = date.split('T')[0].replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
-    if (hour)
-        dateFormatada += ` às ${hour.substring(0, 5)}`;
-
-    return dateFormatada;
-}
-
-function getCookie(name) {
-    let cookie = {};
-
-    document.cookie.split(';').forEach(function(el) {
-        let [k, v] = el.split('=');
-        cookie[k.trim()] = v;
-    })
-
-    return cookie[name];
 }
 
 $(document).ready(() => {
@@ -153,7 +122,6 @@ $(document).ready(() => {
 
     // Função para pegar os dados do usuario
     getUserData(idUser).then((data) => {
-        console.log(data)
         init(data);
     });
 
@@ -161,4 +129,9 @@ $(document).ready(() => {
         const btnCadastrarProfissional = document.querySelector("#cadastroPrestador");
         btnCadastrarProfissional.style = "display: none";
     }
+
+    $("#logout").click(() => {
+        document.cookie = `idUser=; expires=1970-01-01T00:00:00.000Z;`;
+        window.location.replace("/");
+    })
 })

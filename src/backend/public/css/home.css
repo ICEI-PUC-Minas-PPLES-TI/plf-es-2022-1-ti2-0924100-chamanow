@@ -1,427 +1,295 @@
-/* Global ====================================================================*/
-
-:root {
-  --bg: #333333;
-  --bg-panel: #434343;
-  --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-  --bg-color: #b5b5b5;
-  --color-text: #fff;
-  --color-text-secondary: #333333;
-  --primary-color: #4939ff;
-  --secondary-color: #ff6b00;
-  transition: all 0.3s linear;
-}
-
 /* Elementos =================================================================*/
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--primary-color);
 }
 
 html {
-  font-size: 93.75w;
-  scroll-behavior: smooth;
+    font-size: 93.75w;
+    scroll-behavior: smooth;
 }
 
 body {
-  background: rgb(240, 240, 240);
-  font-family: "Poppins", sans-serif;
+    background: rgb(240, 240, 240);
+    font-family: "Poppins", sans-serif;
 }
+
 
 /* Container =================================================================*/
 
 .container {
-  width: min(100vw, 800px);
-  margin: auto;
+    width: min(100vw, 800px);
+    margin: auto;
 }
 
 .card {
-  background-color: var(--bg);
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 0.8rem;
+    background-color: var(--bg);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 0.8rem;
 }
+
 
 /* Cabeçalho =================================================================*/
 
-body .site-header {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  align-content: normal;
-  background-color: var(--primary-color);
-}
-
-body header img {
-  max-width: 15rem;
-}
-
-body header .menu {
-  margin: 0.1rem;
-  font-weight: bold;
-}
-
-body header .menu a {
-  text-decoration: none;
-  color: var(--color-text);
-  padding: 0.5rem;
-}
-
-body header .menu a:hover {
-  text-decoration: none;
-  color: rgb(122, 121, 121);
-}
-
 #pesquisar {
-  width: min(100%, 800px);
-  margin-top: 1.5rem;
-
-  display: flex;
-  align-items: center;
-  align-content: center;
-  flex-direction: column;
+    width: min(100%, 800px);
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
 }
-#pesquisa-servicos {
-  border: 1px solid var(--bg-color);
-  border-radius: 0.4rem;
-  color: var(--primary-color);
-  font-weight: bold;
-  background: var(--color-text);
-  padding: 1rem;
-  width: 100%;
+
+#pesquisar a {
+    width: 100%;
 }
 
 #pesquisar button {
-  border: 1px solid var(--color-text);
-  border-radius: 0.4rem;
-  color: var(--color-text);
-  font-weight: bold;
-  background: var(--primary-color);
-  padding: 1rem;
-  width: 100%;
-
-  margin: 0.5rem 0;
-
-  cursor: pointer;
+    border: 1px solid var(--color-text);
+    border-radius: 0.4rem;
+    color: var(--color-text);
+    font-weight: bold;
+    background: var(--primary-color);
+    padding: 1rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    cursor: pointer;
 }
+
 
 /* Primeira Seção - Banner ================================================*/
 
 main section {
-  color: var(--primary-color);
-  padding: 1rem;
+    color: var(--primary-color);
+    padding: 1rem;
 }
 
 body main section#banner {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* background-color: rgb(236, 236, 236);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: rgb(236, 236, 236);
   border-radius: 1rem; */
-  padding: 1rem;
+    padding: 1rem;
 }
 
 main section#banner #texto-banner {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
-section#banner #texto-banner h1 > strong {
-  color: var(--secondary-color);
+section#banner #texto-banner h1>strong {
+    color: var(--secondary-color);
 }
 
 main section#banner img {
-  max-width: 25rem;
+    max-width: 25rem;
 }
+
 
 /* Segunda Seção - Catálogo =================================================*/
 
 main section #lista-servicos {
-  width: min(100%, 800px);
+    width: min(100%, 800px);
 }
 
 main section select {
-  border: 1px solid var(--bg-panel);
-  border-radius: 0.4rem;
-  color: var(--color-text);
-  font-weight: bold;
-  background: var(--bg-panel);
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-  cursor: pointer;
+    border: 1px solid var(--bg-panel);
+    border-radius: 0.4rem;
+    color: var(--color-text);
+    font-weight: bold;
+    background: var(--bg-panel);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
 }
 
 main section #catalogo {
-  padding: 2rem;
-  margin: 2rem 0;
-  background-color: var(--color-text);
-  border-radius: 2rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: var(--color-text);
+    border-radius: 2rem;
 }
 
-#catalogo > h2 {
-  text-align: center;
-  color: var(--secondary-color);
-  margin: 1rem 0;
+#catalogo>h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin: 1rem 0;
 }
 
 #catalogo .container-img {
-  background-color: var(--secondary-color);
-  border-radius: 50%;
-  padding: 1rem;
-  margin: 0.5rem;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    padding: 1rem;
+    margin: 0.5rem;
 }
 
 #catalogo img {
-  height: 3.5rem;
-  margin: 0.4rem;
+    height: 3.5rem;
+    margin: 0.4rem;
 }
 
 #catalogo #container-servicos {
-  display: flex;
-  flex-direction: row;
-  align-content: space-between;
-  justify-content: space-evenly;
-  align-items: stretch;
-  flex-wrap: wrap;
-  column-gap: 3rem;
-  row-gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    row-gap: 1rem;
 }
 
 #catalogo .servico-catalogo {
-  display: flex;
-  align-content: flex-start;
-  align-items: stretch;
-  justify-content: center;
-  text-align: center;
-  width: 6rem;
-  cursor: pointer;
-  flex-wrap: wrap;
+    display: flex;
+    align-content: flex-start;
+    align-items: stretch;
+    justify-content: center;
+    text-align: center;
+    width: 6rem;
+    cursor: pointer;
+    flex-wrap: wrap;
 }
+
 
 /* Terceira Seção - Principais Serviços =====================================*/
 
 main section #principais-servicos {
-  padding: 0.5rem;
-  margin-bottom: 2rem;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
 }
 
-#principais-servicos > h2 {
-  margin: 1rem 0;
+#principais-servicos>h2 {
+    margin: 1rem 0;
 }
 
 section #principais-servicos .principal-servico-item {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 1rem;
-  text-align: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1rem;
+    text-align: center;
 }
 
 #principais-servicos .principal-servico-item img {
-  height: 10rem;
-
-  background-color: var(--primary-color );
-  padding: 1rem;
-  border-radius: 1rem;
+    height: 10rem;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 1rem;
 }
 
 section #principais-servicos #container-principais-servicos {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
+
 
 /* Quarta Seção - Profissionais Bem Avaliados ===============================*/
 
 main section #bem-avaliados {
-  padding: 1rem 0;
+    padding: 1rem 0;
 }
 
-#bem-avaliados > h2 {
-  color: var(--secondary-color);
-  margin: 1rem 0;
+#bem-avaliados>h2 {
+    color: var(--secondary-color);
+    margin: 1rem 0;
 }
 
 section #bem-avaliados .quadrado-wireframe {
-  background-color: var(--bg-color);
-  width: 100%;
-  height: 10rem;
-  border-radius: 1rem;
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 10rem;
+    border-radius: 1rem;
 }
 
 section #bem-avaliados #container-bem-avaliados {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 #bem-avaliados #container-bem-avaliados .bem-avaliados-item {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-
-  margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 1rem 0;
 }
 
 #bem-avaliados #container-bem-avaliados .quadrado-wireframe {
-  width: 20rem;
+    width: 20rem;
 }
 
 #bem-avaliados div.container-texto {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-
-  margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-left: 2rem;
 }
 
-.bem-avaliados-item div.container-img > img {
-  height: 10rem;
-
-  background-color: var(--bg-color);
-  padding: 1rem;
-  border-radius: 1rem;
+.bem-avaliados-item div.container-img>img {
+    height: 10rem;
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 1rem;
 }
+
 
 /* Quinta Seção - Quem Somos ================================================*/
 
 main section #quem-somos {
-  padding: 1rem 0;
+    padding: 1rem 0;
 }
 
 section #quem-somos .quadrado-wireframe {
-  background-color: var(--bg-color);
-  width: 100%;
-  height: 10rem;
-  border-radius: 1rem;
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 10rem;
+    border-radius: 1rem;
 }
 
 #quem-somos h3 {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
 }
+
 
 /* Sexta Seção - Como Trabalhamos ===========================================*/
 
 main section #container-trabalhamos {
-  padding: 1rem 0;
+    padding: 1rem 0;
 }
 
 section #container-trabalhamos .quadrado-wireframe {
-  background-color: var(--bg-color);
-  width: 100%;
-  height: 5rem;
-  border-radius: 1rem;
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 5rem;
+    border-radius: 1rem;
 }
 
 body main #container-trabalhamos {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-main section #container-neymar > img {
-  max-width: 30rem;
+main section #container-neymar>img {
+    max-width: 30rem;
 }
 
 section#servicos #imagem-banner img {
-  width: 100%;
-  border-radius: 1rem;
+    width: 100%;
+    border-radius: 1rem;
 }
 
 #container-trabalhamos h3 {
-  color: var(--secondary-color);
-}
-
-/* Footer ===================================================================*/
-
-.footer {
-  background-color: var(--primary-color);
-  color: var(--color-text);
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  margin-top: 100px;
-}
-
-.beforeLine {
-  display: flex;
-  justify-content: space-between;
-  padding: 60px 10% 40px;
-}
-
-.logoSlogan {
-  display: flex;
-  flex-direction: column;
-}
-
-.logoSlogan > img {
-  width: 50px;
-}
-
-.logoSlogan > span {
-  margin-top: 12px;
-  font-size: 15px;
-}
-
-.contentFooter {
-  display: flex;
-  justify-content: space-between;
-  width: 60%;
-}
-
-.contentFooter li {
-  list-style: none;
-  font-size: 15px;
-  margin-bottom: 5px;
-  cursor: pointer;
-}
-
-.line {
-  width: 80%;
-  border-bottom: 1px var(--bg-rating) solid;
-  margin: 0 auto;
-}
-
-.afterLine {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 60px 0;
-}
-
-.socialMedia {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 200px;
-}
-
-.socialMedia a {
-  font-size: 16px;
-  color: var(--color-text);
-  border: 0.8px var(--color-text) solid;
-  border-radius: 100%;
-  height: 35px;
-  width: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.socialMedia a:hover {
-  color: var(--secondary-color);
-  border-color: var(--secondary-color);
-}
-
-.copyright {
-  margin-top: 15px;
-  font-size: 12px;
+    color: var(--secondary-color);
 }

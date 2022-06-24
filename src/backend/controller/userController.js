@@ -113,59 +113,5 @@ module.exports = {
             console.log(error)
             res.status(400).error;
         }
-    },
-    async descreverProblema(req, res) {
-        try {
-            const newAgendamento = {
-                cod_servico: req.body.cod_servico,
-                descricao: req.body.descricao,
-                endereco: `${req.body.rua} N. ${req.body.numero}, ${req.body.bairro}, ${req.body.cidade} - ${req.body.cep}`,
-                cod_contratante: req.body.cod_contratante,
-                cod_prestador: req.body.cod_prestador,
-                cod_tipo: req.body.cod_tipo,
-                cod_status: 0,
-                status: 'Pendente'
-            }
-
-            // Se houver algum valor undefined, ele será null
-            for (let atributo in newAgendamento) {
-                if (newAgendamento[atributo] == undefined)
-                    newAgendamento[atributo] = null;
-            }
-            await Agendamento.create(newAgendamento).then(() => {
-                res.redirect('/');
-            });
-
-        } catch (error) {
-            console.log(error)
-            res.status(400).error;
-        }
-    },
-    async detalharServico(req, res) {
-        try {
-            const newDetalhe = {
-                cod_servico: req.body.cod_servico,
-                cod_contratante: req.body.cod_contratante,
-                cod_prestador: req.body.cod_prestador,
-                endereco: `${req.body.rua} N. ${req.body.numero}, ${req.body.bairro}, ${req.body.cidade} - ${req.body.cep}`,
-                cod_tipo: req.body.cod_tipo,
-                descricao: req.body.descricao,
-                valor_orcamento: req.body.valor_orcamento,
-                data_servico: req.body.data_servico,
-                horario: req.body.horario,
-                data_pagamento: req.body.data_pagamento,
-                cod_status: 0,
-                status: 'Pendente',
-                comprovante_pagamento: req.body.comprovante_pagamento
-            }
-
-            await Agendamento.create(newDetalhe).then(() => {
-                res.redirect('/');
-            });
-
-        } catch (error) {
-            console.log(error);
-            res.status(400).error;
-        }
     }
 }

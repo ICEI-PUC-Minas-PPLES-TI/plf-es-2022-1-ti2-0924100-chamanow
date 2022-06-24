@@ -1,0 +1,29 @@
+/* Global ====================================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap%27');
+:root {
+    --bg-rating: #fafafa;
+    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
+    --color-text: #fff;
+    --color-text-secondary: #333333;
+    --color-table: #FCFBFB;
+    --color-line: #E8E8E8;
+    --primary-color: #4939FF;
+    --primary-color-bright: #778FFC;
+    --secondary-color: #FF6B00;
+    --star-color: #FFE500;
+    --color-input: #EDEDED;
+    --invalid-input: #DA2929;
+    --right-color: #20E300;
+    --wrong-color: #FF3737;
+    --rating-btn: #ffd000;
+    --transition: all 0.1s linear;
+    --box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+}
+
+
+/* Todos os btns */
+
+button {
+    cursor: pointer;
+}

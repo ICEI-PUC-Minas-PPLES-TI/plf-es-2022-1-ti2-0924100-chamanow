@@ -5,30 +5,41 @@ function infoPerfil(data) {
 
     // Alterar a nota do usuario
     const notaUser = document.querySelector("#nota");
-    const userRating = getUserRating(data.cod_user);
-    userRating.then((rating) => {
-        if (rating.length) {
-            // Cálculo da média das avaliacoes
-            var mediaNota = 0;
 
-            // Soma as notas das avaliações
-            for (let avaliacao of rating) {
-                mediaNota += avaliacao.nota;
-            }
+    // Div Avaliação ========================================
 
-            // Divide o total pela quantidade de notas
-            mediaNota /= rating.length;
+    // Busca no banco de dados a média da nota do prestador
+    const media_avaliacao = getAvgRating(data.cod_user);
+    media_avaliacao.then(avaliacao => {
+        // Atribui a nota à uma variável
+        const nota = avaliacao[0].nota;
 
+        // Se houver nota para o prestador, ela é carregada na página
+        if (nota) {
             // Adiciona a nota média calculada na página com uma casa decimal
-            notaUser.innerText = mediaNota.toFixed(1);
+            notaUser.innerText = nota.toFixed(1);
 
             // Configura as estrelas de acordo com a nota média
             const stars = document.querySelectorAll(".avaliacao li");
-            stars[mediaNota.toFixed(0) - 1].classList.add("active");
+            stars[nota.toFixed(0) - 1].classList.add("active");
         } else {
-            // Se não houver avaliações, elas são ocultas
-            const avaliacaoUsuario = document.querySelector(".avaliacao-usuario");
-            avaliacaoUsuario.style = "display: none";
+            // Caso contrario, uma mesagem é exibida
+
+            // Oculta as estrelas ==================
+
+            // Referencia os elementos que serão ocultos
+            const ulAvalicao = document.querySelector(".avaliacao");
+            const ponto = document.querySelector(".ponto");
+
+            // Atribui 'display: none' aos elementos
+            ulAvalicao.style = "display: none";
+            ponto.style = "display: none";
+
+            // Atribui uma class para o elemento
+            notaUser.className = "sem-avaliacao";
+
+            // Adiciona uma mensagem no elemento
+            notaUser.innerText = "Este prestador ainda não possui avaliações";
         }
     })
 
@@ -37,19 +48,7 @@ function infoPerfil(data) {
     regiaoAtuacao.innerText = data.regiao_atuacao;
 }
 
-function getCookie(name) {
-    let cookie = {};
-
-    document.cookie.split(';').forEach(function(el) {
-        let [k, v] = el.split('=');
-        cookie[k.trim()] = v;
-    })
-
-    return cookie[name];
-}
-
 function criarListaAvaliacoes(data) {
-    console.log(data)
     // Referenciar div dadosMenu
     const divAvaliacoes = document.createElement("div");
     divAvaliacoes.className = "divAvaliacoes";
@@ -73,8 +72,7 @@ function criarListaAvaliacoes(data) {
     // Criação do elemento para a data da publicação da avaliação
     const dataPublicacao = document.createElement('span');
     dataPublicacao.id = "data-publicacao";
-    console.log(data.created_at);
-    dataPublicacao.innerText = formatarData(data.created_at);
+    dataPublicacao.innerText = formatarDataHora(data.created_at);
 
     // Colocando os elementos criados dentro de div nomeData
     divNomeData.appendChild(nomeAvaliador);
@@ -84,36 +82,53 @@ function criarListaAvaliacoes(data) {
     // Div Avaliação ========================================
 
     // Criação da div com a nota da avaliação
-    const divAvaliacao = document.createElement('div');
-    divAvaliacao.className = "avaliacao-usuario";
+    const divAvaliacao = criarElementos('div', null, "avaliacao-usuario");
 
     // Criação do elemento para a nota
-    const notaAvaliacao = document.createElement('span');
-    notaAvaliacao.id = "nota";
-    notaAvaliacao.innerText = data.nota;
+    const notaAvaliacao = criarElementos('span', "nota", null);
 
-    // Criação do elemento para o ponto de separação
-    const ponto = document.createElement('span');
-    ponto.className = "ponto";
+    // Adiciona a divAvaliacao na página
 
-    // Criação do elemento que conterá as estrelas
-    const listEstrelas = document.createElement('ul');
-    listEstrelas.className = "avaliacao";
 
-    // Criando e colocando os elementos estrela dentro da lista
-    for (var i = 0; i < 5; i++) {
-        // Criação do elemento para as estrelas
-        const estrelas = document.createElement('li');
-        estrelas.className = "star-icon";
-
-        // Colocando os elementos estrela dentro da lista
-        listEstrelas.appendChild(estrelas);
-    }
-
-    // Colocando os elementos criados dentro da divAvaliacao
+    // Colocando notaAvaliacao dentro da divAvaliacao
     divAvaliacao.appendChild(notaAvaliacao);
-    divAvaliacao.appendChild(ponto);
-    divAvaliacao.appendChild(listEstrelas);
+
+    // Se houver nota para o prestador, ela é carregada na página
+    if (data.nota) {
+        // Criação do elemento para o ponto de separação
+        const ponto = criarElementos('span', null, "ponto");
+
+        // Criação do elemento que conterá as estrelas
+        const listEstrelas = criarElementos('ul', null, "avaliacao");
+
+        // Colocando os elementos criados dentro da divAvaliacao
+        divAvaliacao.appendChild(ponto);
+        divAvaliacao.appendChild(listEstrelas);
+
+        // Adicionando a média da nota no elemento 'span'
+        notaAvaliacao.innerText = data.nota;
+
+        // Criando e colocando os elementos estrela dentro da lista
+        for (var i = 0; i < 5; i++) {
+            // Criação do elemento para as estrelas
+            const estrelas = criarElementos('li', null, "star-icon-view");
+
+            // Adiciona a class 'active' na estrela correspondente à nota do usuario
+            if (i == (data.nota.toFixed(0) - 1))
+                estrelas.classList.add("active");
+
+            // Colocando os elementos estrela dentro da lista
+            listEstrelas.appendChild(estrelas);
+        }
+    } else {
+        // Caso contrario, uma mesagem é exibida
+
+        // Atribui uma class para o elemento
+        notaAvaliacao.className = "sem-avaliacao";
+
+        // Adiciona uma mensagem no elemento
+        notaAvaliacao.innerText = "Este prestador ainda não possui avaliações";
+    }
 
     // Comentario ============================================
 
@@ -133,9 +148,22 @@ function criarListaAvaliacoes(data) {
     return divAvaliacoes;
 }
 
+$(document).ready(() => {
+    // Muda a logo em dispositivos com display menor que 1000px
+    logoMobile();
 
-$(document).ready(function() {
+    // Pegar o id do user no cookie
+    const idUser = getCookie("idUser");
 
+    // Caso o usuario nã o esteja logado (idUser == null), ele é direcionado para a página inicial
+    if (!idUser)
+        window.location.href = "/login";
+    else {
+        const user = getUserData(idUser);
+        user.then(user => {
+            alterarHeaderLogado(user);
+        })
+    }
     const urlParams = new URLSearchParams(location.search);
 
     const cod_prestador = getUserData(urlParams.get('cod_prestador'));
@@ -146,25 +174,28 @@ $(document).ready(function() {
         // Gera as avaliações
         const divDadosAvaliacoes = document.querySelector("#avaliacoes");
         const dataAvaliacoes = getAvaliacao(data.cod_user);
-        console.log(data)
         dataAvaliacoes.then((data) => {
             if (data.length) {
                 for (var i = 0; i < 3; i++) {
                     // Referenciar a div com a tabela
-                    console.log(data[i])
                     const divAvaliacoes = criarListaAvaliacoes(data[i]);
 
                     // Adicionar divAvaliacoeso na divDadosMenu
                     divDadosAvaliacoes.appendChild(divAvaliacoes);
                 }
-              } else {
+            } else {
                 // Referenciar a div com a tabela
                 const divAvaliacoes = document.createElement('p');
                 divAvaliacoes.className = "dataNull";
-                divAvaliacoes.innerText = "Você ainda não possui avaliações";
+                divAvaliacoes.innerText = "Este prestador ainda não possui avaliações";
 
                 // Adicionar divAvaliacoeso na divDadosMenu
                 divDadosAvaliacoes.appendChild(divAvaliacoes);
+            }
+
+            const btnOrcamento = document.querySelector("#contratar-servico");
+            btnOrcamento.onclick = () => {
+                completaInput(getCookie('idUser'), urlParams.get('cod_prestador'), urlParams.get('cod_servico'));
             }
         })
     });
@@ -175,34 +206,18 @@ $(document).ready(function() {
         $("#inputProblema").val(detalhamento);
         localStorage.removeItem("detalhamento");
     }
-
-    const btnOrcamento = document.querySelector("#contratar-servico");
-    btnOrcamento.onclick = () => {
-        completaInput(getCookie('idUser'), cod_prestadorAux);
-    }
 })
 
-function formatarData(date, hour) {
-    console.log(date)
-    var dateFormatada = date.split('T')[0];
-    dateFormatada.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
-
-    if (hour)
-        dateFormatada += ` às ${hour.substring(0, 5)}`;
-
-    return dateFormatada;
-}
-
-function completaInput(cod_user, cod_prestador) {
+function completaInput(cod_contratante, cod_prestador, cod_servico) {
     const input_cod_servico = document.querySelector("#input_cod_servico");
     input_cod_servico.value = Math.floor(Date.now() * Math.random()).toString(36);
 
     const input_cod_contratante = document.querySelector("#input_cod_contratante");
-    input_cod_contratante.value = getCookie('idUser');
+    input_cod_contratante.value = cod_contratante;
 
     const input_cod_prestador = document.querySelector("#input_cod_prestador");
     input_cod_prestador.value = cod_prestador;
 
     const input_cod_tipo = document.querySelector("#input_cod_tipo");
-    input_cod_tipo.value = 500;
+    input_cod_tipo.value = cod_servico;
 }

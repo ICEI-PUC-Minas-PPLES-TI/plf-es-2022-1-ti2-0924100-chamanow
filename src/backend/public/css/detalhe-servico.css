@@ -1,21 +1,5 @@
 /* ========== Formatações Gerais ==========*/
 
- :root {
-    --bg: #333333;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: #fff;
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --primary-color-bright: #778ffc;
-    --secondary-color: #ff6b00;
-    --right-color: #20E300;
-    --wrong-color: #FF3737;
-    --yellow-color: #FFD600;
-    --transition: all 0.1s linear;
-    --box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -47,159 +31,6 @@ button[id^="btn-"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-
-/* ========== Modal de Avaliação ==========*/
-
-.titulo-modal {
-    margin: 0 !important;
-    width: 95%;
-    text-align: center;
-}
-
-.modal-body {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.modal-body #foto-perfil {
-    width: 150px;
-    margin: 0 0 30px;
-}
-
-.modal-body .informacoes-perfil {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.modal-body #comentario-avaliacao {
-    font-size: 14px;
-    border: none;
-    background-color: var(--bg-rating);
-    padding: 7px 15px;
-    border-radius: 10px 10px;
-    margin: 30px 0 0;
-    min-width: 400px;
-    min-height: 150px;
-}
-
-.modal-body #comentario-avaliacao::placeholder {
-    padding: 20px 30px;
-    font-size: 15px;
-}
-
-.modal-body #comentario-avaliacao:focus {
-    box-shadow: none;
-}
-
-.modal-body .avaliacao-usuario {
-    height: auto;
-    margin: 20px 0;
-}
-
-.modal-body .star-icon {
-    list-style-type: none;
-    cursor: pointer;
-    color: #ffe500;
-    font-size: 45px;
-}
-
-.modal-body .star-icon::before {
-    content: "\2606";
-}
-
-.modal-body .star-icon.ativo~.star-icon::before {
-    content: "\2606";
-}
-
-.modal-body .avaliacao:hover .star-icon::before {
-    content: "\2605";
-}
-
-.modal-body .star-icon:hover~.star-icon::before {
-    content: "\2606";
-}
-
-.modal-footer {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-}
-
-#btn-sair-avaliacao {
-    width: 80px;
-    background-color: var(--primary-color);
-}
-
-#btn-enviar-avaliacao {
-    width: 100px;
-    background-color: var(--secondary-color);
-}
-
-#btn-enviar-avaliacao:hover {
-    background-color: var(--color-text);
-    color: var(--secondary-color);
-}
-
-#btn-sair-avaliacao:hover {
-    background-color: var(--color-text);
-    color: var(--primary-color);
-}
-
-
-/* ========== Cabeçalho ========== */
-
-.site-header {
-    background-color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 7px 15%;
-    height: 60px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: var(--color-text);
-    margin-left: 30px;
-    transition: var(--transition);
-}
-
-.menu a:hover {
-    color: var(--secondary-color);
-}
-
-.menu a:nth-child(2) {
-    padding: 5px 20px;
-    border-radius: 7px;
-    border: 1.2px var(--primary-color-bright) solid;
-    transition: var(--transition);
-}
-
-.menu a:nth-child(2):hover {
-    border: 1.2px var(--secondary-color) solid;
-}
-
-.menu a:last-child {
-    background-color: var(--secondary-color);
-    color: var(--color-text);
-    padding: 5px 20px;
-    border-radius: 7px;
-}
-
-.menu a:last-child:hover {
-    background-color: var(--color-text);
-    color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
-}
-
-#logo-header {
-    cursor: pointer;
-    width: 150px;
 }
 
 
@@ -236,126 +67,6 @@ button[id^="btn-"] {
 }
 
 
-/* Avaliação */
-
-.avaliacao-usuario,
-.avaliacao {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row;
-    margin-bottom: 0;
-    padding: 0;
-    height: 30px;
-}
-
-#nota {
-    padding-right: 5px;
-}
-
-.ponto {
-    font-size: 40px;
-}
-
-.ponto::before {
-    content: "\2027";
-}
-
-.star-icon {
-    list-style-type: none;
-    cursor: pointer;
-    color: #ffe500;
-    font-size: 30px;
-    /* alterar o tamanho das estrelas */
-}
-
-.star-icon::before {
-    content: "\2605";
-}
-
-.star-icon.ativo~.star-icon::before {
-    content: "\2606";
-}
-
-.avaliacao:hover .star-icon::before {
-    content: "\2605";
-}
-
-.star-icon:hover~.star-icon::before {
-    content: "\2606";
-}
-
-
-/* Descrição */
-
-#descricao {
-    max-width: 600px;
-    margin: 20px 0;
-}
-
-.titulo-regiao-atuacao {
-    font-size: 15px;
-}
-
-
-/* ========== Avaliações ========== */
-
-
-/* Blocos */
-
-.content-avaliacoes {
-    background: var(--bg-rating);
-    border-radius: 15px;
-    margin-bottom: 30px;
-    padding: 20px 30px;
-    border: none;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
-    transition: all .2s;
-}
-
-.content-avaliacoes:hover {
-    border-bottom: 2px solid var(--secondary-color);
-    transform: translateY(-7px);
-}
-
-.content-avaliacoes:hover #nome-avaliador {
-    color: var(--secondary-color);
-}
-
-.nome-data {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row;
-}
-
-#nome-avaliador {
-    margin: 0;
-    font-weight: 600;
-}
-
-.hifen {
-    padding: 0 10px;
-}
-
-#data-publicacao {
-    font-style: italic;
-}
-
-#content-avaliacoes #nota {
-    font-size: 13px;
-}
-
-#content-avaliacoes .star-icon {
-    font-size: 20px;
-}
-
-#comentario {
-    font-style: italic;
-    margin: 15px 0 0;
-}
-
-
 /* ========== Escolher Datas Disponvíeis ========== */
 
 .escolher-data-orcamento {
@@ -365,21 +76,40 @@ button[id^="btn-"] {
     flex-direction: row;
 }
 
-.escolher-data input {
+.escolher-data {
+    margin-left: 30px;
+    width: 60%;
+}
+
+.divInputDate {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.divInputDate:last-child {
+    margin-top: 20px;
+}
+
+.escolher-data input,
+#valor-orcamento {
     font-size: 14px;
     border: none;
     background-color: var(--bg-rating);
     padding: 7px 15px;
     border-radius: 10px 10px;
     margin: 30px 0 0;
+    max-width: 400px;
 }
 
-.escolher-data input:focus {
+.escolher-data input:focus,
+#valor-orcamento:focus {
     border: none;
     box-shadow: none;
 }
 
-.escolher-data input::placeholder {
+.escolher-data input::placeholder,
+#valor-orcamento::placeholder {
     font-size: 15px;
 }
 
@@ -433,17 +163,18 @@ label[for^="btn-"]:hover {
     color: var(--secondary-color);
 }
 
-
-/* ========== Orçamento ========== */
-
-.divOrcamento {
-    margin-top: 46px;
+#labelComprovante {
+    max-width: 230px;
 }
 
 
-/* ========== Comprovante de Pagamento ========== */
+/* ========== Orçamento ========== */
 
-.divComprovante {
+.orcamento {
+    width: 40%;
+}
+
+.div-orcamento {
     max-width: 230px;
 }
 
@@ -468,11 +199,6 @@ label[for^="btn-"]:hover {
     width: 50%;
 }
 
-#btn-avaliar-prestador {
-    background-color: var(--yellow-color);
-    width: 210px;
-}
-
 #btn-recusar-servico {
     background-color: var(--wrong-color);
     width: 180px;
@@ -483,11 +209,6 @@ label[for^="btn-"]:hover {
     width: 180px;
 }
 
-#btn-avaliar-prestador:hover {
-    background-color: var(--color-text);
-    color: var(--yellow-color);
-}
-
 #btn-recusar-servico:hover {
     background-color: var(--color-text);
     color: var(--wrong-color);
@@ -496,92 +217,4 @@ label[for^="btn-"]:hover {
 #btn-aceitar-servico:hover {
     background-color: var(--color-text);
     color: var(--right-color);
-}
-
-
-/* ========== Footer ==========*/
-
-.footer {
-    background-color: var(--primary-color);
-    color: var(--color-text);
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    margin-top: 100px;
-}
-
-.beforeLine {
-    display: flex;
-    justify-content: space-between;
-    padding: 60px 10% 40px;
-}
-
-.logoSlogan {
-    display: flex;
-    flex-direction: column;
-}
-
-.logoSlogan>img {
-    width: 50px;
-}
-
-.logoSlogan>span {
-    margin-top: 12px;
-    font-size: 15px;
-}
-
-.contentFooter {
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-}
-
-.contentFooter li {
-    list-style: none;
-    font-size: 15px;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-.line {
-    width: 80%;
-    border-bottom: 1px var(--bg-rating) solid;
-    margin: 0 auto;
-}
-
-.afterLine {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 60px 0;
-}
-
-.socialMedia {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
-}
-
-.socialMedia a {
-    font-size: 16px;
-    color: var(--color-text);
-    border: .8px var(--color-text) solid;
-    border-radius: 100%;
-    height: 35px;
-    width: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.socialMedia a:hover {
-    color: var(--secondary-color);
-    border-color: var(--secondary-color);
-}
-
-.copyright {
-    margin-top: 15px;
-    font-size: 12px;
 }

@@ -1,19 +1,5 @@
 /* ========== Formatações Gerais ==========*/
 
-:root {
-    --bg: #999999;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: #fff;
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --secondary-color: #ff6b00;
-    --star-color: #ffe500;
-    --color-input: #ededed;
-    --invalid-input: #fa2929;
-    transition: all 0.3s linear;
-}
-
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -35,14 +21,14 @@ body {
 /* Cadastro do Usuário */
 
 .cadastro {
-    background-color: #4939FF;
+    background-color: var(--primary-color);
     max-width: 25%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: white;
+    color: var(--color-text);
     padding: 0 5%;
 }
 
@@ -77,15 +63,15 @@ body {
     background: none;
     padding: 5px 15px;
     width: 120px;
-    border: 2px solid #FFF;
+    border: 2px solid var(--color-text);
     border-radius: 50px;
-    color: white;
+    color: var(--color-text);
     transition: all 0.2s;
 }
 
 #cadastrar:hover {
-    background: #FFF;
-    color: #4939FF;
+    background: var(--color-text);
+    color: var(--secondary-color);
     font-weight: 500;
 }
 
@@ -104,7 +90,7 @@ body {
 .tituloDados {
     font-weight: 700;
     font-size: 25px;
-    color: #4939FF;
+    color: var(--primary-color);
 }
 
 .subtituloDados {
@@ -119,9 +105,12 @@ body {
 }
 
 #formDados {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     width: 500px;
     margin: 50px auto 0;
-    color: #fff;
+    color: var(--color-text);
 }
 
 #formDados input {
@@ -129,13 +118,13 @@ body {
     border: none;
     border-radius: 30px;
     padding: 10px 30px;
-    background-color: #EDEDED;
+    background-color: var(--color-input);
 }
 
 #formDados input:focus {
     border: none;
     box-shadow: none;
-    background-color: #EDEDED;
+    background-color: var(--color-input);
 }
 
 .btns {
@@ -148,16 +137,17 @@ body {
 #entrar {
     border: none;
     border-radius: 30px;
+    margin: 30px 0 0 auto;
     padding: 5px 25px;
-    background-color: #FF7033;
-    color: #FFF;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--secondary-color);
+    color: var(--color-text);
     transition: all 0.2s;
 }
 
 #entrar:hover {
-    background-color: #FFF;
-    color: #FF7033;
+    background-color: var(--color-text);
+    color: var(--secondary-color);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
 }
 
 .cadastrarMobile {
@@ -166,8 +156,8 @@ body {
 
 @media screen and (max-width: 900px) {
     .backgroundMobile {
-        background-color: #4939FF;
-        color: #FFF;
+        background-color: var(--primary-color);
+        color: var(--color-text);
     }
     .cadastro {
         display: none;
@@ -185,10 +175,10 @@ body {
     }
     .tituloDados {
         margin-top: 30px;
-        color: #FFF;
+        color: var(--color-text);
     }
     .subtituloDados {
-        color: #FFF;
+        color: var(--color-text);
     }
     #formDados {
         width: 100%;
@@ -199,6 +189,6 @@ body {
     }
     #linkcadastroMobile {
         text-decoration: none;
-        color: #FF7033;
+        color: var(--secondary-color);
     }
 }

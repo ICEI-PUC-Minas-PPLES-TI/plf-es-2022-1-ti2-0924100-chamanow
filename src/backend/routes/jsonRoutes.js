@@ -5,7 +5,7 @@ apiRoutes.use(express.json());
 
 // Instalação do SEQUELIZE
 const connection = require('../database');
-const { paramsTypes } = require('sequelize');
+const { queryTypes } = require('sequelize');
 const { QueryTypes } = require('sequelize');
 
 // Importar o Método POST
@@ -41,9 +41,9 @@ apiRoutes.get('/user-datas/teste', async(req, res) => {
 })
 
 // Rota com os dados dos users
-apiRoutes.get('/user-datas/user-infos/cod_user=:userId', async(req, res) => {
+apiRoutes.get('/user-datas/user-infos/', async(req, res) => {
     try {
-        const data = await Usuario.findByPk(req.params.userId);
+        const data = await Usuario.findByPk(req.query.cod_user);
         res.json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -51,9 +51,9 @@ apiRoutes.get('/user-datas/user-infos/cod_user=:userId', async(req, res) => {
 })
 
 // Rota com os dados dos users
-apiRoutes.get('/user-datas/user-infos/email=:email', async(req, res) => {
+apiRoutes.get('/user-datas/user-infos/', async(req, res) => {
     try {
-        const data = await Usuario.findOne({ where: { email: req.params.email } });
+        const data = await Usuario.findOne({ where: { email: req.query.email } });
         res.json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -61,10 +61,9 @@ apiRoutes.get('/user-datas/user-infos/email=:email', async(req, res) => {
 })
 
 //Rota de um serviço específico
-
-apiRoutes.get('/escolha-servico/todos-servicos/cod_tipo=:cod_tipo', async(req, res) => {
+apiRoutes.get('/escolha-servico/servico/', async(req, res) => {
     try {
-        const data = await Servico.findAll({ where: { cod_tipo: req.params.cod_tipo } });
+        const data = await Servico.findAll({ where: { cod_tipo: req.query.cod_tipo } });
         res.json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -82,10 +81,9 @@ apiRoutes.get('/escolha-servico/todos-servicos', async(req, res) => {
 })
 
 //Rota de profissionais que prestam um serviço especifico
-
-apiRoutes.get('/user-datas/cod_tipo=:cod_tipo', async(req, res) => {
+apiRoutes.get('/user-datas/', async(req, res) => {
     try {
-        const data = await Usuario.findAll({ where: { cod_tipo: req.params.cod_tipo } })
+        const data = await Usuario.findAll({ where: { cod_tipo: req.query.cod_tipo } })
         return res.status(200).json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -93,9 +91,9 @@ apiRoutes.get('/user-datas/cod_tipo=:cod_tipo', async(req, res) => {
 })
 
 // Rota com os dados do telefone dos users
-apiRoutes.get('/user-datas/user-tel/cod_user=:userId', async(req, res) => {
+apiRoutes.get('/user-datas/user-tel/', async(req, res) => {
     try {
-        const data = await Telefone.findOne({ where: { cod_user: req.params.userId } });
+        const data = await Telefone.findOne({ where: { cod_user: req.query.cod_user } });
         res.json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -103,9 +101,9 @@ apiRoutes.get('/user-datas/user-tel/cod_user=:userId', async(req, res) => {
 })
 
 // Rota com os dados do telefone dos users
-apiRoutes.get('/user-datas/user-adress/cod_user=:userId', async(req, res) => {
+apiRoutes.get('/user-datas/user-adress/', async(req, res) => {
     try {
-        const data = await Endereco.findOne({ where: { cod_user: req.params.userId } });
+        const data = await Endereco.findOne({ where: { cod_user: req.query.cod_user } });
         res.json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -113,9 +111,9 @@ apiRoutes.get('/user-datas/user-adress/cod_user=:userId', async(req, res) => {
 })
 
 // Rota com os dados das avaliações
-apiRoutes.get('/user-datas/rating/cod_avaliado=:userId', async(req, res) => {
+apiRoutes.get('/user-datas/rating/', async(req, res) => {
     try {
-        const data = await Avaliacao.findAll({ where: { cod_avaliado: req.params.userId } })
+        const data = await Avaliacao.findAll({ where: { cod_avaliado: req.query.cod_avaliado } })
         return res.status(200).json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -123,9 +121,9 @@ apiRoutes.get('/user-datas/rating/cod_avaliado=:userId', async(req, res) => {
 })
 
 // Rota com os dados da tabela de agendamento para o cliente
-apiRoutes.get('/user-datas/services/client/cod_client=:cod_contratante', async(req, res) => {
+apiRoutes.get('/user-datas/services/client/', async(req, res) => {
     try {
-        const data = await Agendamento.findAll({ where: { cod_contratante: req.params.cod_contratante } });
+        const data = await Agendamento.findAll({ where: { cod_contratante: req.query.cod_contratante } });
         return res.status(200).json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -133,9 +131,9 @@ apiRoutes.get('/user-datas/services/client/cod_client=:cod_contratante', async(r
 })
 
 // Rota com os dados da tabela de agendamento para o prestador
-apiRoutes.get('/user-datas/services/provider=:cod_prestador', async(req, res) => {
+apiRoutes.get('/user-datas/services/', async(req, res) => {
     try {
-        const data = await Agendamento.findAll({ where: { cod_prestador: req.params.cod_prestador } });
+        const data = await Agendamento.findAll({ where: { cod_prestador: req.query.cod_prestador } });
         return res.status(200).json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -143,9 +141,9 @@ apiRoutes.get('/user-datas/services/provider=:cod_prestador', async(req, res) =>
 })
 
 // Rota com os dados de todos os usuarios
-apiRoutes.get('/services/cod_servico=:serviceId', async(req, res) => {
+apiRoutes.get('/services/', async(req, res) => {
     try {
-        const data = await Servico.findOne({ where: { cod_tipo: req.params.serviceId } });
+        const data = await Servico.findOne({ where: { cod_tipo: req.query.cod_servico } });
         return res.status(200).json(data);
     } catch (error) {
         console.log("Error: " + error);
@@ -153,14 +151,14 @@ apiRoutes.get('/services/cod_servico=:serviceId', async(req, res) => {
 })
 
 // Rota para as avalaições do usuario com o nome do avaliador
-apiRoutes.get('/user-datas/rating/cod_avaliado=:userId', async(req, res) => {
+apiRoutes.get('/user-datas/rating/', async(req, res) => {
     try {
-        const data = await connection.params(
+        const data = await connection.query(
             `SELECT A.id, A.cod_avaliador, A.cod_avaliado, A.nota, A.comentario, A.created_at, A.cod_agendamento, B.nome\
             FROM avaliacaos AS A JOIN usuarios AS B\
             ON A.cod_avaliador = B.cod_user\
-            WHERE cod_avaliado = '${req.params.userId}'\
-            GROUP BY A.id`, { type: paramsTypes.SELECT }
+            WHERE cod_avaliado = '${req.query.cod_avaliado}'\
+            GROUP BY A.id`, { type: queryTypes.SELECT }
         );
         return res.status(200).json(data);
     } catch (error) {
@@ -169,12 +167,12 @@ apiRoutes.get('/user-datas/rating/cod_avaliado=:userId', async(req, res) => {
 })
 
 // Rota para os serviços agendados que foram avaliados
-apiRoutes.get('/user-datas/rating/cod_agendamento=:cod_agendamento/cod_avaliador=:cod_avaliador', async(req, res) => {
+apiRoutes.get('/agendamento/rating/', async(req, res) => {
     try {
         const data = await Avaliacao.findOne({
             where: {
-                cod_agendamento: req.params.cod_agendamento,
-                cod_avaliador: req.params.cod_avaliador
+                cod_agendamento: req.query.cod_agendamento,
+                cod_avaliador: req.query.cod_avaliador
             }
         });
         return res.status(200).json(data);
@@ -196,14 +194,12 @@ apiRoutes.post('/user-datas/user-infos/user-login', async(req, res) => {
 })
 
 //Rota para as avaliações de um usuario
-
 apiRoutes.get('/user-datas/avg-rating/', async(req, res) => {
     try {
-        
-        const media_avaliacao = req.query.cod_avaliado;
-
         const data = await connection.query(
-            `select avg(nota) as nota from avaliacaos where cod_avaliado = "${media_avaliacao}"`, { type: QueryTypes.SELECT }
+            `SELECT AVG(nota) AS nota\
+            FROM avaliacaos\
+            WHERE cod_avaliado = "${req.query.cod_avaliado}"`, { type: QueryTypes.SELECT }
         );
 
         return res.status(200).json(data);
@@ -213,13 +209,13 @@ apiRoutes.get('/user-datas/avg-rating/', async(req, res) => {
 })
 
 // Rota 3 últimas avaliações do prestador
-apiRoutes.get('/user-datas/rating/last-rating/cod_avaliado=:cod_avaliado', async(req, res) => {
+apiRoutes.get('/user-datas/rating/last-rating/', async(req, res) => {
     try {
         const data = await connection.query(
             `SELECT A.cod_avaliador, A.nota, A.comentario, A.created_at, B.nome\
             FROM avaliacaos AS A JOIN usuarios AS B\
             ON A.cod_avaliador = B.cod_user\
-            WHERE A.cod_avaliado = '${req.params.cod_avaliado}'\
+            WHERE A.cod_avaliado = '${req.query.cod_avaliado}'\
             ORDER BY DAY(A.created_at) DESC LIMIT 3`, { type: QueryTypes.SELECT }
         );
         return res.status(200).json(data);
@@ -227,6 +223,17 @@ apiRoutes.get('/user-datas/rating/last-rating/cod_avaliado=:cod_avaliado', async
         console.error(error);
     }
 })
+
+apiRoutes.get('/agendamento/servico/', async(req, res) => {
+    try {
+        const data = await Agendamento.findOne({ where: { cod_servico: req.query.cod_servico } });
+
+        return res.status(200).json(data);
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 
 // Exportar rotas
 module.exports = apiRoutes;

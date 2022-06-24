@@ -29,6 +29,6 @@ Avaliacao.belongsToMany(Usuario, {
     constraint: true
 });
 
-Avaliacao.sync({ alter: true })
+//Avaliacao.sync({ alter: true })
 
 module.exports = Avaliacao;

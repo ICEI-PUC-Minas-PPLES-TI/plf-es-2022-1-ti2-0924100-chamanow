@@ -1,18 +1,5 @@
 /* ========== Formatações Gerais ==========*/
 
-:root {
-    --bg: #999999;
-    --bg-rating: #fafafa;
-    --bg-header: linear-gradient(to right, #30cfd0 0%, #330867 100%);
-    --color-text: #fff;
-    --color-text-secondary: #333333;
-    --primary-color: #4939FF;
-    --secondary-color: #ff6b00;
-    --star-color: #ffe500;
-    --color-input: #ededed;
-    --transition: all 0.3s linear;
-}
-
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -113,26 +100,6 @@ body {
     color: var(--secondary-color);
 }
 
-.servicoNotify {
-    display: block;
-    position: relative;
-}
-
-#notification {
-    display: block;
-    position: absolute;
-    top: -5px;
-    left: 60px;
-    line-height: 16px;
-    height: 16px;
-    padding: 0 5px;
-    color: var(--color-text);
-    font-size: 13px;
-    border: none;
-    border-radius: 10px;
-    background: var(--secondary-color);
-}
-
 
 /* Conteúdo da seção */
 
@@ -174,12 +141,12 @@ body {
 }
 
 #tabelaServico tr {
-    border-bottom: 1px solid #E8E8E8;
+    border-bottom: 1px solid var(--color-line);
     cursor: pointer;
 }
 
 .cabecalho {
-    background-color: #FCFBFB;
+    background-color: var(--color-table);
     color: var(--secondary-color);
     border-radius: 10px;
 }
@@ -189,28 +156,25 @@ td span {
     border-radius: 7px;
 }
 
-#tabelaServico tr:nth-child(4n + 1) td:last-child span,
-#cancelado {
+#status-cancelado {
     color: #FF4F4F;
     background-color: #ffd4d4;
 }
 
-#tabelaServico tr:nth-child(4n + 2) td:last-child span,
-#naoPago {
-    color: #FF007F;
-    background-color: #ffc6e3;
-}
-
-#tabelaServico tr:nth-child(4n + 3) td:last-child span,
-#concluido {
+#status-concluído,
+#status-concluido {
     color: #00E45B;
     background-color: #bbfdd5;
 }
 
-#tabelaServico tr:nth-child(4n + 4) td:last-child span,
-#pendente {
-    color: #F4CD00;
-    background-color: #fff3b9;
+#status-pendente {
+    color: #002df4;
+    background-color: #b7c4ff;
+}
+
+#status-nao-pago {
+    color: #f46e00;
+    background-color: #f1ae78;
 }
 
 
@@ -320,120 +284,82 @@ input[type=number] {
 }
 
 
-/* Avaliações */
+/* Modal de Servico */
 
-.divAvaliacoes {
-    background: var(--bg-rating);
-    border-radius: 15px;
-    padding: 20px 30px;
-    margin: 0 0 30px !important;
+.nome-usuario,
+.nome-usuario-avaliacao {
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+#servicoUrl {
+    text-decoration: none;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-footer button,
+.btns-modal-avaliacao button {
+    background-color: var(--primary-color);
+    margin: 0;
+    padding: 7px 15px;
     border: none;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    color: var(--color-text);
+    border-radius: 50px;
     transition: all .2s;
 }
 
-.divAvaliacoes:hover {
-    border-bottom: 2px solid var(--secondary-color);
-    transform: translateY(-7px);
+.modal-footer button:hover,
+.btns-modal-avaliacao button:hover {
+    background-color: var(--color-text);
+    color: var(--primary-color);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
 }
 
-.divAvaliacoes:hover #nome-avaliador {
-    color: var(--secondary-color);
+#btn-enviar-avaliacao {
+    background-color: var(--rating-btn);
+    margin-left: 20px;
 }
 
-.nome-data {
+#btn-enviar-avaliacao:hover {
+    background-color: var(--color-text);
+    color: var(--rating-btn);
+}
+
+
+/* Modal Avaliacao*/
+
+.body-avaliacao {
     display: flex;
-    justify-content: start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-direction: row;
 }
 
-#nome-avaliador {
-    margin: 0;
-    font-weight: 600;
-}
-
-.hifen {
-    padding: 0 10px;
-}
-
-#data-publicacao {
-    font-style: italic;
-}
-
-#content-avaliacoes #nota {
-    font-size: 13px;
-}
-
-#content-avaliacoes .star-icon {
-    font-size: 20px;
-}
-
-#comentario {
-    font-style: italic;
-    margin: 15px 0 0;
-}
-
-.dataNull {
-    font-style: italic;
-    text-align: center;
-}
-
-
-/* ========== Avaliações ========== */
-
-
-/* Blocos */
-
-.avaliacao-usuario,
-.avaliacao {
+.form-avaliacao {
     display: flex;
-    justify-content: start;
+    flex-direction: column;
+    width: 100%;
+}
+
+#comentario-avaliacao {
+    margin: 25px auto 0;
+    border: none;
+    border-radius: 15px;
+    padding: 7px 15px;
+    background-color: var(--color-input);
+    width: 90%;
+}
+
+.btns-modal-avaliacao {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-    margin-bottom: 0;
-    padding: 0;
-    height: 30px;
+    margin: 30px auto 0;
 }
-
-#nota {
-    padding-right: 5px;
-}
-
-.ponto {
-    font-size: 40px;
-}
-
-.ponto::before {
-    content: "\2027";
-}
-
-.star-icon,
-.star-icon-view {
-    list-style-type: none;
-    cursor: pointer;
-    color: #ffe500;
-    font-size: 30px;
-    /* alterar o tamanho das estrelas */
-}
-
-.star-icon::before,
-.star-icon-view::before {
-    content: "\2605";
-}
-
-.star-icon.active~.star-icon::before,
-.star-icon-view.active~.star-icon-view::before {
-    content: "\2606";
-}
-
-.avaliacao:hover .star-icon::before {
-    content: "\2605";
-}
-
-.star-icon:hover~.star-icon::before {
-    content: "\2606";
-}
-
-
-/* Modal de Servico */

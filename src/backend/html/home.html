@@ -7,9 +7,15 @@
     <meta name="description" content="ChamaNow, seu serviço de reparos">
     <link rel="icon" href="/img/Logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home.css">
     <title>Tela Inicial</title>
 
+    <!-- Arqueivos CSS -->
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/global/globalConfig.css">
+    <link rel="stylesheet" href="/css/global/header.css">
+    <link rel="stylesheet" href="/css/global/footer.css">
+
+    <!-- Importar Fonts do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
@@ -25,16 +31,17 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+    <!-- Arquivos JS -->
+    <script src="/js/home/apiHome.js"></script>
+    <script src="/js/home/home.js"></script>
+    <script src="/js/functionsAux.js"></script>
 </head>
 
 <body>
     <header class="site-header">
-        <img src="/img/logo-horizontal-transparente.png" alt="Logo ChamaNow">
-        <nav class="menu">
-            <a href="/cadastro?user=profissional">Sou um Profissa</a>
-            <a href="/cadastro">Sign Up</a>
-            <a href="/login">Login</a>
-        </nav>
+        <img id="logo" src="/img/logo-horizontal-transparente.png" alt="Logo ChamaNow">
+        <nav class="menu"></nav>
     </header>
 
     <main>
@@ -43,8 +50,8 @@
                 <div id="texto-banner">
                     <h1>Procure o melhor <strong>serviço</strong> pelo o melhor <strong>preço</strong></h1>
                     <div id="pesquisar">
-                        <input type="text" placeholder="Pesquise um serviço" id="pesquisa-servicos" />
-                        <button id="pesquisa-button">Pesquisar</button>
+                        <!-- <input type="text" placeholder="Pesquise um serviço" id="pesquisa-servicos" /> -->
+                        <a href="/escolha-servico"><button id="pesquisa-button">Buscar Serviços</button></a>
                     </div>
                 </div>
                 <div id="imagem-banner">
@@ -139,8 +146,6 @@
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="/js/home/home.js" type="module"></script>
-
 </body>
 
 </html>
