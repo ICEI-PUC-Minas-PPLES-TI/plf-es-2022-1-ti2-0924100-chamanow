@@ -23,20 +23,20 @@ Instituto de Informática e Ciências Exatas – Pontifícia Universidade de Min
 
 ---
 
-O ChamaNow é uma aplicação desenvolvida para web que, buscando agilizar processos, virtualiza a contratação de prestadores de serviços de pequenos reparos por pessoas comuns que, procurando rapidez e facilidade, utilizam a ferramenta como um meio de resolver problemas estruturais em seus domicílios, entrando em contato direto com um prestador escolhido pelo mesmo, com base nos seus próprios requisitos, estimulando, dessa forma, a confiança do cliente.
+O ChamaNow é uma aplicação desenvolvida para web que, buscando agilizar processos, virtualiza a contratação de prestadores de serviços de pequenos reparos por pessoas comuns. Procurando rapidez e facilidade, os clientes utilizam a ferramenta como um meio de resolver problemas estruturais em seus domicílios, entrando em contato direto com um prestador escolhido pelo mesmo, com base nos seus próprios requisitos, estimulando, dessa forma, a confiança do cliente.
 
 ## 1. Introdução
 
 ### Contextualização
 
-Atualmente há um crescente número de aplicativos que auxiliam o encontro profissional/cliente, aplicativos de entregas, corridas de passageiros e compra e venda, por exemplo não param de surgir. Contudo, quando se tratam de aplicações para serviços domésticos, percebe-se pobreza de opções. Existe também a dificuldade de encontrar profissionais sérios com rapidez, normalmente isso tomaria muito tempo do cliente, além do trabalhador que precisa prestar seus serviços e não consegue ter uma plataforma para isso.
+Atualmente há um crescente número de aplicativos que auxiliam o encontro profissional/cliente, aplicativos de entregas, corridas de passageiros e compra e venda, por exemplo. Contudo, quando se tratam de aplicações para serviços domésticos, percebe-se pobreza de opções. Existe também a dificuldade de encontrar profissionais sérios com rapidez, normalmente isso tomaria muito tempo do cliente, além do trabalhador que precisa prestar seus serviços e não consegue ter uma plataforma para isso.
 
 ---
 
 ### Problema
 
 Um grande problema enfrentado por pessoas é a dificuldade de realizar reparos em casa. Não é raro ter algum conhecido (ou até mesmo ter passado por essa situação) de não conseguir reparar algo. Algumas causas para essa situação são falta de tempo, falta de ferramentas adequadas e conhecimentos necessários para realização do conserto.
-Em outra ponta, temos profissionais de reparos com dificuldade em prospectar clientes. Tais profissionais são encontrados pelo popular "boca a boca", ou seja, indicação de clientes para outros clientes. Porém tal forma de indicação pode não ser eficiente para manter a agenda do profissional em um nível satisfatório de ocupação.
+Em outra ponta, temos prestadores de reparos com dificuldade em prospectar clientes. Tais profissionais são encontrados pelo popular "boca a boca", ou seja, indicação de clientes para outros clientes. Porém tal forma de indicação pode não ser eficiente para manter a agenda do prestador em um nível satisfatório de ocupação.
 
 ---
 
@@ -51,17 +51,18 @@ O objetivo geral do trabalho é elaborar um sistema que ao ser aplicado, agilize
 Os objetivos específicos do trabalho consistem em:
 
 * Estrutura visual aplicada em web;
-* Desenvolvimento da modelagem de processos de negócios, especificamente de pequenos reparos, com foco na interatividade entre os usuários, trabalhadores e empresas, sendo a plataforma uma atuante mediadora desses processos.
+* Desenvolvimento da modelagem de processos de negócios;
+* Produção de um sistema de pequenos reparos, com foco na interatividade entre os usuários, prestadores e empresas, sendo a plataforma uma atuante mediadora desses processos.
 
 ---
 
 ### Justificativas
 
-Como supracitado anteriormente, a ideia originou-se a partir da dificuldade das pessoas de encontrar bons profissionais e de confiança para serviços de reparo e reforma de suas respectivas residências ou estabelecimentos, por não terem ferramentas ou conhecimento necessários para realizar tal ação, além da escassez de tempo. Por esse motivo e afim de solucionar esse problema, a ChamaNow foi criada para facilitar e agilizar a contratação desses serviços, sejam eles profissionais autônomos ou empresas especializadas em construção, marcenarias, vidraceiras, reformas, etc. E para facilitar a escolha do usuário/cliente, será possível visualizar a reputação dos serviços prestados e dos profissionais/empresas a partir da avaliação de outros usuários, além de informações adicionais deles.
+Como supracitado, a ideia originou-se a partir da dificuldade das pessoas de encontrar bons profissionais e de confiança para serviços de reparo e reforma de suas respectivas residências ou estabelecimentos, por não terem ferramentas ou conhecimento necessários para realizar tal ação, além da escassez de tempo. Por esse motivo e afim de solucionar esse problema, a ChamaNow foi criada para facilitar e agilizar a contratação desses serviços, sejam eles profissionais autônomos ou empresas especializadas em construção, marcenarias, vidraceiras, reformas, etc. E para facilitar a escolha do usuário/cliente, será possível visualizar a reputação dos serviços prestados e dos profissionais/empresas a partir da avaliação de outros usuários, além de informações adicionais deles.
 
 ## 2. Participantes do processo
 
-As possíveis partes interessas pelo nosso projeto são profissionais autônomos e empresas especializadas em prestação de serviços de pequenos reparos e reformas. Outra parte interessada é o próprio usuário, que deseja reformar ou realizar um reparo de alguma item da sua casa. Dessa forma, entende-se que o público alvo do projeto são pessoas  de ambos os sexos, maiores de idade e com casa própria ou aluguel.
+As possíveis partes interessas pelo nosso projeto são profissionais autônomos e empresas especializadas em prestação de serviços de pequenos reparos e reformas. Outra parte interessada é o próprio cliente, que deseja reformar ou realizar um reparo de alguma item da sua casa. Dessa forma, entende-se que o público alvo do projeto são pessoas  de ambos os sexos, maiores de idade e com casa própria ou aluguel.
 
 ## 3. Modelagem do processo de negócio
 
@@ -85,16 +86,16 @@ Em relação ao profissional ou empresa especializada em serviços domiciliares,
 
 ### Descrição Geral da proposta
 
-A proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de pequenos reparos em suas residências e trabalhadores disponíveis nessa mesma região, sejam eles autônomos ou vinculados à alguma empresa.
-Nesse sentido, o fluxo da aplicação iniciará com o cadastramento do usuário, seja ele o cliente ou o trabalhador:
+A proposta da equipe é construir uma plataforma que facilite o encontro entre pessoas que precisam de pequenos reparos em suas residências e prestadores disponíveis, sejam eles autônomos ou vinculados à alguma empresa.
+Nesse sentido, o fluxo da aplicação iniciará com o cadastramento do usuário, seja ele o cliente ou o prestador:
 
-* Sendo trabalhadores, autônomos e/ou vinculados à alguma empresa, o cadastro no ChamaNow irá ocorrer registrando seus dados básicos de usuário, suas especialidades em serviços e em qual região atua, a fim de encontrar oportunidades de serviços.
+* Sendo prestadores, autônomos e/ou vinculados à alguma empresa, o cadastro no ChamaNow irá ocorrer registrando seus dados básicos de usuário, suas especialidades em serviços e em qual região atua, a fim de encontrar oportunidades de serviços.
 * Sendo clientes, irão se cadastrar no site com seus dados básicos, endereço e, posteriormente, buscar por um determinado serviço de reparo em domícilio, considerando as opções ofertadas em sua região.
-* Após a escolha do serviço, o cliente irá receber um formulário para ser preenchido e, sequencialmente, receber um orçamento junto aos dados básicos do trabalhador.
+* Após a escolha do serviço, o cliente irá receber um formulário para ser preenchido e, sequencialmente, receber um orçamento junto aos dados básicos do prestador.
 * Após a aceitação da proposta, ambos os usuários receberão mensagens de confirmação com os dados primários, como nome, endereço, horário e o tipo de serviço.
-* O pagamento do serviço é combinado entre o cliente e o trabalhador, não sendo mediado pelo ChamaNow.
+* O pagamento do serviço é combinado entre o cliente e o prestador, não sendo mediado pelo ChamaNow.
 * Finalizado o serviço, ambas as partes precisam confirmar que o processo foi devidamente finalizado.  
-* O cliente recebe um formulário de avaliação do trabalhador, com intuito de contribuir para o estabelecimento de um processo mais seguro.
+* O cliente recebe um formulário de avaliação do prestador, com intuito de contribuir para o estabelecimento de um processo mais seguro.
 
 Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se financeiramente na renda de uma parcela da população. Sendo assim, a aplicação otimizará o usual "boca a boca", transformando essa situação em um processo padrão e sistematizado de negócio.
 
@@ -120,7 +121,7 @@ Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, 
 
 ---
 
-#### Processo 2 - Agendamento do serviço
+#### Processo 3 - Agendamento do serviço
 
 Processo em que o prestador calcula o orçamento do serviço e envia para o cliente pelo sistema, além de escolher o intervalo de datas e horários mais adequados para a realização do serviço de acordo com a sua agenda. Após isso, o cliente recebe o orçamento e esolhe a data dentro do intervalo estabelecido pelo prestador que atenda suas necessidades. Caso o cliente queira encerrar o serviço, é possível realizá-lo.
 
@@ -138,7 +139,7 @@ O processo é ativado no dia da data escolhida pelo usuário. Após a realizaç�
 
 #### Processo 5 - Avaliação dos usuários
 
-Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado, e o profissional também avalia a recepção do usuário. Nessa avaliação o usuário e o profissional  escolhem de 1 à 5 estrelas, sendo: 1 - Muito Ruim, 2- Ruim, 3 - Mediano, pode melhorar, 4 - Bom!, 5  - Excelente.
+Após o serviço ser concluído, o cliente irá avaliar o prestador de acordo com sua satisfação e com a qualidade do serviço prestado, e o prestador também avalia a recepção do usuário. Nessa avaliação o usuário e o prestador escolhem de 1 à 5 estrelas, sendo: 1 - Muito Ruim, 2- Ruim, 3 - Mediano, pode melhorar, 4 - Bom!, 5  - Excelente.
 
 <img alt="Diagrama do Processo 5" title="Processo 5 - Avaliação dos usuários" src="/assets/processos/avaliacao.png"/>
 
@@ -148,7 +149,7 @@ Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua sat
 
 ### 4.1. Detalhamento das atividades
 
-Descrever aqui cada uma das propriedades das atividades de cada um dos processos. Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+Segue abaixo o detalhamento das atividades dos processos estipulados:
 
 ### Processo 1 – Cadastro do Usuário
 
@@ -290,9 +291,7 @@ As tecnologias utilizadas durante o desenvolvimento do projeto incluem ferrament
 
 ## 6. Indicadores de desempenho
 
-Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores.
-
-Usar o seguinte modelo:
+Segue abaixo os indicadores da plataforma:
 
 | **Indicador** | **Objetivos** | **Descrição** | **Cálculo** | **Fonte dados** | **Perspectiva** |
 | --- | --- | --- | --- | --- | --- |
@@ -308,37 +307,37 @@ Usar o seguinte modelo:
 
 Nosso sistemas une simplicidade de uso com funcionalidades para resolver os problemas do usuário.
 
-## Tela Inicial
+# Tela Inicial
 
 Nossa tela inicial apresenta um catálogo dos serviços disponibilizados em nossa plataforma, seguida pelos três serviços mais contratados. Abaixo dessa seção, podemos ver os três profissionais mais bem avaliados do Chamanow. Finalizada essas apresentações, temos algumas informações sobre nós e como trabalhamos.
 
 ![Tela Inicial](../assets/telas/1-tela_inicial.png)
 
-## Cadastro do Cliente
+# Cadastro do Cliente
 
 É necessário criar uma conta para usar nossa plataforma. No cadastro de usuário, pede-se algumas informações comuns e básicas para criação de contas em sites.
 
 ![Cadastro do Cliente](../assets/telas/2-tela_de_cadastro_cliente.png)
 
-## Cadastro do Profissional
+# Cadastro do Profissional
 
 O profissional também precisa ter uma conta para oferecer seus serviços. As informações solicitadas são praticamente as mesmas que as do cliente, mas com a adição dos campos de serviços a serem prestados e o raio de atuação.
 
 ![Cadastro do Profissional](../assets/telas/3-tela_de_cadastro_profissional.png)
 
-## Escolha do Serviço
+# Escolha do Serviço
 
 Nesta tela são listados os mesmos serviços do catálogo da tela inicial são listados novamente, mas com mais detalhes e com a descrição do serviço.
 
 ![Escolha do Serviço](../assets/telas/4-escolha-servico.png)
 
-## Escolha do Serviço Específico
+# Escolha do Serviço Específico
 
 Após ver todos os serviços, o usuário pode selecionar um em especifico e ver todos os seus detalhes. Além disso, são exibidos todos os profissionais que prestam aquele serviço; com nome, avaliação na plataforma, contato do prestador e a possibilidade de contratá-lo.
 
 ![Escolha do Serviço Específico](../assets/telas/5-escolha-servico-especifico.png)
 
-## Descrição do Problema
+# Descrição do Problema
 
 Com o serviço e profissional escolhidos, o cliente pode detalhar o problema fazendo sua descrição e colocando detalhes do serviço a ser prestado, como data e horários desejados.
 
@@ -346,18 +345,18 @@ Com o serviço e profissional escolhidos, o cliente pode detalhar o problema faz
 
 Após o cliente detalhar o problema e mandar para o profissional, ele aguarda a resposta do profissional que pode aceitar ou recusar o serviço.
 
-## Envio do Orçamento Pelo Profissional
+# Envio do Orçamento Pelo Profissional
 
 ![Envio do Orçamento Pelo Profissional](../assets/telas/7-envio-do-orçamento-pelo-profissional.png)
 
 Caso aceite, o profissional irá mandar um orçamento para o cliente que poderá aceitar ou recusar. Caso aceite, o serviço será feito na data e horário previamente combinados.
 Com o serviço prestado, o cliente faz upload do comprovante de pagamento e avalia o profissional. O orçamento e comprovante ficam disponíveis para serem consultados a qualquer momento através do download dos arquivos.
 
-## Enviar Comprovante
+# Enviar Comprovante
 
 ![Enviar Comprovante](../assets/telas/8-enviar-comprovante.png)
 
-## Serviços Agendados
+# Serviços Agendados
 
 O cliente pode, ainda, ver todos os seus serviços que foram agendados e o status que eles se encontram.
 
