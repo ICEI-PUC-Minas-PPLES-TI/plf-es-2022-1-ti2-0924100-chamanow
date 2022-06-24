@@ -298,12 +298,16 @@ Nosso sistemas une simplicidade de uso com funcionalidades para resolver os prob
 
 ## Tela Inicial
 
+Nossa tela inicial apresenta um catálogo dos serviços disponibilizados em nossa plataforma, seguida pelos três serviços mais contratados. Abaixo dessa seção, podemos ver os três profissionais mais bem avaliados do Chamanow. Finalizada essas apresentações, temos algumas informações sobre nós e como trabalhamos.
 ![Tela Inicial](../assets/telas/1-tela_inicial.png)
 
+É necessário criar uma conta para usar nossa plataforma. No cadastro de usuário, pede-se algumas informações comuns e básicas para criação de contas em sites.
 ![Cadastro do Cliente](../assets/telas/2-tela_de_cadastro_cliente.png)
 
+O profissional também precisa ter uma conta para oferecer seus serviços. As informações solicitadas são praticament as mesmas que as do cliente, mas com a adição dos campos de serviços a serem prestados e o raio de atuação.
 ![Cadastro do Profissional](../assets/telas/3-tela_de_cadastro_profissional.png)
 
+Nesta tela, são listados os mesmos
 ![Escolha do Serviço](../assets/telas/4-escolha-servico.png)
 
 ![Escolha do Serviço Específico](../assets/telas/5-escolha-servico-especifico.png)
