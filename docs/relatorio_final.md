@@ -304,6 +304,18 @@ Nosso sistemas une simplicidade de uso com funcionalidades para resolver os prob
 
 ![Cadastro do Profissional](../assets/telas/3-tela_de_cadastro_profissional.png)
 
+![Escolha do Serviço](../assets/telas/4-escolha-servico.png)
+
+![Escolha do Serviço Específico](../assets/telas/5-escolha-servico-especifico.png)
+
+![Descrição do Problema](../assets/telas/6-descrever-problema.png)
+
+![Perfil](../assets/telas/7-perfil.png)
+
+![Perfil Serviços](../assets/telas/8-perfil_servicos.png)
+
+![Perfil Serviços Agendados](../assets/telas/9-perfil_servicos_agendados.png)
+
 ## 8. Conclusão
 
 O grupo concluiu que para conseguirmos atingir nosso objetivo, precisaríamos estabelecer metas tangíveis para alinharmos os conhecimentos dos integrantes e, assim, podermos desenvolver novas habilidades.
