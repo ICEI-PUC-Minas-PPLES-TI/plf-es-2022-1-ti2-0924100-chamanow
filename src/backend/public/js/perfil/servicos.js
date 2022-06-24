@@ -176,7 +176,7 @@ function trClicada(data, cod_user) {
 
                     // Some com o botão de avaliação do serviço se ele não estiver concluído
                     const btnAvaliacao = document.querySelector("#btn-enviar-avaliacao");
-                    if (service.status != "Concluído")
+                    if (service.status != "Concluído" || service.status != "Cancelado")
                         btnAvaliacao.style = "display: none";
                     else
                         btnAvaliacao.style = "";
@@ -212,6 +212,7 @@ function dadosModel(nodeElement, cod_user, rating) {
         dataServico.innerText = "Data: " + nodeElement.childNodes[3].textContent;
     else
         dataServico.innerText = "Data: A data ainda nção foi marcada";
+
     // Adicionar o serviço realizado no modal
     const status = document.querySelector(".status");
     status.innerText = "Status do serviço: " + nodeElement.childNodes[4].textContent;
