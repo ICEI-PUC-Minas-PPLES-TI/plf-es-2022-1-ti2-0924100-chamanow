@@ -104,7 +104,7 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 #### Processo 1 - Cadastro do Usuário
 
-Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastro será realizado, para empresas, profissionais ou cliente. No caso do profisisonal, o usuário informará os dados pessoais além do tipo de serviço que será prestado, o contato, a localização, o raio de operação, etc. Para a empresa, além dos itens já citados, ela terá que informar os dados da empresa. E para o cliente, apenas os dados pessoais. Todos deverão inserir as informações de login como e-mail e senha. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
+Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastro será realizado, para empresas, profissionais ou cliente. No caso do profisisonal, o usuário informará os dados pessoais além do tipo de serviço que será prestado, o contato, a localização, o região de atuação, etc. Para a empresa, além dos itens já citados, ela terá que informar os dados da empresa. E para o cliente, apenas os dados pessoais. Todos deverão inserir as informações de login como e-mail e senha. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 #### Cadastro do Usuário
 
@@ -130,8 +130,7 @@ Processo em que o prestador calcula o orçamento do serviço e envia para o clie
 
 #### Processo 4 - Realização do Serviço
 
-Com o profissional e orçamento escolhidos, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
-Com o serviço feito e confirmado na plataforma, cliente e profissional deverão combinar a forma de pagamento, confirmando também que o mesmo foi feito e que não há nenhuma pendência entre as partes.
+O processo é ativado no dia da data escolhida pelo usuário. Após a realização do serviço e do pagamento, ambos fora da plataforma, o cliente envia para o prestador o comprovante de pagamento e o mesmo o recebe. Após isso, o prestador conclui o serviço ou não dependendo das circunstâncias.
 
 <img alt="Diagrama do Processo 4" title="Processo 4 - Realização do serviço" src="/assets/processos/realizacao-servico.png"/>
 
