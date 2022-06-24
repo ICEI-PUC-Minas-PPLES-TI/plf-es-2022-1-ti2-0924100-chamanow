@@ -306,7 +306,7 @@ Usar o seguinte modelo:
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
 
-## 7.Sistema desenvolvido
+## 7. Sistema desenvolvido
 
 Nosso sistemas une simplicidade de uso com funcionalidades para resolver os problemas do usuário.
 
@@ -316,9 +316,13 @@ Nossa tela inicial apresenta um catálogo dos serviços disponibilizados em noss
 
 ![Tela Inicial](../assets/telas/1-tela_inicial.png)
 
+## Cadastro do Cliente
+
 É necessário criar uma conta para usar nossa plataforma. No cadastro de usuário, pede-se algumas informações comuns e básicas para criação de contas em sites.
 
 ![Cadastro do Cliente](../assets/telas/2-tela_de_cadastro_cliente.png)
+
+## Cadastro do Profissional
 
 O profissional também precisa ter uma conta para oferecer seus serviços. As informações solicitadas são praticamente as mesmas que as do cliente, mas com a adição dos campos de serviços a serem prestados e o raio de atuação.
 
