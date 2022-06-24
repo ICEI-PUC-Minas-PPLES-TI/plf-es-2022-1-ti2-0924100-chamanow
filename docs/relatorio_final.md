@@ -304,8 +304,6 @@ Usar o seguinte modelo:
 | Preço médio dos serviços | Analisar o preço médio dos serviços contratados na plataforma | Calcula a média do preço de todos os serviços contratados mensalmente |  ∑(agendamento(valor_orcamento) ≠ nulo) / COUNT(agendamento(cod_tipo) ≠ nulo) | agendamento | Processos internos |
 | Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Conta o total de serviços cujo status é pendentes | COUNT(agendamento(status) = pendente) | agendamento | Processos internos |
 
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
-
 ## 7. Sistema desenvolvido
 
 Nosso sistemas une simplicidade de uso com funcionalidades para resolver os problemas do usuário.
