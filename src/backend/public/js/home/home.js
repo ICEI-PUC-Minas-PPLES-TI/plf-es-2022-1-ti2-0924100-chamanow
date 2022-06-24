@@ -90,6 +90,10 @@ $(document).ready(() => {
         const user = getUserData(idUser);
         user.then((user) => {
             alterarHeaderLogado(user);
+
+            // Remoção do link no menu "Tela Incial" da Tela Inicial
+            const menu = document.querySelector("#home");
+            menu.remove();
         });
     }
 

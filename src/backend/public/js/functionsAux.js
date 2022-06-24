@@ -28,11 +28,12 @@ function alterarHeaderLogado(user) {
 
     // Criar os itens do menu ================================
 
-    // Acesso ao perfil
-    const perfil = criarElementoLink("/perfil", user.nome);
-
     // Acesso à página inicial
     const home = criarElementoLink("/", "Tela inicial");
+    home.id = "home";
+
+    // Acesso ao perfil
+    const perfil = criarElementoLink("/perfil", user.nome);
 
     // Acesso à página inicial
     const indicadores = criarElementoLink("/admin/indicadores", "Indicadores");
