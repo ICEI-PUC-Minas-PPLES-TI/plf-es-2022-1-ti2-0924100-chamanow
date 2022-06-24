@@ -25,7 +25,29 @@ Nosso objetivo é criar um projeto para resolver esse problema, fazendo a ponte 
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+## CASO CLIENTE: 
+- entrar no localhost;
+- ir para a página inicial;
+- criar uma conta;
+- efetuar o login;
+- procurar um prestador cadastrado;
+- informar o seu problema;
+- escolher data e horário;
+- enviar o comprovante de serviço;
+- concluir o serviço;
+- avaliar o prestador.
+
+## CASO PRESTADOR: 
+- entrar no localhost;
+- ir para a página inicial;
+- criar uma conta;
+- efetuar o login;
+- esperar um cliente contratá-lo;
+- aceitar o problema;
+- escolher data e horário;
+- enviar o orçamento;
+- concluir o serviço;
+- avaliar o cliente.
 
 ## Histórico de versões
 
