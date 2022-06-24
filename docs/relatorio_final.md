@@ -377,7 +377,7 @@ Não obstante, o projeto estimulou o desenvolvimento também de competências re
 
 Portanto, o trabalho interdisciplinar foi essencial para aproximar os integrantes do grupo de um ambiente real de trabalho, com prazos de entrega, discussões em grupo, manejo de software em âmbito coletivo e o desenvolvimento pessoal, agregando experiência e refinamento para cada membro do ChamaNow.
 
-Para trabalhos futuros, o grupo pretende hospedar o banco de dados, para que assim a ferramenta possa se tornar de fato pública, além da hospedagem do site em si.
+Para trabalhos futuros, o grupo pretende hospedar o banco de dados, para que assim a ferramenta possa se tornar de fato pública, além da hospedagem do site em si e a inserção de mais serviços na plataforma.
 
 # REFERÊNCIAS
 
