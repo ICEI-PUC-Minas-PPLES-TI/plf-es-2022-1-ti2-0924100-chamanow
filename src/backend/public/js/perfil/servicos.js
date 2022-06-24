@@ -176,7 +176,7 @@ function trClicada(data, cod_user) {
 
                     // Some com o botão de avaliação do serviço se ele não estiver concluído
                     const btnAvaliacao = document.querySelector("#btn-enviar-avaliacao");
-                    if (service.status != "Concluído" || service.status != "Cancelado")
+                    if (service.status != "Concluído" && service.status != "Cancelado")
                         btnAvaliacao.style = "display: none";
                     else
                         btnAvaliacao.style = "";
@@ -218,8 +218,10 @@ function dadosModel(nodeElement, cod_user, rating) {
     status.innerText = "Status do serviço: " + nodeElement.childNodes[4].textContent;
 
     // Se o usuário daquele servico já foi avliado, o btn muda
+    const btnAvaliar = document.querySelector("#btn-enviar-avaliacao");
     if (rating) {
-        const btnAvaliar = document.querySelector("#btn-enviar-avaliacao");
         btnAvaliar.innerHTML = `Avaliado <i class="fa-solid fa-star"></i>`;
+    } else {
+        btnAvaliar.innerHTML = `Avaliar <i class="fa-solid fa-star"></i>`;
     }
 }
