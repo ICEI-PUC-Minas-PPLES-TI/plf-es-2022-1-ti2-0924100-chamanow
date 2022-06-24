@@ -25,7 +25,7 @@ Nosso objetivo é criar um projeto para resolver esse problema, fazendo a ponte 
 
 ## Instruções de utilização
 
-## CASO CLIENTE: 
+## Caso Cliente: 
 - entrar no localhost;
 - ir para a página inicial;
 - criar uma conta;
@@ -37,7 +37,7 @@ Nosso objetivo é criar um projeto para resolver esse problema, fazendo a ponte 
 - concluir o serviço;
 - avaliar o prestador.
 
-## CASO PRESTADOR: 
+## Caso Prestador: 
 - entrar no localhost;
 - ir para a página inicial;
 - criar uma conta;
