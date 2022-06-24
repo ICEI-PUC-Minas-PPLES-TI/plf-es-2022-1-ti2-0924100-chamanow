@@ -2,7 +2,7 @@ module.exports = {
     dialect: 'mysql',
     host: 'localhost',
     username: 'root',
-    password: 'macacox1@',
+    password: 'Macacox1@',
     database: 'dbchamanow',
     define: {
         timestamp: true,

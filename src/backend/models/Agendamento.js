@@ -57,6 +57,11 @@ const Agendamento = db.define('agendamento', {
         type: Sequelize.STRING,
         default: null
     },
+
+    data_solicitacao: {
+        type: Sequelize.DATE,
+        require: true
+    },
     comprovante_pagamento: Sequelize.BLOB
 });
 
