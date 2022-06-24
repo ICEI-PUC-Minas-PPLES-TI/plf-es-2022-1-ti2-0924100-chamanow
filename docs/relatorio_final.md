@@ -350,14 +350,14 @@ Após o cliente detalhar o problema e mandar para o profissional, ele aguarda a 
 
 ## Envio do Orçamento Pelo Profissional
 
-![Envio do Orçamento Pelo Profissional](../assets/telas/7-perfil.png)
+![Envio do Orçamento Pelo Profissional](../assets/telas/7-envio-do-orçamento-pelo-profissional.png)
 
 Caso aceite, o profissional irá mandar um orçamento para o cliente que poderá aceitar ou recusar. Caso aceite, o serviço será feito na data e horário previamente combinados.
 Com o serviço prestado, o cliente faz upload do comprovante de pagamento e avalia o profissional. O orçamento e comprovante ficam disponíveis para serem consultados a qualquer momento através do download dos arquivos.
 
 ## Enviar Comprovante
 
-![Enviar Comprovante](../assets/telas/8-perfil_servicos.png)
+![Enviar Comprovante](../assets/telas/8-enviar-comprovante.png)
 
 ## Serviços Agendados
 
