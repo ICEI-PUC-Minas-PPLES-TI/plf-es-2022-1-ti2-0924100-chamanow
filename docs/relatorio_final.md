@@ -330,9 +330,16 @@ Com o serviço e profissional escolhidos, o cliente pode detalhar o problema faz
 
 ![Descrição do Problema](../assets/telas/6-descrever-problema.png)
 
+Após o cliente detalhar o problema e mandar para o profissional, ele aguarda a resposta do profissional que pode aceitar ou recusar o serviço.
+
 ![Perfil](../assets/telas/7-perfil.png)
 
+Caso aceite, o profissional irá mandar um orçamento para o cliente que poderá aceitar ou recusar. Caso aceite, o serviço será feito na data e horário previamente combinados.
+Com o serviço prestado, o cliente faz upload do comprovante de pagamento e avalia o profissional. O orçamento e comprovante ficam disponíveis para serem consultados a qualquer momento através do download dos arquivos.
+
 ![Perfil Serviços](../assets/telas/8-perfil_servicos.png)
+
+O cliente pode, ainda, ver todos os seus serviços que foram agendados e o status que eles se encontram.
 
 ![Perfil Serviços Agendados](../assets/telas/9-perfil_servicos_agendados.png)
 
