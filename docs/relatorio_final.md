@@ -108,32 +108,40 @@ Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastr
 
 #### Cadastro do Usuário
 
-<img alt="Diagrama do Processo 1 (Cadastro)" title="Processo 1 - Cadastro do Usuário" src="/assets/processos/Diagrama_Cadastro-Usuario.png"/>
+<img alt="Diagrama do Processo 1 (Cadastro)" title="Processo 1 - Cadastro do Usuário" src="/assets/processos/cadastro-usuario.png"/>
 
 ---
 
-#### Processo 2 - Contratação de serviço
+#### Processo 2 - Escolha do serviço e prestador
 
-Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras, além de, posteriormente, o mesmo detalhar o problema enfrentado. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo. Diante da escolha do profissional, o mesmo criará um orçamento que, após ser aceito pelo cliente, iniciará o agendamento, mediante a disponibilidade de ambas as partes.
+Processo em que o cliente escolhe qual serviço é do seu interesse requisitar, sendo disponibilizado uma determinada quantidade de opções como, por exemplo, marcenaria, elétrica, encanamento, entre outras. Após a escolha do serviço, será retornada uma lista com os profissionais que prestam aquele serviço, além de suas informações básicas (nome, foto de perfil, etc), além de avaliações e localização do mesmo.
 
-<img alt="Diagrama do Processo 3" title="Processo 3 - Contratação de serviço" src="/assets/processos/diagramaContratacaoServicos.png"/>
+<img alt="Diagrama do Processo 2" title="Processo 2 - Escolha do serviço e prestador" src="/assets/processos/escolha-servico.png"/>
 
 ---
 
-#### Processo 3 - Realização do Serviço
+#### Processo 2 - Agendamento do serviço
+
+Processo em que o prestador calcula o orçamento do serviço e envia para o cliente pelo sistema, além de escolher o intervalo de datas e horários mais adequados para a realização do serviço de acordo com a sua agenda. Após isso, o cliente recebe o orçamento e esolhe a data dentro do intervalo estabelecido pelo prestador que atenda suas necessidades. Caso o cliente queira encerrar o serviço, é possível realizá-lo.
+
+<img alt="Diagrama do Processo 3" title="Processo 3 - Agendamento do serviço" src="/assets/processos/agendamento.png"/>
+
+---
+
+#### Processo 4 - Realização do Serviço
 
 Com o profissional e orçamento escolhidos, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
 Com o serviço feito e confirmado na plataforma, cliente e profissional deverão combinar a forma de pagamento, confirmando também que o mesmo foi feito e que não há nenhuma pendência entre as partes.
 
-<img alt="Diagrama do Processo 3" title="Processo 3 - Agendamento e Pagamento do serviço" src="/assets/processos/processo_3-Realizacao_Servico.png"/>
+<img alt="Diagrama do Processo 4" title="Processo 4 - Realização do serviço" src="/assets/processos/realizacao-servico.png"/>
 
 ---
 
-#### Processo 4 - Avaliação
+#### Processo 5 - Avaliação dos usuários
 
 Após o serviço ser concluído, o usuário irá avalia-lo de acordo com sua satisfação com o prestador e com a qualidade do serviço prestado, e o profissional também avalia a recepção do usuário. Nessa avaliação o usuário e o profissional  escolhem de 1 à 5 estrelas, sendo: 1 - Muito Ruim, 2- Ruim, 3 - Mediano, pode melhorar, 4 - Bom!, 5  - Excelente.
 
-<img alt="Diagrama do Processo 4" title="Processo 6 - Avaliação" src="/assets/processos/diagram_avaliaçaochamanowfinal.png"/>
+<img alt="Diagrama do Processo 5" title="Processo 5 - Avaliação dos usuários" src="/assets/processos/avaliacao.png"/>
 
 ---
 
