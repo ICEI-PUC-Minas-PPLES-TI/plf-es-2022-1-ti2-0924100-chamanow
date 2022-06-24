@@ -307,18 +307,26 @@ Nosso sistemas une simplicidade de uso com funcionalidades para resolver os prob
 ## Tela Inicial
 
 Nossa tela inicial apresenta um catálogo dos serviços disponibilizados em nossa plataforma, seguida pelos três serviços mais contratados. Abaixo dessa seção, podemos ver os três profissionais mais bem avaliados do Chamanow. Finalizada essas apresentações, temos algumas informações sobre nós e como trabalhamos.
+
 ![Tela Inicial](../assets/telas/1-tela_inicial.png)
 
 É necessário criar uma conta para usar nossa plataforma. No cadastro de usuário, pede-se algumas informações comuns e básicas para criação de contas em sites.
+
 ![Cadastro do Cliente](../assets/telas/2-tela_de_cadastro_cliente.png)
 
-O profissional também precisa ter uma conta para oferecer seus serviços. As informações solicitadas são praticament as mesmas que as do cliente, mas com a adição dos campos de serviços a serem prestados e o raio de atuação.
+O profissional também precisa ter uma conta para oferecer seus serviços. As informações solicitadas são praticamente as mesmas que as do cliente, mas com a adição dos campos de serviços a serem prestados e o raio de atuação.
+
 ![Cadastro do Profissional](../assets/telas/3-tela_de_cadastro_profissional.png)
 
-Nesta tela, são listados os mesmos
+Nesta tela são listados os mesmos serviços do catálogo da tela inicial são listados novamente, mas com mais detalhes e com a descrição do serviço.
+
 ![Escolha do Serviço](../assets/telas/4-escolha-servico.png)
 
+Após ver todos os serviços, o usuário pode selecionar um em especifico e ver todos os seus detalhes. Além disso, são exibidos todos os profissionais que prestam aquele serviço; com nome, avaliação na plataforma, contato do prestador e a possibilidade de contratá-lo.
+
 ![Escolha do Serviço Específico](../assets/telas/5-escolha-servico-especifico.png)
+
+Com o serviço e profissional escolhidos, o cliente pode detalhar o problema fazendo sua descrição e colocando detalhes do serviço a ser prestado, como data e horários desejados.
 
 ![Descrição do Problema](../assets/telas/6-descrever-problema.png)
 
