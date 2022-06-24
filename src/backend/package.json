@@ -11,6 +11,7 @@
         "express-session": "^1.17.3",
         "js-cookie": "^3.0.1",
         "mysql2": "^2.3.3",
+        "nodemon": "^2.0.18",
         "sequelize": "^6.20.1"
     },
     "name": "backend",
