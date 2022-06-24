@@ -104,7 +104,7 @@ Dessa forma, aproveita-se da situação favorável desse mercado e contribuí-se
 
 #### Processo 1 - Cadastro do Usuário
 
-Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastro será realizado, para empresas, profissionais ou cliente. No caso do profisisonal, o usuário informará os dados pessoais além do tipo de serviço que será prestado, o contato, a localização, o raio de operação, etc. Para a empresa, além dos itens já citados, ela terá que informar os dados da empresa. E para o cliente, apenas os dados pessoais. Todos deverão inserir as informações de login como e-mail e senha. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
+Para o cadastro do usuário, o usuário precisará escolher qual tipo de cadastro será realizado, para empresas, profissionais ou cliente. No caso do profisisonal, o usuário informará os dados pessoais além do tipo de serviço que será prestado, o contato, a localização, o região de atuação, etc. Para a empresa, além dos itens já citados, ela terá que informar os dados da empresa. E para o cliente, apenas os dados pessoais. Todos deverão inserir as informações de login como e-mail e senha. Após preencher o formulário, os dados serão registrados e o usuário poderá realizar o login.
 
 #### Cadastro do Usuário
 
@@ -130,8 +130,7 @@ Processo em que o prestador calcula o orçamento do serviço e envia para o clie
 
 #### Processo 4 - Realização do Serviço
 
-Com o profissional e orçamento escolhidos, o cliente deverá agendar com o profissional a data e horário para realização do serviço. Tal agendamento será feito com o cliente visualizando uma lista com datas e horários vagos do profissional e escolher a que melhor lhe agradar
-Com o serviço feito e confirmado na plataforma, cliente e profissional deverão combinar a forma de pagamento, confirmando também que o mesmo foi feito e que não há nenhuma pendência entre as partes.
+O processo é ativado no dia da data escolhida pelo usuário. Após a realização do serviço e do pagamento, ambos fora da plataforma, o cliente envia para o prestador o comprovante de pagamento e o mesmo o recebe. Após isso, o prestador conclui o serviço ou não dependendo das circunstâncias.
 
 <img alt="Diagrama do Processo 4" title="Processo 4 - Realização do serviço" src="/assets/processos/realizacao-servico.png"/>
 
@@ -201,7 +200,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 
 ---
 
-### Processo 2 – Contratação de Serviço
+### Processo 2 – Escolha do Serviço
 
 **Escolher serviço**
 
@@ -216,7 +215,7 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Escolher profissional | Seleção única |  |  |
 
-**Detalhar o problema**
+**Descrever o problema**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
@@ -227,12 +226,16 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | Cidade | Caixa de Texto |  |  |
 | Detalhar problema | Área de texto | Máximo 500 caracteres |  |
 
+---
+
+### Processo 3 – Agendamento do Serviço
+
 **Enviar orçamento**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
 | Valor do orçamento | Número |  | 00,00 |
-| Enviar arquivo | Arquivo | PDF,PNG,JPEG - até 50KB |  |
+| Enviar arquivo | Arquivo | .pdf, .png, .jpeg de até 50KB |  |
 
 **Selecionar datas disponíveis - Prestador**
 
@@ -249,15 +252,19 @@ Descrever aqui cada uma das propriedades das atividades de cada um dos processos
 | --- | --- | --- | --- |
 | Datas Disponíveis | Data e Horário | Intervalo estabelecido pelo prestador |  |
 
- ---
+---
+
+### Processo 4 - Realização do serviço
 
 **Enviar o comprovante**
 
 | **Campo** | **Tipo** | **Restrições** | **Valor default** |
 | --- | --- | --- | --- |
-| Fazer upload do comprovante | Arquivo | Arquivo de até 10MB |  |
+| Fazer upload do comprovante | Arquivo | .pdf, .png, .jpeg de até 50KB |  |
 
-### Processo 4 - Avaliação do usuário
+---
+
+### Processo 5 - Avaliação do usuário
 
 **Avaliar o usuário**
 
@@ -289,14 +296,13 @@ Usar o seguinte modelo:
 
 | **Indicador** | **Objetivos** | **Descrição** | **Cálculo** | **Fonte dados** | **Perspectiva** |
 | --- | --- | --- | --- | --- | --- |
-| Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | (∑(avaliacao_usuario(nota) e avaliacao_usuario(cod_avaliado)) / Count(avalicao_usuario(nota))  | avaliacao_usuario e usuario | Cliente |
-| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços mensalmente | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento)) - (agendamento(data_servico))) / Count(agendamento(data_servico))  | agendamento | Cliente |
-| Cadastro de Usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | (∑(usuario(data_criacao))/∑(usuario(cod_usuario))) * 100 | usuario | Processos internos |
-| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula a média de cadastro de prestadores mensalmente |  ∑(usuario(cod_tipo) ≠ nulo) / ∑(usuario(cod_usuario)) * 100 | usuario | Processos internos |
-| Serviços mais contratados  |  Analisar quais são os serviços mais contratados | Conta a quantidade de serviços contratados de cada tipo pelos usuário | ∑(agendamento(cod_tipo) ≠ nulo) | agendamento | Cliente |
-| Preço médio dos serviços | Analisar o preço médio dos serviços contratados na plataforma | Calcula a média do preço de todos os serviços contratados mensalmente |  ∑(agendamento(valor_orcamento) ≠ nulo) / ∑(agendamento(cod_tipo) ≠ nulo) | agendamento | Processos internos |
-| Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Calcula a percentagem de serviços pendentes | ∑(agendamento(status) = pendente) / ∑(agendamento(cod_tipo) ≠ nulo) * 100 | agendamento | Processos internos |
-| Quantidade de serviços não pagos | Analisar se existem muitos serviços a serem pagos | Calcula a percentagem de serviços não pagos | ∑(agendamento(status) = não pago) / ∑(agendamento(cod_tipo) ≠ nulo) * 100 | agendamento | Processos internos |
+| Avaliação do Prestador | Identificar os prestadores mais bem avaliados | Calcula a média de avaliações de cada prestador  | ∑(avaliacao_usuario(nota)) / COUNT(avalicao_usuario(nota))  | avaliacao_usuario e usuario | Cliente |
+| Tempo para a realização do serviço |  Indentificar o tempo médio para realização dos serviços mensalmente | Tempo corrido desde o início do serviço até o fim do serviço | ∑((agendamento(data_pagamento)) - (agendamento(data_servico))) / COUNT(agendamento(data_servico))  | agendamento | Cliente |
+| Cadastro de Usuários | Avaliar o crescimento da plataforma | Mede o número de novos cadastros mensalmente | COUNT(usuario(data_criacao)) | usuario | Processos internos |
+| Cadastro de prestadores |  Avaliar a taxa de adesão de prestadores na plataforma | Calcula o total de cadastro de prestadores mensalmente |  COUNT(usuario(cod_tipo) ≠ nulo) | usuario | Processos internos |
+| Serviços mais contratados  |  Analisar quais são os serviços mais contratados | Conta a quantidade de serviços contratados de cada tipo pelos usuário | COUNT(agendamento(cod_tipo) ≠ nulo) | agendamento | Cliente |
+| Preço médio dos serviços | Analisar o preço médio dos serviços contratados na plataforma | Calcula a média do preço de todos os serviços contratados mensalmente |  ∑(agendamento(valor_orcamento) ≠ nulo) / COUNT(agendamento(cod_tipo) ≠ nulo) | agendamento | Processos internos |
+| Quantidade de serviços pendentes | Analisar se existem muitos serviços pendentes | Conta o total de serviços cujo status é pendentes | COUNT(agendamento(status) = pendente) | agendamento | Processos internos |
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe **a ser proposto**
 
