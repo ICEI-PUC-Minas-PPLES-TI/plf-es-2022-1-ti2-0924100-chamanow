@@ -23,7 +23,7 @@ function processaFormLogin(event) {
     loginUsers.then(resp => {
         console.log(resp);
         if (resp) {
-            window.history.go(-1);
+            window.location.replace("/");
         } else {
             alert("Dados Incorretos");
             window.location.reload();
